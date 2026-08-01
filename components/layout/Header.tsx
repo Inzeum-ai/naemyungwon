@@ -9,6 +9,7 @@ const navLinks = [
   { href: '/about', label: '소개' },
   { href: '/courses', label: '교육과정' },
   { href: '/programs', label: '프로그램' },
+  { href: '/app', label: '앱' },
   { href: '/community', label: '커뮤니티' },
   { href: '/resources', label: '자료실' },
   { href: '/faq', label: 'FAQ' },
