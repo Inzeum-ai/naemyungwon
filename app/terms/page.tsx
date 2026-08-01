@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
 import LegalDocument from '@/components/legal/LegalDocument'
+import { pageMetadata } from '@/lib/seo'
+import { COMPANY, EFFECTIVE_DATE, TEL_HREF } from '@/lib/company'
 
-export const metadata: Metadata = {
-  title: '이용약관 | INZEUM',
+export const metadata = pageMetadata({
+  title: '이용약관',
   description: 'INZEUM 앱 및 서비스의 이용약관입니다.',
-}
+  path: '/terms',
+})
 
 export default function TermsPage() {
   return (
@@ -12,7 +14,7 @@ export default function TermsPage() {
       eyebrow="TERMS OF SERVICE"
       title="이용약관"
       description="INZEUM 베타 서비스의 이용 조건과 연구소 및 이용자의 권리·의무를 안내합니다."
-      effectiveDate="베타 서비스용 초안 · 시행일은 확정 후 반영"
+      effectiveDate={`시행일: ${EFFECTIVE_DATE}`}
     >
       <section>
         <h2>제1조 목적</h2>
@@ -125,11 +127,20 @@ export default function TermsPage() {
       </section>
 
       <section>
-        <h2>제12조 문의</h2>
+        <h2>제12조 사업자 정보 및 문의</h2>
         <ul>
-          <li>운영자: 내면소통연구소</li>
-          <li>이메일: <a href="mailto:official@inzeum.com">official@inzeum.com</a></li>
-          <li>전화: <a href="tel:01066500945">010-6650-0945</a></li>
+          <li>상호: {COMPANY.name}</li>
+          <li>대표자: {COMPANY.ceo}</li>
+          <li>사업자등록번호: {COMPANY.registrationNumber}</li>
+          <li>통신판매업 신고번호: {COMPANY.mailOrderNumber}</li>
+          <li>사업장 주소: {COMPANY.address}</li>
+          <li>
+            전화: <a href={TEL_HREF}>{COMPANY.tel}</a>
+          </li>
+          <li>
+            서비스 문의:{' '}
+            <a href={`mailto:${COMPANY.serviceEmail}`}>{COMPANY.serviceEmail}</a>
+          </li>
         </ul>
       </section>
     </LegalDocument>

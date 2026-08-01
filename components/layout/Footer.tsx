@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { COMPANY, TEL_HREF } from '@/lib/company'
 
 export default function Footer() {
   return (
@@ -96,8 +97,48 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* 사업자 정보 — 전자상거래법 제10조에 따른 표시의무 사항 */}
+        <div className="pt-6 md:pt-8 border-t border-black/10">
+          <dl className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs leading-relaxed text-light-ink">
+            {[
+              ['상호', COMPANY.name],
+              ['대표자', COMPANY.ceo],
+              ['사업자등록번호', COMPANY.registrationNumber],
+              ['통신판매업 신고번호', COMPANY.mailOrderNumber],
+            ].map(([label, value]) => (
+              <div key={label} className="flex gap-1.5">
+                <dt className="text-light-ink/70">{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+            <div className="flex gap-1.5 basis-full sm:basis-auto">
+              <dt className="text-light-ink/70 flex-shrink-0">주소</dt>
+              <dd>{COMPANY.address}</dd>
+            </div>
+            <div className="flex gap-1.5">
+              <dt className="text-light-ink/70">전화</dt>
+              <dd>
+                <a href={TEL_HREF} className="hover:text-mountain-deep transition-colors">
+                  {COMPANY.tel}
+                </a>
+              </dd>
+            </div>
+            <div className="flex gap-1.5">
+              <dt className="text-light-ink/70">이메일</dt>
+              <dd className="break-all">
+                <a
+                  href={`mailto:${COMPANY.serviceEmail}`}
+                  className="hover:text-mountain-deep transition-colors"
+                >
+                  {COMPANY.serviceEmail}
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
         {/* Copyright */}
-        <div className="pt-6 md:pt-8 border-t border-black/10 flex flex-col sm:flex-row justify-between items-center gap-3 md:gap-4">
+        <div className="pt-5 md:pt-6 mt-5 md:mt-6 border-t border-black/10 flex flex-col sm:flex-row justify-between items-center gap-3 md:gap-4">
           <p className="text-xs md:text-sm text-light-ink">
             © 2026 INZEUM 내면소통연구소. All rights reserved.
           </p>

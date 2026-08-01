@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
 import LegalDocument from '@/components/legal/LegalDocument'
+import { pageMetadata, SITE_URL } from '@/lib/seo'
+import { COMPANY, PRIVACY_OFFICER, EFFECTIVE_DATE, TEL_HREF } from '@/lib/company'
 
-export const metadata: Metadata = {
-  title: '개인정보처리방침 | INZEUM',
+export const metadata = pageMetadata({
+  title: '개인정보처리방침',
   description: 'INZEUM 앱 및 서비스의 개인정보처리방침입니다.',
-}
+  path: '/privacy',
+})
 
 export default function PrivacyPage() {
   return (
@@ -12,7 +14,7 @@ export default function PrivacyPage() {
       eyebrow="PRIVACY POLICY"
       title="개인정보처리방침"
       description="내면소통연구소는 INZEUM 이용자의 개인정보를 필요한 범위에서 안전하게 처리합니다."
-      effectiveDate="베타 서비스용 초안 · 시행일은 확정 후 반영"
+      effectiveDate={`시행일: ${EFFECTIVE_DATE}`}
     >
       <p>
         내면소통연구소(이하 “연구소”)는 INZEUM 앱과 관련 서비스(이하 “서비스”)를
@@ -133,17 +135,95 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>9. 문의처</h2>
+        <h2>9. 개인정보의 파기 절차 및 방법</h2>
+        <p>
+          연구소는 개인정보 보유기간이 지나거나 처리 목적이 달성되면 지체 없이 해당
+          개인정보를 파기합니다.
+        </p>
         <ul>
-          <li>개인정보처리자: 내면소통연구소</li>
-          <li>담당: 개인정보보호 담당자</li>
-          <li>이메일: <a href="mailto:official@inzeum.com">official@inzeum.com</a></li>
-          <li>전화: <a href="tel:01066500945">010-6650-0945</a></li>
+          <li>
+            파기 절차: 파기 사유가 발생한 개인정보를 선정하고, 개인정보 보호책임자의
+            확인을 거쳐 파기합니다.
+          </li>
+          <li>
+            파기 방법: 전자적 파일 형태의 정보는 복구·재생할 수 없는 기술적 방법으로
+            삭제하고, 종이에 출력된 정보는 분쇄하거나 소각합니다.
+          </li>
+        </ul>
+        <p>
+          관계 법령에 따라 보존해야 하는 정보는 다른 개인정보와 분리하여 해당 기간
+          동안 보관한 뒤 같은 방법으로 파기합니다.
+        </p>
+      </section>
+
+      <section>
+        <h2>10. 개인정보 자동 수집 장치의 설치·운영 및 거부</h2>
+        <p>
+          홈페이지({SITE_URL.replace('https://', '')})는 서비스 제공에 필요한 최소한의
+          범위에서만 쿠키를 사용하며, 광고 목적의 행동 분석이나 추적 쿠키는 사용하지
+          않습니다. 이용자는 웹 브라우저 설정에서 쿠키 저장을 거부할 수 있습니다.
+        </p>
+        <p>
+          INZEUM 앱은 광고식별자(ADID/IDFA)를 수집하지 않습니다. 앱 이용 기록은 서비스
+          제공과 오류 확인 목적으로만 처리합니다.
+        </p>
+      </section>
+
+      <section>
+        <h2>11. 개인정보 보호책임자 및 문의처</h2>
+        <p>
+          연구소는 개인정보 처리에 관한 업무를 총괄하고 정보주체의 문의·불만 처리 및
+          피해 구제를 담당할 개인정보 보호책임자를 다음과 같이 지정하고 있습니다.
+        </p>
+        <ul>
+          <li>개인정보처리자: {COMPANY.name}</li>
+          <li>
+            개인정보 보호책임자: {PRIVACY_OFFICER.name} ({PRIVACY_OFFICER.title})
+          </li>
+          <li>
+            이메일:{' '}
+            <a href={`mailto:${PRIVACY_OFFICER.email}`}>{PRIVACY_OFFICER.email}</a>
+          </li>
+          <li>
+            전화: <a href={TEL_HREF}>{PRIVACY_OFFICER.tel}</a>
+          </li>
+          <li>주소: {COMPANY.address}</li>
         </ul>
       </section>
 
       <section>
-        <h2>10. 방침의 변경</h2>
+        <h2>12. 권익침해 구제 방법</h2>
+        <p>
+          정보주체는 개인정보 침해로 인한 구제를 받기 위하여 아래 기관에 분쟁 해결이나
+          상담을 신청할 수 있습니다.
+        </p>
+        <ul>
+          <li>개인정보 분쟁조정위원회 — 1833-6972 / www.kopico.go.kr</li>
+          <li>개인정보 침해신고센터 — (국번없이) 118 / privacy.kisa.or.kr</li>
+          <li>대검찰청 사이버수사과 — (국번없이) 1301 / www.spo.go.kr</li>
+          <li>경찰청 사이버수사국 — (국번없이) 182 / ecrm.police.go.kr</li>
+        </ul>
+        <p>
+          개인정보 보호법 제35조(개인정보의 열람), 제36조(개인정보의 정정·삭제),
+          제37조(개인정보의 처리정지 등)에 따른 요구에 대하여 연구소가 한 처분 또는
+          부작위로 권리나 이익을 침해받은 사람은 행정심판법에 따라 행정심판을 청구할 수
+          있습니다.
+        </p>
+      </section>
+
+      <section>
+        <h2>13. 사업자 정보</h2>
+        <ul>
+          <li>상호: {COMPANY.name}</li>
+          <li>대표자: {COMPANY.ceo}</li>
+          <li>사업자등록번호: {COMPANY.registrationNumber}</li>
+          <li>통신판매업 신고번호: {COMPANY.mailOrderNumber}</li>
+          <li>사업장 주소: {COMPANY.address}</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>14. 방침의 변경</h2>
         <p>
           방침이 변경되는 경우 시행 전에 서비스 또는 홈페이지를 통해 알립니다. 이용자 권리에
           중요한 변경은 충분한 기간을 두고 알리며 필요한 경우 다시 동의를 받습니다.
