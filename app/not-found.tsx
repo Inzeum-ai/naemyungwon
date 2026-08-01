@@ -3,10 +3,12 @@ import type { Metadata } from 'next'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
-// Next 가 not-found 에 noindex 를 자동으로 붙이므로 robots 는 지정하지 않습니다.
-// (직접 지정하면 meta robots 태그가 두 개 출력됩니다)
+// robots 를 반드시 지정해야 합니다. Next 가 not-found 에 자체 noindex 태그를
+// 붙이는데, 여기서 생략하면 layout 의 `index: true` 가 상속되어
+// noindex 와 index 가 함께 출력됩니다. 명시해서 두 태그를 모두 noindex 로 맞춥니다.
 export const metadata: Metadata = {
   title: '페이지를 찾을 수 없습니다',
+  robots: { index: false, follow: true },
 }
 
 const suggestions = [
