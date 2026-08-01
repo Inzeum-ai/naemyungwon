@@ -15,17 +15,17 @@ const features = [
   {
     icon: 'auto_awesome',
     title: '내면AI',
-    desc: '명상과 기록에 대해 대화하며, 지금 필요한 수련을 함께 찾아갑니다. 답변은 자동 생성되며 전문가 상담을 대신하지 않습니다.',
+    desc: '명상과 기록에 대해 대화하며 지금 필요한 수련을 함께 찾아갑니다. 답변은 자동 생성되며 전문가 상담을 대신하지 않습니다.',
   },
   {
     icon: 'mic',
     title: '내 목소리',
-    desc: '명상 대본을 직접 읽어 녹음해 두고, 자기 목소리로 된 명상을 다시 듣는 기능입니다. 골전도 모드를 지원합니다.',
+    desc: '명상 대본을 직접 읽어 녹음해 두고, 내 목소리로 듣는 명상을 만듭니다. 골전도 모드를 지원합니다.',
   },
   {
     icon: 'edit_note',
     title: '기록',
-    desc: '감정과 몸감각, 감사 기록을 남깁니다. 쓰는 것 자체가 내면소통의 한 방식입니다.',
+    desc: '감정과 몸감각, 감사 기록을 남깁니다. 쌓인 기록은 내면AI와의 대화로 이어집니다.',
   },
   {
     icon: 'monitoring',
@@ -39,31 +39,33 @@ const features = [
   },
 ]
 
-const loop = [
-  { step: '01', title: '수련', desc: '오늘에 맞는 명상을 고르고 수련합니다.' },
-  { step: '02', title: '기록', desc: '감정·몸감각·감사를 남깁니다.' },
-  { step: '03', title: '되먹임', desc: '내면AI가 쌓인 기록을 바탕으로 대화합니다.' },
-  { step: '04', title: '다음 수련', desc: '지금 상태에 맞는 다음 수련으로 이어집니다.' },
-]
-
-const krq = [
-  { title: '자기조절능력', items: ['감정조절력', '충동통제력', '원인분석력'] },
-  { title: '대인관계능력', items: ['소통능력', '공감능력', '자아확장력'] },
-  { title: '긍정성', items: ['자아낙관성', '생활만족도', '감사'] },
+const roadmap = [
+  {
+    label: '베타',
+    when: '2026년 8월 중',
+    desc: '일부 이용자를 대상으로 먼저 엽니다.',
+    accent: true,
+  },
+  {
+    label: '정식 출시',
+    when: '2026년 내',
+    desc: 'iOS와 Android 양쪽에 출시할 예정입니다.',
+    accent: false,
+  },
 ]
 
 const faq = [
   {
     q: '언제 사용할 수 있나요?',
-    a: '현재 베타 서비스를 준비하고 있습니다. 일정과 참여 방법은 준비되는 대로 이곳과 공지사항에 안내드립니다.',
+    a: '2026년 8월 중 일부 이용자를 대상으로 베타를 엽니다. 정식 출시는 2026년 내를 목표로 하고 있습니다.',
   },
   {
-    q: '교육원 수강생만 쓸 수 있나요?',
-    a: '베타 단계에서는 교육과정 참여자를 중심으로 먼저 열립니다. 이후 일반 이용자에게도 열 계획입니다.',
+    q: '어떤 기기에서 쓸 수 있나요?',
+    a: 'iOS와 Android 모두 지원할 예정입니다.',
   },
   {
     q: '유료인가요?',
-    a: '현재 베타 서비스에는 유료 결제 기능이 없으며 결제정보를 수집하지 않습니다.',
+    a: '베타 서비스에는 유료 결제 기능이 없으며 결제정보를 수집하지 않습니다.',
   },
   {
     q: '녹음한 목소리는 어디에 저장되나요?',
@@ -113,62 +115,21 @@ export default function AppPageClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="mt-8"
+              className="mt-8 flex flex-wrap items-center justify-center gap-2.5"
             >
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-mountain-deep ring-1 ring-mountain-deep/15">
+              <span className="inline-flex items-center gap-2 rounded-full bg-mountain-deep px-4 py-2 text-sm font-bold text-white">
                 <span className="material-symbols-outlined text-base">schedule</span>
-                베타 서비스 준비 중
+                2026년 8월 베타 오픈 예정
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-mountain-deep ring-1 ring-mountain-deep/15">
+                iOS · Android
               </span>
             </motion.div>
           </div>
         </section>
 
-        {/* 왜 만들었나 — 『내면소통』 제7장 */}
-        <section className="py-16 md:py-20 px-5 md:px-12">
-          <div className="max-w-[900px] mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
-            >
-              앱을 만드는 이유
-            </motion.h2>
-
-            <motion.figure
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-10 rounded-2xl border-l-4 border-mountain-deep bg-haze/60 px-6 py-7 md:px-10 md:py-9"
-            >
-              <blockquote className="font-serif text-base md:text-lg leading-relaxed text-ink">
-                여러 전통적인 명상 수행법에 IT 기술을 접목해 다양한 디지털 기기와 데이터를
-                기반으로 하는 마음근력 향상 솔루션을 개발해낸다면, 한국을 넘어서 전 세계
-                사람들의 마음건강에 큰 도움을 줄 수 있을 것이다.
-              </blockquote>
-              <figcaption className="mt-5 text-sm text-light-ink">
-                김주환, 『내면소통』 제7장
-              </figcaption>
-            </motion.figure>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 text-sm md:text-base leading-relaxed text-light-ink"
-            >
-              INZEUM 앱은 이 문장에서 출발했습니다. 교육원의 과정이 정해진 기간의 배움이라면,
-              앱은 그 배움을 일상에서 이어가는 자리입니다. 명상을 전달하는 데 그치지 않고
-              수련과 기록이 쌓여 다음 수련으로 되돌아오는 구조를 만드는 것이 목표입니다.
-            </motion.p>
-          </div>
-        </section>
-
         {/* 기능 */}
-        <section className="py-16 md:py-20 px-5 md:px-12 bg-haze/50">
+        <section className="py-16 md:py-20 px-5 md:px-12">
           <div className="max-w-[1200px] mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -201,9 +162,9 @@ export default function AppPageClient() {
           </div>
         </section>
 
-        {/* 핵심 루프 */}
-        <section className="py-16 md:py-20 px-5 md:px-12">
-          <div className="max-w-[1200px] mx-auto">
+        {/* 출시 일정 */}
+        <section className="py-16 md:py-20 px-5 md:px-12 bg-haze/50">
+          <div className="max-w-[900px] mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -211,102 +172,47 @@ export default function AppPageClient() {
               transition={{ duration: 0.6 }}
               className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
             >
-              쌓이고 되돌아오는 구조
+              출시 일정
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-5 text-sm md:text-base leading-relaxed text-light-ink text-center max-w-2xl mx-auto"
-            >
-              데이터를 모으는 것으로 끝나면 기록 앱입니다. INZEUM은 쌓인 기록이 다음 수련으로
-              되돌아오는 한 바퀴를 만드는 데 집중합니다.
-            </motion.p>
 
-            <ol className="mt-10 md:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {loop.map((s, i) => (
-                <motion.li
-                  key={s.step}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="relative rounded-2xl border border-black/5 bg-white p-6 shadow-sm"
-                >
-                  <span className="font-serif text-2xl font-bold text-mountain-deep/40">
-                    {s.step}
-                  </span>
-                  <h3 className="mt-2 font-bold text-lg text-ink">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-light-ink">{s.desc}</p>
-                  {i < loop.length - 1 && (
-                    <span
-                      aria-hidden
-                      className="material-symbols-outlined absolute -right-3 top-1/2 hidden -translate-y-1/2 text-mountain-deep/30 lg:block"
-                    >
-                      chevron_right
-                    </span>
-                  )}
-                </motion.li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        {/* 마음근력 검사 */}
-        <section className="py-16 md:py-20 px-5 md:px-12 bg-haze/50">
-          <div className="max-w-[1200px] mx-auto">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="block text-center text-mountain-deep font-bold tracking-wider text-sm uppercase"
-            >
-              Assessment
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center mt-4"
-            >
-              마음근력 검사
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-5 text-sm md:text-base leading-relaxed text-light-ink text-center max-w-2xl mx-auto"
-            >
-              마음근력을 세 가지 능력으로 나누어 측정합니다. 주기적으로 검사하면 지난 결과와
-              비교해 어느 축이 어떻게 달라졌는지 확인할 수 있습니다.
-            </motion.p>
-
-            <div className="mt-10 md:mt-14 grid gap-5 md:grid-cols-3">
-              {krq.map((c, i) => (
+            <div className="mt-10 md:mt-12 grid gap-5 sm:grid-cols-2">
+              {roadmap.map((r, i) => (
                 <motion.div
-                  key={c.title}
+                  key={r.label}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="rounded-2xl border border-black/5 bg-white p-6 md:p-7 shadow-sm"
+                  className={`rounded-2xl border p-6 md:p-7 shadow-sm ${
+                    r.accent
+                      ? 'border-mountain-deep/25 bg-white ring-1 ring-mountain-deep/10'
+                      : 'border-black/5 bg-white'
+                  }`}
                 >
-                  <h3 className="font-bold text-lg text-ink">{c.title}</h3>
-                  <ul className="mt-4 space-y-2.5">
-                    {c.items.map((it) => (
-                      <li key={it} className="flex items-center gap-2 text-sm text-light-ink">
-                        <span className="size-1.5 rounded-full bg-mountain-deep/40 flex-shrink-0" />
-                        {it}
-                      </li>
-                    ))}
-                  </ul>
+                  <span
+                    className={`inline-block rounded-full px-3 py-1 text-xs font-bold ${
+                      r.accent
+                        ? 'bg-mountain-deep text-white'
+                        : 'bg-haze text-light-ink'
+                    }`}
+                  >
+                    {r.label}
+                  </span>
+                  <p className="mt-4 font-serif text-2xl font-bold text-ink">{r.when}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-light-ink">{r.desc}</p>
                 </motion.div>
               ))}
             </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 text-center text-xs text-light-ink"
+            >
+              일정은 개발 상황에 따라 조정될 수 있습니다.
+            </motion.p>
           </div>
         </section>
 
@@ -360,8 +266,7 @@ export default function AppPageClient() {
                 출시 소식 안내
               </h2>
               <p className="mt-4 text-sm md:text-base leading-relaxed text-light-ink">
-                INZEUM 앱은 현재 베타 서비스를 준비하고 있습니다. 일정과 참여 방법은
-                준비되는 대로 이곳과 공지사항에 안내드립니다.
+                베타 참여 방법과 출시 일정은 준비되는 대로 이곳과 공지사항에 안내드립니다.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <a
