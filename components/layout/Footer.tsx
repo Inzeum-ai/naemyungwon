@@ -102,10 +102,10 @@ export default function Footer() {
             © 2026 INZEUM 내면소통연구소. All rights reserved.
           </p>
           <div className="flex gap-4 md:gap-6">
-            <Link href="#" className="text-xs md:text-sm text-light-ink hover:text-mountain-deep transition-colors">
+            <Link href="/privacy" className="text-xs md:text-sm text-light-ink hover:text-mountain-deep transition-colors">
               개인정보처리방침
             </Link>
-            <Link href="#" className="text-xs md:text-sm text-light-ink hover:text-mountain-deep transition-colors">
+            <Link href="/terms" className="text-xs md:text-sm text-light-ink hover:text-mountain-deep transition-colors">
               이용약관
             </Link>
           </div>
