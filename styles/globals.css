@@ -61,6 +61,55 @@
     @apply text-lg md:text-xl text-light-ink leading-relaxed;
   }
 
+  .legal-document {
+    @apply text-[15px] leading-8 text-light-ink md:text-base;
+  }
+
+  .legal-document > p:first-child {
+    @apply mt-0;
+  }
+
+  .legal-document section {
+    @apply mt-10 border-t border-black/5 pt-8;
+  }
+
+  .legal-document h2 {
+    @apply mb-4 font-serif text-xl font-bold leading-snug text-ink md:text-2xl;
+  }
+
+  .legal-document p {
+    @apply my-4;
+  }
+
+  .legal-document ul,
+  .legal-document ol {
+    @apply my-4 space-y-2 pl-6;
+  }
+
+  .legal-document ul {
+    @apply list-disc;
+  }
+
+  .legal-document ol {
+    @apply list-decimal;
+  }
+
+  .legal-document a {
+    @apply font-semibold text-mountain-deep underline decoration-mountain-deep/30 underline-offset-4 hover:decoration-mountain-deep;
+  }
+
+  .legal-document table {
+    @apply my-5 min-w-[640px] w-full border-collapse text-left text-sm;
+  }
+
+  .legal-document th {
+    @apply border-y border-black/10 bg-haze px-4 py-3 font-bold text-ink;
+  }
+
+  .legal-document td {
+    @apply border-b border-black/10 px-4 py-3 align-top leading-6;
+  }
+
   /* Breathing animation for CTA buttons */
   .breathing-button {
     animation: breathe 4s ease-in-out infinite;
