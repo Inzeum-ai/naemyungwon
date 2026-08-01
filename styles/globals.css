@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* 모바일 글씨 자동 크기 조절 방지 */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cloud text-ink font-display antialiased;
+    /* 한국어 줄바꿈 개선 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-height: 1.7;
+  }
+
+  /* Accessibility: Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-mountain-deep text-white rounded-lg font-bold transition-all duration-300 hover:bg-mountain-mid hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3 border border-mountain-deep text-mountain-deep rounded-lg font-bold transition-all duration-300 hover:bg-mountain-deep hover:text-white;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+
+  .section-title {
+    @apply font-serif text-4xl md:text-5xl font-bold text-ink leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-light-ink leading-relaxed;
+  }
+
+  /* Breathing animation for CTA buttons */
+  .breathing-button {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .breathing-button {
+      animation: none !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(245, 248, 250, 0) 0%,
+      rgba(245, 248, 250, 0.8) 50%,
+      rgba(245, 248, 250, 1) 100%
+    );
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(177, 206, 223, 0.3) 0%,
+      rgba(144, 182, 211, 0.2) 50%,
+      rgba(114, 162, 201, 0.1) 100%
+    );
+  }
+}
