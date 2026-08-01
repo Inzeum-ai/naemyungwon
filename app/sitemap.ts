@@ -9,6 +9,9 @@ const ROUTES: Array<{ path: string; priority: number }> = [
   { path: '/about', priority: 0.9 },
   { path: '/courses', priority: 0.9 },
   { path: '/programs', priority: 0.8 },
+  { path: '/app', priority: 0.8 },
+  { path: '/privacy', priority: 0.3 },
+  { path: '/terms', priority: 0.3 },
   { path: '/faq', priority: 0.7 },
   { path: '/community', priority: 0.5 },
 ]
