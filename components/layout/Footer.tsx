@@ -81,19 +81,17 @@ export default function Footer() {
             <h3 className="font-bold text-sm text-ink mb-3 md:mb-4">소셜 미디어</h3>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.youtube.com/@joohankim"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="size-10 flex items-center justify-center rounded-lg bg-white text-light-ink hover:text-mountain-deep hover:bg-sky-light transition-colors"
-                aria-label="YouTube"
+                aria-label="김주환의 내면소통 유튜브 채널 (새 창)"
               >
                 <span className="material-symbols-outlined">play_circle</span>
               </a>
-              <a
-                href="#"
-                className="size-10 flex items-center justify-center rounded-lg bg-white text-light-ink hover:text-mountain-deep hover:bg-sky-light transition-colors"
-                aria-label="Instagram"
-              >
-                <span className="material-symbols-outlined">photo_camera</span>
-              </a>
+              {/* 인스타그램 계정 URL 확인되면 위와 같은 형태로 추가하세요.
+                  href="#" 로 두면 클릭 시 페이지 상단으로 튀는 버그가 되므로
+                  URL 이 없는 동안에는 아이콘을 두지 않습니다. */}
             </div>
           </div>
         </div>
