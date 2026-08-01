@@ -1,17 +1,29 @@
 import type { Metadata } from 'next'
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, OG_IMAGE } from '@/lib/seo'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
-  title: 'INZEUM 내면소통연구소 | Naemyungwon',
-  description: '뇌과학 기반 내면소통명상을 체계적으로 교육하여 사람들의 마음근력을 강화시켜줄 수 있는 명상 지도자를 양성합니다.',
+  // 카카오톡·검색엔진이 og:image / canonical 을 절대 URL 로 읽으려면 필수입니다.
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} | Naemyungwon`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
   keywords: ['명상', '내면소통', '마음근력', '명상교육', '명상지도자', 'meditation', 'mindfulness'],
-  authors: [{ name: 'INZEUM 내면소통연구소' }],
+  authors: [{ name: SITE_NAME }],
+  alternates: { canonical: '/' },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: 'INZEUM 내면소통연구소 | Naemyungwon',
-    description: '뇌과학 기반 내면소통명상을 체계적으로 교육하여 사람들의 마음근력을 강화시켜줄 수 있는 명상 지도자를 양성합니다.',
+    title: `${SITE_NAME} | Naemyungwon`,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+    url: '/',
     type: 'website',
     locale: 'ko_KR',
+    images: [OG_IMAGE],
   },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function RootLayout({
