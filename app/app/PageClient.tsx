@@ -8,11 +8,6 @@ import { COMPANY } from '@/lib/company'
 
 const features = [
   {
-    icon: 'bedtime',
-    title: '수면',
-    desc: '수면유도명상으로 잠자리를 준비하고, 밤사이 기록을 남깁니다. 아침에는 수면 시간과 효율을 정리한 모닝 리포트를 받습니다.',
-  },
-  {
     icon: 'library_music',
     title: '명상 라이브러리',
     desc: '내면소통명상의 원리에 따라 구성된 명상 음원을 목적과 상황에 맞게 골라 들을 수 있습니다.',
@@ -20,22 +15,63 @@ const features = [
   {
     icon: 'auto_awesome',
     title: '내면AI',
-    desc: '오늘의 상태와 기록을 바탕으로 대화하며, 지금 필요한 명상을 함께 찾아갑니다.',
+    desc: '명상과 기록에 대해 대화하며, 지금 필요한 수련을 함께 찾아갑니다. 답변은 자동 생성되며 전문가 상담을 대신하지 않습니다.',
   },
   {
     icon: 'mic',
     title: '내 목소리',
-    desc: '명상 대본을 직접 읽어 자기 목소리로 된 명상을 만듭니다. 골전도 모드를 지원합니다.',
+    desc: '명상 대본을 직접 읽어 녹음해 두고, 자기 목소리로 된 명상을 다시 듣는 기능입니다. 골전도 모드를 지원합니다.',
+  },
+  {
+    icon: 'edit_note',
+    title: '기록',
+    desc: '감정과 몸감각, 감사 기록을 남깁니다. 쓰는 것 자체가 내면소통의 한 방식입니다.',
   },
   {
     icon: 'monitoring',
-    title: '기록과 통계',
-    desc: '수면, 감정, 몸감각, 감사 기록이 쌓이면서 변화의 흐름을 눈으로 확인할 수 있습니다.',
+    title: '통계',
+    desc: '기록이 쌓이면서 변화의 흐름을 확인할 수 있습니다. 성취를 압박하지 않는 방식으로 보여줍니다.',
   },
   {
     icon: 'psychology',
     title: '마음근력 검사',
-    desc: '주기적인 검사로 현재 상태를 확인하고, 지난 결과와 비교해 변화를 추적합니다.',
+    desc: '자기조절능력·대인관계능력·긍정성 세 축을 측정하고, 지난 결과와 비교해 변화를 추적합니다.',
+  },
+]
+
+const loop = [
+  { step: '01', title: '수련', desc: '오늘에 맞는 명상을 고르고 수련합니다.' },
+  { step: '02', title: '기록', desc: '감정·몸감각·감사를 남깁니다.' },
+  { step: '03', title: '되먹임', desc: '내면AI가 쌓인 기록을 바탕으로 대화합니다.' },
+  { step: '04', title: '다음 수련', desc: '지금 상태에 맞는 다음 수련으로 이어집니다.' },
+]
+
+const krq = [
+  { title: '자기조절능력', items: ['감정조절력', '충동통제력', '원인분석력'] },
+  { title: '대인관계능력', items: ['소통능력', '공감능력', '자아확장력'] },
+  { title: '긍정성', items: ['자아낙관성', '생활만족도', '감사'] },
+]
+
+const faq = [
+  {
+    q: '언제 사용할 수 있나요?',
+    a: '현재 베타 서비스를 준비하고 있습니다. 일정과 참여 방법은 준비되는 대로 이곳과 공지사항에 안내드립니다.',
+  },
+  {
+    q: '교육원 수강생만 쓸 수 있나요?',
+    a: '베타 단계에서는 교육과정 참여자를 중심으로 먼저 열립니다. 이후 일반 이용자에게도 열 계획입니다.',
+  },
+  {
+    q: '유료인가요?',
+    a: '현재 베타 서비스에는 유료 결제 기능이 없으며 결제정보를 수집하지 않습니다.',
+  },
+  {
+    q: '녹음한 목소리는 어디에 저장되나요?',
+    a: '녹음 음성 파일은 원칙적으로 이용자의 기기에 저장됩니다. 서버에는 녹음 제목과 길이 등의 기록만 남습니다.',
+  },
+  {
+    q: '내면AI와 나눈 대화가 AI 학습에 쓰이나요?',
+    a: '이용자 동의 없이 범용 AI 모델의 학습 데이터로 사용하지 않습니다. 자세한 내용은 개인정보처리방침에서 확인하실 수 있습니다.',
   },
 ]
 
@@ -68,23 +104,15 @@ export default function AppPageClient() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-serif text-lg md:text-2xl text-mountain-deep mt-6 leading-relaxed"
-            >
-              잠들기 전 마음을 고르는,<br className="sm:hidden" /> 수면과 내면소통의 시간
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
               className="text-light-ink mt-6 max-w-2xl mx-auto leading-relaxed text-sm md:text-base"
             >
-              내면소통연구소가 만드는 명상 앱입니다. 교육원에서 가르치는 내면소통명상을
-              매일의 수면과 기록으로 이어갈 수 있도록 설계했습니다.
+              내면소통연구소가 만드는 명상 앱입니다. 교육원에서 배우는 내면소통명상을
+              매일의 수련으로 이어갈 수 있도록 설계했습니다.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               className="mt-8"
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-sm font-bold text-mountain-deep ring-1 ring-mountain-deep/15">
@@ -95,8 +123,52 @@ export default function AppPageClient() {
           </div>
         </section>
 
-        {/* Features */}
+        {/* 왜 만들었나 — 『내면소통』 제7장 */}
         <section className="py-16 md:py-20 px-5 md:px-12">
+          <div className="max-w-[900px] mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
+            >
+              앱을 만드는 이유
+            </motion.h2>
+
+            <motion.figure
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-10 rounded-2xl border-l-4 border-mountain-deep bg-haze/60 px-6 py-7 md:px-10 md:py-9"
+            >
+              <blockquote className="font-serif text-base md:text-lg leading-relaxed text-ink">
+                여러 전통적인 명상 수행법에 IT 기술을 접목해 다양한 디지털 기기와 데이터를
+                기반으로 하는 마음근력 향상 솔루션을 개발해낸다면, 한국을 넘어서 전 세계
+                사람들의 마음건강에 큰 도움을 줄 수 있을 것이다.
+              </blockquote>
+              <figcaption className="mt-5 text-sm text-light-ink">
+                김주환, 『내면소통』 제7장
+              </figcaption>
+            </motion.figure>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-8 text-sm md:text-base leading-relaxed text-light-ink"
+            >
+              INZEUM 앱은 이 문장에서 출발했습니다. 교육원의 과정이 정해진 기간의 배움이라면,
+              앱은 그 배움을 일상에서 이어가는 자리입니다. 명상을 전달하는 데 그치지 않고
+              수련과 기록이 쌓여 다음 수련으로 되돌아오는 구조를 만드는 것이 목표입니다.
+            </motion.p>
+          </div>
+        </section>
+
+        {/* 기능 */}
+        <section className="py-16 md:py-20 px-5 md:px-12 bg-haze/50">
           <div className="max-w-[1200px] mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -115,7 +187,7 @@ export default function AppPageClient() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  transition={{ duration: 0.5, delay: i * 0.07 }}
                   className="rounded-2xl border border-black/5 bg-white p-6 md:p-7 shadow-sm"
                 >
                   <span className="material-symbols-outlined text-mountain-deep text-3xl">
@@ -129,52 +201,153 @@ export default function AppPageClient() {
           </div>
         </section>
 
-        {/* 내 목소리 — 앱의 중심 기능 */}
-        <section className="py-16 md:py-20 px-5 md:px-12 bg-haze/60">
-          <div className="max-w-[900px] mx-auto text-center">
+        {/* 핵심 루프 */}
+        <section className="py-16 md:py-20 px-5 md:px-12">
+          <div className="max-w-[1200px] mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
+            >
+              쌓이고 되돌아오는 구조
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mt-5 text-sm md:text-base leading-relaxed text-light-ink text-center max-w-2xl mx-auto"
+            >
+              데이터를 모으는 것으로 끝나면 기록 앱입니다. INZEUM은 쌓인 기록이 다음 수련으로
+              되돌아오는 한 바퀴를 만드는 데 집중합니다.
+            </motion.p>
+
+            <ol className="mt-10 md:mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {loop.map((s, i) => (
+                <motion.li
+                  key={s.step}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="relative rounded-2xl border border-black/5 bg-white p-6 shadow-sm"
+                >
+                  <span className="font-serif text-2xl font-bold text-mountain-deep/40">
+                    {s.step}
+                  </span>
+                  <h3 className="mt-2 font-bold text-lg text-ink">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-light-ink">{s.desc}</p>
+                  {i < loop.length - 1 && (
+                    <span
+                      aria-hidden
+                      className="material-symbols-outlined absolute -right-3 top-1/2 hidden -translate-y-1/2 text-mountain-deep/30 lg:block"
+                    >
+                      chevron_right
+                    </span>
+                  )}
+                </motion.li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* 마음근력 검사 */}
+        <section className="py-16 md:py-20 px-5 md:px-12 bg-haze/50">
+          <div className="max-w-[1200px] mx-auto">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-mountain-deep font-bold tracking-wider text-sm uppercase"
+              className="block text-center text-mountain-deep font-bold tracking-wider text-sm uppercase"
             >
-              My Voice
+              Assessment
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-2xl md:text-3xl font-bold text-ink mt-4"
+              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center mt-4"
             >
-              내 목소리로 하는 내면소통
+              마음근력 검사
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 text-sm md:text-base leading-relaxed text-light-ink"
+              className="mt-5 text-sm md:text-base leading-relaxed text-light-ink text-center max-w-2xl mx-auto"
             >
-              내면소통은 결국 자기 자신에게 건네는 말입니다. 앱은 명상 대본을 직접 읽어
-              녹음하고, 그 목소리로 명상을 듣도록 합니다. 자유 녹음과 함께 읽기를 모두
-              지원하며, 골전도 모드로 들을 수도 있습니다.
+              마음근력을 세 가지 능력으로 나누어 측정합니다. 주기적으로 검사하면 지난 결과와
+              비교해 어느 축이 어떻게 달라졌는지 확인할 수 있습니다.
             </motion.p>
-            <motion.p
+
+            <div className="mt-10 md:mt-14 grid gap-5 md:grid-cols-3">
+              {krq.map((c, i) => (
+                <motion.div
+                  key={c.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="rounded-2xl border border-black/5 bg-white p-6 md:p-7 shadow-sm"
+                >
+                  <h3 className="font-bold text-lg text-ink">{c.title}</h3>
+                  <ul className="mt-4 space-y-2.5">
+                    {c.items.map((it) => (
+                      <li key={it} className="flex items-center gap-2 text-sm text-light-ink">
+                        <span className="size-1.5 rounded-full bg-mountain-deep/40 flex-shrink-0" />
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 md:py-20 px-5 md:px-12">
+          <div className="max-w-[900px] mx-auto">
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-4 text-xs md:text-sm text-light-ink/80"
+              transition={{ duration: 0.6 }}
+              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
             >
-              녹음한 음성 파일은 원칙적으로 이용자의 기기에 저장됩니다.
-            </motion.p>
+              자주 묻는 질문
+            </motion.h2>
+
+            <div className="mt-10 divide-y divide-black/10 border-y border-black/10">
+              {faq.map((f, i) => (
+                <motion.details
+                  key={f.q}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="group py-5"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-ink marker:hidden">
+                    {f.q}
+                    <span className="material-symbols-outlined flex-shrink-0 text-light-ink transition-transform group-open:rotate-180">
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-sm leading-relaxed text-light-ink">{f.a}</p>
+                </motion.details>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* 안내 및 문의 */}
-        <section className="py-16 md:py-20 px-5 md:px-12">
+        <section className="pb-16 md:pb-20 px-5 md:px-12">
           <div className="max-w-[900px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -184,11 +357,11 @@ export default function AppPageClient() {
               className="rounded-2xl border border-black/5 bg-white p-7 md:p-10 shadow-sm text-center"
             >
               <h2 className="font-serif text-xl md:text-2xl font-bold text-ink">
-                출시 소식을 가장 먼저 받아보세요
+                출시 소식 안내
               </h2>
               <p className="mt-4 text-sm md:text-base leading-relaxed text-light-ink">
-                INZEUM 앱은 현재 베타 서비스를 준비하고 있습니다. 출시 일정과 참여 방법은
-                준비되는 대로 이곳과 커뮤니티에 안내드립니다.
+                INZEUM 앱은 현재 베타 서비스를 준비하고 있습니다. 일정과 참여 방법은
+                준비되는 대로 이곳과 공지사항에 안내드립니다.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <a
