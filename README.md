@@ -46,16 +46,22 @@ naemyungwon/
 │   │   └── faculty/
 │   │       └── page.tsx    # 패컬티 소개
 │   └── advanced/
-│       └── page.tsx        # 심화과정 안내
+│       ├── page.tsx        # 심화과정 안내
+│       └── zoom-guide/
+│           └── page.tsx    # 줌 면접 가이드
 ├── components/
 │   ├── Header.tsx          # 헤더 컴포넌트
 │   └── Footer.tsx          # 푸터 컴포넌트
 ├── public/
 │   └── images/             # 이미지 파일
-├── tailwind.config.ts      # Tailwind 설정
+├── tailwind.config.js      # Tailwind 설정
 ├── next.config.js          # Next.js 설정
 └── package.json
 ```
+
+> **주의:** App Router 소스는 루트 `app/` 하나뿐입니다. `src/app/` 을 새로 만들면
+> Next.js 가 루트 `app/` 을 우선하여 `src/` 는 **조용히 무시**됩니다. 실제로 과거에
+> 중복 트리가 존재해 혼란이 있었고, 2026-08 정리 시 삭제했습니다.
 
 ## 페이지 구성
 
@@ -65,14 +71,54 @@ naemyungwon/
 | `/about` | 내명원 소개 | 비전, 미션, 교육 철학 |
 | `/about/faculty` | 패컬티 소개 | 김주환 교수님 및 전문 패컬티 |
 | `/advanced` | 심화과정 | 과정 개요, 목표와 특징, 구성 안내, FAQ |
+| `/advanced/zoom-guide` | 줌 가이드 | 줌 면접 안내 |
 
-## Vercel 배포 방법
+## 브랜치 전략 & 배포
 
-1. [Vercel](https://vercel.com)에 GitHub 계정으로 로그인
-2. "New Project" 클릭
-3. 이 저장소를 import
-4. 기본 설정 그대로 "Deploy" 클릭
-5. 배포 완료 후 제공되는 URL로 접속
+이 저장소는 **`Inzeum-ai/naemyungwon`** 이 유일한 소스입니다.
+(2026-08-01 이전에는 `semiotic1/naemyungwon` 에서 배포되었으나 현재는 연결 해제됨)
+
+```
+feature/*  ──PR──▶  dev  ──PR──▶  main  ──▶  production
+                     │                        app.jkim.net
+                     ▼
+              staging.naemyungwon.inzeum.com
+```
+
+| 브랜치 | 역할 | 배포 대상 |
+|--------|------|-----------|
+| `main` | 프로덕션. 직접 push 금지, `dev` 에서 PR 로만 병합 | `app.jkim.net` 외 3개 도메인 |
+| `dev` | 통합 브랜치. 기능 작업은 여기로 모임 | `staging.naemyungwon.inzeum.com` |
+| `feature/*` | 개별 작업 | PR 별 임시 프리뷰 URL |
+
+**규칙 (GitHub 설정으로 강제하지 않음 — 합의사항으로 지킬 것):**
+
+1. `main` 에 직접 push 하지 않습니다. 반드시 `dev` → `main` PR 을 거칩니다.
+2. 기능 작업은 `dev` 에서 분기하고, `dev` 로 PR 을 올립니다.
+3. `main` 병합 = 즉시 프로덕션 배포입니다. 병합 전 스테이징에서 확인하세요.
+
+```bash
+git checkout dev && git pull
+git checkout -b feature/my-change
+# ... 작업 ...
+gh pr create --base dev
+```
+
+### CI
+
+`.github/workflows/ci.yml` 이 `dev` / `main` 대상 PR 과 push 에서 실행됩니다:
+타입 검사(`tsc --noEmit`) 와 빌드(`next build`). 테스트는 아직 없습니다.
+ESLint 설정 파일이 없어 lint 단계는 제외되어 있습니다.
+
+### 배포 (Vercel)
+
+Vercel 프로젝트 `inzeum/naemyungwon` 이 이 저장소에 연결되어 있어
+push 시 자동 배포됩니다. 수동 조작이 필요한 경우에만 아래를 사용하세요.
+
+```bash
+vercel link --scope inzeum --project naemyungwon
+vercel --prod          # 수동 프로덕션 배포
+```
 
 ## 컬러 팔레트
 
