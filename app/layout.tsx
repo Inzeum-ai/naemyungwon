@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, OG_IMAGE } from '@/lib/seo'
+import { organizationSchema, websiteSchema } from '@/lib/structured-data'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = {
@@ -42,7 +43,13 @@ export default function RootLayout({
         />
         <link 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" 
-          rel="stylesheet" 
+          rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([organizationSchema, websiteSchema]),
+          }}
         />
       </head>
       <body className="bg-cloud text-ink font-display antialiased overflow-x-hidden selection:bg-primary/30 selection:text-primary">
