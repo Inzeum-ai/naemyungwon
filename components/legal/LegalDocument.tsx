@@ -26,13 +26,13 @@ export default function LegalDocument({
             <p className="text-xs font-bold tracking-[0.14em] text-mountain-deep md:text-sm">
               {eyebrow}
             </p>
-            <h1 className="mt-4 font-serif text-3xl font-bold text-ink sm:text-4xl md:text-5xl">
+            <h1 className="mt-4 font-serif text-2xl font-bold text-ink sm:text-3xl md:text-4xl">
               {title}
             </h1>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-light-ink md:text-base">
+            <p className="mt-5 max-w-2xl text-sm leading-6 text-light-ink">
               {description}
             </p>
-            <p className="mt-6 text-sm font-semibold text-ink">{effectiveDate}</p>
+            <p className="mt-6 text-xs font-semibold text-ink">{effectiveDate}</p>
           </div>
         </section>
 

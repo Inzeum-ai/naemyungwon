@@ -62,7 +62,7 @@
   }
 
   .legal-document {
-    @apply text-[15px] leading-8 text-light-ink md:text-base;
+    @apply text-sm leading-7 text-light-ink;
   }
 
   .legal-document > p:first-child {
@@ -74,7 +74,7 @@
   }
 
   .legal-document h2 {
-    @apply mb-4 font-serif text-xl font-bold leading-snug text-ink md:text-2xl;
+    @apply mb-4 font-serif text-lg font-bold leading-snug text-ink md:text-xl;
   }
 
   .legal-document p {

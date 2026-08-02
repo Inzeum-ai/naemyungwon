@@ -98,7 +98,7 @@ export default function AppPageClient() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ink mt-4"
+              className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ink mt-4"
             >
               INZEUM 앱
             </motion.h1>
@@ -136,7 +136,7 @@ export default function AppPageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
+              className="font-serif text-xl md:text-2xl font-bold text-ink text-center"
             >
               앱에서 할 수 있는 것
             </motion.h2>
@@ -154,7 +154,7 @@ export default function AppPageClient() {
                   <span className="material-symbols-outlined text-mountain-deep text-3xl">
                     {f.icon}
                   </span>
-                  <h3 className="mt-4 font-bold text-lg text-ink">{f.title}</h3>
+                  <h3 className="mt-4 font-bold text-base text-ink">{f.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-light-ink">{f.desc}</p>
                 </motion.div>
               ))}
@@ -170,7 +170,7 @@ export default function AppPageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
+              className="font-serif text-xl md:text-2xl font-bold text-ink text-center"
             >
               출시 일정
             </motion.h2>
@@ -198,7 +198,7 @@ export default function AppPageClient() {
                   >
                     {r.label}
                   </span>
-                  <p className="mt-4 font-serif text-2xl font-bold text-ink">{r.when}</p>
+                  <p className="mt-4 font-serif text-xl font-bold text-ink">{r.when}</p>
                   <p className="mt-2 text-sm leading-relaxed text-light-ink">{r.desc}</p>
                 </motion.div>
               ))}
@@ -224,7 +224,7 @@ export default function AppPageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-serif text-2xl md:text-3xl font-bold text-ink text-center"
+              className="font-serif text-xl md:text-2xl font-bold text-ink text-center"
             >
               자주 묻는 질문
             </motion.h2>
@@ -262,10 +262,10 @@ export default function AppPageClient() {
               transition={{ duration: 0.6 }}
               className="rounded-2xl border border-black/5 bg-white p-7 md:p-10 shadow-sm text-center"
             >
-              <h2 className="font-serif text-xl md:text-2xl font-bold text-ink">
+              <h2 className="font-serif text-lg md:text-xl font-bold text-ink">
                 출시 소식 안내
               </h2>
-              <p className="mt-4 text-sm md:text-base leading-relaxed text-light-ink">
+              <p className="mt-4 text-sm leading-relaxed text-light-ink">
                 베타 참여 방법과 출시 일정은 준비되는 대로 이곳과 공지사항에 안내드립니다.
               </p>
               <div className="mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
