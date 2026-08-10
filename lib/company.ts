@@ -26,7 +26,7 @@ export const PRIVACY_OFFICER = {
 } as const
 
 /** 개인정보처리방침·이용약관 시행일 */
-export const EFFECTIVE_DATE = '2026년 8월 1일'
+export const EFFECTIVE_DATE = '2026년 8월 10일'
 
 /** `tel:` 링크용 (하이픈 제거) */
 export const TEL_HREF = `tel:${COMPANY.tel.replace(/-/g, '')}`
