@@ -7,6 +7,7 @@ import Section from '@/components/ui/Section'
 import ListRow from '@/components/ui/ListRow'
 import Facts from '@/components/ui/Facts'
 import Button from '@/components/ui/Button'
+import Poster from '@/components/ui/Poster'
 import { COMPANY } from '@/lib/company'
 
 export const metadata = pageMetadata({
@@ -102,6 +103,39 @@ export default function ProgramsPage() {
             <Button href="/courses#advanced" variant="outline" icon="arrow-right">
               심화과정 보기
             </Button>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="coex" title="코엑스에서" aside={<p className="text-meta text-muted">2025년 · 코엑스 컨벤션 3F 오디토리움</p>}>
+        <div className="grid gap-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
+          <div>
+            <Facts
+              facts={[
+                { label: '명상 콘서트', value: '2025년 3월 1–2일과 6월 21–22일. 1,000명 이상이 함께한 이틀의 현장 명상' },
+                {
+                  label: '그릿 워크숍',
+                  value: '2025년 10월 18–19일. 아이의 그릿과 회복탄력성을 키우는 마음근력 교육. 참가자 전원에게 어린이·청소년 마음근력 검사 제공',
+                },
+                { label: '주최', value: '내면소통연구소 · 주관 주식회사 HeKe' },
+              ]}
+            />
+            <p className="mt-6 max-w-measure text-body text-sub">
+              이른 봄과 초여름, 일상에서 빠져나와 지금 이대로, 있는 그대로의 온전함 속으로 향하는 이틀의 명상.
+              가을에는 어린이·청소년을 위한 마음근력 워크숍이 같은 자리에서 열렸습니다.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:max-w-[500px] md:justify-self-end md:gap-5">
+            <Poster
+              src="/images/posters/concert-2025-03.webp"
+              alt="2025 김주환의 내면소통 명상 콘서트 포스터 — 3월 1일부터 2일, 코엑스 컨벤션 3F 오디토리움"
+              caption="명상 콘서트 · 2025년 3월"
+            />
+            <Poster
+              src="/images/posters/grit-workshop-2025-10.webp"
+              alt="아이의 그릿과 회복탄력성을 키워주는 김주환의 마음근력 교육 워크샵 포스터 — 2025년 10월 18일부터 19일, 코엑스 컨벤션 3F 오디토리움"
+              caption="그릿 워크숍 · 2025년 10월"
+            />
           </div>
         </div>
       </Section>

@@ -55,3 +55,14 @@ verdict, DESIGN.md, and every shipping raster carrying its provenance
 - **App screens** keep an 8 px radius and a hairline: the frame of a real capture, not device chrome.
 - **Header lockup** is hidden on `/` until the hero wordmark has scrolled 200 px under it; the
   header is transparent until then. One lockup per screen.
+
+## Second batch, cited (2026-09-07, after Jaeho saw the preview)
+
+- **Hero sentence** now states the mechanism ("두려움의 뇌는 가라앉히고, 생각하는 뇌는 깨웁니다.") and
+  what the institute does, instead of repeating 12주/200시간, which the proof numbers directly below
+  already carry. The teaching's own headline ("마음근력은 근육처럼 자랍니다.") is unchanged.
+- **Every other page now opens in ink** (`components/ui/InkBand.tsx`) so a click from this hero never
+  lands on a white screen; the 한지 reading body begins below the band. The home page itself is
+  unchanged apart from the sentence. Jaeho's words: "is this intended? this whitish screen here?
+  are the punchlines best wired here you think".
+
