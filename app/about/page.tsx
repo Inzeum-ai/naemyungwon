@@ -3,6 +3,7 @@ import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
 import PageHeader from '@/components/ui/PageHeader'
 import Section from '@/components/ui/Section'
+import PhotoBleed from '@/components/ui/PhotoBleed'
 
 export const metadata = pageMetadata({
   title: '연구소 소개',
@@ -125,9 +126,9 @@ export default function AboutPage() {
                 </li>
               ))}
             </ol>
-            <div className="pt-2">
-              <p className="text-meta text-muted">세 가지 마음근력</p>
-              <ul className="mt-3 space-y-3">
+            <div className="pt-4">
+              <h3 className="text-h3">세 가지 마음근력</h3>
+              <ul className="mt-4 space-y-3">
                 {muscles.map((m) => (
                   <li key={m.title} className="flex gap-4">
                     <span className="w-24 shrink-0 text-body font-semibold text-fg">{m.title}</span>
@@ -145,32 +146,21 @@ export default function AboutPage() {
         <p className="mt-16 max-w-[18em] text-h1 text-fg md:mt-24 md:text-display">텅 빈 고요함 속의 지극한 행복.</p>
       </Section>
 
-      <Section id="professor">
-        <div className="grid gap-10 md:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] md:items-center md:gap-16">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
-            <Image
-              src="/images/joohankim_11.jpg"
-              alt="김주환 교수"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover object-top saturate-[.55]"
-            />
-          </div>
-          <div>
-            <h2 className="text-h1 md:text-display-sm">김주환 교수</h2>
-            <ul className="mt-4 space-y-1 text-body text-sub">
-              <li>연세대학교 언론홍보영상학부 교수</li>
-              <li>뇌과학 기반 내면소통명상 개발자</li>
-              <li>『내면소통』 『그릿』 『회복탄력성』 저자</li>
-            </ul>
-            <p className="mt-8 max-w-measure text-body-lg text-copy">
-              다수의 연구·저서·강연을 통해 명상을 대중과 학문의 영역에 연결하며, 마음근력은 훈련으로 기를
-              수 있다고 말해 왔습니다. 내면소통연구소에서 교육 철학, 방법론 검증, 인재 양성의 기준을
-              총괄하며 학문적 신뢰성과 방향을 책임집니다.
-            </p>
-          </div>
-        </div>
-      </Section>
+      <section id="professor" className="hairline-t">
+        <PhotoBleed src="/images/joohankim_11.jpg" alt="김주환 교수" position="50% 20%" split="text-wide" saturate={0.85}>
+          <h2 className="text-h1 md:text-display-sm">김주환 교수</h2>
+          <ul className="mt-4 space-y-1 text-body text-sub">
+            <li>연세대학교 언론홍보영상학부 교수</li>
+            <li>뇌과학 기반 내면소통명상 개발자</li>
+            <li>『내면소통』 『그릿』 『회복탄력성』 저자</li>
+          </ul>
+          <p className="mt-8 text-body-lg text-copy">
+            다수의 연구·저서·강연을 통해 명상을 대중과 학문의 영역에 연결하며, 마음근력은 훈련으로 기를
+            수 있다고 말해 왔습니다. 내면소통연구소에서 교육 철학, 방법론 검증, 인재 양성의 기준을
+            총괄하며 학문적 신뢰성과 방향을 책임집니다.
+          </p>
+        </PhotoBleed>
+      </section>
 
       <Section id="faculty" title="패컬티" lede="내면소통명상 교육을 함께 이끄는 각 분야의 지도자들입니다.">
         <ul className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6">
@@ -182,7 +172,7 @@ export default function AboutPage() {
                   alt={`${m.name} 프로필 사진`}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                  className="object-cover object-top grayscale"
+                  className="object-cover object-top"
                 />
               </div>
               <p className="mt-4 text-body font-semibold text-fg">
@@ -206,7 +196,7 @@ export default function AboutPage() {
                   alt={`${a.name} 프로필 사진`}
                   fill
                   sizes="(max-width: 640px) 50vw, 33vw"
-                  className="object-cover object-top grayscale"
+                  className="object-cover object-top"
                 />
               </div>
               <p className="mt-4 text-body font-semibold text-fg">

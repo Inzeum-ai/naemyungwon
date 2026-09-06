@@ -96,3 +96,10 @@ audience, and 김주환 교수 teaching roughly 70% of the advanced curriculum i
 - Seven 수묵 ink-wash glyphs (달 · 산 · 물 · 돌 · 소나무 · 구름 · 싱잉볼) from the app; new
   paintings generated in the same style for this site are labeled synthetic in their file names
   until 교수님 supplies or approves final artwork.
+- Copy carried over from the incumbent site (main) where no newer source exists: "매주 밤 8시
+  라이브 강연, 매월 현장 라이브 강연" (components/sections/WhatWeDo.tsx), the 연혁 including the
+  2026 entry "부설 INZEUM 내면소통연구소(내명원) 설립" (components/sections/History.tsx), and the
+  name 내면소통명상교육원 (lib/seo.ts, app/faq/page.tsx). Re-verify with the institute before any
+  print use.
+- Synthetic paintings: `public/images/sumuk/synthetic-*.png`, provenance and swap instructions in
+  `public/images/sumuk/PROVENANCE.md`. `public/og.jpg` is composed from the synthetic mountain.

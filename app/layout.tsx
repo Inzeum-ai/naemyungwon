@@ -3,6 +3,12 @@ import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, OG_IMAGE } from '@/lib/seo'
 import { organizationSchema, websiteSchema } from '@/lib/structured-data'
 import '@/styles/globals.css'
 
+// Pretendard Variable — one family for Korean and Latin (Sumuk 3.0.0 §Typography), as a dynamic
+// subset so a page only fetches the glyph ranges it uses. Linked here (not @imported in CSS) so
+// it downloads in parallel with the app stylesheet instead of after it.
+const PRETENDARD_CSS =
+  'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css'
+
 export const metadata: Metadata = {
   // 카카오톡·검색엔진이 og:image / canonical 을 절대 URL 로 읽으려면 필수입니다.
   metadataBase: new URL(SITE_URL),
@@ -37,7 +43,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <head>
+        {/* Ink before any stylesheet arrives: no white frame on a hard load. */}
+        <style dangerouslySetInnerHTML={{ __html: 'html{background:#121210}' }} />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="preload" as="style" href={PRETENDARD_CSS} />
+        <link rel="stylesheet" href={PRETENDARD_CSS} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

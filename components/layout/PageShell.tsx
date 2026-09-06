@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import type { ReactNode } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import GroundSync from './GroundSync'
 
 export type Ground = 'ink' | 'hanji'
 
@@ -16,6 +17,7 @@ type Props = {
 export default function PageShell({ ground = 'ink', bleed = false, children }: Props) {
   return (
     <div className={ground === 'hanji' ? 'ground-hanji' : 'ground-ink'} data-ground={ground}>
+      <GroundSync ground={ground} />
       <Header ground={ground} />
       <main id="main-content" className={clsx('flex min-h-screen flex-col', !bleed && 'pt-header')}>
         {children}

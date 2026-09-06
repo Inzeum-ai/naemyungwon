@@ -89,6 +89,9 @@ module.exports = {
     // Depth on ink is a surface step plus a hairline. No shadows.
     boxShadow: { none: 'none' },
     extend: {
+      // A viewport tall enough for the proof numbers to sit along the ridge inside the first
+      // viewport (home). Stacks with md: → `md:tall:block`.
+      screens: { tall: { raw: '(min-height: 900px)' } },
       borderColor: { DEFAULT: 'var(--line)' },
       spacing: {
         gutter: '24px',

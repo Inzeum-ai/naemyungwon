@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pretendard Variable — one family for Korean and Latin (Sumuk 3.0.0 §Typography).
-   Loaded from jsDelivr as a dynamic subset so a page only fetches the glyph ranges it uses. */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+/* Pretendard Variable is linked from app/layout.tsx (preload + stylesheet), not @imported here:
+   an @import at the top of the bundle made first paint wait on jsDelivr — a white screen on
+   slow hard loads. The dynamic subset declares font-display: swap on every face. */
 
 @layer base {
   :root {
@@ -16,10 +16,17 @@
   }
 
   html {
+    /* The canvas is inked before any stylesheet resolves (see the inline <style> in layout.tsx);
+       a 한지 page repaints it through GroundSync so overscroll matches the page. */
+    background: var(--bg);
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     scrollbar-color: var(--fill3) var(--bg);
+  }
+
+  html[data-ground='hanji'] {
+    background: #faf7f1;
   }
 
   body {

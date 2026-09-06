@@ -34,3 +34,24 @@ wordless two-step sequence.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the
 verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+## Deviations from the contract, cited (fix batch 2026-09-07)
+
+- **Pin is desktop-only.** Below 768 px the painting sits behind the first viewport only and does
+  not stick; body Hangul at 16 px over the bright ridge failed legibility on 390 px frames
+  (m1/m2 before the fix). The top 45 % of the painting fades into ink on every width.
+- **Proof numbers along the ridge only where the geometry allows it.** On viewports ≥ 768 px wide
+  and ≥ 900 px tall the four tabular figures sit inside viewport 1, bottom-aligned 32 svh above the
+  fold, over the faded upper slope. Below either threshold (every phone; a 1440×900 laptop with
+  browser chrome) the gap between the hero stack and the mist tops is under 150 px, so the numbers
+  open viewport 2 instead. One component, two placements, never both shown.
+- **One paper button** restored (the outline "INZEUM 앱" was app-as-the-door, dealt and not taken).
+- **Hero raster** 3200×1280 (≥ 2880 floor); alternate kept at its 2560 native width. Both synthetic,
+  labeled in the file name, the PNG tEXt, and `public/images/sumuk/PROVENANCE.md`.
+- **/programs pine painting** added where DESIGN.md's table said none — the page's one artifact,
+  in-world, synthetic and labeled.
+- **Vermilion budget** is now spent only on the mechanism numerals (1 → 2). The header's active
+  item is paper; vermilion is never a control state.
+- **App screens** keep an 8 px radius and a hairline: the frame of a real capture, not device chrome.
+- **Header lockup** is hidden on `/` until the hero wordmark has scrolled 200 px under it; the
+  header is transparent until then. One lockup per screen.

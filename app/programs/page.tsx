@@ -37,10 +37,10 @@ export default function ProgramsPage() {
 
       <div className="mx-auto w-full max-w-page px-gutter lg:px-gutter-lg" aria-hidden="true">
         <Image
-          src="/images/sumuk/pine-on-hanji.png"
+          src="/images/sumuk/synthetic-pine-on-hanji.png"
           alt=""
-          width={1800}
-          height={900}
+          width={2048}
+          height={1024}
           priority
           sizes="(max-width: 1200px) 100vw, 1200px"
           className="h-auto w-full opacity-90"

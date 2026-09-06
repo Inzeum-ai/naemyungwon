@@ -9,9 +9,17 @@ import Icon from '@/components/ui/Icon'
 import Wordmark from './Wordmark'
 import type { Ground } from './PageShell'
 
+// The lockup appears once per screen: on the home route the header stays bare and transparent
+// until the hero wordmark has scrolled under it. The active item is paper, not vermilion —
+// vermilion is the seal, never a control state (Sumuk §Color).
+const HOME_MARK_SCROLL = 200
+
 export default function Header({ ground }: { ground: Ground }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const onHome = pathname === '/'
+  const [scrolled, setScrolled] = useState(false)
+  const showMark = !onHome || scrolled
 
   // Close on navigation; lock the page while the sheet is open.
   useEffect(() => setOpen(false), [pathname])
@@ -27,14 +35,33 @@ export default function Header({ ground }: { ground: Ground }) {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
+  useEffect(() => {
+    if (!onHome) return
+    const onScroll = () => setScrolled(window.scrollY > HOME_MARK_SCROLL)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [onHome])
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   return (
     <>
-      <header className="header-ground hairline-soft-b fixed inset-x-0 top-0 z-header">
+      <header
+        className={clsx(
+          'fixed inset-x-0 top-0 z-header transition-colors duration-200 ease-standard',
+          (showMark || open) && 'header-ground hairline-soft-b',
+        )}
+      >
         <div className="mx-auto flex h-header max-w-page items-center justify-between px-gutter lg:px-gutter-lg">
-          <Link href="/" className="flex h-hit items-center rounded-sm" aria-label="INZEUM 홈">
+          <Link
+            href="/"
+            className={clsx(
+              'flex h-hit items-center rounded-sm transition-[opacity,visibility] duration-200 ease-standard',
+              !showMark && 'invisible opacity-0',
+            )}
+            aria-label="INZEUM 홈"
+          >
             <Wordmark ground={ground} height={36} priority />
           </Link>
 
@@ -48,8 +75,8 @@ export default function Header({ ground }: { ground: Ground }) {
                       href={item.href}
                       aria-current={active ? 'page' : undefined}
                       className={clsx(
-                        'flex h-hit items-center rounded-sm px-3 text-body-sm font-medium transition-colors duration-150 ease-standard',
-                        active ? 'text-brand' : 'text-sub hover:text-fg',
+                        'flex h-hit items-center rounded-sm px-3 text-body-sm transition-colors duration-150 ease-standard',
+                        active ? 'font-semibold text-fg' : 'font-medium text-sub hover:text-fg',
                       )}
                     >
                       {item.label}
@@ -92,7 +119,7 @@ export default function Header({ ground }: { ground: Ground }) {
                     aria-current={active ? 'page' : undefined}
                     className={clsx(
                       'flex min-h-row items-center justify-between py-4 text-h3',
-                      active ? 'text-brand' : 'text-fg',
+                      active ? 'text-fg' : 'text-sub',
                     )}
                   >
                     {item.label}

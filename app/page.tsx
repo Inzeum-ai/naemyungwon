@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button'
 import Section from '@/components/ui/Section'
 import ListRow from '@/components/ui/ListRow'
 import Numbers from '@/components/ui/Numbers'
+import PhotoBleed from '@/components/ui/PhotoBleed'
 import Icon from '@/components/ui/Icon'
 
 const figures = [
@@ -38,6 +39,9 @@ const gatherings = [
   { when: '10월', title: '존2 달리기', sub: '한강공원에서 함께 뛰는 운동 모임' },
 ]
 
+const textLink =
+  'inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg'
+
 export default function Home() {
   return (
     <PageShell bleed>
@@ -55,7 +59,7 @@ export default function Home() {
             }}
           >
             <Image
-              src="/images/sumuk/mountain-on-ink.png"
+              src="/images/sumuk/synthetic-mountain-on-ink.png"
               alt=""
               fill
               priority
@@ -66,8 +70,10 @@ export default function Home() {
         </div>
 
         <div className="relative md:-mt-[100svh]">
-          {/* Viewport 1 — the name over the mountain */}
-          <section className="flex min-h-svh flex-col justify-start px-gutter pt-[calc(var(--header-h)+56px)] md:pt-[calc(var(--header-h)+96px)] lg:px-gutter-lg">
+          {/* Viewport 1 — the name over the mountain, one sentence, one paper button.
+              On a viewport tall enough (≥ 900 px) the proof numbers sit along the ridge, over the
+              faded upper slope; otherwise they open viewport 2 (see the surface brief). */}
+          <section className="flex min-h-svh flex-col px-gutter pt-[calc(var(--header-h)+56px)] md:pt-[calc(var(--header-h)+64px)] md:tall:pb-[32svh] lg:px-gutter-lg">
             <div className="mx-auto w-full max-w-page">
               <h1 className="rise" style={{ '--i': 0 } as React.CSSProperties}>
                 <Image
@@ -86,52 +92,51 @@ export default function Home() {
                 뇌과학 기반 내면소통명상을 연구하고 가르칩니다. 12주 온라인 기초과정, 그리고
                 200시간의 명상 지도자 심화과정.
               </p>
-              <div className="rise mt-8 flex flex-wrap gap-3 md:mt-10" style={{ '--i': 2 } as React.CSSProperties}>
+              <div className="rise mt-8 md:mt-10" style={{ '--i': 2 } as React.CSSProperties}>
                 <Button href="/courses#foundation" icon="arrow-right">
                   기초과정 알아보기
                 </Button>
-                <Button href="/app" variant="outline">
-                  INZEUM 앱
-                </Button>
               </div>
+            </div>
+            <div className="mx-auto mt-auto hidden w-full max-w-page pt-10 md:tall:block">
+              <Numbers figures={figures} />
             </div>
           </section>
 
           {/* Viewport 2 — the teaching, still over the mountain on desktop */}
           <section
             id="teaching"
-            className="flex flex-col justify-start px-gutter pt-16 pb-16 md:min-h-svh md:pt-[calc(var(--header-h)+56px)] md:pb-0 lg:px-gutter-lg"
+            className="flex flex-col px-gutter pt-16 pb-16 md:min-h-svh md:pt-[calc(var(--header-h)+56px)] md:pb-0 lg:px-gutter-lg"
           >
             <div className="mx-auto w-full max-w-page">
-              <Numbers figures={figures} />
-              <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-[1fr_1.2fr] md:gap-16">
+              <Numbers figures={figures} className="md:tall:hidden" />
+              <div className="mt-16 grid gap-10 md:mt-24 md:tall:mt-0 md:grid-cols-[1fr_1.2fr] md:gap-16">
                 <div>
                   <h2 className="max-w-[14em] text-h1 md:text-display">마음근력은 근육처럼 자랍니다.</h2>
                   <p className="mt-6 max-w-measure text-body-lg text-sub">
                     타고나는 것이 아니라 반복으로 길러집니다. 내면소통명상의 원리는 두 단계이고, 순서가
                     중요합니다.
                   </p>
-                  <Link
-                    href="/about#teaching"
-                    className="mt-8 inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg"
-                  >
+                  <Link href="/about#teaching" className={`mt-8 ${textLink}`}>
                     내면소통명상이란
                     <Icon name="arrow-right" size={16} />
                   </Link>
                 </div>
-                <ol className="hairline-t">
-                  {steps.map((s) => (
-                    <li key={s.n} className="hairline-soft-b flex gap-6 py-6">
-                      <span className="tnum w-8 shrink-0 text-h2 text-brand">{s.n}</span>
-                      <div className="min-w-0">
-                        <h3 className="text-h3">{s.title}</h3>
-                        <p className="mt-2 max-w-measure text-body text-sub">{s.body}</p>
-                      </div>
-                    </li>
-                  ))}
-                  <li className="pt-6">
-                    <p className="text-meta text-muted">세 가지 마음근력</p>
-                    <ul className="mt-3 grid gap-4 sm:grid-cols-3">
+                <div>
+                  <ol className="hairline-t">
+                    {steps.map((s) => (
+                      <li key={s.n} className="hairline-soft-b flex gap-6 py-6">
+                        <span className="tnum w-8 shrink-0 text-h2 text-brand">{s.n}</span>
+                        <div className="min-w-0">
+                          <h3 className="text-h3">{s.title}</h3>
+                          <p className="mt-2 max-w-measure text-body text-sub">{s.body}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                  <div className="pt-8">
+                    <h3 className="text-h3">세 가지 마음근력</h3>
+                    <ul className="mt-4 grid gap-4 sm:grid-cols-3">
                       {muscles.map((m) => (
                         <li key={m.title}>
                           <p className="text-body font-semibold text-fg">{m.title}</p>
@@ -139,8 +144,8 @@ export default function Home() {
                         </li>
                       ))}
                     </ul>
-                  </li>
-                </ol>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -154,10 +159,7 @@ export default function Home() {
           title="교육과정"
           lede="기초과정을 마친 분만 심화과정에 지원할 수 있습니다. 두 단계로 이어집니다."
           aside={
-            <Link
-              href="/courses"
-              className="inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg"
-            >
+            <Link href="/courses" className={textLink}>
               교육과정 전체 보기
               <Icon name="arrow-right" size={16} />
             </Link>
@@ -183,47 +185,30 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id="professor">
-          <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center md:gap-16">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
-              <Image
-                src="/images/joohankim.jpg"
-                alt="김주환 교수"
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover saturate-[.55]"
-              />
-            </div>
-            <div>
-              <h2 className="text-h1 md:text-display">김주환 교수</h2>
-              <p className="mt-3 text-body text-sub">
-                연세대학교 언론홍보영상학부 교수 · 『내면소통』 『그릿』 『회복탄력성』 저자
-              </p>
-              <p className="mt-8 max-w-measure text-body-lg text-copy">
-                뇌과학 기반 내면소통명상을 개발하고, 다수의 연구와 저서, 강연으로 명상을 대중과 학문의
-                영역에 연결해 왔습니다. 2023년 내면소통연구소를 세워 교육 철학과 방법론, 지도자 양성의
-                기준을 직접 총괄합니다.
-              </p>
-              <Link
-                href="/about"
-                className="mt-8 inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg"
-              >
-                연구소와 사람들
-                <Icon name="arrow-right" size={16} />
-              </Link>
-            </div>
-          </div>
-        </Section>
+        <section id="professor" className="hairline-t">
+          <PhotoBleed src="/images/joohankim.jpg" alt="김주환 교수" position="50% 30%">
+            <h2 className="text-h1 md:text-display">김주환 교수</h2>
+            <p className="mt-3 text-body text-sub">
+              연세대학교 언론홍보영상학부 교수 · 『내면소통』 『그릿』 『회복탄력성』 저자
+            </p>
+            <p className="mt-8 text-body-lg text-copy">
+              뇌과학 기반 내면소통명상을 개발하고, 다수의 연구와 저서, 강연으로 명상을 대중과 학문의
+              영역에 연결해 왔습니다. 2023년 내면소통연구소를 세워 교육 철학과 방법론, 지도자 양성의
+              기준을 직접 총괄합니다.
+            </p>
+            <Link href="/about" className={`mt-8 ${textLink}`}>
+              연구소와 사람들
+              <Icon name="arrow-right" size={16} />
+            </Link>
+          </PhotoBleed>
+        </section>
 
         <Section
           id="app"
           title="INZEUM 앱"
           lede="교육원에서 배운 수련을 매일 밤 이어갑니다. 수면·명상 라이브러리, 내면AI, 내 목소리, 기록, 마음근력 검사."
           aside={
-            <Link
-              href="/app"
-              className="inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg"
-            >
+            <Link href="/app" className={textLink}>
               앱 소개
               <Icon name="arrow-right" size={16} />
             </Link>
@@ -250,10 +235,7 @@ export default function Home() {
           title="함께 모이는 날"
           lede="강의실 밖에서 이어지는 수련. 모집과 일정은 소식에서 안내합니다."
           aside={
-            <Link
-              href="/programs"
-              className="inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg"
-            >
+            <Link href="/programs" className={textLink}>
               프로그램 보기
               <Icon name="arrow-right" size={16} />
             </Link>
