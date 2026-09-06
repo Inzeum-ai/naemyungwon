@@ -1,147 +1,177 @@
+@import './tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+/* Pretendard Variable — one family for Korean and Latin (Sumuk 3.0.0 §Typography).
+   Loaded from jsDelivr as a dynamic subset so a page only fetches the glyph ranges it uses. */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 
 @layer base {
+  :root {
+    --dur-state: 150ms;
+    --dur-settle: 450ms;
+    --header-h: 64px;
+  }
+
   html {
     scroll-behavior: smooth;
-    /* 모바일 글씨 자동 크기 조절 방지 */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    scrollbar-color: var(--fill3) var(--bg);
   }
 
   body {
-    @apply bg-cloud text-ink font-display antialiased;
-    /* 한국어 줄바꿈 개선 */
+    @apply bg-bg font-sans text-copy text-body antialiased;
     word-break: keep-all;
     overflow-wrap: break-word;
-    line-height: 1.7;
+    letter-spacing: 0;
+    caret-color: var(--brand);
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* Accessibility: Respect reduced motion preference */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+  /* A ground is a remap of the same roles, never a second palette. */
+  .ground-ink,
+  .ground-hanji {
+    @apply bg-bg text-copy;
+  }
+
+  /* Legal documents — long reading on hanji. */
+  .legal-document { @apply text-body text-copy; }
+  .legal-document > p:first-child { @apply mt-0; }
+  .legal-document section { @apply hairline-soft-t mt-12 pt-8; }
+  .legal-document h2 { @apply mb-4 text-h3 text-fg; }
+  .legal-document p { @apply my-4 max-w-measure; }
+  .legal-document ul, .legal-document ol { @apply my-4 max-w-measure space-y-2 pl-6; }
+  .legal-document ul { @apply list-disc; }
+  .legal-document ol { @apply list-decimal; }
+  .legal-document a { @apply text-fg underline decoration-line underline-offset-4 hover:decoration-fg; }
+  .legal-document table { @apply my-6 w-full min-w-[640px] border-collapse text-left text-body-sm; }
+  .legal-document th { @apply hairline-t hairline-b px-3 py-3 font-semibold text-fg; }
+  .legal-document td { @apply hairline-soft-b px-3 py-3 align-top; }
+
+  h1, h2, h3, h4 {
+    @apply text-fg;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* The browser's own surfaces carry the design too. Selection is the one place the
+     seal appears without being spent by the page. */
+  ::selection {
+    background: var(--brand);
+    color: var(--on-brand);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--text-display);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--fill3);
+    border-radius: 9999px;
+    border: 2px solid var(--bg);
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--header-h) + 24px);
+  }
+
+  button, [role='button'], a {
+    touch-action: manipulation;
+  }
+
+  /* Native controls on a dark ground (Windows dark mode) */
+  select, input, textarea {
+    background-color: var(--surface);
+    color: var(--text-display);
   }
 }
 
 @layer components {
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  /* Hairlines — elevation on ink is a surface step plus a line, never a shadow. */
+  .hairline-t { border-top: 1px solid var(--line); }
+  .hairline-b { border-bottom: 1px solid var(--line); }
+  .hairline-soft-t { border-top: 1px solid var(--line-soft); }
+  .hairline-soft-b { border-bottom: 1px solid var(--line-soft); }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
   }
 
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3 bg-mountain-deep text-white rounded-lg font-bold transition-all duration-300 hover:bg-mountain-mid hover:shadow-lg;
+  /* Sticky header ground: the page's own bg at 78 %, blurred. The only blur on the site
+     besides the hero's atmosphere. */
+  .header-ground {
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3 border border-mountain-deep text-mountain-deep rounded-lg font-bold transition-all duration-300 hover:bg-mountain-deep hover:text-white;
+  /* ── Motion — one curve (Sumuk settle), two durations. ───────────────────────────── */
+
+  /* The page's one authored entrance: the hero stack rises once, staggered 80 ms. */
+  .rise {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: rise var(--dur-settle) var(--ease-settle) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
+  }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .card {
-    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300;
+  /* Expressive: no trigger, 6 s, breath-paced. Only the hero painting breathes. */
+  .breathe {
+    animation: breathe 6s var(--ease-standard) infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.74; }
   }
 
-  .section-title {
-    @apply font-serif text-4xl md:text-5xl font-bold text-ink leading-tight;
+  /* Disclosure body — grid-rows transition so height animates on the compositor's terms. */
+  .disclosure-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 240ms var(--ease-settle);
+  }
+  .disclosure-body[data-open='true'] {
+    grid-template-rows: 1fr;
+  }
+  .disclosure-body > div {
+    overflow: hidden;
   }
 
-  .section-subtitle {
-    @apply text-lg md:text-xl text-light-ink leading-relaxed;
+  /* Pressable: answers the hand in 120 ms (Sumuk motion.press). */
+  .pressable {
+    transition: transform 120ms var(--ease-standard), background-color var(--dur-state) var(--ease-standard),
+      color var(--dur-state) var(--ease-standard), border-color var(--dur-state) var(--ease-standard);
   }
-
-  .legal-document {
-    @apply text-sm leading-7 text-light-ink;
-  }
-
-  .legal-document > p:first-child {
-    @apply mt-0;
-  }
-
-  .legal-document section {
-    @apply mt-10 border-t border-black/5 pt-8;
-  }
-
-  .legal-document h2 {
-    @apply mb-4 font-serif text-lg font-bold leading-snug text-ink md:text-xl;
-  }
-
-  .legal-document p {
-    @apply my-4;
-  }
-
-  .legal-document ul,
-  .legal-document ol {
-    @apply my-4 space-y-2 pl-6;
-  }
-
-  .legal-document ul {
-    @apply list-disc;
-  }
-
-  .legal-document ol {
-    @apply list-decimal;
-  }
-
-  .legal-document a {
-    @apply font-semibold text-mountain-deep underline decoration-mountain-deep/30 underline-offset-4 hover:decoration-mountain-deep;
-  }
-
-  .legal-document table {
-    @apply my-5 min-w-[640px] w-full border-collapse text-left text-sm;
-  }
-
-  .legal-document th {
-    @apply border-y border-black/10 bg-haze px-4 py-3 font-bold text-ink;
-  }
-
-  .legal-document td {
-    @apply border-b border-black/10 px-4 py-3 align-top leading-6;
-  }
-
-  /* Breathing animation for CTA buttons */
-  .breathing-button {
-    animation: breathe 4s ease-in-out infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .breathing-button {
-      animation: none !important;
-    }
+  .pressable:active {
+    transform: scale(0.98);
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .gradient-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(245, 248, 250, 0) 0%,
-      rgba(245, 248, 250, 0.8) 50%,
-      rgba(245, 248, 250, 1) 100%
-    );
-  }
-
-  .hero-gradient {
-    background: linear-gradient(
-      135deg,
-      rgba(177, 206, 223, 0.3) 0%,
-      rgba(144, 182, 211, 0.2) 50%,
-      rgba(114, 162, 201, 0.1) 100%
-    );
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; opacity: 1; transform: none; }
+  .breathe { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

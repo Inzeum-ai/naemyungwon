@@ -11,7 +11,6 @@ export const metadata = pageMetadata({
 export default function DeleteAccountPage() {
   return (
     <LegalDocument
-      eyebrow="ACCOUNT DELETION"
       title="계정 및 데이터 삭제"
       description="INZEUM 계정과 계정에 저장된 데이터를 삭제하는 방법, 삭제되는 항목과 남는 항목을 안내합니다."
       effectiveDate={`시행일: ${EFFECTIVE_DATE}`}

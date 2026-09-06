@@ -11,7 +11,6 @@ export const metadata = pageMetadata({
 export default function TermsPage() {
   return (
     <LegalDocument
-      eyebrow="TERMS OF SERVICE"
       title="이용약관"
       description="INZEUM 베타 서비스의 이용 조건과 연구소 및 이용자의 권리·의무를 안내합니다."
       effectiveDate={`시행일: ${EFFECTIVE_DATE}`}

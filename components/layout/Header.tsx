@@ -1,88 +1,112 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
+import { NAV } from '@/lib/nav'
+import Icon from '@/components/ui/Icon'
+import Wordmark from './Wordmark'
+import type { Ground } from './PageShell'
 
-const navLinks = [
-  { href: '/about', label: '소개' },
-  { href: '/courses', label: '교육과정' },
-  { href: '/programs', label: '프로그램' },
-  { href: '/app', label: '앱' },
-  { href: '/community', label: '커뮤니티' },
-  { href: '/resources', label: '자료실' },
-  { href: '/faq', label: 'FAQ' },
-]
+export default function Header({ ground }: { ground: Ground }) {
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // Close on navigation; lock the page while the sheet is open.
+  useEffect(() => setOpen(false), [pathname])
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cloud/90 backdrop-blur-md border-b border-black/5">
-      <div className="px-6 md:px-12 flex h-20 items-center justify-between max-w-[1440px] mx-auto w-full">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <Image
-            src="/images/inzeum_logo.png"
-            alt="INZEUM 내면소통연구소 로고"
-            width={300}
-            height={110}
-            className="h-14 w-auto object-contain"
-            priority
-          />
+    <header className="header-ground hairline-soft-b fixed inset-x-0 top-0 z-header">
+      <div className="mx-auto flex h-header max-w-page items-center justify-between px-gutter lg:px-gutter-lg">
+        <Link href="/" className="flex h-hit items-center rounded-sm" aria-label="INZEUM 홈">
+          <Wordmark ground={ground} height={36} priority />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-semibold text-light-ink hover:text-mountain-deep transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav aria-label="주요 메뉴" className="hidden md:block">
+          <ul className="flex items-center gap-2">
+            {NAV.map((item) => {
+              const active = isActive(item.href)
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={clsx(
+                      'flex h-hit items-center rounded-sm px-3 text-body-sm font-medium transition-colors duration-150 ease-standard',
+                      active ? 'text-brand' : 'text-sub hover:text-fg',
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-2xl text-ink p-2"
-          aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
-          aria-expanded={isMenuOpen}
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
+          className="pressable -mr-2 flex h-hit w-hit items-center justify-center rounded-sm text-fg md:hidden"
         >
-          <span className="material-symbols-outlined">
-            {isMenuOpen ? 'close' : 'menu'}
-          </span>
+          <Icon name={open ? 'close' : 'menu'} size={24} />
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-black/5"
-          >
-            <nav className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-base font-semibold text-light-ink hover:text-mountain-deep transition-colors py-2"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile sheet — the whole ground, list rows, nothing else. */}
+      <div
+        id="mobile-nav"
+        hidden={!open}
+        className="fixed inset-x-0 bottom-0 top-header z-overlay overflow-y-auto bg-bg md:hidden"
+        style={{ overscrollBehavior: 'contain' }}
+      >
+        <nav aria-label="주요 메뉴 (모바일)" className="px-gutter pt-2">
+          <ul>
+            {NAV.map((item) => {
+              const active = isActive(item.href)
+              return (
+                <li key={item.href} className="hairline-soft-b">
+                  <Link
+                    href={item.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={clsx(
+                      'flex min-h-row items-center justify-between py-4 text-h3',
+                      active ? 'text-brand' : 'text-fg',
+                    )}
+                  >
+                    {item.label}
+                    <Icon name="chevron-right" className="text-muted" />
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+          <p className="mt-8 text-body-sm text-muted">
+            문의{' '}
+            <a href="mailto:official@inzeum.com" className="text-sub underline underline-offset-4">
+              official@inzeum.com
+            </a>
+          </p>
+        </nav>
+      </div>
     </header>
   )
 }

@@ -11,7 +11,6 @@ export const metadata = pageMetadata({
 export default function PrivacyPage() {
   return (
     <LegalDocument
-      eyebrow="PRIVACY POLICY"
       title="개인정보처리방침"
       description="내면소통연구소는 INZEUM 이용자의 개인정보를 필요한 범위에서 안전하게 처리합니다."
       effectiveDate={`시행일: ${EFFECTIVE_DATE}`}

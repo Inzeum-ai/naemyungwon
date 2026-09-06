@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, OG_IMAGE } from '@/lib/seo'
 import { organizationSchema, websiteSchema } from '@/lib/structured-data'
 import '@/styles/globals.css'
@@ -27,24 +27,17 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#121210',
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" 
-          rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -52,10 +45,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-cloud text-ink font-display antialiased overflow-x-hidden selection:bg-primary/30 selection:text-primary">
-        <a 
-          href="#main-content" 
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-mountain-deep focus:text-white focus:rounded"
+      <body className="ground-ink">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-modal focus:rounded-md focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-fg"
         >
           본문으로 건너뛰기
         </a>
