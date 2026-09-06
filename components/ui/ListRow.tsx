@@ -10,24 +10,29 @@ type Props = {
   external?: boolean
   /** Leading column — a date, an index, a short label. Fixed width so titles align. */
   lead?: ReactNode
+  /** An index needs two characters; a date needs six. Both share one width on desktop. */
+  leadWidth?: 'index' | 'date'
   title: ReactNode
   subtitle?: ReactNode
-  /** Trailing text (a duration, a status). The chevron follows it. */
+  /** Trailing text (a duration, a status). Sits under the title on phones. */
   trailing?: ReactNode
   className?: string
 }
 
-export default function ListRow({ href, external, lead, title, subtitle, trailing, className }: Props) {
+export default function ListRow({ href, external, lead, leadWidth = 'date', title, subtitle, trailing, className }: Props) {
   const body = (
     <>
       {lead !== undefined && (
-        <span className="tnum w-20 shrink-0 text-meta text-muted md:w-28">{lead}</span>
+        <span className={clsx('tnum shrink-0 text-meta text-muted md:w-28', leadWidth === 'index' ? 'w-6' : 'w-16')}>
+          {lead}
+        </span>
       )}
       <span className="min-w-0 flex-1">
         <span className="block text-body font-semibold text-fg md:text-h3">{title}</span>
         {subtitle && <span className="mt-1 block text-body-sm text-sub">{subtitle}</span>}
+        {trailing !== undefined && <span className="tnum mt-2 block text-meta text-muted sm:hidden">{trailing}</span>}
       </span>
-      {trailing !== undefined && <span className="tnum shrink-0 text-body-sm text-sub">{trailing}</span>}
+      {trailing !== undefined && <span className="tnum hidden shrink-0 text-body-sm text-sub sm:inline">{trailing}</span>}
       {href && (
         <Icon
           name={external ? 'arrow-up-right' : 'chevron-right'}

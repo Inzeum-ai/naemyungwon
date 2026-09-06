@@ -41,10 +41,19 @@ const gatherings = [
 export default function Home() {
   return (
     <PageShell bleed>
-      {/* ── The mountain stays. Two viewports pass over it. ───────────────────────────── */}
+      {/* ── The mountain stays. Two viewports pass over it. ─────────────────────────────
+          Desktop: the painting is sticky beneath the hero and the teaching. Phones: it sits
+          behind the hero only, so long text never scrolls across the bright ridges. The top
+          of the range fades into ink so a short viewport keeps the text legible. */}
       <div className="relative">
-        <div className="sticky top-0 h-svh overflow-hidden" aria-hidden="true">
-          <div className="breathe absolute inset-x-0 bottom-0 h-[46svh] md:h-[54svh]">
+        <div className="absolute inset-x-0 top-0 h-svh overflow-hidden md:sticky" aria-hidden="true">
+          <div
+            className="breathe absolute inset-x-0 bottom-0 h-[44svh] md:h-[min(50svh,560px)]"
+            style={{
+              maskImage: 'linear-gradient(to bottom, transparent 0%, black 45%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 45%)',
+            }}
+          >
             <Image
               src="/images/sumuk/mountain-on-ink.png"
               alt=""
@@ -56,7 +65,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative -mt-[100svh]">
+        <div className="relative md:-mt-[100svh]">
           {/* Viewport 1 — the name over the mountain */}
           <section className="flex min-h-svh flex-col justify-start px-gutter pt-[calc(var(--header-h)+56px)] md:pt-[calc(var(--header-h)+96px)] lg:px-gutter-lg">
             <div className="mx-auto w-full max-w-page">
@@ -88,10 +97,10 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Viewport 2 — the teaching, still over the mountain */}
+          {/* Viewport 2 — the teaching, still over the mountain on desktop */}
           <section
             id="teaching"
-            className="flex min-h-svh flex-col justify-start px-gutter pt-[calc(var(--header-h)+40px)] md:pt-[calc(var(--header-h)+64px)] lg:px-gutter-lg"
+            className="flex flex-col justify-start px-gutter pt-16 pb-16 md:min-h-svh md:pt-[calc(var(--header-h)+56px)] md:pb-0 lg:px-gutter-lg"
           >
             <div className="mx-auto w-full max-w-page">
               <Numbers figures={figures} />
@@ -158,6 +167,7 @@ export default function Home() {
             <ListRow
               href="/courses#foundation"
               lead="1"
+              leadWidth="index"
               title="기초과정"
               subtitle="12주 온라인. 김주환 교수가 처음부터 끝까지 직접 안내합니다."
               trailing="상시 모집"
@@ -165,6 +175,7 @@ export default function Home() {
             <ListRow
               href="/courses#advanced"
               lead="2"
+              leadWidth="index"
               title="심화과정"
               subtitle="10개월 200시간 대면. 내면소통명상 지도자(티처) 자격증을 수여합니다."
               trailing="1기 진행 중"

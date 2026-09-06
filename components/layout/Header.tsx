@@ -31,47 +31,50 @@ export default function Header({ ground }: { ground: Ground }) {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   return (
-    <header className="header-ground hairline-soft-b fixed inset-x-0 top-0 z-header">
-      <div className="mx-auto flex h-header max-w-page items-center justify-between px-gutter lg:px-gutter-lg">
-        <Link href="/" className="flex h-hit items-center rounded-sm" aria-label="INZEUM 홈">
-          <Wordmark ground={ground} height={36} priority />
-        </Link>
+    <>
+      <header className="header-ground hairline-soft-b fixed inset-x-0 top-0 z-header">
+        <div className="mx-auto flex h-header max-w-page items-center justify-between px-gutter lg:px-gutter-lg">
+          <Link href="/" className="flex h-hit items-center rounded-sm" aria-label="INZEUM 홈">
+            <Wordmark ground={ground} height={36} priority />
+          </Link>
 
-        <nav aria-label="주요 메뉴" className="hidden md:block">
-          <ul className="flex items-center gap-2">
-            {NAV.map((item) => {
-              const active = isActive(item.href)
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    aria-current={active ? 'page' : undefined}
-                    className={clsx(
-                      'flex h-hit items-center rounded-sm px-3 text-body-sm font-medium transition-colors duration-150 ease-standard',
-                      active ? 'text-brand' : 'text-sub hover:text-fg',
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
+          <nav aria-label="주요 메뉴" className="hidden md:block">
+            <ul className="flex items-center gap-2">
+              {NAV.map((item) => {
+                const active = isActive(item.href)
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? 'page' : undefined}
+                      className={clsx(
+                        'flex h-hit items-center rounded-sm px-3 text-body-sm font-medium transition-colors duration-150 ease-standard',
+                        active ? 'text-brand' : 'text-sub hover:text-fg',
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
-          className="pressable -mr-2 flex h-hit w-hit items-center justify-center rounded-sm text-fg md:hidden"
-        >
-          <Icon name={open ? 'close' : 'menu'} size={24} />
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
+            className="pressable -mr-2 flex h-hit w-hit items-center justify-center rounded-sm text-fg md:hidden"
+          >
+            <Icon name={open ? 'close' : 'menu'} size={24} />
+          </button>
+        </div>
+      </header>
 
-      {/* Mobile sheet — the whole ground, list rows, nothing else. */}
+      {/* Mobile sheet — a sibling of the header, not a child: the header's backdrop-filter would
+          otherwise become this fixed element's containing block and collapse it. */}
       <div
         id="mobile-nav"
         hidden={!open}
@@ -107,6 +110,6 @@ export default function Header({ ground }: { ground: Ground }) {
           </p>
         </nav>
       </div>
-    </header>
+    </>
   )
 }

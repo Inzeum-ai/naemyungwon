@@ -1,4 +1,6 @@
-import { pageMetadata } from '@/lib/seo'
+import { pageMetadata, hanjiViewport } from '@/lib/seo'
+
+export const viewport = hanjiViewport
 import PageShell from '@/components/layout/PageShell'
 import PageHeader from '@/components/ui/PageHeader'
 import Section from '@/components/ui/Section'

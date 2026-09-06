@@ -1,4 +1,11 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+
+/** 한지 ground pages: the browser chrome matches the paper, not the ink. */
+export const hanjiViewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#FAF7F1',
+}
 
 export const SITE_NAME = 'INZEUM 내면소통연구소'
 export const SITE_URL = 'https://inzeum.com'

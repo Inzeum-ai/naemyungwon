@@ -49,6 +49,8 @@ const roles = {
 
 module.exports = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  // Touch devices fire :hover on tap; gate every hover: utility behind (hover: hover).
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     colors: roles,
     fontFamily: {

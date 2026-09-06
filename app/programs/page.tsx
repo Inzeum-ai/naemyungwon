@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import { pageMetadata } from '@/lib/seo'
+import { pageMetadata, hanjiViewport } from '@/lib/seo'
+
+export const viewport = hanjiViewport
 import PageShell from '@/components/layout/PageShell'
 import PageHeader from '@/components/ui/PageHeader'
 import Section from '@/components/ui/Section'
@@ -74,17 +76,22 @@ export default function ProgramsPage() {
             </p>
           </div>
           <figure className="md:justify-self-end">
-            <a href="/images/retreat_poster.jpg" target="_blank" rel="noopener noreferrer" className="block max-w-[360px]">
+            <a
+              href="/images/retreat_poster.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative block aspect-[2/5] w-full max-w-[300px] overflow-hidden rounded-md border border-line-soft"
+              aria-label="2026 여름 리트릿 포스터 전체 보기 (새 창)"
+            >
               <Image
                 src="/images/retreat_poster.jpg"
-                alt="2026 내면소통명상 여름 리트릿 포스터"
-                width={1701}
-                height={5102}
-                sizes="(max-width: 768px) 100vw, 360px"
-                className="h-auto w-full rounded-md border border-line-soft"
+                alt="2026 내면소통명상 여름 리트릿 포스터 — 7월 9일부터 12일, 오대산 자연명상마을"
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-cover object-top"
               />
             </a>
-            <figcaption className="mt-3 text-meta text-muted">포스터를 누르면 크게 볼 수 있습니다.</figcaption>
+            <figcaption className="mt-3 text-meta text-muted">포스터를 누르면 전체를 볼 수 있습니다.</figcaption>
           </figure>
         </div>
       </Section>

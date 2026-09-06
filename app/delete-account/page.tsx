@@ -1,5 +1,7 @@
 import LegalDocument from '@/components/legal/LegalDocument'
-import { pageMetadata } from '@/lib/seo'
+import { pageMetadata, hanjiViewport } from '@/lib/seo'
+
+export const viewport = hanjiViewport
 import { COMPANY, EFFECTIVE_DATE } from '@/lib/company'
 
 export const metadata = pageMetadata({

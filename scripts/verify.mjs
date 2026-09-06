@@ -60,7 +60,7 @@ async function shoot(browser, path, { mobile }) {
   const dir = resolve(OUT, 'frames', slug(path))
   mkdirSync(dir, { recursive: true })
   const height = await page.evaluate(() => document.documentElement.scrollHeight)
-  const frames = mobile ? 3 : path === '/' ? 6 : 4
+  const frames = mobile ? (path === '/' ? 6 : 3) : path === '/' ? 6 : 4
   for (let i = 0; i < frames; i++) {
     const y = Math.round(Math.max(0, height - viewport.height) * (i / (frames - 1)))
     await page.evaluate((v) => window.scrollTo(0, v), y)
@@ -70,6 +70,14 @@ async function shoot(browser, path, { mobile }) {
   await page.evaluate(() => window.scrollTo(0, 0))
   await page.waitForTimeout(200)
   await page.screenshot({ path: resolve(OUT, `${slug(path)}-${mobile ? 'mobile' : 'desktop'}.png`), fullPage: true })
+
+  // The mobile sheet is the one stateful surface: capture it open once.
+  if (mobile && path === '/') {
+    await page.click('[aria-controls="mobile-nav"]')
+    await page.waitForTimeout(300)
+    await page.screenshot({ path: resolve(OUT, 'home-mobile-menu.png') })
+    await page.keyboard.press('Escape')
+  }
 
   const facts = await page.evaluate(() => {
     const overflow = document.documentElement.scrollWidth > window.innerWidth + 1
