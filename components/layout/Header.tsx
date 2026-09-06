@@ -9,17 +9,26 @@ import Icon from '@/components/ui/Icon'
 import Wordmark from './Wordmark'
 import type { Ground } from './PageShell'
 
-// The lockup appears once per screen: on the home route the header stays bare and transparent
-// until the hero wordmark has scrolled under it. The active item is paper, not vermilion —
-// vermilion is the seal, never a control state (Sumuk §Color).
+// The header is transparent while the page's own ink is under it and mirrors whatever it covers
+// once it has something to cover: on the home route it stays bare until the hero wordmark has
+// scrolled under it (one lockup per screen); on a banded page it stays bare over the ink band
+// and takes the paper's roles, wordmark and ground once the band's bottom edge has passed.
+// The active item is paper, not vermilion — vermilion is the seal, never a control state.
 const HOME_MARK_SCROLL = 200
+const HEADER_H = 64
 
-export default function Header({ ground }: { ground: Ground }) {
+type Props = { ground: Ground; reading: Ground; banded: boolean }
+
+export default function Header({ ground, reading, banded }: Props) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const onHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
+  const [pastBand, setPastBand] = useState(!banded)
   const showMark = !onHome || scrolled
+  const bare = onHome ? !scrolled : banded && !pastBand
+  // The sheet is a sibling on the page ground, so an open header stays on that ground too.
+  const onReading = banded && pastBand && !open
 
   // Close on navigation; lock the page while the sheet is open.
   useEffect(() => setOpen(false), [pathname])
@@ -36,21 +45,31 @@ export default function Header({ ground }: { ground: Ground }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
   useEffect(() => {
-    if (!onHome) return
-    const onScroll = () => setScrolled(window.scrollY > HOME_MARK_SCROLL)
+    if (!onHome && !banded) return
+    const band = banded ? document.querySelector<HTMLElement>('[data-band]') : null
+    const onScroll = () => {
+      if (onHome) setScrolled(window.scrollY > HOME_MARK_SCROLL)
+      if (band) setPastBand(band.getBoundingClientRect().bottom <= HEADER_H)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [onHome])
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [onHome, banded, pathname])
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
+  const markClass = 'col-start-1 row-start-1 transition-opacity duration-200 ease-standard'
 
   return (
     <>
       <header
         className={clsx(
           'fixed inset-x-0 top-0 z-header transition-colors duration-200 ease-standard',
-          (showMark || open) && 'header-ground hairline-soft-b',
+          !bare && 'header-ground hairline-soft-b',
+          onReading && (reading === 'hanji' ? 'ground-hanji' : 'ground-ink'),
         )}
       >
         <div className="mx-auto flex h-header max-w-page items-center justify-between px-gutter lg:px-gutter-lg">
@@ -62,7 +81,17 @@ export default function Header({ ground }: { ground: Ground }) {
             )}
             aria-label="INZEUM 홈"
           >
-            <Wordmark ground={ground} height={36} priority />
+            {banded ? (
+              // Both inks of the lockup, stacked; the one for the ground underneath is opaque.
+              <span className="grid items-center">
+                <Wordmark ground={ground} height={36} priority className={clsx(markClass, onReading && 'opacity-0')} />
+                <span aria-hidden="true" className="col-start-1 row-start-1 flex items-center">
+                  <Wordmark ground={reading} height={36} className={clsx(markClass, !onReading && 'opacity-0')} />
+                </span>
+              </span>
+            ) : (
+              <Wordmark ground={ground} height={36} priority />
+            )}
           </Link>
 
           <nav aria-label="주요 메뉴" className="hidden md:block">

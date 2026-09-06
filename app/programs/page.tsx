@@ -1,9 +1,8 @@
 import Image from 'next/image'
-import { pageMetadata, hanjiViewport } from '@/lib/seo'
-
-export const viewport = hanjiViewport
+import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
-import PageHeader from '@/components/ui/PageHeader'
+import InkBand from '@/components/ui/InkBand'
+import Paper from '@/components/ui/Paper'
 import Section from '@/components/ui/Section'
 import ListRow from '@/components/ui/ListRow'
 import Facts from '@/components/ui/Facts'
@@ -23,31 +22,21 @@ const rhythm = [
   { when: '7월', title: '여름 리트릿', sub: '3박4일 합숙. 교수님이 직접 이끄는 수련' },
   { when: '8월', title: '심화과정 연수교육', sub: '5박6일. 심화과정 안의 집중 훈련' },
   { when: '10월', title: '존2 달리기', sub: '한강공원에서 함께 뛰는 운동 모임' },
-  { when: '연중', title: '그릿 워크숍', sub: '마음근력 훈련 워크숍' },
+  { when: '10월', title: '그릿 워크숍', sub: '아이의 그릿과 회복탄력성을 키우는 마음근력 교육, 코엑스' },
   { when: '2026', title: '어린이·청소년 마음근력 클럽', sub: '2026년 출범' },
 ]
 
 export default function ProgramsPage() {
   return (
-    <PageShell ground="hanji">
-      <PageHeader
-        title="프로그램"
-        lede="강의실 밖에서 이어지는 수련입니다. 리트릿은 참가자 자신의 수련을 위한 합숙이고, 연수교육은 심화과정 안에 있는 집중 훈련입니다."
+    <PageShell reading="hanji">
+      <InkBand
+        title="산에서, 바다에서, 강가에서."
+        lede="리트릿은 오대산에서, 연수교육은 속초에서, 존2 달리기는 한강에서. 강의실 밖에서 이어지는 수련입니다."
+        painting={{ src: '/images/sumuk/synthetic-pine-on-ink.png', position: 'center 70%' }}
       />
 
-      <div className="mx-auto w-full max-w-page px-gutter lg:px-gutter-lg" aria-hidden="true">
-        <Image
-          src="/images/sumuk/synthetic-pine-on-hanji.png"
-          alt=""
-          width={2048}
-          height={1024}
-          priority
-          sizes="(max-width: 1200px) 100vw, 1200px"
-          className="h-auto w-full opacity-90"
-        />
-      </div>
-
-      <Section id="rhythm" title="한 해의 리듬" lede="해마다 돌아오는 모임입니다. 모집과 일정은 소식에서 안내합니다.">
+      <Paper>
+      <Section id="rhythm" title="한 해의 리듬" lede="해마다 돌아오는 모임입니다. 모집과 일정은 소식에서 안내합니다." hairline={false}>
         <div className="hairline-t">
           {rhythm.map((r) => (
             <ListRow key={r.title} lead={r.when} title={r.title} subtitle={r.sub} />
@@ -131,6 +120,7 @@ export default function ProgramsPage() {
           </Button>
         </div>
       </Section>
+      </Paper>
     </PageShell>
   )
 }

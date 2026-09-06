@@ -8,9 +8,12 @@ institute owns or 교수님 approves. The seven `glyph-*.png` files are the app'
 | File | Size | Made | Used on |
 |---|---|---|---|
 | `synthetic-mountain-on-ink.png` | 3200×1280 | gpt-image-2 · medium · 2026-09-07 | `/` hero (sticky mountain) |
-| `synthetic-mountain-alt-on-ink.png` | 2560×1024 | gpt-image-2 · medium · 2026-09-07 | unused alternate |
-| `synthetic-pine-on-hanji.png` | 2048×1024 | gpt-image-2 · medium · 2026-09-07 | `/programs` |
-| `synthetic-pine-on-ink.png` | 2048×1024 | same painting, ink-ground carrier | unused |
+| `synthetic-path-on-ink.png` | 3200×1280 | gpt-image-2 · medium · 2026-09-07 | `/courses` ink band (the path up) |
+| `synthetic-pine-on-ink.png` | 2048×1024 | gpt-image-2 · medium · 2026-09-07 | `/programs` ink band |
+| `synthetic-geese-on-ink.png` | 3200×1280 | gpt-image-2 · medium · 2026-09-07 | `/news` ink band (기러기, the messenger) |
+
+Every reading page opens with an ink band (`components/ui/InkBand.tsx`), so only the `-on-ink`
+carrier is shipped; `make-painting.py --only ink` skips the 한지 variant.
 
 `public/og.jpg` (1200×630) is composed from the synthetic mountain and the wordmark.
 

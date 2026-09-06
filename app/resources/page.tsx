@@ -1,8 +1,7 @@
-import { pageMetadata, hanjiViewport } from '@/lib/seo'
-
-export const viewport = hanjiViewport
+import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
-import PageHeader from '@/components/ui/PageHeader'
+import InkBand from '@/components/ui/InkBand'
+import Paper from '@/components/ui/Paper'
 import Section from '@/components/ui/Section'
 import ListRow from '@/components/ui/ListRow'
 import { YOUTUBE_URL } from '@/lib/nav'
@@ -15,10 +14,14 @@ export const metadata = pageMetadata({
 
 export default function ResourcesPage() {
   return (
-    <PageShell ground="hanji">
-      <PageHeader title="책과 강의" lede="내면소통명상은 책과 강의에서 시작되었습니다. 과정에 앞서, 또는 과정과 함께 읽고 들을 수 있습니다." />
+    <PageShell reading="hanji">
+      <InkBand
+        title="내면소통명상은 책과 강의에서 시작되었습니다."
+        lede="과정에 앞서, 또는 과정과 함께 읽고 들을 수 있는 것들입니다."
+      />
 
-      <Section id="books" title="저서">
+      <Paper>
+      <Section id="books" title="저서" hairline={false}>
         <div className="hairline-t">
           <ListRow title="내면소통" subtitle="김주환. 내면소통명상의 원리와 마음근력 훈련의 근거를 담은 책" />
           <ListRow title="그릿" subtitle="김주환. 끝까지 해내는 힘, 자기동기력에 관한 책" />
@@ -38,6 +41,7 @@ export default function ResourcesPage() {
           <ListRow href="/app" title="INZEUM 앱" subtitle="교육원에서 배운 수련을 매일 밤 이어가는 수면·명상 앱" />
         </div>
       </Section>
+      </Paper>
     </PageShell>
   )
 }

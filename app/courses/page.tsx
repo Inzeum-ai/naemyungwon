@@ -1,8 +1,7 @@
-import { pageMetadata, hanjiViewport } from '@/lib/seo'
-
-export const viewport = hanjiViewport
+import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
-import PageHeader from '@/components/ui/PageHeader'
+import InkBand from '@/components/ui/InkBand'
+import Paper from '@/components/ui/Paper'
 import Section from '@/components/ui/Section'
 import Facts from '@/components/ui/Facts'
 import Button from '@/components/ui/Button'
@@ -56,13 +55,15 @@ const advanced = [
 
 export default function CoursesPage() {
   return (
-    <PageShell ground="hanji">
-      <PageHeader
-        title="교육과정"
-        lede="기초과정에서 심화과정으로, 두 단계로 이어집니다. 기초과정을 수료한 분만 심화과정에 지원할 수 있습니다."
+    <PageShell reading="hanji">
+      <InkBand
+        title="12주로 시작해, 200시간으로 깊어집니다."
+        lede="온라인 기초과정 12주, 그리고 명상 지도자를 기르는 10개월 200시간의 심화과정. 기초과정을 수료한 분만 심화과정에 지원할 수 있습니다."
+        painting={{ src: '/images/sumuk/synthetic-path-on-ink.png' }}
       />
 
-      <Section id="foundation" title="기초과정" aside={<p className="text-meta text-muted">상시 모집</p>}>
+      <Paper>
+      <Section id="foundation" title="기초과정" aside={<p className="text-meta text-muted">상시 모집</p>} hairline={false}>
         <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
           <Facts
             facts={[
@@ -165,6 +166,7 @@ export default function CoursesPage() {
           </Button>
         </div>
       </Section>
+      </Paper>
     </PageShell>
   )
 }

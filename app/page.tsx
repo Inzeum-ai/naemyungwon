@@ -89,8 +89,8 @@ export default function Home() {
                 className="rise mt-8 max-w-[26em] text-body-lg text-copy md:mt-10 md:text-h3 md:font-normal md:leading-[1.6]"
                 style={{ '--i': 1 } as React.CSSProperties}
               >
-                뇌과학 기반 내면소통명상을 연구하고 가르칩니다. 12주 온라인 기초과정, 그리고
-                200시간의 명상 지도자 심화과정.
+                두려움의 뇌는 가라앉히고, 생각하는 뇌는 깨웁니다. 뇌과학 기반 내면소통명상을
+                연구하고 가르칩니다.
               </p>
               <div className="rise mt-8 md:mt-10" style={{ '--i': 2 } as React.CSSProperties}>
                 <Button href="/courses#foundation" icon="arrow-right">

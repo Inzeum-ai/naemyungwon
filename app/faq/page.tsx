@@ -1,8 +1,7 @@
-import { pageMetadata, hanjiViewport } from '@/lib/seo'
-
-export const viewport = hanjiViewport
+import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
-import PageHeader from '@/components/ui/PageHeader'
+import InkBand from '@/components/ui/InkBand'
+import Paper from '@/components/ui/Paper'
 import Section from '@/components/ui/Section'
 import Disclosure from '@/components/ui/Disclosure'
 import Button from '@/components/ui/Button'
@@ -73,10 +72,14 @@ const advanced = [
 
 export default function FAQPage() {
   return (
-    <PageShell ground="hanji">
-      <PageHeader title="자주 묻는 질문" lede="과정과 자격증에 관해 자주 받는 질문입니다. 여기에 없는 질문은 이메일로 보내 주세요." />
+    <PageShell reading="hanji">
+      <InkBand
+        title="자주 받는 질문에 미리 답합니다."
+        lede="과정과 자격증에 관해 자주 받는 질문입니다. 여기에 없는 질문은 이메일로 보내 주세요."
+      />
 
-      <Section id="general" title="내면소통명상과 기초과정" width="content">
+      <Paper>
+      <Section id="general" title="내면소통명상과 기초과정" width="content" hairline={false}>
         <div className="hairline-t">
           {general.map((f) => (
             <Disclosure key={f.q} question={f.q}>
@@ -108,6 +111,7 @@ export default function FAQPage() {
           </Button>
         </div>
       </Section>
+      </Paper>
     </PageShell>
   )
 }
