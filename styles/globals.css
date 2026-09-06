@@ -129,7 +129,7 @@
 
   /* ── Motion — one curve (Sumuk settle), two durations. ───────────────────────────── */
 
-  /* The page's one authored entrance: the hero stack rises once, staggered 80 ms. */
+  /* The page's one authored entrance: the first viewport (hero stack or ink band) rises once, staggered 80 ms. */
   .rise {
     opacity: 0;
     transform: translateY(12px);
@@ -140,7 +140,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Expressive: no trigger, 6 s, breath-paced. Only the hero painting breathes. */
+  /* Expressive: no trigger, 6 s, breath-paced. Only the page's painting (hero or band) breathes. */
   .breathe {
     animation: breathe 6s var(--ease-standard) infinite;
   }
