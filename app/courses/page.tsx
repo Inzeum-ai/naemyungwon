@@ -1,4 +1,5 @@
-import CommunityPhoto from '@/components/ui/CommunityPhoto'
+import Image from 'next/image'
+import ScrollImage from '@/components/ui/ScrollImage'
 import Disclosure from '@/components/ui/Disclosure'
 import TextLink from '@/components/ui/TextLink'
 import SectionNav from '@/components/ui/SectionNav'
@@ -7,189 +8,43 @@ import PageShell from '@/components/layout/PageShell'
 import InkBand from '@/components/ui/InkBand'
 import Paper from '@/components/ui/Paper'
 import Section from '@/components/ui/Section'
-import Facts from '@/components/ui/Facts'
 import Button from '@/components/ui/Button'
-import { COMPANY } from '@/lib/company'
 
-export const metadata = pageMetadata({
-  title: '교육과정',
-  description:
-    '12주 온라인 기초과정과 10개월 200시간의 명상 지도자 심화과정. 기초과정을 수료한 분만 심화과정에 지원할 수 있습니다.',
-  path: '/courses',
-})
-
-const advanced = [
-  {
-    title: '내면소통명상을 지도할 수 있는 명상 전문가를 양성합니다',
-    items: [
-      '편안전활의 체화라는 근본적인 변화에 초점을 맞춘 명상 지도자 양성',
-      '두 번의 집중 연수교육과 10개월에 걸친 체계적인 실습',
-      '내면 깊이 알아차리기: 매주 수행·관찰 과제를 통해 미세한 감정·감각·반응 패턴을 섬세하게 알아차리는 힘을 기릅니다',
-      '고요한 행복의 체화: 마음근력 훈련과 반복 수행, 일상 적용, 피드백을 통해 텅 빈 행복의 상태를 자연스럽게 체화합니다',
-    ],
-  },
-  {
-    title: '김주환 교수에게 내면소통명상을 직접 배웁니다',
-    items: [
-      '내면소통명상 핵심 이론 및 심화 강의',
-      '단계별 실습 지도 및 피드백 — 명상 언어, 보이스 톤, 스크립트 구조를 직접 지도',
-      '소규모 면담을 통한 심층 코칭',
-      'Q&A 세션 운영. 전 과정의 중심은 김주환 교수의 직접 교육과 피드백입니다',
-    ],
-  },
-  {
-    title: '체화 → 스크립트 → 시연 → 피드백으로 이어지는 실습형 커리큘럼',
-    items: [
-      '내부감각과 고유감각에 기반한 다양한 움직임 명상 실습',
-      '배경자아를 알아차리는 자기참조과정 훈련',
-      '명상 안내를 위한 언어, 발성, 호흡, 보이스 톤 실습',
-      '스크립트 작성 및 시연',
-      '교수와 각 분야 전문가 패컬티의 지도와 세밀한 피드백',
-    ],
-  },
-  {
-    title: '전문가 융합형 명상 지도자 교육',
-    items: [
-      '타이치, 페르시안 밀, 고대운동, 자이로키네시스, 매트운동, 움직임 해부학, 호흡법, 연기 기반 알아차림, 발성법 등 여러 분야의 패컬티가 참여합니다',
-      '지식 습득을 넘어 뇌과학 기반 움직임 명상 지도자에게 필요한 요소를 입체적으로 배웁니다',
-      '실습을 통해 실제 명상 지도에 쓸 수 있는 역량을 기릅니다',
-    ],
-  },
-]
+export const metadata = pageMetadata({ title: '교육과정', description: '나를 돌보는 12주 온라인 기초과정에서, 타인을 안내하는 200시간 심화과정으로. 배움과 수련, 공동체로 이어지는 내면소통명상 교육.', path: '/courses' })
+const GUIDE = 'https://inzeum.web.app/public/foundation-course-5/index.html'
+const APPLY = 'https://forms.gle/NGQEJXWW7i5N7XHE9'
 
 export default function CoursesPage() {
-  return (
-    <PageShell reading="hanji">
-      <InkBand
-        title="12주로 시작해, 200시간으로 깊어집니다."
-        lede="온라인 기초과정 12주, 그리고 명상 지도자를 기르는 10개월 200시간의 심화과정. 기초과정을 수료한 분만 심화과정에 지원할 수 있습니다."
-        painting={{ src: '/images/sumuk/synthetic-path-on-ink-v2.webp', mobileSrc: '/images/sumuk/synthetic-path-mobile-v2.webp' }}
-      />
-
-      <Paper>
-      <SectionNav items={[{ href: "#foundation", label: "기초과정" }, { href: "#advanced", label: "심화과정" }, { href: "#faq", label: "자주 묻는 질문" }, { href: "#apply", label: "수강 문의" }]} />
-      <Section id="foundation" title="기초과정" aside={<p className="text-meta text-muted">상시 모집</p>} hairline={false}>
-        <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
-          <Facts
-            facts={[
-              { label: '형식', value: '12주 온라인' },
-              { label: '강의', value: '매주 수요일 동영상 강의 업로드' },
-              { label: '지도', value: '김주환 교수 단독' },
-              { label: '수료', value: '12주를 모두 마치면 기초과정 수료증' },
-              { label: '다음 단계', value: '심화과정 지원 자격' },
-            ]}
-          />
-          <div className="max-w-measure space-y-5 text-body text-copy">
-            <p>
-              기초과정은 온라인 교육으로 최고의 명상 경험을 드리는 것을 목표로 합니다. 다른 특별 강사나
-              초대 손님 없이, 처음부터 끝까지 김주환 교수가 책임지고 내면소통명상의 세계로 안내합니다.
-            </p>
-            <p>
-              12주 동안 매주 수요일에 동영상 강의가 업로드됩니다. 모든 과정을 마친 분께는 기초과정
-              수료증을 드리며, 기초과정 수료자만 이후에 열리는 심화과정에 지원할 수 있습니다. 심화과정까지
-              마치면 소수 정예의 지도자 과정에 지원할 수 있습니다.
-            </p>
-            <div className="course-actions">
-              <Button href={`mailto:${COMPANY.serviceEmail}?subject=${encodeURIComponent('기초과정 수강 문의')}`} icon="arrow-up-right">기초과정 수강 문의</Button>
-              <TextLink href="/news">모집 소식</TextLink>
-            </div>
-            <div className="hairline-t pt-5">
-              <h3 className="text-h3">수강 안내</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-body-sm text-sub">
-                <li>기초과정은 원칙적으로 원하시는 분 모두에게 수강 기회를 드리고자 합니다.</li>
-                <li>과정이 우선적으로 필요하다고 판단되는 분들께 먼저 기회를 드리며, 합격·불합격의 개념이 아닙니다.</li>
-                <li>기초과정은 앞으로도 계속 열립니다. 이번에 선발되지 않으셨더라도 기회는 계속 있습니다.</li>
-              </ul>
-            </div>
+  return <PageShell reading="hanji">
+    <InkBand title={<>나를 돌보는 힘,<br />누군가를 이끄는 힘.</>} lede="몸으로 배우고, 일상에서 익히고, 함께 나눕니다. 내면소통명상을 처음 만나는 분부터 명상 지도자를 꿈꾸는 분까지." painting={{ src: '/images/sumuk/synthetic-path-on-ink-v2.webp', mobileSrc: '/images/sumuk/synthetic-path-mobile-v2.webp' }} />
+    <Paper>
+      <SectionNav items={[{ href:'#foundation',label:'나를 위한 기초과정' },{ href:'#advanced',label:'지도자를 위한 심화과정' },{ href:'#community',label:'함께하는 수련' },{ href:'#faq',label:'수강 안내' }]} />
+      <Section id="foundation" hairline={false}>
+        <div className="course-editorial">
+          <div className="course-portrait"><Image src="/images/joohankim_11.jpg" alt="내면소통명상을 안내하는 김주환 교수" width={900} height={1000} sizes="(max-width:767px) 100vw, 45vw" /><p>김주환 교수 · 『내면소통』 저자</p></div>
+          <div className="course-intro"><p className="eyebrow">01 · 기초과정</p><h2>하루의 나를<br />돌보는 연습.</h2><p className="course-lead">생각을 멈추려고 애쓰기보다,<br />지금의 몸과 호흡을 알아차리는 것부터.</p><p>김주환 교수의 안내로 내면소통명상의 이론과 수행법을 배웁니다. 내 속도로 반복할 수 있는 온라인 수업입니다.</p>
+            <dl className="course-facts"><div><dt>기간</dt><dd>12주</dd></div><div><dt>형식</dt><dd>온라인</dd></div><div><dt>강의</dt><dd>약 30시간</dd></div></dl>
+            <div className="course-enrollment"><p>기초과정 5기 · 9월 16일 개강</p><span>2026년 9월 10일 지원 마감 · 공식 안내 기준</span><Button href={GUIDE} icon="arrow-up-right">5기 모집 안내 보기</Button></div>
           </div>
         </div>
+        <div className="learning-outcomes">{[{n:'01',title:'몸의 감각을 읽고',body:'호흡과 움직임에 주의를 기울이며 나의 상태를 알아차립니다.'},{n:'02',title:'나와 대화하고',body:'생각과 감정에서 한 발 물러서고, 자기 자신을 긍정하는 연습을 합니다.'},{n:'03',title:'일상에서 이어갑니다',body:'강의를 다시 듣고 수련하며, 나에게 맞는 반복의 리듬을 찾습니다.'}].map(x=><div key={x.n}><span>{x.n}</span><h3>{x.title}</h3><p>{x.body}</p></div>)}</div>
+        <div className="course-detail-fold"><Disclosure question="수강료와 지원 절차"><p>5기 신규 수강은 40만 원, 기초과정 1–4기 재수강은 10만 원입니다. 교육사이트 회원가입 후 지원서를 제출하면 검토 후 개별 등록 안내를 받습니다.</p><div className="mt-5 flex flex-wrap gap-5"><TextLink href="https://edu.inzeum.com">교육사이트 회원가입</TextLink><TextLink href={APPLY}>5기 지원서 작성</TextLink></div><p className="mt-4">수강 시작 전까지 전액 환불 안내가 제공됩니다. 상세 조건과 최신 일정은 공식 모집 안내를 확인해 주세요.</p></Disclosure><Disclosure question="수료 후에는 어떤 길이 열리나요?"><p>기초과정 수료증이 발급되며, 2027년도 심화과정에 지원할 자격이 주어집니다. 바로 지도자를 목표로 하지 않아도, 배운 수련을 일상에서 계속 이어갈 수 있습니다.</p></Disclosure></div>
       </Section>
-
-      <Section
-        id="advanced"
-        title="심화과정"
-        aside={<p className="text-meta text-muted">1기 진행 중 · 2026년 3월–12월</p>}
-      >
-        <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
-          <Facts
-            facts={[
-              { label: '형식', value: '10개월 / 200시간 대면 교육' },
-              { label: '자격', value: '내면소통명상 지도자(티처) 자격증' },
-              { label: '지원', value: '기초과정 수료자(수료 예정 포함)' },
-              { label: '구성', value: '김주환 교수 약 70%, 패컬티 약 30%' },
-              { label: '연수', value: '두 번의 합숙 연수교육' },
-            ]}
-          />
-          <div className="max-w-measure space-y-5 text-body text-copy">
-            <p>
-              심화과정은 뇌과학 기반 내면소통명상을 지도할 수 있는 공식 명상 지도자를 양성하는 과정으로,
-              2026년 12월까지 10개월 동안 총 200시간으로 구성되는 집중 교육과정입니다.
-            </p>
-            <p>
-              수료하면 내면소통명상 지도자(티처) 자격증이 수여됩니다. 내면소통연구소가 발급하는 공식 민간
-              자격으로, 뇌과학 기반 내면소통명상을 제대로 교육할 수 있는 전문가임을 보증합니다.
-            </p>
-            <div className="hairline-t pt-5">
-              <h3 className="text-h3">티처 자격을 취득하면</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-body-sm text-sub">
-                <li>독자적으로 내면소통명상을 지도할 수 있습니다.</li>
-                <li>내면소통명상 워크숍이나 교육과정을 개설할 수 있습니다.</li>
-                <li>
-                  요가, 필라테스, 명상, 피트니스, 소매틱스, 타이치 등 기존 교육 프로그램에 내면소통명상의
-                  요소를 접목해 자신만의 명상 교육 프로그램을 개발·운영할 수 있습니다.
-                </li>
-              </ul>
-            </div>
-            <p className="text-body-sm text-muted">
-              심화과정은 원칙적으로 대면 교육 200시간으로 구성되며, 부득이한 사유로 일부 참여가 어려운
-              경우 정해진 범위 안에서 온라인 수강으로 대체할 수 있습니다.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-16 grid gap-12 md:mt-24 md:grid-cols-2 md:gap-x-16 md:gap-y-14">
-          {advanced.map((f) => (
-            <div key={f.title} className="hairline-t pt-6">
-              <h3 className="max-w-measure text-h3">{f.title}</h3>
-              <ul className="mt-4 max-w-measure list-disc space-y-2 pl-5 text-body-sm text-sub">
-                {f.items.map((it) => (
-                  <li key={it}>{it}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+      <Section id="advanced">
+        <div className="course-editorial course-editorial-reverse"><div className="course-intro"><p className="eyebrow">02 · 심화과정 / 1기 진행 중</p><h2>수련자에서,<br />안내자로.</h2><p className="course-lead">내가 경험한 고요함을<br />나만의 언어로 전할 수 있도록.</p><p>명상을 직접 설계하고, 다른 사람 앞에서 안내하고, 피드백을 받습니다. 김주환 교수와 움직임·호흡·발성 분야 패컬티가 함께합니다.</p><dl className="course-facts"><div><dt>기간</dt><dd>10개월</dd></div><div><dt>교육</dt><dd>200시간</dd></div><div><dt>지원 자격</dt><dd>기초 수료</dd></div></dl><TextLink href="/programs#training">8월 집중 연수 살펴보기</TextLink></div><ScrollImage src="/images/community/somatic-ribbon-practice.webp" alt="리본을 움직이며 몸의 감각을 익히는 센터리듬 수련 참가자들" width={1000} height={750} caption="센터리듬 수련 · 심화과정 커뮤니티 기록" source="https://cafe.naver.com/joohankimlab/12939" /></div>
+        <ol className="practice-process">{[['체화','몸으로 원리를 익힙니다.'],['설계','나의 명상 대본을 씁니다.'],['시연','사람들 앞에서 안내합니다.'],['피드백','함께 돌아보고 다듬습니다.']].map(([title,body],i)=><li key={title}><span>0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol>
+        <Disclosure question="심화과정의 구성과 수료 안내"><p>1기는 2026년 3월부터 12월까지 진행됩니다. 대면 교육과 두 차례의 합숙 연수를 중심으로, 개인 수행·대본 작성·명상 안내 실습을 이어갑니다. 일부 온라인 대체와 수료 요건은 과정별 안내를 따릅니다.</p><p className="mt-3">수료 시 연구소의 내면소통명상 지도자(티처) 자격을 취득하는 과정입니다. 이후 자신이 가르치는 움직임·요가·명상 등의 프로그램에 내면소통명상을 연결하는 길을 준비합니다.</p></Disclosure>
       </Section>
-
-      <Section id="practice" title="수련은 일상에서도 이어집니다." lede="심화과정 소통 게시판에 나눈 속리산 산행 명상의 기록입니다.">
-        <div className="grid items-start gap-8 md:grid-cols-2 md:gap-12">
-          <CommunityPhoto src="/images/community/lakeside-practice.webp" alt="나무 그늘 아래 호수를 바라보며 앉아 있는 명상 참가자들" caption="호숫가에서의 명상" source="https://cafe.naver.com/joohankimlab/11538" width={1600} height={1200} />
-          <CommunityPhoto src="/images/community/forest-practice.webp" alt="숲에서 팔을 펼치고 움직임 명상을 하는 참가자들" caption="몸을 움직이며 이어가는 수련" source="https://cafe.naver.com/joohankimlab/11538" width={1600} height={900} className="md:pt-16" />
-        </div>
+      <Section id="community" title="혼자 배워도, 혼자 남지 않도록." lede="수련을 나누고, 서로의 경험에서 배우고, 다시 만날 사람들. 교육은 수행공동체로 이어집니다.">
+        <ScrollImage src="/images/community/forest-practice.webp" alt="속리산 숲에서 함께 움직임 명상을 하는 참가자들" caption="속리산 산행 명상 · 심화과정 참가자의 기록" source="https://cafe.naver.com/joohankimlab/11538" />
+        <div className="mt-8 flex flex-wrap gap-6"><TextLink href="https://cafe.naver.com/joohankimlab">수행공동체 만나보기</TextLink><TextLink href="/programs">리트릿과 명상 콘서트</TextLink></div>
       </Section>
       <Section id="faq" title="시작하기 전에" width="content">
-        <div className="hairline-t">
-          <Disclosure question="명상 경험이 없어도 수강할 수 있나요?"><p>네. 기초과정은 명상 경험이 없는 분도 기본부터 차근차근 배울 수 있도록 구성되어 있습니다.</p></Disclosure>
-          <Disclosure question="온라인으로 수강할 수 있나요?"><p>기초과정은 12주 온라인으로 진행됩니다. 심화과정은 원칙적으로 대면 교육 200시간으로 구성됩니다.</p></Disclosure>
-          <Disclosure question="기초과정 다음에는 무엇을 배울 수 있나요?"><p>기초과정을 수료한 분은 심화과정에 지원할 수 있습니다. 심화과정에서는 수련과 지도 실습을 이어갑니다.</p></Disclosure>
-        </div>
-        <TextLink href="/faq" className="mt-6">자주 묻는 질문 전체 보기</TextLink>
+        <Disclosure question="명상 경험이 없어도 괜찮나요?"><p>네. 기초과정은 내면소통명상의 이론과 수행법을 처음부터 배울 수 있도록 구성됩니다. 신비한 체험이나 질환의 치료를 목적으로 하는 과정은 아닙니다.</p></Disclosure>
+        <Disclosure question="매주 정해진 시간에 들어야 하나요?"><p>매주 수요일 새 동영상 강의가 업로드되는 온라인 과정입니다. 구체적인 수강 가능 기간과 방법은 교육사이트의 과정 안내를 확인해 주세요.</p></Disclosure>
+        <Disclosure question="어떤 과정을 선택하면 좋을까요?"><p>자신의 수련을 시작하고 싶다면 기초과정부터. 기초과정을 수료하고 타인을 안내하는 법을 배우고 싶다면 심화과정에 지원할 수 있습니다.</p></Disclosure>
       </Section>
-      <Section id="apply" width="content">
-        <h2 className="text-h1">수강 문의</h2>
-        <p className="mt-4 max-w-measure text-body-lg text-sub">
-          현재 모집과 수강료, 신청 방법은 연구소에 문의해 주세요. 다음 모집 공고는 소식에서 확인할 수 있습니다.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/news" variant="outline" icon="arrow-right">
-            모집 소식
-          </Button>
-          <Button href={`mailto:${COMPANY.serviceEmail}`} variant="ghost" icon="mail">
-            {COMPANY.serviceEmail}
-          </Button>
-        </div>
-      </Section>
-      </Paper>
-    </PageShell>
-  )
+      <Section id="apply" title="첫 수련을 시작해 보세요." width="content"><p className="text-body-lg text-sub">5기 일정과 지원 방법을 확인하고, 나에게 맞는 배움인지 살펴보세요.</p><div className="mt-8 flex flex-wrap gap-5"><Button href={GUIDE} icon="arrow-up-right">공식 모집 안내</Button><TextLink href="mailto:official@inzeum.com">수강 문의</TextLink></div></Section>
+    </Paper>
+  </PageShell>
 }

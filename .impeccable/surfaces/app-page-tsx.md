@@ -3,15 +3,15 @@
 Updated 2026-09-08 after the user explicitly requested the saved September 6 references.
 Supersedes the v2 homepage at 53c410f; the prior surface remains in git history.
 
-Current direction: ../../docs/design/reference-motion-direction.md.
+Current direction: ../../docs/design/vision-and-experience.md.
 Current verification: ../../design-qa.md.
 
-Full-viewport ink/lake scene, oversized live 내면소통 heading, one short explanation and
+Full-viewport ink/lake scene, live mission heading “명상하는 나라를 만듭니다.”, one short explanation and
 course action. Native sticky scroll reveals a real photograph. Desktop uses forest practice;
 phone uses the portrait retreat room. Correct source captions remain with each.
 
-Then: concise teaching statement → professor → two large course links → image-led programs
-→ app showcase → closing course CTA. Detailed teaching and course information stays on
+Then: mission and four linked pillars → professor → two large course links → image-led programs
+→ personalized AI story → app showcase → planned INZEUM Hall → closing course CTA. Detailed teaching and course information stays on
 existing routes. The Sumuk palette, wordmark, real-photo provenance and legal copy remain.
 
 WebGL acts only on the authored texture, with small water/pointer response. Paused, offscreen,

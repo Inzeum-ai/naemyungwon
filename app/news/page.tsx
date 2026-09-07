@@ -38,6 +38,9 @@ export default function NewsPage() {
 
       <Paper>
       <SectionNav items={[{ href: "#channels", label: "안내 채널" }, { href: "#timeline", label: "지난 소식" }]} />
+      <Section id="foundation-5" title="기초과정 5기 모집 안내" lede="2026년 9월 16일 오후 8시 개강 · 12주 온라인 · 9월 10일 지원 마감" hairline={false}>
+        <Button href="https://inzeum.web.app/public/foundation-course-5/index.html" icon="arrow-up-right">공식 일정과 지원 안내</Button>
+      </Section>
       <Section id="channels" title="안내를 받으려면" width="content" hairline={false}>
         <div className="hairline-t">
           <ListRow href={YOUTUBE_URL} external title="유튜브 커뮤니티" subtitle="모집 공고와 라이브 강연 안내가 먼저 올라옵니다" />

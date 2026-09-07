@@ -1,3 +1,4 @@
+import AiStory from '@/components/ui/AiStory'
 import SectionNav from '@/components/ui/SectionNav'
 import Image from 'next/image'
 import { pageMetadata } from '@/lib/seo'
@@ -107,8 +108,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionNav items={[{ href: "#teaching", label: "내면소통명상" }, { href: "#professor", label: "김주환 교수" }, { href: "#faculty", label: "패컬티" }, { href: "#advisors", label: "자문위원" }, { href: "#history", label: "연혁" }]} />
+      <SectionNav items={[{ href: "#vision", label: "비전" }, { href: "#ai-native", label: "AI Native" },{ href: "#teaching", label: "내면소통명상" }, { href: "#professor", label: "김주환 교수" }, { href: "#faculty", label: "패컬티" }, { href: "#advisors", label: "자문위원" }, { href: "#history", label: "연혁" }]} />
 
+      <Section id="vision" title="명상하는 나라를 만듭니다." lede="한 사람의 수련이 일상의 문화가 되도록.">
+        <div className="learning-outcomes"><div><span>교육 · 수행공동체</span><h3>함께 배우는 사람들</h3><p>자신의 마음근력을 기르고, 다른 사람의 수련을 안내할 지도자를 양성합니다. 콘서트와 리트릿, 일상의 모임으로 배움을 이어갑니다.</p></div><div><span>기술 · 일상</span><h3>한 사람에게 닿는 명상</h3><p>한국의 명상 전통을 IT와 인공지능에 연결합니다. 개인의 맥락을 이해하는 수련 경험을 더 넓은 세계에 전하고자 합니다.</p></div><div><span>공간 · 문화</span><h3>머물고 만나는 자리</h3><p>명상이 일상의 선택이 될 수 있도록, 함께 수련할 인지움 홀을 준비합니다.</p><TextLink href="/space" className="mt-4">공간의 구상</TextLink></div></div>
+      </Section>
+      <AiStory full />
       <Section id="teaching" title="내면소통명상이란">
         <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
           <blockquote className="max-w-measure">

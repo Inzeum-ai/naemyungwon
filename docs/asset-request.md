@@ -51,3 +51,8 @@
 ## 2026-09-08 추가 수령
 
 사용자가 네이버카페 이미지 후보 원본 58장과 출처 manifest를 제공했습니다. 산행 명상 2장, 콘서트 객석, 리트릿 수련 공간, 오대산 산책길, 존2운동 단체사진을 선별해 홈·교육과정·프로그램에 반영했습니다. 출처와 실제 사용 파일은 public/images/community/sources.json에 기록했습니다. 영상과 6월 콘서트의 잘리지 않은 포스터 원본은 여전히 미수령입니다.
+
+
+### 2026-09-08 vision revision
+
+Added the supplied 2026 Woljeongsa retreat group photograph and center-rhythm community practice image. The latter is explicitly labelled as a community image, not August event coverage. Still need actual August 26–31 training photographs, workshop closeups and approved video. INZEUM Hall uses supplied proposal renderings, not finished-space photos; replace/update when the design and opening details are confirmed.

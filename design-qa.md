@@ -1,109 +1,57 @@
-# Design QA — reference-driven revision, 2026-09-08
+# Vision and experience refinement — design QA
 
 final result: passed
 
-Current scope: the revised homepage and its motion. The prior whole-site verification is
-preserved in commit 53c410f. Detail-page content, legal text, roster and asset sources from
-that pass are retained. No actionable P0/P1/P2 findings remain in this revision's review.
+Date: 2026-09-08. Branch: codex/sumuk-evolution. Preview: http://localhost:3315/.
 
-## Visual truth and comparison
+## Source and visual comparison
 
-- Saved gallery: /Users/jaehoshin/Code/viberick/design-refs/index.html (September 6).
-- Inspected Basement f0/f1 and Darkroom f0/f1; inspected their live scene/scroll behavior.
-- Revised visual target:
-  /Users/jaehoshin/.codex/generated_images/01a07c83-eb38-7791-a995-496141a3814e/exec-d9f8eda9-4b8d-4f12-bb72-019c4f9da642.png
-- Implementation: http://localhost:3315/.
-- Comparison: docs/design-review/motion-v3/comparison.png, source left / implementation right.
-- Main capture: docs/design-review/motion-v3/desktop-start-final.png.
-- Source pixels: 1505×1045. Browser capture: 1425×990 from a 1440×1000 CSS viewport.
-  Both were aspect-contained into 1440×1000 for comparison; the tool's output scaling is
-  not treated as a fidelity defect. Independent deviceScaleFactor is not claimed.
-- State: ink chapter, top of page. The typography intentionally follows the brief's larger
-  180px desktop display scale; the generated study rendered the headline smaller.
+Source truth: the user's selected current ink/lake homepage screenshot at `/var/folders/rs/5zxxffr5607d14b2ht7bq0780000gn/T/codex-clipboard-340f67f1-ecee-4142-994b-e6dfe5203c5a.png` (1871×930). Explicit requested deviations: mission-led heading, richer event chapters, less course prose, AI-native company/product story, planned hall and additional image movement.
 
-The combined comparison is sufficient for composition; the native desktop and phone captures separately expose the short lead and CTA at readable scale, so no further typography crop was required.
+Implementation: `docs/design-review/vision-v4/home-desktop.png`, browser CSS viewport 1871×930, captured image 1856×923 (in-app browser capture scaling). Both source and implementation aspect-contained in 1120×557 panels of `hero-comparison.png`; no geometric stretching. Top-of-home state, ink theme, motion paused. The panorama and minimal header remain; the smaller two-line mission headline and additional space link are intentional. Source and implementation were opened together in the combined image, then typography and controls inspected at full viewport resolution. This is a requested evolution, not an exact clone of the old text.
+
+Hall visual source: supplied PDF page 10, original embedded 1920×1080 rendering, visually opened and extracted. Original material, lighting and geometry retained; captions label it a proposal. Pages 9 and 13 also visually inspected. No screenshot-derived floor plan or invented completed venue.
+
+## Findings and corrections
+
+- P2, mobile course conversion: initial photo-first order pushed the value and application guidance multiple screens below the anchor. Fixed by showing the introduction, formats and enrollment CTA first on phones. After: `courses-mobile-final.png` at 390×844 CSS (375×812 capture); CTA visible in the first anchored viewport. Desktop keeps the editorial portrait/copy pair.
+- P2, photo edge protection: a fixed 18px image offset could exceed the crop reserve of short phone images. Fixed by bounding drift to min(18px, image height × 0.02), inside the 1.045 scale reserve. Verified final scroll progress changed the visible hall image offset from -0.304px to +3.436px, with offscreen images unmeasured. Static mode reports transform:none.
+- Corrected the homepage vision link to `/about#vision` after inspecting its rendered destination.
+- Capture timing: one retreat screenshot was taken before its lazy image loaded; rejected and recaptured after complete/naturalWidth verification. Tablet navigation was initially captured during its existing color transition; settled capture verifies black navigation on paper. These were evidence timing issues, not persistent missing assets or contrast defects.
+
+No remaining actionable P0/P1/P2 findings.
 
 ## Required surfaces
 
-Typography: live Pretendard, four-character h1, normal Korean tracking, clear short lead
-and action. Stronger editorial section headings replace repeated explanatory paragraphs.
-The existing wordmark remains a real source asset. Desktop and phone line wrapping checked.
+- Typography: retained site fonts/optical hierarchy. Mission wraps into two deliberate lines. Phone course hierarchy makes purpose and logistics scannable. Full-size desktop, phone and tablet captures inspected for clipping and wrapping.
+- Spacing/layout: same ink/paper gutters, hairlines and open sections. Portrait/course details share a desktop grid; stack with copy first on phones. Space imagery preserves source aspect ratios. Modest image shadow; no new floating navigation. No horizontal overflow in measured states.
+- Colors/tokens: existing Sumuk palette; generated token check passes. Settled tablet header is rgb(13,13,12) on paper. Hall warmth comes from the supplied rendering, not a new palette.
+- Image quality: actual supplied photos, preserved source face stickers, proposal images extracted directly without upscaling, existing synthetic ink artwork still labelled. Full-image links retain access to original framing. No fake event photos or testimonials.
+- Copy/content: official mission verified; current foundation cohort replaces generic enrollment claim. AI statements checked against local app code/ADRs. Sleep research explicitly separated from available app functions; hall remains preparing. Internal operations/planning pages are not linked from public UI.
 
-Layout: full-viewport scene, then a real photographic chapter, then concise course/program/
-app choices. Native sticky scroll is 190svh desktop / 180svh phone; it does not hijack wheel
-or touch input. Short-window CTA remains inside the viewport. Phone uses a separate painting
-and a portrait photograph, with the correct caption for that image.
+## Browser coverage
 
-Colors: Sumuk palette preserved. No white/lime concept, source-site branding, red studio
-controls or invented seals introduced. Neutral actions remain legible over the imagery.
+In-app browser, existing Next production build, individual viewport captures (not broken full-page stitching).
 
-Images: two new synthetic panoramas are actual raster textures, recorded in generation-v3.json.
-The shader only displaces those source pixels. It is not presented as a full 3D environment.
-Original supplied forest-practice and retreat-room photographs supply the next chapter;
-source context remains accurate. Synthetic caption belongs to the ink scene only.
+- Desktop: 1871×930 hero; 1440×1000 course, training, AI and space views.
+- Phone: 390×844 hero, course foundation, retreat, August training, technology, space and company AI story. Evidence files under `docs/design-review/vision-v4/`; phone review composite supplemented by full-resolution course and retreat inspection.
+- Tablet: 768×1024 course; six-item desktop nav fits and settled contrast verified.
+- Short: 1024×600 hero; title bottom230, footer top480, CTA bottom536; no overlap/overflow.
+- Mobile menu: opened and navigated to courses; dialog closes on route change.
+- Course disclosure: opens fee/steps content, education and application hrefs match the official published notice. No external form submitted.
+- Hero action: navigates to `/courses#foundation` and the correct course heading.
+- Motion: WebGL active true on resume and false on pause. Prior pause preference restored. Photo movement bounded and offscreen skipped; static query returns transform:none. OS reduced-motion not toggled; its guard/CSS verified in code.
+- Console errors/warnings: none captured on reviewed final runtime.
 
-Copy: home explanation reduced to short statements and detail links. Course formats and
-inquiry destinations remain real. Full teaching detail stays on About; full course detail
-stays on Courses. Roster/legal wording untouched.
+## Build and integrity
 
-## Before / after review
+`npm run build`: passed (18 generated outputs; homepage about111kB first-load JS plus lazy scene renderer).
+`npm run tokens:check`: passed.
+`python3 scripts/check-site.py`: passed, 13 HTML routes including /space; one h1, img alt and local image/route/fragment checks.
+`git diff --check`: passed.
 
-| Before | After | Why / evidence |
-|---|---|---|
-| Static split headline and mountain | Immersive ink/lake scene | Basement's environment-first structure; comparison.png |
-| Paragraph-led homepage | Oversized type and real photographic chapters | Darkroom's hierarchy; desktop-learning.png and desktop-gatherings.png |
-| Whole-art/mist fading only | Water texture and damped pointer response | Actual WebGL renderer confirmed active; pointer capture |
-| Scroll passed a static hero | Direct native-scroll photo wipe | Desktop transition captures and walkthrough frames |
-| Cold/cached image could leave the chapter unrevealed | Eager next-chapter image plus cached-complete initialization | Fixed P1; mobile-practice-final.png, clip 0%, caption ~1 |
-| Phone explanation over bright artwork | Explanation/action moved into dark negative space | Fixed P2; mobile-start-final.png |
-| Hidden action groups remained keyboard-reachable | Exit/enter groups become inert; visible links regain tab order | Footer inert and action -1 during photo chapter; photo action 0 |
+## Remaining limitations
 
-## Interaction and fallback evidence
+Actual August event photographs and approved video still needed. Community illustration is explicitly identified, not passed off as that event. Hall opening date and final design are not established. Enrollment notice is time-sensitive (September10 deadline); recheck before later deployment. No live AI, voice, participant data, VM or paid APIs were exercised. No performance benchmark or forced GPU-loss test claimed. Production is unchanged.
 
-- Desktop renderer reported `webgl`, active true; canvas resolution bounded by the renderer.
-- Pointer interaction captured against the water region.
-- Normal scroll revealed the complete real photograph; when it covers the painting,
-  the canvas reports active false. Reverse scroll returned to ink and active rendering.
-- Pause via the actual visible control reported active false and aria-pressed true;
-  resume reported active true. Automation's locator helper centered the sticky control and
-  moved the scene; coordinate clicking the already-visible control avoided that tool artifact.
-- `?static=1` reported fallback renderer, static stage positioning, second photograph below
-  the first viewport (900px), and caption opacity 1. It uses ordinary sequential sections.
-- Reduced-motion CSS and preference handling inspected; host OS setting was not changed.
-- Primary course action reached /courses#foundation with heading at ~88px and no remaining
-  canvas in the destination. This also exercised scene unmount/cleanup.
-- No horizontal overflow at 1440×1000, 1280×900, 768×1024, 390×844 or 1024×600.
-- Short-window CTA measured top 480 / bottom 536 in a 600px viewport.
-- Browser error/warning log reads returned empty arrays.
-- Course/program links and app layout checked in desktop and phone captures. The app tab
-  component and remaining detail-page flows retain the previously verified implementation.
-
-## Artifacts
-
-All evidence is local under docs/design-review/motion-v3/:
-- desktop-start-final.png; desktop-pointer.png
-- desktop-transition-1.png; desktop-transition-2.png
-- mobile-start-final.png; mobile-practice-final.png
-- tablet-start.png; short-start.png
-- desktop-learning.png; desktop-gatherings.png; desktop-app.png; mobile-learning.png
-- comparison.png; behavior-checks.json
-- walkthrough.mp4 and walkthrough-frames.json: sampled real viewport captures, not an FPS benchmark.
-
-The earlier cold/cached-load frames are retained as failed-iteration evidence, not final
-proof. The supplied screenshots and live references are research inputs, never shipped assets.
-
-## Build checks and limits
-
-`npm run build`, `npm run tokens:check`, `python3 scripts/check-site.py` and
-`git diff --check` passed. The structural checker covers all 12 built HTML routes.
-Homepage first-load JS is about 110kB in the build report, plus the lazily loaded scene
-module; this is not a measured Core Web Vitals claim. No animation framework was added.
-
-Implementation budgets (engineering judgment, not measurements copied from a reference):
-30fps decorative rendering, maximum 1.6 million canvas pixels, maximum 1.5× density,
-small pointer displacement and a six-parameter texture shader. GPU-unavailable and lost-
-context fallback paths are implemented; context loss was not forcibly simulated.
-
-Remaining P3: final approved high-resolution artwork can replace the synthetic studies.
-The local walkthrough is sparsely sampled; use the live page to assess continuous motion.
-No deployment or production-main modification is included.
+Implementation checklist: completed. Earlier QA history is retained in git and locally in `docs/design-review/vision-v4/qa-before.md`.

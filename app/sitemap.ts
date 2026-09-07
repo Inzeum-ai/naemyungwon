@@ -7,6 +7,7 @@ const ROUTES: Array<{ path: string; priority: number }> = [
   { path: '/about', priority: 0.9 },
   { path: '/programs', priority: 0.8 },
   { path: '/app', priority: 0.8 },
+  { path: '/space', priority: 0.7 },
   { path: '/faq', priority: 0.7 },
   { path: '/resources', priority: 0.6 },
   { path: '/news', priority: 0.5 },

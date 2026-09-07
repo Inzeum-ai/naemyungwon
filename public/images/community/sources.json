@@ -68,6 +68,28 @@
       "height": "900",
       "output": "forest-practice.webp",
       "source_sha256": "90de21e65ee5a82e0beaf2c12f5413b63e4948873e80b7b042ee432b7dd31603"
+    },
+    {
+      "code": "11-11",
+      "file": "11-11_리트릿-참가자-소통_12320.jpg",
+      "board": "리트릿 참가자 소통",
+      "subject": "2026 여름 리트릿 월정사 단체사진",
+      "article_url": "https://cafe.naver.com/joohankimlab/12320",
+      "width": "1600",
+      "height": "900",
+      "output": "woljeongsa-retreat-2026.webp",
+      "source_sha256": "1eab72ad6802cf92daabc91ae1890fdef4f69ca0f0435d35d28b5c338763051a"
+    },
+    {
+      "code": "11-27",
+      "file": "11-27_심화-오프라인-소통_12939.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "리듬체조 수구와 함께 하는 <센터리듬>에 대하여",
+      "article_url": "https://cafe.naver.com/joohankimlab/12939",
+      "width": "1000",
+      "height": "750",
+      "output": "somatic-ribbon-practice.webp",
+      "source_sha256": "9c6ab1896b52cc6298d827daa4a31d09f8f282aedf4a06d2a27d5fb613617277"
     }
   ]
 }

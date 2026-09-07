@@ -1,3 +1,4 @@
+import AiStory from '@/components/ui/AiStory'
 import AppShowcase from '@/components/ui/AppShowcase'
 import SectionNav from '@/components/ui/SectionNav'
 import Link from 'next/link'
@@ -41,9 +42,9 @@ export default function AppPage() {
       <header className="mx-auto w-full max-w-page px-gutter pb-16 pt-16 md:pt-28 lg:px-gutter-lg">
         <div className="grid gap-12 md:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] md:items-center md:gap-16">
           <div>
-            <h1 className="text-display-sm md:text-display">배운 수련을,<br />매일 밤 이어가요.</h1>
+            <h1 className="text-display-sm md:text-display">지금의 나에게,<br />맞는 명상.</h1>
             <p className="mt-6 max-w-measure text-body-lg text-sub">
-              INZEUM 앱에서 오늘의 명상을 고르고, 내면AI와 대화하고, 하루의 마음을 기록해요.
+              나의 수련과 기록을 이해하는 내면AI. 대화에서 맞춤 명상으로, 대본에서 목소리로 이어져요.
             </p>
             <p className="mt-6 text-meta text-muted">2026년 8월 베타 · iOS · Android</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -59,8 +60,13 @@ export default function AppPage() {
         </div>
       </header>
 
-      <SectionNav items={[{ href: "#features", label: "앱 기능" }, { href: "#release", label: "출시 안내" }, { href: "#faq", label: "자주 묻는 질문" }]} />
+      <SectionNav items={[{ href: "#ai-native", label: "개인화 AI" }, { href: "#technology", label: "음성과 연구" }, { href: "#features", label: "앱 기능" }, { href: "#release", label: "출시 안내" }, { href: "#faq", label: "자주 묻는 질문" }]} />
 
+      <AiStory />
+      <Section id="technology" title="명상의 경험을 만드는 기술">
+        <div className="technology-grid"><article><p className="eyebrow">맞춤 명상 · 베타</p><h3>대본에서 음성까지</h3><p>요청한 주제와 길이, 나의 맥락에 맞춰 대본을 만들어요. 내용을 확인하고 다듬은 뒤 AI 음성(TTS)으로 듣거나 내 목소리로 녹음할 수 있어요.</p></article><article><p className="eyebrow">오디오 · 베타</p><h3>목소리는 더 또렷하게</h3><p>녹음의 배경 소음을 정리해 수련에 집중할 수 있도록 도와요. 원본과 정리본을 비교하고, 골전도 모드로 목소리의 듣는 느낌도 바꿀 수 있어요.</p></article><article><p className="eyebrow">수면 · 연구 중</p><h3>더 깊이 이해하기 위해</h3><p>오디오와 수면 데이터로 수면을 이해하는 모델을 연구해요. 현재 앱은 수면 명상을 제공하며, 수면 단계 측정이나 진단 기능은 제공하지 않아요.</p></article></div>
+        <p className="mt-10 max-w-measure text-body-sm text-muted">개인화는 이용자가 동의한 정보를 바탕으로 작동해요. AI가 기억하는 내용은 앱에서 확인하고 삭제할 수 있어요. AI 답변은 전문가 상담을 대신하지 않아요.</p>
+      </Section>
       <Section id="features" title="앱에서 할 수 있는 것">
         <div className="hairline-t">
           {features.map((f) => (

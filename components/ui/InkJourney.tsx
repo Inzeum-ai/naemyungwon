@@ -112,11 +112,11 @@ export default function InkJourney() {
           <img src={DESKTOP} alt="" width={1513} height={1040} fetchPriority="high" decoding="async" />
         </picture>
         <canvas ref={canvas} className="scene-canvas" aria-hidden="true" data-renderer="fallback" />
-        <h1 ref={title} className="scene-title">내면소통</h1>
+        <h1 ref={title} className="scene-title scene-title-vision"><span>명상하는 나라를</span>{' '}<span>만듭니다.</span></h1>
         <div ref={footer} className="scene-footer">
-          <p>명상을 배우고,<br />일상에서 이어갑니다.</p>
-          <a href="#learning" className="scene-scroll-cue">스크롤하여 더 보기<span aria-hidden="true" /></a>
-          <Link ref={mainAction} href="/courses#foundation" className="scene-primary">기초과정 알아보기<Icon name="arrow-right" size={24} /></Link>
+          <p>INZEUM · 인지움<br />배움에서 일상으로, 한 사람에서 모두에게.</p>
+          <a href="#vision" className="scene-scroll-cue">스크롤하여 더 보기<span aria-hidden="true" /></a>
+          <Link ref={mainAction} href="/courses#foundation" className="scene-primary">나의 수련 시작하기<Icon name="arrow-right" size={24} /></Link>
         </div>
       <div className="scene-controls"><span>수묵 이미지 · 시안</span>{!still && <button type="button" onClick={toggle} aria-pressed={paused} aria-label={paused ? '장면 움직임 재생' : '장면 움직임 멈추기'}><Icon name={paused ? 'play' : 'pause'} size={16} /><span>{paused ? '재생' : '멈춤'}</span></button>}</div>
       </div>
