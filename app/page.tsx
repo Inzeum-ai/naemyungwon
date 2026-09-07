@@ -1,3 +1,4 @@
+import { JOOHAN_CHANNEL } from '@/lib/joohan'
 import Image from 'next/image'
 import AiStory from '@/components/ui/AiStory'
 import ScrollImage from '@/components/ui/ScrollImage'
@@ -27,11 +28,11 @@ export default function Home() {
       <Image src="/images/joohankim.jpg" alt="김주환 교수" width={600} height={650} sizes="(max-width: 767px) 100vw, 40vw" className="studio-professor-photo" />
       <div>
         <h2>김주환 교수</h2>
-        <p className="mt-6 text-body-lg text-copy">『내면소통』 『그릿』 『회복탄력성』 저자.<br />내면소통명상을 연구하고 직접 안내합니다.</p>
+        <p className="mt-6 text-body-lg text-copy">『내면소통』 『내면소통 명상수업』<br />『그릿』 『회복탄력성』 저자.<br />내면소통명상을 연구하고 직접 안내합니다.</p>
         <TextLink href="/about" className="mt-8">연구소와 사람들</TextLink>
         <dl className="studio-proof">
           <div><dt>기초과정 수료</dt><dd>4,500+</dd></div>
-          <div><dt>유튜브 구독</dt><dd>35만+</dd></div>
+          <div><dt>유튜브 구독 · {JOOHAN_CHANNEL.checked}</dt><dd>{JOOHAN_CHANNEL.subscribers}</dd></div>
         </dl>
       </div>
     </section>

@@ -6,7 +6,7 @@ Supersedes the v2 homepage at 53c410f; the prior surface remains in git history.
 Current direction: ../../docs/design/vision-and-experience.md.
 Current verification: ../../design-qa.md.
 
-Full-viewport ink/lake scene, live mission heading “명상하는 나라를 만듭니다.”, one short explanation and
+Full-viewport ink/lake scene, live mission heading “명상을 연구하고, 일상으로 이어갑니다.”, one short explanation and
 course action. Native sticky scroll reveals a real photograph. Desktop uses forest practice;
 phone uses the portrait retreat room. Correct source captions remain with each.
 

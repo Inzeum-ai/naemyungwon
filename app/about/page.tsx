@@ -1,3 +1,9 @@
+import BookShelf from '@/components/ui/BookShelf'
+import ChannelStory from '@/components/ui/ChannelStory'
+import ScrollImage from '@/components/ui/ScrollImage'
+import Reveal from '@/components/ui/Reveal'
+import Link from 'next/link'
+import Icon from '@/components/ui/Icon'
 import AiStory from '@/components/ui/AiStory'
 import SectionNav from '@/components/ui/SectionNav'
 import Image from 'next/image'
@@ -6,7 +12,6 @@ import PageShell from '@/components/layout/PageShell'
 import Button from '@/components/ui/Button'
 import TextLink from '@/components/ui/TextLink'
 import Section from '@/components/ui/Section'
-import PhotoBleed from '@/components/ui/PhotoBleed'
 
 export const metadata = pageMetadata({
   title: '연구소 소개',
@@ -60,8 +65,8 @@ const work = [
     title: '명상 콘텐츠 연구와 개발',
     items: [
       '과학적 근거에 기반한 명상·교육 콘텐츠 개발',
-      '내면소통명상 유튜브 운영 (구독자 35만 이상)',
-      '매주 밤 8시 라이브 강연, 매월 현장 라이브 강연',
+      '내면소통명상 유튜브 공개 강의 운영',
+      '매주 일요일 밤 8시 유튜브 라이브 강의',
       '삼성어린이집 마음근력 프로그램 개발과 전국 보급',
     ],
   },
@@ -95,23 +100,26 @@ const history = [
 export default function AboutPage() {
   return (
     <PageShell bleed>
-      <section className="about-hero">
-        <div className="about-hero-photo">
-          <Image src="/images/joohankim.jpg" alt="김주환 교수" fill priority sizes="(max-width: 767px) 100vw, 50vw" className="object-cover object-[center_30%]" />
-        </div>
-        <div className="about-hero-copy">
-          <h1 className="text-display-sm lg:text-display">마음의 힘을 기르고,<br />그 힘을 가르칩니다.</h1>
-          <p className="mt-7 max-w-measure text-body-lg text-copy">내면소통연구소는 뇌과학과 심리학에 기반한 명상을 연구하고 가르칩니다. 자기 자신과의 깊은 대화로 마음의 힘을 기르고, 그 힘을 가르칠 사람을 키웁니다.</p>
-          <p className="mt-6 text-body-sm text-sub">김주환 교수 · 『내면소통』 저자<br />2023년 내면소통연구소 설립</p>
-          <div className="mt-8"><Button href="#teaching" icon="arrow-right">내면소통명상 알아보기</Button></div>
-          <TextLink href="#faculty" className="mt-4">함께 가르치는 사람들</TextLink>
+      <section id="professor" className="about-profile studio-shell">
+        <ScrollImage src="/images/joohankim.jpg" alt="김주환 교수 프로필 사진" width={600} height={650} priority className="about-profile-portrait" caption="김주환 교수 · 내면소통연구소 대표" />
+        <div className="about-profile-copy"><p className="eyebrow">INZEUM · A MEDITATION LAB IN SEOUL</p>
+          <h1>명상을 연구하고,<br />일상으로 이어갑니다.</h1>
+          <p className="about-profile-intro">과학에 기반한 비종교적 명상을 연구하고 가르치는, 서울의 명상 연구소입니다.</p>
+          <div className="about-profile-person"><h2>김주환 교수</h2><p>연세대학교 언론홍보영상학부 교수<br />내면소통명상 연구·교육</p><p>『내면소통』 『내면소통 명상수업』<br />『그릿』 『회복탄력성』 저자</p></div>
+          <div className="about-profile-actions"><Button href="#books" icon="arrow-right">책으로 만나보기</Button><TextLink href="#lectures">유튜브 강의 보기</TextLink></div>
         </div>
       </section>
-
-      <SectionNav items={[{ href: "#vision", label: "비전" }, { href: "#ai-native", label: "AI Native" },{ href: "#teaching", label: "내면소통명상" }, { href: "#professor", label: "김주환 교수" }, { href: "#faculty", label: "패컬티" }, { href: "#advisors", label: "자문위원" }, { href: "#history", label: "연혁" }]} />
-
-      <Section id="vision" title="명상하는 나라를 만듭니다." lede="한 사람의 수련이 일상의 문화가 되도록.">
-        <div className="learning-outcomes"><div><span>교육 · 수행공동체</span><h3>함께 배우는 사람들</h3><p>자신의 마음근력을 기르고, 다른 사람의 수련을 안내할 지도자를 양성합니다. 콘서트와 리트릿, 일상의 모임으로 배움을 이어갑니다.</p></div><div><span>기술 · 일상</span><h3>한 사람에게 닿는 명상</h3><p>한국의 명상 전통을 IT와 인공지능에 연결합니다. 개인의 맥락을 이해하는 수련 경험을 더 넓은 세계에 전하고자 합니다.</p></div><div><span>공간 · 문화</span><h3>머물고 만나는 자리</h3><p>명상이 일상의 선택이 될 수 있도록, 함께 수련할 인지움 홀을 준비합니다.</p><TextLink href="/space" className="mt-4">공간의 구상</TextLink></div></div>
+      <SectionNav items={[{ href: "#professor", label: "김주환 교수" }, { href: "#books", label: "네 권의 책" }, { href: "#lectures", label: "유튜브" }, { href: "#vision", label: "비전" }, { href: "#ai-native", label: "AI Native" }, { href: "#teaching", label: "내면소통명상" }, { href: "#faculty", label: "패컬티" }, { href: "#advisors", label: "자문위원" }, { href: "#history", label: "연혁" }]} />
+      <Section id="books" title="마음의 힘을 탐구한, 네 권의 책." lede="베스트셀러 『내면소통』과 『회복탄력성』에서, 구체적인 명상 실천으로 이어지는 대표 저서입니다.">
+        <BookShelf />
+      </Section>
+      <ChannelStory />
+      <Section id="vision" title="우리가 그리는 미래, 명상하는 나라." lede="한 사람의 수련이 일상의 문화가 되도록. 배우고, 이어가고, 함께 머무는 자리를 만듭니다.">
+        <div className="about-vision-grid">{[
+          {image:'/images/community/forest-practice.webp',alt:'숲에서 함께 움직임 명상을 하는 수련자들',label:'교육 · 수행공동체',title:'함께 배우는 사람들',body:'나를 돌보는 수련에서, 다른 사람의 수련을 안내하는 배움으로.',href:'/courses'},
+          {image:'/images/community/lakeside-practice.webp',alt:'호숫가에서 명상하는 사람들',label:'기술 · 일상',title:'한 사람에게 닿는 명상',body:'AI와 함께, 나의 맥락에 맞는 수련을 매일의 일상으로.',href:'/app'},
+          {image:'/images/space/hall-proposal.webp',alt:'인지움 홀 설계 제안 이미지',label:'공간 · 준비 중',title:'머물고 만나는 자리',body:'함께 수련할 인지움 홀을 준비합니다. 이미지는 설계 제안입니다.',href:'/space'},
+        ].map(item=><Reveal key={item.href}><Link href={item.href} className="about-vision-card"><div className="about-vision-image"><Image src={item.image} alt={item.alt} width={1600} height={900} sizes="(max-width:767px) 100vw, 33vw" /></div><span>{item.label}</span><div><h3>{item.title}</h3><Icon name="arrow-up-right" size={20}/></div><p>{item.body}</p></Link></Reveal>)}</div>
       </Section>
       <AiStory full />
       <Section id="teaching" title="내면소통명상이란">
@@ -163,26 +171,10 @@ export default function AboutPage() {
         <p className="mt-16 max-w-[18em] text-h1 text-fg md:mt-24 md:text-display">텅 빈 고요함 속의 지극한 행복.</p>
       </Section>
 
-      <section id="professor" className="hairline-t">
-        <PhotoBleed src="/images/joohankim_11.jpg" alt="김주환 교수" position="50% 20%" split="text-wide" saturate={0.85}>
-          <h2 className="text-h1 md:text-display-sm">김주환 교수</h2>
-          <ul className="mt-4 space-y-1 text-body text-sub">
-            <li>연세대학교 언론홍보영상학부 교수</li>
-            <li>뇌과학 기반 내면소통명상 개발자</li>
-            <li>『내면소통』 『그릿』 『회복탄력성』 저자</li>
-          </ul>
-          <p className="mt-8 text-body-lg text-copy">
-            다수의 연구·저서·강연을 통해 명상을 대중과 학문의 영역에 연결하며, 마음근력은 훈련으로 기를
-            수 있다고 말해 왔습니다. 내면소통연구소에서 교육 철학, 방법론 검증, 인재 양성의 기준을
-            총괄하며 학문적 신뢰성과 방향을 책임집니다.
-          </p>
-        </PhotoBleed>
-      </section>
-
       <Section id="faculty" title="패컬티" lede="내면소통명상 교육을 함께 이끄는 각 분야의 지도자들입니다.">
         <ul className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6">
           {faculty.map((m) => (
-            <li key={m.name}>
+            <li key={m.name} className="about-person">
               <div className="relative aspect-[3/4] overflow-hidden rounded-md">
                 <Image
                   src={m.image}
@@ -206,7 +198,7 @@ export default function AboutPage() {
       <Section id="advisors" title="자문위원" lede="연구소의 교육 방향과 발전을 위해 조언해 주시는 분들입니다.">
         <ul className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:gap-x-6">
           {advisors.map((a) => (
-            <li key={a.name}>
+            <li key={a.name} className="about-person">
               <div className="relative aspect-square overflow-hidden rounded-md">
                 <Image
                   src={a.image}

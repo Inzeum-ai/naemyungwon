@@ -1,57 +1,47 @@
-# Vision and experience refinement — design QA
+# Researcher, books and meditation lab — design QA
 
 final result: passed
 
-Date: 2026-09-08. Branch: codex/sumuk-evolution. Preview: http://localhost:3315/.
+2026-09-08. Preview: http://localhost:3315/about. Branch: codex/sumuk-evolution.
 
-## Source and visual comparison
+## Source and comparison
 
-Source truth: the user's selected current ink/lake homepage screenshot at `/var/folders/rs/5zxxffr5607d14b2ht7bq0780000gn/T/codex-clipboard-340f67f1-ecee-4142-994b-e6dfe5203c5a.png` (1871×930). Explicit requested deviations: mission-led heading, richer event chapters, less course prose, AI-native company/product story, planned hall and additional image movement.
+User supplied five screenshots and explicit permission to improve the existing ink design, move personal credibility earlier, add four books/YouTube links/reach, add hover/shadow/movement, and reconsider the homepage phrase. Captured current /about before editing: `docs/design-review/profile-v5/about-before.png`. Source and implementation (`about-desktop.png`) are both 1425×990 image pixels at 1440×1000 CSS viewport, using the in-app browser's capture scaling. Combined at equal 1000×695 panels in `about-comparison.png`, opened together and reviewed. This is an intentional evolution, not a clone of the older blue screenshot.
 
-Implementation: `docs/design-review/vision-v4/home-desktop.png`, browser CSS viewport 1871×930, captured image 1856×923 (in-app browser capture scaling). Both source and implementation aspect-contained in 1120×557 panels of `hero-comparison.png`; no geometric stretching. Top-of-home state, ink theme, motion paused. The panorama and minimal header remain; the smaller two-line mission headline and additional space link are intentional. Source and implementation were opened together in the combined image, then typography and controls inspected at full viewport resolution. This is a requested evolution, not an exact clone of the old text.
+Observed baseline issues: the second detailed professor profile was separated from the opening photo by long institutional sections; only three titles were mentioned; there were no cover links or dated channel reach; vision columns were text-only. The final profile combines the actual portrait, the lab proposition and the researcher's identity, then links directly to books and public lectures. The duplicate portrait section is removed. Added sections use existing ink/paper typography and tokens.
 
-Hall visual source: supplied PDF page 10, original embedded 1920×1080 rendering, visually opened and extracted. Original material, lighting and geometry retained; captions label it a proposal. Pages 9 and 13 also visually inspected. No screenshot-derived floor plan or invented completed venue.
+Focused evidence: four cover originals were opened individually to verify author/title/edition; `books-desktop.png` shows complete covers, including the hovered GRIT state. `books-mobile.png` checks the two-column shelf; `channel-desktop.png` and `channel-mobile.png` check readable numbers, source date and links. `vision-desktop.png` verifies photographic links and the explicit proposal label. /resources also reviewed on paper; `resources-desktop-final.png` records the final lighter shadow treatment. No generated image substitutes.
 
-## Findings and corrections
+## Fidelity surfaces
 
-- P2, mobile course conversion: initial photo-first order pushed the value and application guidance multiple screens below the anchor. Fixed by showing the introduction, formats and enrollment CTA first on phones. After: `courses-mobile-final.png` at 390×844 CSS (375×812 capture); CTA visible in the first anchored viewport. Desktop keeps the editorial portrait/copy pair.
-- P2, photo edge protection: a fixed 18px image offset could exceed the crop reserve of short phone images. Fixed by bounding drift to min(18px, image height × 0.02), inside the 1.045 scale reserve. Verified final scroll progress changed the visible hall image offset from -0.304px to +3.436px, with offscreen images unmeasured. Static mode reports transform:none.
-- Corrected the homepage vision link to `/about#vision` after inspecting its rendered destination.
-- Capture timing: one retreat screenshot was taken before its lazy image loaded; rejected and recaptured after complete/naturalWidth verification. Tablet navigation was initially captured during its existing color transition; settled capture verifies black navigation on paper. These were evidence timing issues, not persistent missing assets or contrast defects.
+- Typography: existing font families retained, proposition given two deliberate lines, professor name and roles grouped. No overflow at 390×844, 768×1024 and 1440×1000. Responsive count sizes prevent crowding on phones.
+- Layout: portrait first on desktop and phone, deliberate inset photograph, no second duplicate profile. Four desktop book columns become two on phones. Channel narrative/stats stack on phones and tablets. Navigation links wrap without hiding controls.
+- Colors: same Sumuk ink and paper. Color comes from the original photograph/covers. Paper-specific book shadow softened after review (0 10px 20px at alpha .16; dark books retain .32).
+- Images: original local portrait, supplied community photos and hall proposal; four untouched retailer cover assets with source hashes. Covers shown with contain sizing, no text reconstruction or cropping. GRIT is Kim's revised edition, not Duckworth's book.
+- Copy: concrete lab proposition based on user-supplied Joohan wording; meditation-nation vision retained lower on the page. Legal company identity unchanged. Bestseller claims limited to supported works, no invented aggregate sales/current rankings. Channel figures are a dated snapshot, not a live count or cross-channel total.
 
-No remaining actionable P0/P1/P2 findings.
+## Interactions and motion
 
-## Required surfaces
+- Opening book CTA reaches #books.
+- Four external book hrefs match the observed source pages; new-window behavior labelled. No purchases or external forms submitted.
+- YouTube channel, videos and streams links point to the official channel. No autoplay or third-party iframe.
+- Book hover verified in browser: GRIT transform includes translateY(-10px) and rotateY(-5deg); shadow changes from alpha .32 / 14px28px to .44 / 26px40px. Moving pointer away restores transform:none.
+- Keyboard Tab moves from first book to second; focused link retains a solid 2px outline. Book descriptions remain visible without hover.
+- Entrance behavior tested in normal mode: seven below-fold reveal containers initially wait; after book CTA scroll, all four books have opacity1 and no waiting attribute, while three offscreen vision cards remain pending. Initial profile remains visible. Existing pause preference restored after the test.
+- Reduced-motion and static fallbacks preserve content; no motion framework or timed animation loop added. OS reduced-motion setting not toggled; source guard and CSS inspected.
+- Browser console errors/warnings: none captured in reviewed runtime.
 
-- Typography: retained site fonts/optical hierarchy. Mission wraps into two deliberate lines. Phone course hierarchy makes purpose and logistics scannable. Full-size desktop, phone and tablet captures inspected for clipping and wrapping.
-- Spacing/layout: same ink/paper gutters, hairlines and open sections. Portrait/course details share a desktop grid; stack with copy first on phones. Space imagery preserves source aspect ratios. Modest image shadow; no new floating navigation. No horizontal overflow in measured states.
-- Colors/tokens: existing Sumuk palette; generated token check passes. Settled tablet header is rgb(13,13,12) on paper. Hall warmth comes from the supplied rendering, not a new palette.
-- Image quality: actual supplied photos, preserved source face stickers, proposal images extracted directly without upscaling, existing synthetic ink artwork still labelled. Full-image links retain access to original framing. No fake event photos or testimonials.
-- Copy/content: official mission verified; current foundation cohort replaces generic enrollment claim. AI statements checked against local app code/ADRs. Sleep research explicitly separated from available app functions; hall remains preparing. Internal operations/planning pages are not linked from public UI.
+## Verification
 
-## Browser coverage
-
-In-app browser, existing Next production build, individual viewport captures (not broken full-page stitching).
-
-- Desktop: 1871×930 hero; 1440×1000 course, training, AI and space views.
-- Phone: 390×844 hero, course foundation, retreat, August training, technology, space and company AI story. Evidence files under `docs/design-review/vision-v4/`; phone review composite supplemented by full-resolution course and retreat inspection.
-- Tablet: 768×1024 course; six-item desktop nav fits and settled contrast verified.
-- Short: 1024×600 hero; title bottom230, footer top480, CTA bottom536; no overlap/overflow.
-- Mobile menu: opened and navigated to courses; dialog closes on route change.
-- Course disclosure: opens fee/steps content, education and application hrefs match the official published notice. No external form submitted.
-- Hero action: navigates to `/courses#foundation` and the correct course heading.
-- Motion: WebGL active true on resume and false on pause. Prior pause preference restored. Photo movement bounded and offscreen skipped; static query returns transform:none. OS reduced-motion not toggled; its guard/CSS verified in code.
-- Console errors/warnings: none captured on reviewed final runtime.
-
-## Build and integrity
-
-`npm run build`: passed (18 generated outputs; homepage about111kB first-load JS plus lazy scene renderer).
+`npm run build`: passed, 18 generated outputs; /about first load ~108kB.
 `npm run tokens:check`: passed.
-`python3 scripts/check-site.py`: passed, 13 HTML routes including /space; one h1, img alt and local image/route/fragment checks.
+`python3 scripts/check-site.py`: passed for 13 HTML routes, including h1/alt and local image/route/fragment integrity.
 `git diff --check`: passed.
 
-## Remaining limitations
+## Iteration history
 
-Actual August event photographs and approved video still needed. Community illustration is explicitly identified, not passed off as that event. Hall opening date and final design are not established. Enrollment notice is time-sensitive (September10 deadline); recheck before later deployment. No live AI, voice, participant data, VM or paid APIs were exercised. No performance benchmark or forced GPU-loss test claimed. Production is unchanged.
+Initial desktop and phone layouts passed; proactively reduced count font sizes and stacked tablet channel content before final captures. Visual review found book shadows heavy on the paper surface; softened and recaptured. No remaining actionable P0/P1/P2 findings. Previous iteration reports remain in git and `docs/design-review/profile-v5/qa-before.md`.
 
-Implementation checklist: completed. Earlier QA history is retained in git and locally in `docs/design-review/vision-v4/qa-before.md`.
+## Limits
+
+Public channel snapshot checked 2026-09-08 (37.5만 subscribers, 47,098,787 views); not automatically refreshed. Book covers identify listed editions and retain retailer marks. Full live YouTube streaming, external checkout, a screen-reader audit and forced GPU-loss were not tested. No outreach, SDK integration, legal change, deployment or paid API call occurred.

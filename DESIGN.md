@@ -239,3 +239,7 @@ preserved in commit 53c410f rather than retained as a competing homepage rule.
 ### Vision and experience refinement — 2026-09-08
 
 The homepage now leads with “명상하는 나라를 만듭니다.” and connects education, community, personalized AI and the planned 인지움 홀. Courses lead with experience and outcomes, with detailed terms in disclosures. Programs lead with real event imagery and thematic chapters. `/space` uses supplied architectural proposal renderings, explicitly labelled as proposals and preparing. `ScrollImage` adds small scroll-linked drift and shadows while preserving accessible original-image links and motion fallbacks. See `docs/design/vision-and-experience.md` for source evidence and the Before/After/Why decision record.
+
+### Researcher and meditation lab refinement — 2026-09-08
+
+The homepage now states “명상을 연구하고, 일상으로 이어갑니다.”; 명상하는 나라 remains the institutional vision. About starts with one researcher profile, then four real book covers, dated YouTube reach and public lecture links before the vision/AI sections. `BookShelf`, `ChannelStory`, and `Reveal` share content and interaction patterns with Resources. See `docs/design/researcher-books-and-lab.md` for source distinctions, edition notes and the supplied English brand descriptor.

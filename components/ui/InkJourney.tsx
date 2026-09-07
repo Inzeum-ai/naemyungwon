@@ -112,9 +112,9 @@ export default function InkJourney() {
           <img src={DESKTOP} alt="" width={1513} height={1040} fetchPriority="high" decoding="async" />
         </picture>
         <canvas ref={canvas} className="scene-canvas" aria-hidden="true" data-renderer="fallback" />
-        <h1 ref={title} className="scene-title scene-title-vision"><span>명상하는 나라를</span>{' '}<span>만듭니다.</span></h1>
+        <h1 ref={title} className="scene-title scene-title-vision"><span>명상을 연구하고,</span>{' '}<span>일상으로 이어갑니다.</span></h1>
         <div ref={footer} className="scene-footer">
-          <p>INZEUM · 인지움<br />배움에서 일상으로, 한 사람에서 모두에게.</p>
+          <p>INZEUM · A MEDITATION LAB IN SEOUL<br />과학에 기반한 명상, 한 사람의 일상으로.</p>
           <a href="#vision" className="scene-scroll-cue">스크롤하여 더 보기<span aria-hidden="true" /></a>
           <Link ref={mainAction} href="/courses#foundation" className="scene-primary">나의 수련 시작하기<Icon name="arrow-right" size={24} /></Link>
         </div>
