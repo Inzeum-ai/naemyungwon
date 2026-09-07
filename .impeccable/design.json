@@ -1,226 +1,521 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-07T00:00:00+09:00",
+  "generatedAt": "2026-09-08T00:00:00+09:00",
   "title": "Design System: inzeum.com",
   "extensions": {
     "source": {
       "tokens": "design-system/sumuk.tokens.json @ Sumuk 3.0.0 (ADR 0037)",
       "generated": "styles/tokens.css via scripts/build-tokens.mjs",
       "check": "npm run tokens:check",
-      "revision": "2026-09-07 second batch, commit 7fe2519 (every page opens in ink), captures recaptured after it; third batch, commit 41a2451 (코엑스 posters, Poster component)"
+      "revision": "codex/sumuk-evolution, based on a4f6000; see DESIGN.md and design-qa.md",
+      "photography": "Six selected photographs from user-supplied archive, 2026-09-08; public/images/community/sources.json"
     },
     "colorMeta": {
-      "midnight-ink": { "role": "neutral", "displayName": "Midnight Ink (먹 900)", "canonical": "#121210", "tonalRamp": ["#0D0D0C", "#121210", "#191816", "#211F1B", "#2C2923"] },
-      "deep-ink": { "role": "neutral", "displayName": "Deep Ink (먹 950)", "canonical": "#0D0D0C", "tonalRamp": ["#0D0D0C", "#121210", "#191816", "#211F1B", "#2C2923"] },
-      "ink-surface": { "role": "neutral", "displayName": "Ink Surface (먹 800)", "canonical": "#191816", "tonalRamp": ["#0D0D0C", "#121210", "#191816", "#211F1B", "#2C2923"] },
-      "ink-raised": { "role": "neutral", "displayName": "Ink Raised (먹 700)", "canonical": "#211F1B", "tonalRamp": ["#0D0D0C", "#121210", "#191816", "#211F1B", "#2C2923"] },
-      "ink-chip": { "role": "neutral", "displayName": "Ink Chip (먹 600)", "canonical": "#2C2923", "tonalRamp": ["#0D0D0C", "#121210", "#191816", "#211F1B", "#2C2923"] },
-      "hairline-on-ink": { "role": "neutral", "displayName": "Hairline on Ink", "canonical": "#2F2E2B", "tonalRamp": ["#242320", "#2F2E2B"] },
-      "hairline-soft-on-ink": { "role": "neutral", "displayName": "Soft Hairline on Ink", "canonical": "#242320", "tonalRamp": ["#242320", "#2F2E2B"] },
-      "hanji": { "role": "neutral", "displayName": "한지 (paper 50)", "canonical": "#FAF7F1", "tonalRamp": ["#887E6B", "#968A73", "#AA9E86", "#D9D1C2", "#E6DFD0", "#EEE9DE", "#FAF7F1"] },
-      "hanji-light": { "role": "primary", "displayName": "한지빛 Hanji Light (paper 100)", "canonical": "#EEE9DE", "tonalRamp": ["#887E6B", "#968A73", "#AA9E86", "#D9D1C2", "#E6DFD0", "#EEE9DE", "#FAF7F1"] },
-      "hanji-line": { "role": "neutral", "displayName": "Hanji Line (paper 200)", "canonical": "#E6DFD0", "tonalRamp": ["#887E6B", "#968A73", "#AA9E86", "#D9D1C2", "#E6DFD0", "#EEE9DE", "#FAF7F1"] },
-      "hanji-body": { "role": "neutral", "displayName": "Hanji Body (paper 300)", "canonical": "#D9D1C2", "tonalRamp": ["#887E6B", "#968A73", "#AA9E86", "#D9D1C2", "#E6DFD0", "#EEE9DE", "#FAF7F1"] },
-      "hanji-sub": { "role": "neutral", "displayName": "Hanji Sub (paper 400)", "canonical": "#AA9E86", "tonalRamp": ["#887E6B", "#968A73", "#AA9E86", "#D9D1C2", "#E6DFD0", "#EEE9DE", "#FAF7F1"] },
-      "hanji-muted": { "role": "neutral", "displayName": "Hanji Muted (paper 500)", "canonical": "#968A73", "tonalRamp": ["#887E6B", "#968A73", "#AA9E86", "#D9D1C2", "#E6DFD0", "#EEE9DE", "#FAF7F1"] },
-      "bunchung": { "role": "neutral", "displayName": "분청 Bunchung (paper 600)", "canonical": "#887E6B", "tonalRamp": ["#887E6B", "#968A73", "#AA9E86", "#D9D1C2", "#E6DFD0", "#EEE9DE", "#FAF7F1"] },
-      "ink-meta-on-hanji": { "role": "neutral", "displayName": "Ink Meta on Hanji (site-local)", "canonical": "#6F6656", "note": "theme.hanji notes paper.500/600 are hint-only on paper50 (≈3.3–3.9:1); this step measures 5.6:1 for meta text", "tonalRamp": ["#121210", "#2C2923", "#6F6656", "#887E6B", "#968A73"] },
-      "hairline-on-hanji": { "role": "neutral", "displayName": "Hairline on Hanji", "canonical": "rgb(18 18 16 / 0.12)", "tonalRamp": ["rgb(18 18 16 / 0.08)", "rgb(18 18 16 / 0.12)", "rgb(18 18 16 / 0.16)"] },
-      "hairline-soft-on-hanji": { "role": "neutral", "displayName": "Soft Hairline on Hanji", "canonical": "rgb(18 18 16 / 0.08)", "tonalRamp": ["rgb(18 18 16 / 0.06)", "rgb(18 18 16 / 0.08)", "rgb(18 18 16 / 0.12)"] },
-      "vermilion-seal": { "role": "tertiary", "displayName": "Vermilion Seal (낙관)", "canonical": "#F05B43", "tonalRamp": ["#D94B35", "#F05B43", "#FF7058"] },
-      "vermilion-pressed": { "role": "tertiary", "displayName": "Vermilion Pressed (the seal on 한지)", "canonical": "#D94B35", "tonalRamp": ["#D94B35", "#F05B43", "#FF7058"] }
+      "midnight-ink": {
+        "role": "neutral",
+        "displayName": "Midnight Ink (먹 900)",
+        "canonical": "#121210",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "deep-ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink (먹 950)",
+        "canonical": "#0D0D0C",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "ink-surface": {
+        "role": "neutral",
+        "displayName": "Ink Surface (먹 800)",
+        "canonical": "#191816",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Ink Raised (먹 700)",
+        "canonical": "#211F1B",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "ink-chip": {
+        "role": "neutral",
+        "displayName": "Ink Chip (먹 600)",
+        "canonical": "#2C2923",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "hairline-on-ink": {
+        "role": "neutral",
+        "displayName": "Hairline on Ink",
+        "canonical": "#2F2E2B",
+        "tonalRamp": [
+          "#242320",
+          "#2F2E2B"
+        ]
+      },
+      "hairline-soft-on-ink": {
+        "role": "neutral",
+        "displayName": "Soft Hairline on Ink",
+        "canonical": "#242320",
+        "tonalRamp": [
+          "#242320",
+          "#2F2E2B"
+        ]
+      },
+      "hanji": {
+        "role": "neutral",
+        "displayName": "한지 (paper 50)",
+        "canonical": "#FAF7F1",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-light": {
+        "role": "primary",
+        "displayName": "한지빛 Hanji Light (paper 100)",
+        "canonical": "#EEE9DE",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-line": {
+        "role": "neutral",
+        "displayName": "Hanji Line (paper 200)",
+        "canonical": "#E6DFD0",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-body": {
+        "role": "neutral",
+        "displayName": "Hanji Body (paper 300)",
+        "canonical": "#D9D1C2",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-sub": {
+        "role": "neutral",
+        "displayName": "Hanji Sub (paper 400)",
+        "canonical": "#AA9E86",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-muted": {
+        "role": "neutral",
+        "displayName": "Hanji Muted (paper 500)",
+        "canonical": "#968A73",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "bunchung": {
+        "role": "neutral",
+        "displayName": "분청 Bunchung (paper 600)",
+        "canonical": "#887E6B",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "ink-meta-on-hanji": {
+        "role": "neutral",
+        "displayName": "Ink Meta on Hanji (site-local)",
+        "canonical": "#6F6656",
+        "note": "theme.hanji notes paper.500/600 are hint-only on paper50 (≈3.3–3.9:1); this step measures 5.6:1 for meta text",
+        "tonalRamp": [
+          "#121210",
+          "#2C2923",
+          "#6F6656",
+          "#887E6B",
+          "#968A73"
+        ]
+      },
+      "hairline-on-hanji": {
+        "role": "neutral",
+        "displayName": "Hairline on Hanji",
+        "canonical": "rgb(18 18 16 / 0.12)",
+        "tonalRamp": [
+          "rgb(18 18 16 / 0.08)",
+          "rgb(18 18 16 / 0.12)",
+          "rgb(18 18 16 / 0.16)"
+        ]
+      },
+      "hairline-soft-on-hanji": {
+        "role": "neutral",
+        "displayName": "Soft Hairline on Hanji",
+        "canonical": "rgb(18 18 16 / 0.08)",
+        "tonalRamp": [
+          "rgb(18 18 16 / 0.06)",
+          "rgb(18 18 16 / 0.08)",
+          "rgb(18 18 16 / 0.12)"
+        ]
+      },
+      "vermilion-seal": {
+        "role": "tertiary",
+        "displayName": "Vermilion Seal (낙관)",
+        "canonical": "#F05B43",
+        "tonalRamp": [
+          "#D94B35",
+          "#F05B43",
+          "#FF7058"
+        ]
+      },
+      "vermilion-pressed": {
+        "role": "tertiary",
+        "displayName": "Vermilion Pressed (the seal on 한지)",
+        "canonical": "#D94B35",
+        "tonalRamp": [
+          "#D94B35",
+          "#F05B43",
+          "#FF7058"
+        ]
+      }
     },
     "grounds": {
-      "ink": { "selector": ".ground-ink (default :root; InkBand section; PageShell wrapper)", "pages": ["/", "/app", "/about", "404"], "bands": ["/courses", "/programs", "/news", "/faq", "/resources"], "note": "Every page opens and closes in ink: the whole page on the four listed, the InkBand and the Footer on the five banded pages. The html canvas and theme-color are ink on every non-legal page.", "bg": "#121210", "text-display": "#EEE9DE", "text": "#D9D1C2", "text-sub": "#AA9E86", "text-muted": "#968A73", "text-faint": "#887E6B", "accent": "#EEE9DE", "on-accent": "#121210", "accent-pressed": "#D9D1C2", "brand": "#F05B43", "line": "#2F2E2B", "line-soft": "#242320", "themeColor": "#121210" },
-      "hanji": { "selector": ".ground-hanji (the Paper body; the header once past the band; the legal PageShell) + html[data-ground='hanji'] (legal pages only)", "pages": ["/privacy", "/terms", "/delete-account"], "reading": ["/courses", "/programs", "/news", "/faq", "/resources"], "note": "The whole page only on the three legal documents. On the five reading pages it is the Paper body between the ink band and the ink footer; no visitor lands on it.", "bg": "#FAF7F1", "text-display": "#0D0D0C", "text": "#121210", "text-sub": "#2C2923", "text-muted": "#6F6656", "text-faint": "#887E6B", "accent": "#121210", "on-accent": "#FAF7F1", "accent-pressed": "#191816", "brand": "#D94B35", "line": "rgb(18 18 16 / 0.12)", "line-soft": "rgb(18 18 16 / 0.08)", "themeColor": "#FAF7F1 (legal pages only, via hanjiViewport; banded pages keep #121210)" }
+      "ink": {
+        "selector": ".ground-ink (default :root; InkBand section; PageShell wrapper)",
+        "pages": [
+          "/",
+          "/app",
+          "/about",
+          "404"
+        ],
+        "bands": [
+          "/courses",
+          "/programs",
+          "/news",
+          "/faq",
+          "/resources"
+        ],
+        "note": "Every page opens and closes in ink: the whole page on the four listed, the InkBand and the Footer on the five banded pages. The html canvas and theme-color are ink on every non-legal page.",
+        "bg": "#121210",
+        "text-display": "#EEE9DE",
+        "text": "#D9D1C2",
+        "text-sub": "#AA9E86",
+        "text-muted": "#968A73",
+        "text-faint": "#887E6B",
+        "accent": "#EEE9DE",
+        "on-accent": "#121210",
+        "accent-pressed": "#D9D1C2",
+        "brand": "#F05B43",
+        "line": "#2F2E2B",
+        "line-soft": "#242320",
+        "themeColor": "#121210"
+      },
+      "hanji": {
+        "selector": ".ground-hanji; header while its lower edge is within Paper; legal whole page",
+        "pages": [
+          "/privacy",
+          "/terms",
+          "/delete-account"
+        ],
+        "reading": [
+          "/courses",
+          "/programs",
+          "/news",
+          "/faq",
+          "/resources"
+        ],
+        "note": "The whole page only on the three legal documents. On the five reading pages it is the Paper body between the ink band and the ink footer; no visitor lands on it.",
+        "bg": "#FAF7F1",
+        "text-display": "#0D0D0C",
+        "text": "#121210",
+        "text-sub": "#2C2923",
+        "text-muted": "#6F6656",
+        "text-faint": "#887E6B",
+        "accent": "#121210",
+        "on-accent": "#FAF7F1",
+        "accent-pressed": "#191816",
+        "brand": "#D94B35",
+        "line": "rgb(18 18 16 / 0.12)",
+        "line-soft": "rgb(18 18 16 / 0.08)",
+        "themeColor": "#FAF7F1 (legal pages only, via hanjiViewport; banded pages keep #121210)"
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Page heroes on desktop: the band punchline on the five reading pages (InkBand), the /about and /app titles; the home teaching heading and the professor's name. Weight 500." },
-      "display-sm": { "displayName": "Display (phone)", "purpose": "Page heroes on phones; legal titles and the /about professor heading on desktop." },
-      "h1": { "displayName": "H1", "purpose": "Section titles on desktop (Section renders an h2 element at this size); 404 title; the /about pull-quote." },
-      "h2": { "displayName": "H2", "purpose": "Section titles on phones; the vermilion mechanism numerals; in-section headings." },
-      "h3": { "displayName": "H3", "purpose": "Row and disclosure titles on desktop, step titles, mobile nav items, 연혁 years, legal h2." },
-      "body-lg": { "displayName": "Body Large", "purpose": "Ledes under every page and section title; the band's one sentence (full-strength copy on ink, where other ledes are sub); the professor paragraph." },
-      "body": { "displayName": "Body", "purpose": "Site default. Running text at full-strength copy colour on both grounds." },
-      "body-sm": { "displayName": "Body Small", "purpose": "Row subtitles, trailing text, nav, footer links, legal tables." },
-      "meta": { "displayName": "Meta", "purpose": "Row leads, fact labels, section asides, footer column titles, 사업자 block, poster captions. A label beside content, never an eyebrow above a heading." },
-      "numeric": { "displayName": "Numeric", "purpose": "The four proof figures only. Tabular figures." },
-      "numeric-sm": { "displayName": "Numeric (phone)", "purpose": "The proof figures on phones." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page heroes on desktop: the band punchline on the five reading pages (InkBand), the /about and /app titles; the home teaching heading and the professor's name. Weight 500."
+      },
+      "display-sm": {
+        "displayName": "Display (phone)",
+        "purpose": "Page heroes on phones; legal titles and the /about professor heading on desktop."
+      },
+      "h1": {
+        "displayName": "H1",
+        "purpose": "Section titles on desktop (Section renders an h2 element at this size); 404 title; the /about pull-quote."
+      },
+      "h2": {
+        "displayName": "H2",
+        "purpose": "Section titles on phones; the vermilion mechanism numerals; in-section headings."
+      },
+      "h3": {
+        "displayName": "H3",
+        "purpose": "Row and disclosure titles on desktop, step titles, mobile nav items, 연혁 years, legal h2."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Ledes under every page and section title; the band's one sentence (full-strength copy on ink, where other ledes are sub); the professor paragraph."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "17px / 1.7 running text on both grounds."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "15px / 1.6 supporting text."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Row leads, fact labels, section asides, footer column titles, 사업자 block, poster captions. A label beside content, never an eyebrow above a heading."
+      },
+      "numeric": {
+        "displayName": "Numeric",
+        "purpose": "Legacy component; home uses compact 30px proof figures, 25px phone."
+      },
+      "numeric-sm": {
+        "displayName": "Numeric (phone)",
+        "purpose": "Legacy component; home uses compact proof figures."
+      }
     },
     "shadows": [],
-    "elevation": "No shadows. Depth on ink is a surface step plus a hairline. The header lifts with the page's own ground at 78 % behind a 12 px backdrop blur (the only blur on the site) and a soft hairline. The hero's and the band's painting masks are the only gradients; the band-to-paper edge is a hard ground change with no stroke.",
+    "elevation": "No shadows. One header backdrop blur; artwork masks blend edges. Native modal menu uses browser top layer.",
     "motion": [
-      { "name": "ease-settle", "value": "cubic-bezier(0.2, 0, 0, 1)", "purpose": "Anything that enters or opens: the hero and band rise, the disclosure body and chevron." },
-      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "In-place state changes: colour, border, transform on press, the header ground." },
-      { "name": "dur-state", "value": "150ms", "purpose": "Hover, focus and colour transitions on links, buttons and nav." },
-      { "name": "dur-header", "value": "200ms", "purpose": "Header ground, roles and lockup crossfade: on the home route once 200 px are scrolled, on a banded page once the band's bottom edge has passed the 64 px header." },
-      { "name": "dur-press", "value": "120ms", "purpose": ".pressable :active scale(0.98)." },
-      { "name": "dur-disclosure", "value": "240ms", "purpose": "Disclosure grid-template-rows 0fr → 1fr and chevron rotate." },
-      { "name": "dur-settle", "value": "450ms", "purpose": "Every page's one entrance: the home hero stack (--i 0..2) or the band's h1 and sentence (--i 0..1); 12 px rise, 80 ms stagger via --i. No second entrance, no whileInView." },
-      { "name": "breathe", "value": "6s infinite, opacity 0.6 ↔ 0.74", "purpose": "The page's one painting only: the hero's on /, the band's on /courses, /programs, /news. No trigger. Stops under prefers-reduced-motion." }
+      {
+        "name": "mist",
+        "value": "6s, opacity .08 to .30",
+        "purpose": "Separate transparent mist only; pause persists; offscreen and reduced motion stop it."
+      },
+      {
+        "name": "entrance",
+        "value": "450ms, 12px, 80ms stagger",
+        "purpose": "Opening text only."
+      },
+      {
+        "name": "state",
+        "value": "150–200ms",
+        "purpose": "Control feedback."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" },
-      { "name": "tall", "value": "(min-height: 900px)", "note": "Stacks with md: as md:tall: on the home page (The Ridge Rule)." }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
     ],
     "layout": {
-      "page": "1200px", "content": "720px", "measure": "34em", "gutter": "24px", "gutter-lg": "48px (≥1024px)", "header": "64px", "hit": "44px", "button": "52px", "row": "56px",
-      "zIndex": { "raised": 1, "header": 2, "overlay": 3, "modal": 4 }
+      "page": "1440px",
+      "content": "720px",
+      "measure": "34em",
+      "gutter": "24px",
+      "gutter-lg": "48px (≥1024px)",
+      "header": "64px",
+      "hit": "44px",
+      "button": "52px",
+      "row": "56px",
+      "zIndex": {
+        "raised": 1,
+        "header": 2,
+        "overlay": 3,
+        "modal": 4
+      },
+      "homeHero": "720px minimum; 800px desktop maximum; 810px mobile minimum"
     }
   },
   "components": [
     {
-      "name": "Primary Button",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Paper on ink (ink on 한지). 52 px, 12 px radius, weight 600, trailing 20 px arrow. One per viewport.",
-      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">기초과정 알아보기<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: var(--radius-md, 12px); font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; font-size: 16px; line-height: 1.7; font-weight: 600; letter-spacing: 0; white-space: nowrap; text-decoration: none; user-select: none; transition: transform 120ms cubic-bezier(0.4,0,0.2,1), background-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn:active { transform: scale(0.98); } .ds-btn:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; } .ds-btn-primary { background: var(--accent, #EEE9DE); color: var(--on-accent, #121210); } .ds-btn-primary:hover { background: var(--accent-pressed, #D9D1C2); } .ds-btn-primary:disabled, .ds-btn-primary[aria-disabled='true'] { background: var(--surface-high, #211F1B); color: var(--text-muted, #968A73); pointer-events: none; }"
-    },
-    {
-      "name": "Outline Button",
-      "kind": "button",
-      "refersTo": "button-outline",
-      "description": "Hairline border, display-colour text. The action beside a primary, and the CTA on 한지 pages.",
-      "html": "<a class=\"ds-btn ds-btn-outline\" href=\"#\">자주 묻는 질문<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: var(--radius-md, 12px); font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; font-size: 16px; line-height: 1.7; font-weight: 600; letter-spacing: 0; white-space: nowrap; text-decoration: none; transition: transform 120ms cubic-bezier(0.4,0,0.2,1), background-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn:active { transform: scale(0.98); } .ds-btn:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; } .ds-btn-outline { background: transparent; color: var(--text-display, #EEE9DE); border: 1px solid var(--line, #2F2E2B); } .ds-btn-outline:hover { background: var(--fill1, #191816); border-color: var(--fill3, #2C2923); }"
-    },
-    {
-      "name": "Ghost Button",
-      "kind": "button",
-      "refersTo": "button-ghost",
-      "description": "Text only, sub to display colour on hover. The tertiary action.",
-      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"#\">소식<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 52px; padding: 0 24px; border-radius: var(--radius-md, 12px); font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; font-size: 16px; line-height: 1.7; font-weight: 600; letter-spacing: 0; white-space: nowrap; text-decoration: none; transition: transform 120ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn:active { transform: scale(0.98); } .ds-btn:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; } .ds-btn-ghost { padding: 0 12px; background: transparent; color: var(--text-sub, #AA9E86); } .ds-btn-ghost:hover { color: var(--text-display, #EEE9DE); }"
-    },
-    {
-      "name": "Text Link",
-      "kind": "custom",
-      "refersTo": "text-link",
-      "description": "An underlined phrase with a 16 px arrow; the underline is the hairline colour and takes the text colour on hover.",
-      "html": "<a class=\"ds-text-link\" href=\"#\">교육과정 전체 보기<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-text-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; font-size: 16px; line-height: 1.7; font-weight: 500; letter-spacing: 0; color: var(--text-display, #EEE9DE); text-decoration: underline; text-decoration-color: var(--line, #2F2E2B); text-underline-offset: 6px; transition: text-decoration-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-text-link:hover { text-decoration-color: var(--text-display, #EEE9DE); } .ds-text-link:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; border-radius: var(--radius-sm, 8px); }"
-    },
-    {
       "name": "Header",
-      "kind": "nav",
-      "refersTo": "header",
-      "description": "Fixed 64 px bar: lockup left, five items right. Bare over the page's own ink (the home hero until 200 px, an ink band until its bottom edge passes the header), then the page bg at 78 % behind a 12 px blur with a soft hairline; on a banded page it takes .ground-hanji and the ink lockup once over paper, crossfading 200 ms. Active item is paper, weight 600; never vermilion.",
-      "html": "<header class=\"ds-header\"><div class=\"ds-header-in\"><a class=\"ds-lockup\" href=\"#\" aria-label=\"INZEUM 홈\"><span class=\"ds-lockup-latin\">INZEUM</span><span class=\"ds-lockup-ko\">내면소통연구소</span></a><nav aria-label=\"주요 메뉴\"><ul class=\"ds-nav\"><li><a class=\"ds-nav-link\" href=\"#\">교육과정</a></li><li><a class=\"ds-nav-link\" href=\"#\">프로그램</a></li><li><a class=\"ds-nav-link is-active\" aria-current=\"page\" href=\"#\">앱</a></li><li><a class=\"ds-nav-link\" href=\"#\">소개</a></li><li><a class=\"ds-nav-link\" href=\"#\">소식</a></li></ul></nav></div></header>",
-      "css": ".ds-header { position: relative; width: 100%; background: color-mix(in srgb, var(--bg, #121210) 78%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line-soft, #242320); font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-header-in { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px; } .ds-lockup { display: flex; flex-direction: column; align-items: center; height: 44px; justify-content: center; text-decoration: none; color: var(--text-display, #EEE9DE); border-radius: var(--radius-sm, 8px); } .ds-lockup-latin { font-family: Marcellus, Georgia, serif; font-size: 20px; line-height: 1; letter-spacing: 0.04em; } .ds-lockup-ko { font-size: 8px; line-height: 1; letter-spacing: 0.3em; margin-top: 3px; } .ds-nav { display: flex; align-items: center; gap: 8px; list-style: none; margin: 0; padding: 0; } .ds-nav-link { display: flex; align-items: center; height: 44px; padding: 0 12px; border-radius: var(--radius-sm, 8px); font-size: 14px; line-height: 1.6; font-weight: 500; color: var(--text-sub, #AA9E86); text-decoration: none; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link:hover { color: var(--text-display, #EEE9DE); } .ds-nav-link.is-active { color: var(--text-display, #EEE9DE); font-weight: 600; } .ds-nav-link:focus-visible, .ds-lockup:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; }"
+      "kind": "navigation",
+      "source": "components/layout/Header.tsx",
+      "description": "Wordmark always visible; actual Paper top/bottom controls theme; native mobile dialog."
     },
     {
-      "name": "List Row",
-      "kind": "custom",
-      "refersTo": "list-row",
-      "description": "The row is the door. Lead (meta, muted, tabular) · title (body 600 → h3) · subtitle (body-sm, sub) · trailing · chevron. 56 px minimum, soft hairline below, full hairline on the group.",
-      "html": "<div class=\"ds-rows\"><a class=\"ds-row\" href=\"#\"><span class=\"ds-row-lead\">1</span><span class=\"ds-row-main\"><span class=\"ds-row-title\">기초과정</span><span class=\"ds-row-sub\">12주 온라인. 김주환 교수가 처음부터 끝까지 직접 안내합니다.</span></span><span class=\"ds-row-trail\">상시 모집</span><svg class=\"ds-row-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 6l6 6-6 6\"/></svg></a><a class=\"ds-row\" href=\"#\"><span class=\"ds-row-lead\">2</span><span class=\"ds-row-main\"><span class=\"ds-row-title\">심화과정</span><span class=\"ds-row-sub\">10개월 200시간 대면. 내면소통명상 지도자(티처) 자격증을 수여합니다.</span></span><span class=\"ds-row-trail\">1기 진행 중</span><svg class=\"ds-row-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 6l6 6-6 6\"/></svg></a></div>",
-      "css": ".ds-rows { border-top: 1px solid var(--line, #2F2E2B); font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-row { display: flex; align-items: center; gap: 24px; min-height: 56px; padding: 16px 0; border-bottom: 1px solid var(--line-soft, #242320); text-decoration: none; color: inherit; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-row-lead { flex-shrink: 0; width: 112px; font-size: 13px; line-height: 1.5; font-weight: 500; color: var(--text-muted, #968A73); font-variant-numeric: tabular-nums; } .ds-row-main { flex: 1; min-width: 0; } .ds-row-title { display: block; font-size: 20px; line-height: 1.4; font-weight: 600; color: var(--text-display, #EEE9DE); } .ds-row-sub { display: block; margin-top: 4px; font-size: 14px; line-height: 1.6; color: var(--text-sub, #AA9E86); } .ds-row-trail { flex-shrink: 0; font-size: 14px; line-height: 1.6; color: var(--text-sub, #AA9E86); font-variant-numeric: tabular-nums; } .ds-row-icon { flex-shrink: 0; color: var(--text-muted, #968A73); transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-row:hover .ds-row-icon { color: var(--text-display, #EEE9DE); } .ds-row:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; border-radius: var(--radius-sm, 8px); }"
+      "name": "AmbientArtwork",
+      "kind": "image",
+      "source": "components/ui/AmbientArtwork.tsx",
+      "description": "Responsive raster, mist-only motion, persistent pause and visible provenance."
     },
     {
-      "name": "Numbers",
-      "kind": "custom",
-      "refersTo": "numbers-value",
-      "description": "The data object: four proof figures in tabular numerals above quiet labels, each on a soft hairline. 2 → 4 columns.",
-      "html": "<dl class=\"ds-numbers\"><div class=\"ds-num\"><dt>기초과정 수료</dt><dd>4,500+</dd></div><div class=\"ds-num\"><dt>유튜브 구독</dt><dd>35만+</dd></div><div class=\"ds-num\"><dt>온라인 기초과정</dt><dd>12주</dd></div><div class=\"ds-num\"><dt>명상 지도자 심화과정</dt><dd>200시간</dd></div></dl>",
-      "css": ".ds-numbers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 24px; margin: 0; font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-num { display: flex; flex-direction: column-reverse; padding-top: 16px; border-top: 1px solid var(--line-soft, #242320); } .ds-num dd { margin: 0; font-size: 56px; line-height: 1.1; font-weight: 500; color: var(--text-display, #EEE9DE); font-variant-numeric: tabular-nums; } .ds-num dt { margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--text-sub, #AA9E86); } @media (max-width: 767px) { .ds-numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ds-num dd { font-size: 40px; } }"
+      "name": "AppShowcase",
+      "kind": "tabs",
+      "source": "components/ui/AppShowcase.tsx",
+      "description": "Four keyboard-accessible tabs and one readable real screen."
     },
     {
-      "name": "Facts",
-      "kind": "custom",
-      "refersTo": "facts-label",
-      "description": "A definition list for a course: meta label column, body 500 value, soft hairlines between rows, full hairline on top.",
-      "html": "<dl class=\"ds-facts\"><div class=\"ds-fact\"><dt>형식</dt><dd>12주 온라인</dd></div><div class=\"ds-fact\"><dt>강의</dt><dd>매주 수요일 동영상 강의 업로드</dd></div><div class=\"ds-fact\"><dt>지도</dt><dd>김주환 교수 단독</dd></div><div class=\"ds-fact\"><dt>수료</dt><dd>12주를 모두 마치면 기초과정 수료증</dd></div></dl>",
-      "css": ".ds-facts { margin: 0; border-top: 1px solid var(--line, #2F2E2B); font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-fact { display: grid; grid-template-columns: 112px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line-soft, #242320); } .ds-fact dt { font-size: 13px; line-height: 1.5; font-weight: 500; color: var(--text-muted, #968A73); } .ds-fact dd { margin: 0; font-size: 16px; line-height: 1.7; font-weight: 500; color: var(--text-display, #EEE9DE); }"
+      "name": "InkBand",
+      "kind": "section",
+      "source": "components/ui/InkBand.tsx",
+      "description": "Live heading and description beside optional artwork."
+    },
+    {
+      "name": "Paper",
+      "kind": "section",
+      "source": "components/ui/Paper.tsx",
+      "description": "Ground remap and data-paper boundary."
+    },
+    {
+      "name": "SectionNav",
+      "kind": "navigation",
+      "source": "components/ui/SectionNav.tsx",
+      "description": "Wrapping non-sticky anchors."
+    },
+    {
+      "name": "Button",
+      "kind": "button",
+      "source": "components/ui/Button.tsx",
+      "description": "52px neutral primary; 58px home desktop."
+    },
+    {
+      "name": "TextLink",
+      "kind": "link",
+      "source": "components/ui/TextLink.tsx",
+      "description": "44px hit area, underline, library arrow."
     },
     {
       "name": "Disclosure",
-      "kind": "custom",
-      "refersTo": "disclosure-trigger",
-      "description": "A question that opens. Real h3 wrapping a button; chevron rotates 180° and the body's grid rows animate 0fr → 1fr over 240 ms on settle.",
-      "html": "<div class=\"ds-disclosure\"><h3 class=\"ds-disc-h\"><button class=\"ds-disc-btn\" type=\"button\" aria-expanded=\"true\" aria-controls=\"ds-disc-body\" onclick=\"var o=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!o);document.getElementById('ds-disc-body').dataset.open=!o;\"><span class=\"ds-disc-q\">언제 사용할 수 있나요?</span><svg class=\"ds-disc-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 9l6 6 6-6\"/></svg></button></h3><div class=\"ds-disc-body\" id=\"ds-disc-body\" data-open=\"true\"><div><div class=\"ds-disc-a\"><p>2026년 8월부터 심화과정 1기와 일부 이용자를 대상으로 베타를 열었어요. 정식 출시는 2026년 안을 목표로 하고 있어요.</p></div></div></div></div>",
-      "css": ".ds-disclosure { border-bottom: 1px solid var(--line-soft, #242320); font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-disc-h { margin: 0; font-size: 16px; font-weight: 600; } .ds-disc-btn { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; width: 100%; min-height: 56px; padding: 20px 0; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; } .ds-disc-q { font-size: 20px; line-height: 1.4; font-weight: 600; color: var(--text-display, #EEE9DE); } .ds-disc-icon { flex-shrink: 0; margin-top: 4px; color: var(--text-muted, #968A73); transition: transform 240ms cubic-bezier(0.2,0,0,1); } .ds-disc-btn[aria-expanded='true'] .ds-disc-icon { transform: rotate(180deg); } .ds-disc-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 240ms cubic-bezier(0.2,0,0,1); } .ds-disc-body[data-open='true'] { grid-template-rows: 1fr; } .ds-disc-body > div { overflow: hidden; } .ds-disc-a { max-width: 34em; padding-bottom: 24px; font-size: 16px; line-height: 1.7; color: var(--text-sub, #AA9E86); } .ds-disc-a p { margin: 0; } .ds-disc-btn:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; border-radius: var(--radius-sm, 8px); }"
+      "kind": "disclosure",
+      "source": "components/ui/Disclosure.tsx",
+      "description": "Native details/summary, no JavaScript needed."
     },
     {
       "name": "Poster",
-      "kind": "custom",
-      "refersTo": "poster",
-      "description": "A printed poster shown as the document it is: a 2:3 frame, 12 px radius (rounded-md) and a soft hairline, object-fit cover, the full sheet opening in a new tab; caption in meta muted 12 px below. Two sit in a 2-column grid capped at 500 px beside Facts. Photographs never take this frame; posters and app screens (16 px) are the two documents that do. The sheet itself is omitted from this demo; an empty frame on the surface colour stands in.",
-      "html": "<div class=\"ds-posters\"><figure class=\"ds-poster\"><a href=\"#\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"명상 콘서트 · 2025년 3월 포스터 전체 보기 (새 창)\"></a><figcaption>명상 콘서트 · 2025년 3월</figcaption></figure><figure class=\"ds-poster\"><a href=\"#\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"그릿 워크숍 · 2025년 10월 포스터 전체 보기 (새 창)\"></a><figcaption>그릿 워크숍 · 2025년 10월</figcaption></figure></div>",
-      "css": ".ds-posters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 500px; font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-poster { margin: 0; } .ds-poster a { position: relative; display: block; aspect-ratio: 2 / 3; overflow: hidden; border-radius: var(--radius-md, 12px); border: 1px solid var(--line-soft, #242320); background: var(--surface, #191816); } .ds-poster a img { width: 100%; height: 100%; object-fit: cover; display: block; } .ds-poster figcaption { margin-top: 12px; font-size: 13px; line-height: 1.5; font-weight: 500; color: var(--text-muted, #968A73); } .ds-poster a:focus-visible { outline: 2px solid var(--text-display, #EEE9DE); outline-offset: 3px; } @media (min-width: 768px) { .ds-posters { gap: 20px; } }"
+      "kind": "image",
+      "source": "components/ui/Poster.tsx",
+      "description": "Actual document opens complete file."
     },
     {
-      "name": "Ink Band → Paper",
-      "kind": "custom",
-      "refersTo": "ink-band",
-      "description": "Every reading page's first viewport: a punchline h1 (display-sm → display, 14em) and one sentence (body-lg, full-strength copy) on ink, header + 48 → 72 px above, 64 → 80 px below; then a hard edge onto 한지 (Paper), where the same roles remap. The page's 수묵 painting, a 38 svh strip along the band's bottom edge masked into ink at both ends, is omitted from this demo. The first Section on paper has no hairline.",
-      "html": "<section class=\"ds-band\"><div class=\"ds-band-in\"><h1>12주로 시작해, 200시간으로 깊어집니다.</h1><p>온라인 기초과정 12주, 그리고 명상 지도자를 기르는 10개월 200시간의 심화과정. 기초과정을 수료한 분만 심화과정에 지원할 수 있습니다.</p></div></section><div class=\"ds-paper\"><div class=\"ds-paper-in\"><h2>기초과정</h2><p>기초과정은 온라인 교육으로 최고의 명상 경험을 드리는 것을 목표로 합니다.</p></div></div>",
-      "css": ".ds-band { position: relative; background: var(--bg, #121210); color: var(--text, #D9D1C2); padding: 112px 24px 64px; font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; word-break: keep-all; } .ds-band-in { max-width: 1200px; margin: 0 auto; } .ds-band h1 { margin: 0; max-width: 14em; font-size: 40px; line-height: 1.2; font-weight: 500; color: var(--text-display, #EEE9DE); text-wrap: balance; } .ds-band p { margin: 24px 0 0; max-width: 34em; font-size: 18px; line-height: 1.75; color: var(--text, #D9D1C2); } .ds-paper { --bg: #FAF7F1; --text: #121210; --text-display: #0D0D0C; --text-sub: #2C2923; background: var(--bg); color: var(--text); padding: 64px 24px; font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-paper-in { max-width: 1200px; margin: 0 auto; } .ds-paper h2 { margin: 0; font-size: 36px; line-height: 1.25; font-weight: 600; color: var(--text-display); } .ds-paper p { margin: 16px 0 0; max-width: 34em; font-size: 18px; line-height: 1.75; color: var(--text-sub); } @media (min-width: 768px) { .ds-band { padding: 136px 48px 80px; } .ds-band h1 { font-size: 56px; } .ds-band p { margin-top: 32px; } .ds-paper { padding: 96px 48px; } }"
+      "name": "PhotoBleed",
+      "kind": "image",
+      "source": "components/ui/PhotoBleed.tsx",
+      "description": "Original photograph with square corners."
     },
     {
-      "name": "Section Header",
-      "kind": "custom",
-      "refersTo": "section",
-      "description": "An open section's heading block: hairline above, h2 at 36 px, body-lg lede at 34em, optional aside link on the right. No fill, no card.",
-      "html": "<section class=\"ds-section\"><div class=\"ds-section-head\"><div class=\"ds-section-title\"><h2>교육과정</h2><p>기초과정을 마친 분만 심화과정에 지원할 수 있습니다. 두 단계로 이어집니다.</p></div><a class=\"ds-text-link\" href=\"#\">교육과정 전체 보기<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M13 6l6 6-6 6\"/></svg></a></div></section>",
-      "css": ".ds-section { border-top: 1px solid var(--line, #2F2E2B); padding: 64px 24px; font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; letter-spacing: 0; } .ds-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; max-width: 1200px; margin: 0 auto; } .ds-section-title { max-width: 34em; } .ds-section-title h2 { margin: 0; font-size: 36px; line-height: 1.25; font-weight: 600; color: var(--text-display, #EEE9DE); text-wrap: balance; } .ds-section-title p { margin: 16px 0 0; font-size: 18px; line-height: 1.75; color: var(--text-sub, #AA9E86); } .ds-text-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; flex-shrink: 0; font-size: 16px; line-height: 1.7; font-weight: 500; color: var(--text-display, #EEE9DE); text-decoration: underline; text-decoration-color: var(--line, #2F2E2B); text-underline-offset: 6px; transition: text-decoration-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-text-link:hover { text-decoration-color: var(--text-display, #EEE9DE); } @media (min-width: 768px) { .ds-section { padding: 96px 48px; } }"
+      "name": "Icon",
+      "kind": "icon",
+      "source": "components/ui/Icon.tsx",
+      "description": "Phosphor light family, individual SSR imports."
+    },
+    {
+      "name": "CommunityPhoto",
+      "kind": "image",
+      "source": "components/ui/CommunityPhoto.tsx",
+      "description": "User-supplied photograph, original framing and source-linked caption."
     }
   ],
   "narrative": {
-    "northStar": "The Mountain That Stays",
-    "overview": "One 수묵 mountain sits at the bottom of the first two viewports of the home page and does not move; the name, one sentence, one paper button and the teaching pass over it. Everything else on the site is the same restraint applied to reading, and every page opens in ink. The pages that have to be read (/courses, /programs, /news, /faq, /resources) open with an ink band: a punchline h1, one sentence, and the page's own 수묵 painting low along the bottom edge with its top 45 % and bottom 12 % faded into ink; below the band the page unrolls onto 한지 paper for reading and closes in ink at the footer. /, /app, /about and the 404 are ink throughout. Only the legal documents (/privacy, /terms, /delete-account), read from the first line, set the whole page on 한지. Both grounds are one palette; a ground is a remap of the same role names, never a second design.\n\nThe register is Editorial: a visitor comes once, wants a feeling, then a reason to trust. What that licenses here is one full-bleed artifact per page at most, display type that is part of the composition, a committed dark ground, and numbered structure. It does not license slower motion, more curves or deeper z-stacks. Depth is a surface step plus a hairline; there is not one box-shadow or gradient background in the codebase. Density is low: sections open with 64–96 px of air, groups are hairline rows on a transparent ground, and no card exists on the site.\n\nPretendard Variable is the only typeface loaded; the two-tier wordmark carries the brand's serif as a drawn raster in both inks. The seal, vermilion, appears on the whole site in exactly one place: the numerals 1 → 2 of the mechanism (편도체 안정화 → 전전두피질 활성화) on / and /about. The header's active item is paper, not vermilion; no button is vermilion.",
+    "northStar": "A still mountain, a clear teaching, real people.",
+    "overview": "Ink opens the site. Original human and product evidence follows. Reading pages use paper. Current behavior is documented in DESIGN.md.",
     "keyCharacteristics": [
-      "Two grounds, one palette: every page opens and closes in ink (#121210); the reading pages unroll onto 한지 (#FAF7F1) between an ink band and the ink footer, a remap of the same role names through .ground-hanji. No page lands on paper except a legal document.",
-      "One family, three weights (400/500/600), letter-spacing 0 at every size, no uppercase, keep-all.",
-      "Depth is a surface step plus a hairline. No shadows, no gradients, one blur (the header).",
-      "The row is the door: list rows, fact rows and disclosures separated by hairlines replace cards.",
-      "The seal is spent once: vermilion only on the two mechanism numerals.",
-      "One curve (Sumuk settle), two durations (150 ms state, 450 ms entrance), one 6 s breath on the page's painting. Nothing bounces.",
-      "Photographs are square-cornered and bleed to the viewport edge; the text keeps the page's left edge. Portraits are colour, desaturated a step, never grayscale. Documents (posters, app screens) keep a small radius and a soft hairline."
+      "Smaller wordmark and live teaching headline",
+      "Stationary art; mist-only motion with pause",
+      "Readable single-screen app showcase",
+      "Real portraits and posters",
+      "Ink/paper header follows actual surface",
+      "Native keyboard behavior"
     ],
     "rules": [
-      { "name": "The One Palette, Two Grounds Rule", "section": "colors", "body": "A ground is a remap of the same role names onto the same palette, never a second palette. Components are ground-agnostic: they name roles (bg-bg, text-fg, border-line) and never a ramp step or a hex. PageShell holds the only two switches: ground for the html canvas, header and footer, and reading for the Paper body when it differs, which makes the page banded. The header puts .ground-hanji on itself once it is over the paper; no other component chooses a ground." },
-      { "name": "The Opens in Ink Rule", "section": "colors", "body": "Every page opens and closes in ink. A reading page is an ink band (the punchline, one sentence, the page's painting), then Paper, then the ink footer; a visitor never lands on paper. Only a legal document, read from its first line, sets the whole page on 한지 and exports hanjiViewport; every other page keeps the ink canvas and theme colour." },
-      { "name": "The Neutral Action Rule", "section": "colors", "body": "The primary action colour is paper on ink and ink on paper. No vermilion button exists and none may be added; the seal is never an action colour." },
-      { "name": "The Seal Rule", "section": "colors", "body": "Vermilion is spent 1–2 times per viewport at most and, in this build, exactly once per page on the mechanism numerals. The header's active item is paper. A candidate use must be a mark on content, never a control state, and the institute's real 낙관, when it arrives, is the only vermilion allowed on the painting." },
-      { "name": "The Written Exception Rule", "section": "colors", "body": "An off-scale value ships only with its reason as a comment beside it, as the two 한지 paper steps do. A Sumuk bump is a pin bump plus a reviewable diff of tokens.css; npm run tokens:check fails CI if the generated file is stale." },
-      { "name": "The One Family Rule", "section": "typography", "body": "Pretendard Variable is the only typeface loaded at runtime. The wordmark's Marcellus over 나눔명조 is a drawn asset in two inks and is never set as live type. A second family, including a Korean serif for display, requires a new decision, not a new import." },
-      { "name": "The Zero Tracking Rule", "section": "typography", "body": "Letter-spacing is 0 at every size in both scripts. No uppercase, no positive tracking, no italics (the /about cite is explicitly not-italic)." },
-      { "name": "The 600 Ceiling Rule", "section": "typography", "body": "Three weights: 400 body, 500 display/meta/medium links, 600 headings, row titles and buttons. Nothing bolder exists in the loaded subset's use." },
-      { "name": "The Measure Rule", "section": "typography", "body": "Running text is capped at 34em (max-w-measure), used 22 times; a content section narrows to 720 px but keeps the page's left edge. Home hero copy is capped at 26em; a display heading (the band's h1, the home teaching heading) at 14em." },
-      { "name": "The Left Edge Rule", "section": "layout", "body": "Text keeps the page's left edge at every width; a narrower measure narrows the right side only. PhotoBleed computes its text padding as max(gutter, (100vw − 1200px)/2 + gutter) so the paragraph beside a bleeding photograph aligns with the sections above it." },
-      { "name": "The Ridge Rule", "section": "layout", "body": "The proof numbers sit inside viewport 1, bottom-aligned 32 svh above the fold, only on viewports ≥768 px wide and ≥900 px tall (md:tall:block); otherwise the same component opens viewport 2 (md:tall:hidden). One component, two placements, never both." },
-      { "name": "The Pin Is Desktop-Only Rule", "section": "layout", "body": "Below 768 px the painting does not stick; 16 px Hangul over the bright ridge failed legibility on 390 px frames. The 45 % top fade applies on every width, on the hero and on every band alike." },
-      { "name": "The Hairline Rule", "section": "elevation", "body": "Elevation is a surface step plus a 1 px line. Two strokes exist: line for the top of a group and section boundaries, line-soft for rows inside a group. A third stroke or any box-shadow is a defect." },
-      { "name": "The One Blur Rule", "section": "elevation", "body": "The header's backdrop is the only blur on the site. Neither the hero nor a band has a blurred colour field; the atmosphere is the painting's own mask and a 6 s opacity breath." },
-      { "name": "The Square Photograph Rule", "section": "shapes", "body": "A person in a rounded rectangle beside text is the layout this site replaces. Photographs of the professor are square-cornered, bleed to the viewport edge, and carry the page's left edge for their text. Radius is for controls, for small grid tiles of a roster and for documents (posters, app screens), not for a portrait that anchors a section." },
-      { "name": "The Capture Frame Rule", "section": "shapes", "body": "A document shown as itself keeps a radius and a soft hairline: a real product screen at 16 px, a printed poster at 12 px, enough to read as a captured sheet, never a drawn phone and never a photograph's square bleed. The full sheet is one click away." },
-      { "name": "The One Curve, Two Durations Rule", "section": "components", "body": "settle for anything that enters or opens, standard for anything that changes in place; 150 ms for state, 450 ms for the one entrance per page, never past 600 ms. A second easing family or a spring is out of world." },
-      { "name": "The Breathes, Not Bounces Rule", "section": "components", "body": "The only loop on the site is a painting's 6 s breath, and a page has at most one painting. It has no trigger and stops, rather than shortens, under reduced motion." }
+      {
+        "name": "Source truth",
+        "body": "Use original photographs, real app screens and actual posters. Label generated artwork. Never fabricate event footage."
+      },
+      {
+        "name": "Motion",
+        "body": "Only mist loops. No scroll hijack, parallax, bounce or animated CTA. Reduced motion is static."
+      },
+      {
+        "name": "Hierarchy",
+        "body": "One main action per section; body 17px, small body 15px; generous whitespace and open groupings."
+      }
     ],
     "dos": [
-      "Do open every page in ink. A reading page is PageShell reading=\"hanji\" → InkBand (a punchline h1, one sentence, the page's own painting) → Paper → Sections, the first with hairline={false}. /, /app, /about and the 404 stay on ink throughout. Only a legal document sets PageShell ground=\"hanji\" and exports hanjiViewport; every other page keeps the ink canvas and theme colour.",
-      "Do name roles, never ramp steps or hexes: bg-bg, text-fg, text-copy, text-sub, text-muted, border-line. The build fails on a stale tokens.css.",
-      "Do group with hairlines on a transparent ground: hairline-t on the group, hairline-soft-b on each row, 56 px minimum per row.",
-      "Do set every size at letter-spacing 0, sentence case, weights 400/500/600 only, running text at 34em, body 16 px / 1.7 on both grounds.",
-      "Do put one primary button per viewport and make the next action an outline or a text link with a 16 px arrow.",
-      "Do bleed a portrait to the viewport edge with square corners and keep the text on the page's left edge; desaturate to 0.75–0.85, in colour.",
-      "Do show a printed poster or an app screen as a document: a radius (12 px poster, 16 px screen), a soft hairline, the full sheet one click away. Photographs never take the frame.",
-      "Do label every synthetic raster in its file name (synthetic-*), its PNG prompt tEXt chunk and public/images/sumuk/PROVENANCE.md, and ship any full-width painting at ≥2880 px wide (the mountain, the path and the geese are 3200×1280; the pine is short of it, see the DESIGN.md record).",
-      "Do speak 합니다체 on institute pages and 해요체 on /app; no exclamation marks anywhere."
+      "Keep the Sumuk role palette",
+      "Preserve legal copy and roster",
+      "Verify all routes on desktop and phone",
+      "Record actual asset dimensions"
     ],
     "donts": [
-      "Don't add a vermilion button, a vermilion active state or a vermilion icon; the seal is spent on the mechanism numerals and a second point per viewport needs a reason written beside it.",
-      "Don't add a box-shadow, a gradient background, or a second blur; depth is a surface step plus a hairline and the header owns the only backdrop-filter.",
-      "Don't wrap a group in a card, a fill or a border box; five bordered containers on one screen is the failure the Section and ListRow components exist to prevent.",
-      "Don't load a second typeface, set a Korean serif as live type, use uppercase, positive tracking, italics or a weight above 600.",
-      "Don't put an eyebrow or kicker above a heading; meta text is a label beside content, not a line above a title.",
-      "Don't land a visitor on paper, and don't title a band with the page's name. The first viewport is ink with a sentence for an h1; 프로그램, 교육과정, 소식 live in the nav's active item and the <title>, not in the band.",
-      "Don't apply grayscale() to a portrait, round the corners of the professor's photograph, or scale a 수묵 glyph past its native asset width.",
-      "Don't add scroll-triggered reveals, a second entrance, parallax, springs or a loop other than the painting's breath; never exceed 600 ms.",
-      "Don't generate a 낙관 seal or a paper texture; the institute's real seal, if one exists, is the only vermilion allowed on the painting, and 한지 is a flat field until the institute supplies approved material."
+      "No generated seals or paper textures",
+      "No fake store/download/registration controls",
+      "No miniature mobile screenshot triptychs",
+      "No entire-painting opacity loop"
     ]
   }
 }

@@ -41,8 +41,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: "if(new URLSearchParams(location.search).get('static')==='1')document.documentElement.dataset.static='true'" }} />
         {/* Ink before any stylesheet arrives: no white frame on a hard load. */}
         <style dangerouslySetInnerHTML={{ __html: 'html{background:#121210}' }} />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />

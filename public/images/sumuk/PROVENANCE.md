@@ -1,43 +1,40 @@
-# 수묵 paintings on this site — provenance
+# Sumuk artwork provenance
 
-Every raster in this folder that starts with `synthetic-` was **generated**, not painted. They are
-placeholders so the layout could be built and reviewed; each is to be swapped for artwork the
-institute owns or 교수님 approves. The seven `glyph-*.png` files are the app's own 수묵 glyph set
-(inzeum-platform-app, Sumuk 3.0.0) and are not synthetic.
+All synthetic-prefixed files are generated design studies, not paintings owned by the institute. The v2 set is also labeled in the rendered page. No generated image depicts a real participant, professor, or event.
 
-| File | Size | Made | Used on |
-|---|---|---|---|
-| `synthetic-mountain-on-ink.png` | 3200×1280 | gpt-image-2 · medium · 2026-09-07 | `/` hero (sticky mountain) |
-| `synthetic-path-on-ink.png` | 3200×1280 | gpt-image-2 · medium · 2026-09-07 | `/courses` ink band (the path up) |
-| `synthetic-pine-on-ink.png` | 2048×1024 | gpt-image-2 · medium · 2026-09-07 | `/programs` ink band |
-| `synthetic-geese-on-ink.png` | 3200×1280 | gpt-image-2 · medium · 2026-09-07 | `/news` ink band (기러기, the messenger) |
+## Current v2 set — 2026-09-08
 
-Every reading page opens with an ink band (`components/ui/InkBand.tsx`), so only the `-on-ink`
-carrier is shipped; `make-painting.py --only ink` skips the 한지 variant.
+Built-in ImageGen generated these assets. Browser delivery uses WebP at quality 90, with transparency preserved for mist. PNG masters are retained without upscaling. PNG prompt metadata and generation-v2.json record the generation briefs. The manifest includes hashes for both formats.
 
-`public/og.jpg` (1200×630) is composed from the synthetic mountain and the wordmark.
+| Asset | Native dimensions | Use |
+|---|---|---|
+| synthetic-mountain-desktop-v2 | 1672 × 941 | / |
+| synthetic-mountain-mobile-v2 | 1161 × 1355 | / (mobile) |
+| synthetic-mist-overlay-v2 | 1920 × 819 | all painted openings |
+| synthetic-pine-on-ink-v2 | 1983 × 793 | /programs |
+| synthetic-path-on-ink-v2 | 1983 × 793 | /courses |
+| synthetic-geese-on-ink-v2 | 1983 × 793 | /news |
 
-Each PNG carries its generation prompt in a `prompt` tEXt chunk and the marker
-"SYNTHETIC PLACEHOLDER". Read it with:
+The tool returned smaller native sizes than requested. These sizes are stated honestly rather than upscaling to satisfy the prior 2880px floor. The main artwork is capped at 1672 CSS pixels. High-resolution approved masters remain on the asset request.
 
-```
-uv run --with pillow python -c "from PIL import Image; print(Image.open('public/images/sumuk/synthetic-mountain-on-ink.png').info['prompt'])"
-```
+V2 landscape masters are opaque artwork on a dark background; mist has genuine alpha transparency. The new artwork is not processed through the old alpha-carrier pipeline.
 
-## Encoding
+## Inherited assets
 
-Same as the app's SumukGlyph: ink density lives in the **alpha** channel; RGB is a flat carrier
-(`#EEE9DE` paper for the ink ground, `#121210` ink for the 한지 ground). One painting therefore
-serves both grounds and can be re-tinted from a token. `scripts/make-painting.py` produces it.
+The earlier synthetic mountain/path/pine/geese PNGs remain as historical inputs; the original mountain still supplies the existing social image public/og.jpg. Their prior prompt metadata is retained. The glyph set was inherited from the app; its presence here is not a claim that it was hand-painted.
 
-## How to swap in real artwork
+## Real assets
 
-1. Get a black-ink-on-white (or 한지) painting as a flat scan or photo, ≥ 3200 px wide for the
-   hero (a 1440 px viewport at 2× is 2880 device pixels), any aspect wider than 2:1.
-2. Run
-   `uv run --with pillow python scripts/make-painting.py SCAN.png mountain --max-width 3200 --prompt "작가·연도·소장"`
-   → `mountain-on-ink.png` (and `-on-hanji.png`).
-3. Point `app/page.tsx` at the new file (drop the `synthetic-` prefix), delete the synthetic file,
-   update this table, recompose `public/og.jpg`.
-4. The seal: the institute's real 낙관, if one exists, is the only vermilion mark the brand
-   guide allows on the painting. Do not generate one.
+Original professor/faculty/advisor photographs, app screenshots, and event posters remain real source assets. Generated UI mockups may reinterpret those references and are not shipped in place of the originals.
+
+## Replacement
+
+Use institute-owned or approved high-resolution source paintings, with separate landscape and portrait compositions and a mist layer where available. Update AmbientArtwork sources and this manifest after visual verification. Use the real institute seal only if supplied; do not synthesize one.
+
+## Dedicated mobile bands
+
+Path, pine and geese each have a separate synthetic mobile-v2 composition, native 1536×1024, generated with the built-in tool from the corresponding desktop reference. They are shown whole in a 390×260 mobile slot beneath the description; no bird, branch or path is clipped. Metadata and hashes are in generation-v2.json.
+
+## User-supplied community photographs
+
+Six actual photographs from the user-supplied 2026-09-08 archive are delivered under ../community/. ../community/sources.json retains original filename, source article title/link, dimensions and hash. Images retain their original framing and color; only format conversion and EXIF orientation normalization were performed. Article context supports captions, not inferred dates from candidate filename prefixes.

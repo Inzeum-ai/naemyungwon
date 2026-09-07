@@ -103,3 +103,7 @@ audience, and 김주환 교수 teaching roughly 70% of the advanced curriculum i
   print use.
 - Synthetic paintings: `public/images/sumuk/synthetic-*.png`, provenance and swap instructions in
   `public/images/sumuk/PROVENANCE.md`. `public/og.jpg` is composed from the synthetic mountain.
+
+## Product correction — 2026-09-08
+
+The app marketing FAQ now reflects platform ADR 0033 (recording-denoise-service): voice recordings are backed up under the recording consent; noise cleanup processes that server copy. The former statement that servers hold metadata only was obsolete. Approved legal-page wording was preserved.

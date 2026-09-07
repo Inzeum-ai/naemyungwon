@@ -1,3 +1,5 @@
+import CommunityPhoto from '@/components/ui/CommunityPhoto'
+import SectionNav from '@/components/ui/SectionNav'
 import Image from 'next/image'
 import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
@@ -33,15 +35,26 @@ export default function ProgramsPage() {
       <InkBand
         title="산에서, 바다에서, 강가에서."
         lede="리트릿은 오대산에서, 연수교육은 속초에서, 존2 달리기는 한강에서. 강의실 밖에서 이어지는 수련입니다."
-        painting={{ src: '/images/sumuk/synthetic-pine-on-ink.png', position: 'center 70%' }}
+        painting={{ src: '/images/sumuk/synthetic-pine-on-ink-v2.webp', mobileSrc: '/images/sumuk/synthetic-pine-mobile-v2.webp', position: 'center 70%' }}
       />
 
       <Paper>
+      <SectionNav items={[{ href: "#rhythm", label: "프로그램 안내" }, { href: "#retreat", label: "리트릿" }, { href: "#training", label: "연수교육" }, { href: "#coex", label: "명상 콘서트" }]} />
       <Section id="rhythm" title="한 해의 리듬" lede="해마다 돌아오는 모임입니다. 모집과 일정은 소식에서 안내합니다." hairline={false}>
         <div className="hairline-t">
           {rhythm.map((r) => (
             <ListRow key={r.title} lead={r.when} title={r.title} subtitle={r.sub} />
           ))}
+        </div>
+      </Section>
+
+      <Section id="moments" title="참가자가 나눈 수련의 풍경" lede="리트릿과 존2운동 커뮤니티에 남겨진 사진들입니다. 각 사진에서 원문 기록을 볼 수 있습니다.">
+        <div className="community-moments">
+          <CommunityPhoto src="/images/community/retreat-room.webp" alt="산이 보이는 창가에 명상 방석과 매트가 놓인 수련 공간" caption="리트릿의 수련 공간" source="https://cafe.naver.com/joohankimlab/8157" width={1280} height={1525} />
+          <div className="space-y-8 md:pt-16">
+            <CommunityPhoto src="/images/community/odaesan-path.webp" alt="나무 사이로 이어진 오대산 명상마을의 산책길" caption="오대산 명상마을" source="https://cafe.naver.com/joohankimlab/12322" width={1600} height={1200} />
+            <CommunityPhoto src="/images/community/zone2-community.webp" alt="야외에서 함께 모여 기념사진을 남긴 존2운동 커뮤니티" caption="함께하는 존2운동" source="https://cafe.naver.com/joohankimlab/12948" width={1600} height={900} />
+          </div>
         </div>
       </Section>
 
@@ -108,6 +121,7 @@ export default function ProgramsPage() {
       </Section>
 
       <Section id="coex" title="코엑스에서" aside={<p className="text-meta text-muted">2025년 · 코엑스 컨벤션 3F 오디토리움</p>}>
+        <CommunityPhoto src="/images/community/concert-auditorium-2025.webp" alt="2025년 내면소통 명상 콘서트 무대와 객석" caption="2025 내면소통 명상 콘서트" source="https://cafe.naver.com/joohankimlab/7359" width={1600} height={1200} className="mb-12 max-w-[1100px]" sizes="(max-width: 767px) 100vw, 1100px" />
         <div className="grid gap-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
           <div>
             <Facts

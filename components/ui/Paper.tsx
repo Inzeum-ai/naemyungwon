@@ -5,7 +5,7 @@ import type { ReactNode } from 'react'
 // and reads on paper. Long documents (legal) skip the band and set the whole page on 한지.
 export default function Paper({ children }: { children: ReactNode }) {
   return (
-    <div className="ground-hanji" data-ground="hanji">
+    <div data-paper="" className="ground-hanji" data-ground="hanji">
       {children}
     </div>
   )

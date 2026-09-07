@@ -1,68 +1,44 @@
----
-version: 1
-slug: "app-page-tsx"
-primary_target: "app/page.tsx"
-related_targets: []
----
+# Homepage — current surface contract
 
-# Surface brief — `/` (home)
+Updated 2026-09-08 on codex/sumuk-evolution. Supersedes the a4f6000 surface contract, which
+remains in git history. Full system: ../../DESIGN.md. Verification: ../../design-qa.md.
 
-Scope: the home page of inzeum.com. Mode: Persuade. Audience: a prospective 기초과정 student
-arriving from 김주환 교수's YouTube, usually on a phone. Job: understand what 내면소통명상 is and
-who teaches it; act: 기초과정 알아보기. Proof on hand: 4,500+ 수료 · 35만 구독 · 200시간 · 500+
-지원; the professor's own mechanism (편안전활); the real app. Untouched: legal pages, the roster,
-frozen terminology. Alternates dealt and not taken: app-as-the-door (#7), numbers-as-spine (#4).
+## Thesis
 
-## Direction contract
+A stationary Korean ink mountain, an immediately legible teaching headline, and a clear
+foundation-course action. Warmth comes from real people and evidence of actual practice.
 
-THESIS: One mountain stays while everything else passes over it. Refuses the hero-then-cards page.
+## Visual target
 
-OWN-WORLD: Midnight ink #121210, 한지 paper text, one vermilion mark per viewport; Pretendard
-only; hairlines, no cards, no shadows; a 수묵 mountain (synthetic, labeled) as the constant ground.
+The first displayed Product Design study from this task (Mountain & Mist). Local source:
+/Users/jaehoshin/.codex/generated_images/01a07c83-eb38-7791-a995-496141a3814e/exec-cc0adff6-117d-47de-b761-907d216356b2.png
 
-STORY: The visitor sees the name over the mountain, reads the mechanism (편도체 안정화 →
-전전두피질 활성화), meets the two courses as a strict sequence, then the professor, the app, the
-gatherings; acts on 기초과정 알아보기.
+The generated portrait and lettering are references only. Code uses the original portrait,
+original wordmark, real live copy and separate raster artwork.
 
-FIRST VIEWPORT: Full-bleed mountain pinned (position: sticky) beneath the first two viewports;
-wordmark ~460 px in the upper-left third; one sentence; one paper button; the proof numbers set
-along the ridge line in fixed-width tabular figures.
+## Anatomy
 
-FORM: Sticky-mountain scroll, #3 of my ordered seven; seed key afbb436b (surface, persuade).
-Raises: nixie counter → fixed-position tabular numerals; brick instructions → the courses as a
-wordless two-step sequence.
+Header wordmark → live teaching h1 + foundation CTA + mountain → two compact proof facts →
+professor → teaching → two course columns → interactive app showcase → dated actual events
+with a real community photograph → foundation CTA → footer.
 
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the
-verdict, DESIGN.md, and every shipping raster carrying its provenance
+No two-viewport sticky mountain. No giant four-number KPI strip. No illegible mobile triptych.
+The homepage remains entirely ink; reading routes retain the InkBand/Paper sequence.
 
-## Deviations from the contract, cited (fix batch 2026-09-07)
+## Responsive behavior
 
-- **Pin is desktop-only.** Below 768 px the painting sits behind the first viewport only and does
-  not stick; body Hangul at 16 px over the bright ridge failed legibility on 390 px frames
-  (m1/m2 before the fix). The top 45 % of the painting fades into ink on every width.
-- **Proof numbers along the ridge only where the geometry allows it.** On viewports ≥ 768 px wide
-  and ≥ 900 px tall the four tabular figures sit inside viewport 1, bottom-aligned 32 svh above the
-  fold, over the faded upper slope. Below either threshold (every phone; a 1440×900 laptop with
-  browser chrome) the gap between the hero stack and the mist tops is under 150 px, so the numbers
-  open viewport 2 instead. One component, two placements, never both shown.
-- **One paper button** restored (the outline "INZEUM 앱" was app-as-the-door, dealt and not taken).
-- **Hero raster** 3200×1280 (≥ 2880 floor); alternate kept at its 2560 native width. Both synthetic,
-  labeled in the file name, the PNG tEXt, and `public/images/sumuk/PROVENANCE.md`.
-- **/programs pine painting** added where DESIGN.md's table said none — the page's one artifact,
-  in-world, synthetic and labeled.
-- **Vermilion budget** is now spent only on the mechanism numerals (1 → 2). The header's active
-  item is paper; vermilion is never a control state.
-- **App screens** keep an 8 px radius and a hairline: the frame of a real capture, not device chrome.
-- **Header lockup** is hidden on `/` until the hero wordmark has scrolled 200 px under it; the
-  header is transparent until then. One lockup per screen.
+Desktop: 1440px shell, 48px gutters, hero capped at 800px, right-weighted mountain.
+Mobile: 24px gutters, independently composed portrait mountain, 810px opening, readable
+single app screen. Course columns and professor introduction stack. Navigation uses a
+native modal dialog with focus containment and Escape.
 
-## Second batch, cited (2026-09-07, after Jaeho saw the preview)
+## Motion and imagery
 
-- **Hero sentence** now states the mechanism ("두려움의 뇌는 가라앉히고, 생각하는 뇌는 깨웁니다.") and
-  what the institute does, instead of repeating 12주/200시간, which the proof numbers directly below
-  already carry. The teaching's own headline ("마음근력은 근육처럼 자랍니다.") is unchanged.
-- **Every other page now opens in ink** (`components/ui/InkBand.tsx`) so a click from this hero never
-  lands on a white screen; the 한지 reading body begins below the band. The home page itself is
-  unchanged apart from the sentence. Jaeho's words: "is this intended? this whitish screen here?
-  are the punchlines best wired here you think".
+Mountain stationary; only separately generated transparent mist breathes over six seconds.
+Pause persists across navigation, offscreen animation stops, reduced motion is static.
+Artwork is synthetic and visibly labeled; actual photographs/posters/screens remain real.
 
+## Verification
+
+Use the current source/implementation comparison and desktop/mobile route checks in
+../../design-qa.md. A build alone is insufficient. The previous captures are not current proof.

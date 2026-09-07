@@ -1,3 +1,4 @@
+import SectionNav from '@/components/ui/SectionNav'
 import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
 import InkBand from '@/components/ui/InkBand'
@@ -32,10 +33,11 @@ export default function NewsPage() {
       <InkBand
         title="다음 모집 소식을 먼저 전합니다."
         lede="유튜브 커뮤니티와 이메일로 모집과 행사 안내를 드립니다. 이 페이지에는 지나온 걸음을 기록합니다."
-        painting={{ src: '/images/sumuk/synthetic-geese-on-ink.png', position: 'center 45%' }}
+        painting={{ src: '/images/sumuk/synthetic-geese-on-ink-v2.webp', mobileSrc: '/images/sumuk/synthetic-geese-mobile-v2.webp', position: 'center bottom' }}
       />
 
       <Paper>
+      <SectionNav items={[{ href: "#channels", label: "안내 채널" }, { href: "#timeline", label: "지난 소식" }]} />
       <Section id="channels" title="안내를 받으려면" width="content" hairline={false}>
         <div className="hairline-t">
           <ListRow href={YOUTUBE_URL} external title="유튜브 커뮤니티" subtitle="모집 공고와 라이브 강연 안내가 먼저 올라옵니다" />
@@ -46,7 +48,7 @@ export default function NewsPage() {
       <Section id="timeline" title="지난 소식">
         <div className="hairline-t">
           {timeline.map((t) => (
-            <ListRow key={t.title} lead={t.when} title={t.title} subtitle={t.sub} />
+            <ListRow key={`${t.when}-${t.title}`} lead={t.when} title={t.title} subtitle={t.sub} />
           ))}
         </div>
         <div className="mt-10">

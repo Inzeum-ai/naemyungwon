@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
@@ -9,163 +9,80 @@ import Icon from '@/components/ui/Icon'
 import Wordmark from './Wordmark'
 import type { Ground } from './PageShell'
 
-// The header is transparent while the page's own ink is under it and mirrors whatever it covers
-// once it has something to cover: on the home route it stays bare until the hero wordmark has
-// scrolled under it (one lockup per screen); on a banded page it stays bare over the ink band
-// and takes the paper's roles, wordmark and ground once the band's bottom edge has passed.
-// The active item is paper, not vermilion — vermilion is the seal, never a control state.
-const HOME_MARK_SCROLL = 200
-const HEADER_H = 64
-
 type Props = { ground: Ground; reading: Ground; banded: boolean }
-
 export default function Header({ ground, reading, banded }: Props) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const onHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
-  const [pastBand, setPastBand] = useState(!banded)
-  const showMark = !onHome || scrolled
-  const bare = onHome ? !scrolled : banded && !pastBand
-  // The sheet is a sibling on the page ground, so an open header stays on that ground too.
-  const onReading = banded && pastBand && !open
-
-  // Close on navigation; lock the page while the sheet is open.
+  const [onPaper, setOnPaper] = useState(ground === 'hanji')
+  const dialog = useRef<HTMLDialogElement>(null)
+  const trigger = useRef<HTMLButtonElement>(null)
+  const close = () => setOpen(false)
   useEffect(() => setOpen(false), [pathname])
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
+    const element = dialog.current
+    if (!element) return
+    if (open) { element.showModal(); document.body.style.overflow = 'hidden' }
+    else if (element.open) { element.close(); trigger.current?.focus() }
+    return () => { document.body.style.overflow = '' }
   }, [open])
   useEffect(() => {
-    if (!open) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open])
+    const media = matchMedia('(min-width: 768px)')
+    const sync = () => { if (media.matches) setOpen(false) }
+    media.addEventListener('change', sync)
+    return () => media.removeEventListener('change', sync)
+  }, [])
   useEffect(() => {
-    if (!onHome && !banded) return
-    const band = banded ? document.querySelector<HTMLElement>('[data-band]') : null
-    const onScroll = () => {
-      if (onHome) setScrolled(window.scrollY > HOME_MARK_SCROLL)
-      if (band) setPastBand(band.getBoundingClientRect().bottom <= HEADER_H)
+    let frame = 0
+    const measure = () => {
+      frame = 0
+      setScrolled(window.scrollY > 24)
+      const paper = document.querySelector<HTMLElement>('[data-paper]')
+      if (paper) {
+        const rect = paper.getBoundingClientRect()
+        setOnPaper(rect.top <= 64 && rect.bottom > 64)
+      } else setOnPaper(ground === 'hanji')
     }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [onHome, banded, pathname])
-
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
-  const markClass = 'col-start-1 row-start-1 transition-opacity duration-200 ease-standard'
-
-  return (
-    <>
-      <header
-        className={clsx(
-          'fixed inset-x-0 top-0 z-header transition-colors duration-200 ease-standard',
-          !bare && 'header-ground hairline-soft-b',
-          onReading && (reading === 'hanji' ? 'ground-hanji' : 'ground-ink'),
-        )}
-      >
-        <div className="mx-auto flex h-header max-w-page items-center justify-between px-gutter lg:px-gutter-lg">
-          <Link
-            href="/"
-            className={clsx(
-              'flex h-hit items-center rounded-sm transition-[opacity,visibility] duration-200 ease-standard',
-              !showMark && 'invisible opacity-0',
-            )}
-            aria-label="INZEUM 홈"
-          >
-            {banded ? (
-              // Both inks of the lockup, stacked; the one for the ground underneath is opaque.
-              <span className="grid items-center">
-                <Wordmark ground={ground} height={36} priority className={clsx(markClass, onReading && 'opacity-0')} />
-                <span aria-hidden="true" className="col-start-1 row-start-1 flex items-center">
-                  <Wordmark ground={reading} height={36} className={clsx(markClass, !onReading && 'opacity-0')} />
-                </span>
-              </span>
-            ) : (
-              <Wordmark ground={ground} height={36} priority />
-            )}
-          </Link>
-
-          <nav aria-label="주요 메뉴" className="hidden md:block">
-            <ul className="flex items-center gap-2">
-              {NAV.map((item) => {
-                const active = isActive(item.href)
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      aria-current={active ? 'page' : undefined}
-                      className={clsx(
-                        'flex h-hit items-center rounded-sm px-3 text-body-sm transition-colors duration-150 ease-standard',
-                        active ? 'font-semibold text-fg' : 'font-medium text-sub hover:text-fg',
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
-            className="pressable -mr-2 flex h-hit w-hit items-center justify-center rounded-sm text-fg md:hidden"
-          >
-            <Icon name={open ? 'close' : 'menu'} size={24} />
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile sheet — a sibling of the header, not a child: the header's backdrop-filter would
-          otherwise become this fixed element's containing block and collapse it. */}
-      <div
-        id="mobile-nav"
-        hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-header z-overlay overflow-y-auto bg-bg md:hidden"
-        style={{ overscrollBehavior: 'contain' }}
-      >
-        <nav aria-label="주요 메뉴 (모바일)" className="px-gutter pt-2">
-          <ul>
-            {NAV.map((item) => {
-              const active = isActive(item.href)
-              return (
-                <li key={item.href} className="hairline-soft-b">
-                  <Link
-                    href={item.href}
-                    aria-current={active ? 'page' : undefined}
-                    className={clsx(
-                      'flex min-h-row items-center justify-between py-4 text-h3',
-                      active ? 'text-fg' : 'text-sub',
-                    )}
-                  >
-                    {item.label}
-                    <Icon name="chevron-right" className="text-muted" />
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-          <p className="mt-8 text-body-sm text-muted">
-            문의{' '}
-            <a href="mailto:official@inzeum.com" className="text-sub underline underline-offset-4">
-              official@inzeum.com
-            </a>
-          </p>
-        </nav>
+    const update = () => { if (!frame) frame = requestAnimationFrame(measure) }
+    measure()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', update); window.removeEventListener('resize', update) }
+  }, [pathname, ground, reading, banded])
+  const active = (href: string) => pathname === href || pathname.startsWith(href + '/')
+  const currentGround = onPaper ? 'hanji' : 'ink'
+  return <>
+    <header className={clsx('site-header fixed inset-x-0 top-0 z-header', onPaper ? 'ground-hanji' : 'ground-ink', scrolled && 'header-ground hairline-soft-b')} data-surface={currentGround}>
+      <div className="mx-auto flex h-header max-w-page items-center justify-between px-gutter lg:px-gutter-lg">
+        <Link href="/" aria-label="INZEUM 홈" className="flex min-h-hit items-center"><Wordmark ground={currentGround} height={40} priority /></Link>
+        <nav aria-label="주요 메뉴" className="hidden md:block"><ul className="flex items-center gap-3 lg:gap-6">
+          {NAV.map(item => <li key={item.href}><Link href={item.href} aria-current={active(item.href) ? 'page' : undefined}
+            className={clsx('nav-link', active(item.href) && 'nav-link-active')}>{item.label}</Link></li>)}
+        </ul></nav>
+        <button ref={trigger} type="button" onClick={() => setOpen(true)} aria-label="메뉴 열기" aria-expanded={open}
+          aria-controls="mobile-nav" className="flex h-hit w-hit items-center justify-center text-fg md:hidden"><Icon name="menu" size={24} /></button>
       </div>
-    </>
-  )
+    </header>
+    <dialog ref={dialog} id="mobile-nav" aria-label="주요 메뉴" onCancel={close} onClose={close}
+      onKeyDown={event => {
+        if (event.key !== 'Tab') return
+        const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'))
+        if (!controls.length) return
+        const index = controls.indexOf(document.activeElement as HTMLElement)
+        const next = index < 0 ? (event.shiftKey ? controls.length - 1 : 0) : (index + (event.shiftKey ? -1 : 1) + controls.length) % controls.length
+        event.preventDefault()
+        controls[next].focus()
+      }}
+      className={`mobile-menu ${ground === 'hanji' ? 'ground-hanji' : 'ground-ink'}`}>
+      <div className="flex h-header items-center justify-between px-gutter">
+        <Link href="/" onClick={close} aria-label="INZEUM 홈"><Wordmark ground={ground} height={40} /></Link>
+        <button type="button" onClick={close} autoFocus aria-label="메뉴 닫기" className="flex h-hit w-hit items-center justify-center text-fg"><Icon name="close" size={24} /></button>
+      </div>
+      <nav aria-label="모바일 주요 메뉴" className="px-gutter pt-12"><ul>
+        {NAV.map(item => <li key={item.href} className="hairline-soft-b"><Link href={item.href} onClick={close}
+          aria-current={active(item.href) ? 'page' : undefined} className="flex min-h-[76px] items-center justify-between text-h2 text-fg">
+          {item.label}<Icon name="arrow-up-right" size={24} /></Link></li>)}
+      </ul><p className="mt-12 text-body-sm text-muted">내면소통연구소</p><a href="mailto:official@inzeum.com" className="text-link mt-3">official@inzeum.com</a></nav>
+    </dialog>
+  </>
 }

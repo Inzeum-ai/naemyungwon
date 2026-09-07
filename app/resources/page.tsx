@@ -1,3 +1,4 @@
+import SectionNav from '@/components/ui/SectionNav'
 import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
 import InkBand from '@/components/ui/InkBand'
@@ -21,6 +22,7 @@ export default function ResourcesPage() {
       />
 
       <Paper>
+      <SectionNav items={[{ href: "#books", label: "저서" }, { href: "#lectures", label: "강의" }]} />
       <Section id="books" title="저서" hairline={false}>
         <div className="hairline-t">
           <ListRow title="내면소통" subtitle="김주환. 내면소통명상의 원리와 마음근력 훈련의 근거를 담은 책" />

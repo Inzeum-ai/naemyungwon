@@ -1,253 +1,118 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import PageShell from '@/components/layout/PageShell'
 import Button from '@/components/ui/Button'
 import Section from '@/components/ui/Section'
 import ListRow from '@/components/ui/ListRow'
-import Numbers from '@/components/ui/Numbers'
-import PhotoBleed from '@/components/ui/PhotoBleed'
-import Icon from '@/components/ui/Icon'
-
-const figures = [
-  { value: '4,500+', label: '기초과정 수료' },
-  { value: '35만+', label: '유튜브 구독' },
-  { value: '12주', label: '온라인 기초과정' },
-  { value: '200시간', label: '명상 지도자 심화과정' },
-]
+import AmbientArtwork from '@/components/ui/AmbientArtwork'
+import AppShowcase from '@/components/ui/AppShowcase'
+import TextLink from '@/components/ui/TextLink'
+import CommunityPhoto from '@/components/ui/CommunityPhoto'
 
 const steps = [
-  { n: '1', title: '편도체 안정화', body: '두려움과 불안을 먼저 가라앉힙니다. 뜨거운 편도체 위에서는 어떤 훈련도 자리 잡지 못합니다.' },
+  { n: '1', title: '편도체 안정화', body: '두려움과 불안을 먼저 가라앉힙니다. 편안한 상태에서 수련을 시작합니다.' },
   { n: '2', title: '전전두피질 활성화', body: '알아차림, 감사, 자기긍정을 훈련합니다. 반복된 상태는 뇌의 습관이 됩니다.' },
 ]
-
 const muscles = [
   { title: '자기조절력', body: '감정과 충동을 스스로 다루는 힘' },
   { title: '대인관계력', body: '자기조절력이 타인에게 향한 것' },
   { title: '자기동기력', body: '자기조절력이 일에 향한 것' },
 ]
 
-const screens = [
-  { src: '/images/app/sleep.png', alt: 'INZEUM 앱 수면 탭 — 잠들기 전 명상 목록' },
-  { src: '/images/app/library.png', alt: 'INZEUM 앱 명상 탭 — 명상 라이브러리' },
-  { src: '/images/app/inner-ai.png', alt: 'INZEUM 앱 내면AI 탭 — 대화 화면' },
-]
-
-const gatherings = [
-  { when: '1월', title: '신년명상회', sub: '한 해를 여는 명상 모임' },
-  { when: '3월 · 6월', title: '내면소통 명상 콘서트', sub: '코엑스 오디토리움, 1,000명 이상이 함께한 현장 명상' },
-  { when: '7월', title: '여름 리트릿', sub: '3박4일, 오대산 자연명상마을. 교수님이 직접 이끄는 수련' },
-  { when: '10월', title: '존2 달리기', sub: '한강공원에서 함께 뛰는 운동 모임' },
-]
-
-const textLink =
-  'inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg'
-
 export default function Home() {
-  return (
-    <PageShell bleed>
-      {/* ── The mountain stays. Two viewports pass over it. ─────────────────────────────
-          Desktop: the painting is sticky beneath the hero and the teaching. Phones: it sits
-          behind the hero only, so long text never scrolls across the bright ridges. The top
-          of the range fades into ink so a short viewport keeps the text legible. */}
-      <div className="relative">
-        <div className="absolute inset-x-0 top-0 h-svh overflow-hidden md:sticky" aria-hidden="true">
-          <div
-            className="breathe absolute inset-x-0 bottom-0 h-[44svh] md:h-[min(50svh,560px)]"
-            style={{
-              maskImage: 'linear-gradient(to bottom, transparent 0%, black 45%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 45%)',
-            }}
-          >
-            <Image
-              src="/images/sumuk/synthetic-mountain-on-ink.png"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-[center_bottom]"
-            />
+  return <PageShell bleed>
+    <section className="home-hero">
+      <AmbientArtwork src="/images/sumuk/synthetic-mountain-desktop-v2.webp"
+        mobileSrc="/images/sumuk/synthetic-mountain-mobile-v2.webp" className="home-art" priority />
+      <div className="home-hero-content mx-auto w-full max-w-page px-gutter lg:px-gutter-lg">
+        <div className="hero-copy">
+          <h1 className="rise hero-title">마음근력은<br />근육처럼 자랍니다.</h1>
+          <p className="rise mt-7 max-w-[28em] text-body-lg text-copy" style={{ '--i': 1 } as React.CSSProperties}>
+            뇌과학 기반 내면소통명상을<br className="md:hidden" /> 연구하고 가르칩니다.
+          </p>
+          <div className="rise mt-9" style={{ '--i': 2 } as React.CSSProperties}>
+            <Button href="/courses#foundation" icon="arrow-right">기초과정 알아보기</Button>
           </div>
         </div>
+        <dl className="hero-proof">
+          <div><dt>기초과정 수료</dt><dd>4,500+</dd></div>
+          <div><dt>유튜브 구독</dt><dd>35만+</dd></div>
+        </dl>
+      </div>
+    </section>
 
-        <div className="relative md:-mt-[100svh]">
-          {/* Viewport 1 — the name over the mountain, one sentence, one paper button.
-              On a viewport tall enough (≥ 900 px) the proof numbers sit along the ridge, over the
-              faded upper slope; otherwise they open viewport 2 (see the surface brief). */}
-          <section className="flex min-h-svh flex-col px-gutter pt-[calc(var(--header-h)+56px)] md:pt-[calc(var(--header-h)+64px)] md:tall:pb-[32svh] lg:px-gutter-lg">
-            <div className="mx-auto w-full max-w-page">
-              <h1 className="rise" style={{ '--i': 0 } as React.CSSProperties}>
-                <Image
-                  src="/images/wordmark-paper.png"
-                  alt="INZEUM 내면소통연구소"
-                  width={1200}
-                  height={392}
-                  priority
-                  className="h-auto w-[240px] sm:w-[320px] md:w-[400px] lg:w-[460px]"
-                />
-              </h1>
-              <p
-                className="rise mt-8 max-w-[26em] text-body-lg text-copy md:mt-10 md:text-h3 md:font-normal md:leading-[1.6]"
-                style={{ '--i': 1 } as React.CSSProperties}
-              >
-                두려움의 뇌는 가라앉히고, 생각하는 뇌는 깨웁니다. 뇌과학 기반 내면소통명상을
-                연구하고 가르칩니다.
-              </p>
-              <div className="rise mt-8 md:mt-10" style={{ '--i': 2 } as React.CSSProperties}>
-                <Button href="/courses#foundation" icon="arrow-right">
-                  기초과정 알아보기
-                </Button>
-              </div>
-            </div>
-            <div className="mx-auto mt-auto hidden w-full max-w-page pt-10 md:tall:block">
-              <Numbers figures={figures} />
-            </div>
-          </section>
-
-          {/* Viewport 2 — the teaching, still over the mountain on desktop */}
-          <section
-            id="teaching"
-            className="flex flex-col px-gutter pt-16 pb-16 md:min-h-svh md:pt-[calc(var(--header-h)+56px)] md:pb-0 lg:px-gutter-lg"
-          >
-            <div className="mx-auto w-full max-w-page">
-              <Numbers figures={figures} className="md:tall:hidden" />
-              <div className="mt-16 grid gap-10 md:mt-24 md:tall:mt-0 md:grid-cols-[1fr_1.2fr] md:gap-16">
-                <div>
-                  <h2 className="max-w-[14em] text-h1 md:text-display">마음근력은 근육처럼 자랍니다.</h2>
-                  <p className="mt-6 max-w-measure text-body-lg text-sub">
-                    타고나는 것이 아니라 반복으로 길러집니다. 내면소통명상의 원리는 두 단계이고, 순서가
-                    중요합니다.
-                  </p>
-                  <Link href="/about#teaching" className={`mt-8 ${textLink}`}>
-                    내면소통명상이란
-                    <Icon name="arrow-right" size={16} />
-                  </Link>
-                </div>
-                <div>
-                  <ol className="hairline-t">
-                    {steps.map((s) => (
-                      <li key={s.n} className="hairline-soft-b flex gap-6 py-6">
-                        <span className="tnum w-8 shrink-0 text-h2 text-brand">{s.n}</span>
-                        <div className="min-w-0">
-                          <h3 className="text-h3">{s.title}</h3>
-                          <p className="mt-2 max-w-measure text-body text-sub">{s.body}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ol>
-                  <div className="pt-8">
-                    <h3 className="text-h3">세 가지 마음근력</h3>
-                    <ul className="mt-4 grid gap-4 sm:grid-cols-3">
-                      {muscles.map((m) => (
-                        <li key={m.title}>
-                          <p className="text-body font-semibold text-fg">{m.title}</p>
-                          <p className="mt-1 text-body-sm text-sub">{m.body}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+    <section id="professor" className="professor-intro mx-auto w-full max-w-page px-gutter lg:px-gutter-lg">
+      <div className="professor-intro-inner hairline-t">
+        <Image src="/images/joohankim.jpg" alt="김주환 교수" width={420} height={380} sizes="(max-width: 767px) 100vw, 300px" className="professor-intro-photo" />
+        <div>
+          <h2 className="text-h1 md:text-display">김주환 교수</h2>
+          <p className="mt-3 text-body-sm text-sub">연세대학교 언론홍보영상학부 교수 · 『내면소통』 『그릿』 『회복탄력성』 저자</p>
+          <p className="mt-6 max-w-measure text-body-lg text-copy">뇌과학 기반 내면소통명상을 개발하고, 다수의 연구와 저서, 강연으로 명상을 대중과 학문의 영역에 연결해 왔습니다.</p>
+          <TextLink href="/about" className="mt-5">연구소와 사람들</TextLink>
         </div>
       </div>
+    </section>
 
-      {/* ── The page leaves the mountain. ─────────────────────────────────────────────── */}
-      <div className="relative z-raised bg-bg">
-        <Section
-          id="courses"
-          title="교육과정"
-          lede="기초과정을 마친 분만 심화과정에 지원할 수 있습니다. 두 단계로 이어집니다."
-          aside={
-            <Link href="/courses" className={textLink}>
-              교육과정 전체 보기
-              <Icon name="arrow-right" size={16} />
-            </Link>
-          }
-        >
-          <div className="hairline-t">
-            <ListRow
-              href="/courses#foundation"
-              lead="1"
-              leadWidth="index"
-              title="기초과정"
-              subtitle="12주 온라인. 김주환 교수가 처음부터 끝까지 직접 안내합니다."
-              trailing="상시 모집"
-            />
-            <ListRow
-              href="/courses#advanced"
-              lead="2"
-              leadWidth="index"
-              title="심화과정"
-              subtitle="10개월 200시간 대면. 내면소통명상 지도자(티처) 자격증을 수여합니다."
-              trailing="1기 진행 중"
-            />
-          </div>
-        </Section>
-
-        <section id="professor" className="hairline-t">
-          <PhotoBleed src="/images/joohankim.jpg" alt="김주환 교수" position="50% 30%">
-            <h2 className="text-h1 md:text-display">김주환 교수</h2>
-            <p className="mt-3 text-body text-sub">
-              연세대학교 언론홍보영상학부 교수 · 『내면소통』 『그릿』 『회복탄력성』 저자
-            </p>
-            <p className="mt-8 text-body-lg text-copy">
-              뇌과학 기반 내면소통명상을 개발하고, 다수의 연구와 저서, 강연으로 명상을 대중과 학문의
-              영역에 연결해 왔습니다. 2023년 내면소통연구소를 세워 교육 철학과 방법론, 지도자 양성의
-              기준을 직접 총괄합니다.
-            </p>
-            <Link href="/about" className={`mt-8 ${textLink}`}>
-              연구소와 사람들
-              <Icon name="arrow-right" size={16} />
-            </Link>
-          </PhotoBleed>
-        </section>
-
-        <Section
-          id="app"
-          title="INZEUM 앱"
-          lede="교육원에서 배운 수련을 매일 밤 이어갑니다. 수면·명상 라이브러리, 내면AI, 내 목소리, 기록, 마음근력 검사."
-          aside={
-            <Link href="/app" className={textLink}>
-              앱 소개
-              <Icon name="arrow-right" size={16} />
-            </Link>
-          }
-        >
-          <ul className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10">
-            {screens.map((s, i) => (
-              <li key={s.src} className={i === 1 ? 'md:translate-y-10' : ''}>
-                <Image
-                  src={s.src}
-                  alt={s.alt}
-                  width={381}
-                  height={828}
-                  sizes="(max-width: 768px) 33vw, 300px"
-                  className="h-auto w-full rounded-lg border border-line-soft"
-                />
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section
-          id="gatherings"
-          title="함께 모이는 날"
-          lede="강의실 밖에서 이어지는 수련. 모집과 일정은 소식에서 안내합니다."
-          aside={
-            <Link href="/programs" className={textLink}>
-              프로그램 보기
-              <Icon name="arrow-right" size={16} />
-            </Link>
-          }
-        >
-          <div className="hairline-t">
-            {gatherings.map((g) => (
-              <ListRow key={g.title} lead={g.when} title={g.title} subtitle={g.sub} />
-            ))}
-          </div>
-        </Section>
+    <Section id="teaching">
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
+        <div>
+          <h2 className="text-h1 md:text-display">편안하게 시작해,<br />반복으로 기릅니다.</h2>
+          <p className="mt-6 max-w-measure text-body-lg text-copy">마음근력은 타고나는 것이 아니라 반복으로 길러집니다. 내면소통명상의 원리는 두 단계이고, 순서가 중요합니다.</p>
+          <TextLink href="/about#teaching" className="mt-6">내면소통명상이란</TextLink>
+        </div>
+        <div>
+          <ol className="hairline-t">{steps.map(step => <li key={step.n} className="hairline-soft-b flex gap-6 py-7">
+            <span className="tnum w-8 shrink-0 text-h2 text-brand">{step.n}</span>
+            <div><h3 className="text-h3">{step.title}</h3><p className="mt-3 text-body text-copy">{step.body}</p></div>
+          </li>)}</ol>
+          <h3 className="mt-8 text-h3">세 가지 마음근력</h3>
+          <ul className="mt-5 grid gap-5 sm:grid-cols-3">{muscles.map(m => <li key={m.title}><p className="font-semibold text-fg">{m.title}</p><p className="mt-2 text-body-sm text-sub">{m.body}</p></li>)}</ul>
+        </div>
       </div>
-    </PageShell>
-  )
+    </Section>
+
+    <Section id="courses" title="교육과정" lede="처음 배우는 분부터 명상 지도자를 준비하는 분까지. 두 단계로 이어집니다."
+      aside={<TextLink href="/courses">교육과정 전체 보기</TextLink>}>
+      <div className="course-paths">
+        <div className="course-path">
+          <p className="text-body-sm text-muted">온라인 · 12주</p>
+          <h3 className="mt-4 text-h1">기초과정</h3>
+          <p className="mt-5 max-w-measure text-body-lg text-copy">김주환 교수가 처음부터 끝까지 직접 안내합니다. 내면소통명상의 원리를 배우고 수련을 시작합니다.</p>
+          <div className="mt-8"><TextLink href="/courses#foundation">기초과정 알아보기</TextLink></div>
+          <p className="mt-3 text-meta text-muted">상시 모집</p>
+        </div>
+        <div className="course-path">
+          <p className="text-body-sm text-muted">대면 · 10개월 · 200시간</p>
+          <h3 className="mt-4 text-h1">심화과정</h3>
+          <p className="mt-5 max-w-measure text-body-lg text-copy">수련을 깊게 이어가며 명상 지도자로 성장합니다. 기초과정 수료 후 지원할 수 있습니다.</p>
+          <div className="mt-8"><TextLink href="/courses#advanced">심화과정 알아보기</TextLink></div>
+          <p className="mt-3 text-meta text-muted">1기 진행 중 · 2026년 3월–12월</p>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="app" title="배운 수련을 일상으로." lede="교육원에서 배운 수련을 INZEUM 앱으로 매일 밤 이어갑니다."
+      aside={<TextLink href="/app">INZEUM 앱 소개</TextLink>}>
+      <AppShowcase />
+    </Section>
+
+    <Section id="gatherings" title="함께 모이는 날" lede="강의실 밖에서도 수련은 이어집니다. 함께했던 프로그램과 참가자가 나눈 기록을 살펴보세요."
+      aside={<TextLink href="/programs">프로그램 보기</TextLink>}>
+      <div className="grid gap-12 md:grid-cols-[1.1fr_1fr] md:gap-20">
+        <div className="hairline-t">
+          <ListRow href="/programs#coex" lead="2025 · 3월" title="내면소통 명상 콘서트" subtitle="코엑스 오디토리움에서 함께한 현장 명상" />
+          <ListRow href="/programs#coex" lead="2025 · 10월" title="그릿 워크숍" subtitle="어린이·청소년을 위한 마음근력 교육" />
+          <ListRow href="/programs#retreat" lead="2026 · 7월" title="여름 리트릿" subtitle="3박4일, 오대산 자연명상마을" />
+          <ListRow href="/programs#training" lead="2026 · 8월" title="심화과정 연수교육" subtitle="5박6일, 카시아 속초" />
+          <p className="mt-6 text-body-sm text-sub">다음 모집과 일정은 소식에서 안내합니다.</p>
+          <TextLink href="/news" className="mt-3">모집 소식 확인하기</TextLink>
+        </div>
+        <CommunityPhoto src="/images/community/forest-practice.webp" alt="나무 그늘 아래에서 함께 움직임 명상을 하는 참가자들" caption="속리산 산행 명상" source="https://cafe.naver.com/joohankimlab/11538" width={1600} height={900} />
+      </div>
+    </Section>
+    <Section width="content">
+      <h2 className="text-h1 md:text-display">내면소통명상,<br />기초과정에서 시작합니다.</h2>
+      <p className="mt-6 text-body-lg text-copy">12주 온라인. 김주환 교수가 직접 안내하는 첫 수련입니다.</p>
+      <div className="mt-8"><Button href="/courses#foundation" icon="arrow-right">기초과정 알아보기</Button></div>
+    </Section>
+  </PageShell>
 }

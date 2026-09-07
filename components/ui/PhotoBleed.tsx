@@ -32,7 +32,7 @@ export default function PhotoBleed({ src, alt, position = '50% 30%', split = 'ha
         />
       </div>
       {/* Left padding = the page's own left edge: max(gutter, (100vw − page)/2 + gutter). */}
-      <div className="px-gutter py-16 md:flex md:flex-col md:justify-center md:py-24 md:pl-[max(24px,calc((100vw-1200px)/2+24px))] md:pr-12 lg:pl-[max(48px,calc((100vw-1200px)/2+48px))] lg:pr-16">
+      <div className="px-gutter py-16 md:flex md:flex-col md:justify-center md:py-24 md:pl-[max(24px,calc((100vw-1440px)/2+24px))] md:pr-12 lg:pl-[max(48px,calc((100vw-1440px)/2+48px))] lg:pr-16">
         <div className="max-w-measure">{children}</div>
       </div>
     </div>

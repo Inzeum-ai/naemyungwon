@@ -1,3 +1,7 @@
+import CommunityPhoto from '@/components/ui/CommunityPhoto'
+import Disclosure from '@/components/ui/Disclosure'
+import TextLink from '@/components/ui/TextLink'
+import SectionNav from '@/components/ui/SectionNav'
 import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
 import InkBand from '@/components/ui/InkBand'
@@ -59,10 +63,11 @@ export default function CoursesPage() {
       <InkBand
         title="12주로 시작해, 200시간으로 깊어집니다."
         lede="온라인 기초과정 12주, 그리고 명상 지도자를 기르는 10개월 200시간의 심화과정. 기초과정을 수료한 분만 심화과정에 지원할 수 있습니다."
-        painting={{ src: '/images/sumuk/synthetic-path-on-ink.png' }}
+        painting={{ src: '/images/sumuk/synthetic-path-on-ink-v2.webp', mobileSrc: '/images/sumuk/synthetic-path-mobile-v2.webp' }}
       />
 
       <Paper>
+      <SectionNav items={[{ href: "#foundation", label: "기초과정" }, { href: "#advanced", label: "심화과정" }, { href: "#faq", label: "자주 묻는 질문" }, { href: "#apply", label: "수강 문의" }]} />
       <Section id="foundation" title="기초과정" aside={<p className="text-meta text-muted">상시 모집</p>} hairline={false}>
         <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
           <Facts
@@ -84,6 +89,10 @@ export default function CoursesPage() {
               수료증을 드리며, 기초과정 수료자만 이후에 열리는 심화과정에 지원할 수 있습니다. 심화과정까지
               마치면 소수 정예의 지도자 과정에 지원할 수 있습니다.
             </p>
+            <div className="course-actions">
+              <Button href={`mailto:${COMPANY.serviceEmail}?subject=${encodeURIComponent('기초과정 수강 문의')}`} icon="arrow-up-right">기초과정 수강 문의</Button>
+              <TextLink href="/news">모집 소식</TextLink>
+            </div>
             <div className="hairline-t pt-5">
               <h3 className="text-h3">수강 안내</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-body-sm text-sub">
@@ -152,14 +161,28 @@ export default function CoursesPage() {
         </div>
       </Section>
 
-      <Section width="content">
-        <h2 className="text-h2">궁금한 점이 있으신가요</h2>
+      <Section id="practice" title="수련은 일상에서도 이어집니다." lede="심화과정 소통 게시판에 나눈 속리산 산행 명상의 기록입니다.">
+        <div className="grid items-start gap-8 md:grid-cols-2 md:gap-12">
+          <CommunityPhoto src="/images/community/lakeside-practice.webp" alt="나무 그늘 아래 호수를 바라보며 앉아 있는 명상 참가자들" caption="호숫가에서의 명상" source="https://cafe.naver.com/joohankimlab/11538" width={1600} height={1200} />
+          <CommunityPhoto src="/images/community/forest-practice.webp" alt="숲에서 팔을 펼치고 움직임 명상을 하는 참가자들" caption="몸을 움직이며 이어가는 수련" source="https://cafe.naver.com/joohankimlab/11538" width={1600} height={900} className="md:pt-16" />
+        </div>
+      </Section>
+      <Section id="faq" title="시작하기 전에" width="content">
+        <div className="hairline-t">
+          <Disclosure question="명상 경험이 없어도 수강할 수 있나요?"><p>네. 기초과정은 명상 경험이 없는 분도 기본부터 차근차근 배울 수 있도록 구성되어 있습니다.</p></Disclosure>
+          <Disclosure question="온라인으로 수강할 수 있나요?"><p>기초과정은 12주 온라인으로 진행됩니다. 심화과정은 원칙적으로 대면 교육 200시간으로 구성됩니다.</p></Disclosure>
+          <Disclosure question="기초과정 다음에는 무엇을 배울 수 있나요?"><p>기초과정을 수료한 분은 심화과정에 지원할 수 있습니다. 심화과정에서는 수련과 지도 실습을 이어갑니다.</p></Disclosure>
+        </div>
+        <TextLink href="/faq" className="mt-6">자주 묻는 질문 전체 보기</TextLink>
+      </Section>
+      <Section id="apply" width="content">
+        <h2 className="text-h1">수강 문의</h2>
         <p className="mt-4 max-w-measure text-body-lg text-sub">
-          과정과 자격증에 관한 질문을 모아 두었습니다. 그 밖의 문의는 이메일로 보내 주세요.
+          현재 모집과 수강료, 신청 방법은 연구소에 문의해 주세요. 다음 모집 공고는 소식에서 확인할 수 있습니다.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/faq" variant="outline" icon="arrow-right">
-            자주 묻는 질문
+          <Button href="/news" variant="outline" icon="arrow-right">
+            모집 소식
           </Button>
           <Button href={`mailto:${COMPANY.serviceEmail}`} variant="ghost" icon="mail">
             {COMPANY.serviceEmail}

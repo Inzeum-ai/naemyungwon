@@ -1,3 +1,4 @@
+import SectionNav from '@/components/ui/SectionNav'
 import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
 import InkBand from '@/components/ui/InkBand'
@@ -79,6 +80,7 @@ export default function FAQPage() {
       />
 
       <Paper>
+      <SectionNav items={[{ href: "#general", label: "내면소통명상과 기초과정" }, { href: "#advanced", label: "심화과정과 자격증" }]} />
       <Section id="general" title="내면소통명상과 기초과정" width="content" hairline={false}>
         <div className="hairline-t">
           {general.map((f) => (

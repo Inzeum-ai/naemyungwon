@@ -66,8 +66,8 @@ module.exports = {
     // The site's type ramp. Hangul display: tracking 0, leading 1.15–1.25 (measured KR pass 2026-09-06).
     fontSize: {
       meta: ['13px', { lineHeight: '1.5', fontWeight: '500' }],
-      'body-sm': ['14px', { lineHeight: '1.6' }],
-      body: ['16px', { lineHeight: '1.7' }],
+      'body-sm': ['15px', { lineHeight: '1.6' }],
+      body: ['17px', { lineHeight: '1.7' }],
       'body-lg': ['18px', { lineHeight: '1.75' }],
       h3: ['20px', { lineHeight: '1.4', fontWeight: '600' }],
       h2: ['24px', { lineHeight: '1.35', fontWeight: '600' }],
@@ -104,7 +104,7 @@ module.exports = {
       maxWidth: {
         measure: '34em',
         content: '720px',
-        page: '1200px',
+        page: '1440px',
       },
       transitionTimingFunction: {
         settle: 'var(--ease-settle)',

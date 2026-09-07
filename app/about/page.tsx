@@ -1,7 +1,9 @@
+import SectionNav from '@/components/ui/SectionNav'
 import Image from 'next/image'
 import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
-import PageHeader from '@/components/ui/PageHeader'
+import Button from '@/components/ui/Button'
+import TextLink from '@/components/ui/TextLink'
 import Section from '@/components/ui/Section'
 import PhotoBleed from '@/components/ui/PhotoBleed'
 
@@ -91,11 +93,21 @@ const history = [
 
 export default function AboutPage() {
   return (
-    <PageShell>
-      <PageHeader
-        title="내면소통연구소"
-        lede="뇌과학과 심리학에 기반한 명상 교육. 자기 자신과의 깊은 대화로 마음의 힘을 기르고, 그 힘을 가르칠 사람을 키웁니다."
-      />
+    <PageShell bleed>
+      <section className="about-hero">
+        <div className="about-hero-photo">
+          <Image src="/images/joohankim.jpg" alt="김주환 교수" fill priority sizes="(max-width: 767px) 100vw, 50vw" className="object-cover object-[center_30%]" />
+        </div>
+        <div className="about-hero-copy">
+          <h1 className="text-display-sm lg:text-display">마음의 힘을 기르고,<br />그 힘을 가르칩니다.</h1>
+          <p className="mt-7 max-w-measure text-body-lg text-copy">내면소통연구소는 뇌과학과 심리학에 기반한 명상을 연구하고 가르칩니다. 자기 자신과의 깊은 대화로 마음의 힘을 기르고, 그 힘을 가르칠 사람을 키웁니다.</p>
+          <p className="mt-6 text-body-sm text-sub">김주환 교수 · 『내면소통』 저자<br />2023년 내면소통연구소 설립</p>
+          <div className="mt-8"><Button href="#teaching" icon="arrow-right">내면소통명상 알아보기</Button></div>
+          <TextLink href="#faculty" className="mt-4">함께 가르치는 사람들</TextLink>
+        </div>
+      </section>
+
+      <SectionNav items={[{ href: "#teaching", label: "내면소통명상" }, { href: "#professor", label: "김주환 교수" }, { href: "#faculty", label: "패컬티" }, { href: "#advisors", label: "자문위원" }, { href: "#history", label: "연혁" }]} />
 
       <Section id="teaching" title="내면소통명상이란">
         <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">

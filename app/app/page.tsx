@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import AppShowcase from '@/components/ui/AppShowcase'
+import SectionNav from '@/components/ui/SectionNav'
 import Link from 'next/link'
 import { pageMetadata } from '@/lib/seo'
 import PageShell from '@/components/layout/PageShell'
@@ -29,15 +30,10 @@ const faq = [
   { q: '언제 사용할 수 있나요?', a: '2026년 8월부터 심화과정 1기와 일부 이용자를 대상으로 베타를 열었어요. 정식 출시는 2026년 안을 목표로 하고 있어요.' },
   { q: '어떤 기기에서 쓸 수 있나요?', a: 'iOS와 Android 모두 지원해요.' },
   { q: '유료인가요?', a: '베타 서비스에는 유료 결제 기능이 없고, 결제 정보를 수집하지 않아요.' },
-  { q: '녹음한 목소리는 어디에 저장되나요?', a: '녹음 음성 파일은 원칙적으로 이용자의 기기에 저장돼요. 서버에는 녹음 제목과 길이 같은 기록만 남아요.' },
+  { q: '녹음한 목소리는 어디에 저장되나요?', a: '녹음은 기기에 저장되며, 녹음 관련 동의에 따라 서버에 백업돼요. 소음 정리는 서버에 저장된 녹음 파일을 처리해요. 자세한 내용은 개인정보처리방침에서 확인할 수 있어요.' },
   { q: '내면AI와 나눈 대화가 AI 학습에 쓰이나요?', a: '이용자 동의 없이 범용 AI 모델의 학습 데이터로 사용하지 않아요. 자세한 내용은 개인정보처리방침에서 확인할 수 있어요.' },
 ]
 
-const screens = [
-  { src: '/images/app/sleep.png', alt: 'INZEUM 앱 수면 탭 — 잠들기 전 명상 목록' },
-  { src: '/images/app/inner-ai.png', alt: 'INZEUM 앱 내면AI 탭 — 대화 화면' },
-  { src: '/images/app/record.png', alt: 'INZEUM 앱 기록 탭 — 달력' },
-]
 
 export default function AppPage() {
   return (
@@ -45,9 +41,9 @@ export default function AppPage() {
       <header className="mx-auto w-full max-w-page px-gutter pb-16 pt-16 md:pt-28 lg:px-gutter-lg">
         <div className="grid gap-12 md:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] md:items-center md:gap-16">
           <div>
-            <h1 className="text-display-sm md:text-display">INZEUM 앱</h1>
+            <h1 className="text-display-sm md:text-display">배운 수련을,<br />매일 밤 이어가요.</h1>
             <p className="mt-6 max-w-measure text-body-lg text-sub">
-              교육원에서 배운 내면소통명상을 매일 밤 이어가요. 잠들기 전 10분, 8주에서 12주.
+              INZEUM 앱에서 오늘의 명상을 고르고, 내면AI와 대화하고, 하루의 마음을 기록해요.
             </p>
             <p className="mt-6 text-meta text-muted">2026년 8월 베타 · iOS · Android</p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -59,23 +55,11 @@ export default function AppPage() {
               </Button>
             </div>
           </div>
-          <ul className="grid grid-cols-3 gap-3 sm:gap-5">
-            {screens.map((s, i) => (
-              <li key={s.src} className={i === 1 ? 'translate-y-6 md:translate-y-10' : ''}>
-                <Image
-                  src={s.src}
-                  alt={s.alt}
-                  width={381}
-                  height={828}
-                  priority={i === 0}
-                  sizes="(max-width: 768px) 33vw, 200px"
-                  className="h-auto w-full rounded-lg border border-line-soft"
-                />
-              </li>
-            ))}
-          </ul>
+          <AppShowcase compact />
         </div>
       </header>
+
+      <SectionNav items={[{ href: "#features", label: "앱 기능" }, { href: "#release", label: "출시 안내" }, { href: "#faq", label: "자주 묻는 질문" }]} />
 
       <Section id="features" title="앱에서 할 수 있는 것">
         <div className="hairline-t">
