@@ -307,3 +307,143 @@ html[data-static='true'] .rise { animation: none; opacity: 1; transform: none; }
   .about-hero-photo { min-height: 0; height: 480px; }
   .about-hero-copy { padding: 64px 48px 48px; }
 }
+
+/* Reference-driven editorial opening: a scene, a photographic chapter, then concise choices.
+   Baseline palette remains Sumuk; see docs/design/reference-motion-direction.md. */
+.ink-journey { height: 190svh; position: relative; }
+.journey-stage { position: sticky; top: 0; height: 100svh; min-height: 620px; overflow: hidden; isolation: isolate; }
+.scene-first, .scene-second { position: absolute; inset: 0; }
+.scene-first { z-index: 0; }
+.scene-painting, .scene-painting img, .scene-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.scene-painting img { object-fit: cover; }
+.scene-canvas { opacity: 0; pointer-events: none; }
+.scene-title { position: absolute; top: 21svh; left: 0; right: 0; margin: 0; text-align: center; font-size: clamp(96px, 12.5vw, 190px); font-weight: 400; line-height: 1.2; letter-spacing: 0; }
+.scene-footer { position: absolute; bottom: 80px; left: 48px; right: 48px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.scene-footer > p { font-size: 20px; line-height: 1.65; color: var(--text-display); }
+.scene-primary { display: inline-flex; min-height: 56px; align-items: center; justify-content: space-between; gap: 28px; padding: 12px 24px; border: 1px solid var(--text-sub); color: var(--text-display); font-size: 17px; background: rgb(18 18 16 / .35); transition: background-color 180ms cubic-bezier(.23,1,.32,1), color 180ms cubic-bezier(.23,1,.32,1), transform 120ms; }
+.scene-primary:active { transform: scale(.98); }
+.scene-scroll-cue { position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%); display: flex; align-items: center; flex-direction: column; gap: 16px; min-width: 130px; min-height: 44px; font-size: 12px; color: var(--text); }
+.scene-scroll-cue span { display: block; width: 1px; height: 28px; background: var(--text-sub); }
+.scene-controls { position: absolute; bottom: 12px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 18px; min-height: 44px; font-size: 11px; color: var(--text-sub); }
+.scene-controls button { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; color: var(--text); }
+.ink-journey[data-chapter='practice'] .scene-controls { visibility: hidden; }
+.scene-second { z-index: 1; clip-path: inset(100% 0 0 0); }
+.scene-photo-shade { position: absolute; inset: 0; background: rgb(0 0 0 / .38); }
+.scene-photo-caption { position: absolute; inset: auto 48px 72px; display: flex; align-items: end; justify-content: space-between; gap: 32px; opacity: 0; }
+.scene-photo-caption p { color: var(--text-display); margin-bottom: 20px; }
+.scene-photo-caption h2 { font-size: clamp(48px, 6vw, 96px); font-weight: 500; line-height: 1.2; }
+.studio-shell { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: 48px; }
+.studio-statement { padding-block: 144px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: end; }
+.studio-statement h2 { font-size: clamp(48px, 5.8vw, 88px); font-weight: 500; line-height: 1.25; }
+.studio-statement-note { max-width: 25em; }
+.studio-statement-note > p { font-size: 18px; line-height: 1.7; margin-bottom: 24px; }
+.studio-professor { display: grid; grid-template-columns: .9fr 1.2fr; gap: 96px; align-items: center; padding-bottom: 128px; }
+.studio-professor-photo { width: 100%; height: 560px; object-fit: cover; object-position: center 22%; }
+.studio-professor h2 { font-size: clamp(40px, 5vw, 72px); font-weight: 500; line-height: 1.25; }
+.studio-proof { display: flex; gap: 40px; margin-top: 56px; }
+.studio-proof > div { display: flex; flex-direction: column-reverse; gap: 8px; }
+.studio-proof dt { font-size: 13px; color: var(--text-sub); }
+.studio-proof dd { font-size: 32px; line-height: 1.2; font-weight: 500; color: var(--text-display); }
+.studio-learning, .studio-programs, .studio-app { padding-block: 96px; border-top: 1px solid var(--line); }
+.studio-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 64px; }
+.studio-section-heading > h2 { font-size: clamp(40px, 5.8vw, 88px); font-weight: 500; line-height: 1.2; }
+.studio-section-heading > a { flex-shrink: 0; }
+.studio-course-line { min-height: 180px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 56px 1fr auto 32px; align-items: center; gap: 32px; }
+.studio-course-line:last-child { border-bottom: 1px solid var(--line); }
+.studio-course-index { align-self: start; padding-top: 48px; font-size: 13px; color: var(--text-sub); }
+.studio-course-line h3 { font-size: 48px; font-weight: 500; line-height: 1.2; }
+.studio-course-line p { margin-top: 12px; font-size: 17px; color: var(--text-sub); }
+.studio-course-format { font-size: 18px; color: var(--text); }
+.studio-course-line > svg, .studio-project-title > svg { transition: transform 180ms cubic-bezier(.23,1,.32,1); }
+.studio-projects { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: start; }
+.studio-project-offset { padding-top: 160px; }
+.studio-project-image { overflow: hidden; }
+.studio-project-image img { width: 100%; height: auto; transition: transform 300ms cubic-bezier(.23,1,.32,1); }
+.studio-project-title { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 24px; }
+.studio-project-title h3 { font-size: 36px; font-weight: 500; }
+.studio-project > p { margin-top: 8px; color: var(--text-sub); font-size: 15px; }
+.studio-app .app-showcase { padding-top: 0; }
+.studio-close { padding-block: 144px; display: flex; align-items: end; justify-content: space-between; gap: 64px; border-top: 1px solid var(--line); }
+.studio-close h2 { font-size: clamp(64px, 8vw, 120px); font-weight: 500; line-height: 1.2; }
+.studio-close > div { max-width: 24em; }
+@media (hover: hover) and (pointer: fine) {
+  .scene-primary:hover { background: var(--text-display); color: var(--bg); }
+  .studio-course-line:hover > svg, .studio-project:hover .studio-project-title > svg { transform: translate(4px,-4px); }
+  .studio-project:hover img { transform: scale(1.025); }
+}
+@media (max-width: 1023px) {
+  .scene-footer { left: 24px; right: 24px; }
+  .studio-shell { padding-inline: 24px; }
+  .studio-statement { grid-template-columns: 1fr; gap: 40px; padding-block: 96px; }
+  .studio-professor { gap: 48px; }
+  .studio-professor-photo { height: 480px; }
+  .studio-course-line { grid-template-columns: 32px 1fr auto 24px; gap: 20px; }
+  .studio-course-line h3 { font-size: 40px; }
+  .studio-course-format { font-size: 15px; }
+  .studio-projects { gap: 32px; }
+  .studio-project-offset { padding-top: 96px; }
+}
+@media (max-width: 767px) {
+  .ink-journey { height: 180svh; }
+  .journey-stage { min-height: 600px; }
+  .scene-title { top: 22svh; font-size: clamp(64px,20vw,110px); }
+  .scene-footer { bottom: 104px; align-items: start; flex-direction: column; gap: 24px; }
+  .scene-footer > p { font-size: 17px; }
+  .scene-primary { min-height: 52px; padding: 10px 18px; gap: 24px; font-size: 15px; }
+  .scene-scroll-cue { left: auto; right: 0; bottom: -4px; transform: none; min-width: 80px; font-size: 10px; }
+  .scene-scroll-cue span { height: 20px; }
+  .scene-controls { justify-content: flex-start; padding-left: 24px; bottom: 12px; }
+  .scene-photo-caption { inset: auto 24px 56px; flex-direction: column; align-items: start; gap: 28px; }
+  .scene-photo-caption h2 { font-size: 44px; }
+  .studio-statement { padding-block: 72px; }
+  .studio-statement h2 { font-size: 40px; }
+  .studio-professor { grid-template-columns: 1fr; gap: 32px; padding-bottom: 72px; }
+  .studio-professor-photo { height: 400px; }
+  .studio-professor h2 { font-size: 40px; }
+  .studio-proof { margin-top: 32px; }
+  .studio-learning, .studio-programs, .studio-app { padding-block: 72px; }
+  .studio-section-heading { flex-direction: column; align-items: start; gap: 24px; margin-bottom: 40px; }
+  .studio-section-heading > h2 { font-size: 40px; }
+  .studio-course-line { grid-template-columns: 24px 1fr 24px; min-height: 160px; gap: 16px; padding-block: 24px; }
+  .studio-course-index { padding-top: 8px; }
+  .studio-course-line h3 { font-size: 32px; }
+  .studio-course-line p { font-size: 15px; }
+  .studio-course-format { grid-column: 2; grid-row: 2; }
+  .studio-course-line > svg { grid-column: 3; grid-row: 1; }
+  .studio-projects { grid-template-columns: 1fr; gap: 56px; }
+  .studio-project-offset { padding-top: 0; }
+  .studio-project-title h3 { font-size: 30px; }
+  .studio-close { padding-block: 80px; align-items: start; flex-direction: column; gap: 32px; }
+  .studio-close h2 { font-size: 60px; }
+}
+html[data-static='true'] .ink-journey, .ink-journey[data-still='true'] { height: auto; }
+html[data-static='true'] .journey-stage, .ink-journey[data-still='true'] .journey-stage { position: static; height: auto; }
+html[data-static='true'] .scene-first, html[data-static='true'] .scene-second, .ink-journey[data-still='true'] .scene-first, .ink-journey[data-still='true'] .scene-second { position: relative; height: 100svh; min-height: 620px; clip-path: none !important; }
+html[data-static='true'] .scene-photo-caption, .ink-journey[data-still='true'] .scene-photo-caption { opacity: 1 !important; transform: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .ink-journey { height: auto; }
+  .journey-stage { position: static; height: auto; }
+  .scene-first, .scene-second { position: relative; height: 100svh; min-height: 620px; clip-path: none !important; }
+  .scene-title, .scene-footer, .scene-photo-caption { opacity: 1 !important; transform: none !important; }
+  .scene-canvas, .scene-controls button { display: none; }
+  .studio-project-image img { transform: none !important; }
+}
+.scene-practice-photo, .scene-practice-photo img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.scene-practice-photo img { object-fit: cover; }
+@media (max-height: 650px) {
+  .journey-stage { min-height: 100svh; }
+  .scene-title { top: 18svh; font-size: clamp(64px,10vw,124px); }
+  .scene-footer { bottom: 64px; gap: 14px; }
+  .scene-footer > p { font-size: 15px; }
+  .scene-scroll-cue { display: none; }
+  .scene-photo-caption { bottom: 40px; }
+  .scene-photo-caption h2 { font-size: 36px; }
+}
+/* Keep the phone's explanation and action in the artwork's clear upper space. */
+@media (max-width: 767px) and (min-height: 651px) {
+  .scene-footer { top: calc(22svh + 118px); bottom: auto; }
+}
+.scene-primary { background: rgb(18 18 16 / .78); }
+@media (hover: hover) and (pointer: fine) {
+  .scene-primary:hover { background: var(--text-display); color: var(--bg); }
+}

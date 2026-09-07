@@ -38,3 +38,7 @@ Path, pine and geese each have a separate synthetic mobile-v2 composition, nativ
 ## User-supplied community photographs
 
 Six actual photographs from the user-supplied 2026-09-08 archive are delivered under ../community/. ../community/sources.json retains original filename, source article title/link, dimensions and hash. Images retain their original framing and color; only format conversion and EXIF orientation normalization were performed. Article context supports captions, not inferred dates from candidate filename prefixes.
+
+## V3 interactive scene
+
+Two additional synthetic panoramas supply the reference-driven homepage: synthetic-lake-scene-v3 (1513×1040) and synthetic-lake-scene-mobile-v3 (971×1619). Both were made with built-in ImageGen from the revised study and are visibly labeled. WebGL only distorts their water texture and applies a restrained pointer offset; it does not create or claim a real 3D place. The next chapter uses supplied documentary photos. generation-v3.json records native sizes and hashes.

@@ -1,12 +1,22 @@
 ---
 name: inzeum.com
-version: sumuk-web-2
+version: sumuk-web-3
 updated: 2026-09-08
 status: implemented on codex/sumuk-evolution; production unchanged
 palette-source: design-system/sumuk.tokens.json @ 3.0.0
 ---
 
 # INZEUM website design system
+
+## Current revision: reference-driven interaction
+
+The user's September 8 correction takes precedence over the prior homepage description
+below. The new direction is specified in `docs/design/reference-motion-direction.md`:
+Basement's environment-first opening, Darkroom's type/image hierarchy, and Emil's purposeful
+interaction guidance. A full-viewport ink scene transitions through native scrolling to a
+real practice photograph. The homepage copy is shorter; full course and teaching information
+stays on the detail pages. The prior no-scroll-narrative rule is superseded for this one
+hero. The shared palette, roster, legal text, and supplied asset provenance are preserved.
 
 ## Direction
 
@@ -15,7 +25,7 @@ real teacher, real product screens and real event posters establish trust. The d
 feel spacious, warm, grounded and easy to use on a phone.
 
 This is an evolution of redesign/sumuk at a4f6000, following the live-site review and three
-visual studies. The first displayed study anchors the homepage. The person-first study
+visual studies. The revised immersive study, grounded in the saved Basement and Darkroom references, anchors the homepage. The person-first study
 informs the institute page. The site's existing framework, facts, routes, roster and legal
 copy remain the starting point. The user authorized an end-to-end improvement pass.
 
@@ -51,7 +61,7 @@ swap. The original two-line wordmark retains its serif lettering as a supplied r
 
 | Text | Size / line height | Weight |
 |---|---|---|
-| Homepage display | desktop 48–72px / 1.3; phone 34–42px / 1.3 | 500 |
+| Homepage display | desktop 96–190px / 1.2; phone 64–110px / 1.2 | 400 |
 | Page display | 56px desktop; 36–40px phone / 1.2 | 500 |
 | Section heading | 24–36px / 1.25–1.35 | 600 |
 | Body | 17px / 1.7 | 400 |
@@ -65,25 +75,24 @@ zero tracking, balanced headings and a comfortable measure (34em, up to 720px fo
 
 Page shell: 1440px maximum, 48px desktop / 24px mobile gutters. Section space is usually
 96px desktop / 64px phone. Main controls are at least 44px high, primary buttons 52px
-(home desktop 58px). A course is an open column or row separated by a hairline.
+(scene action 56px desktop / 52px phone). A course is an open column or row separated by a hairline.
 
 ## Page anatomy
 
 ### Home
 
-1. Small wordmark in header; five clear navigation links.
-2. `마음근력은 / 근육처럼 자랍니다.` as the live h1, short description and foundation CTA.
-3. Right-weighted mountain, separate mobile composition, two quiet proof figures.
-4. Original professor photograph immediately after the hero, brief introduction and link.
-5. Two-step teaching and three kinds of 마음근력.
-6. Two open course columns: format and duration beside the relevant course.
-7. AppShowcase: one large actual screen, four labeled tabs, readable explanatory copy.
-8. Dated program archive with a real outdoor practice photograph and links to the program sections. The posters remain on the program page.
-9. A final foundation-course action and the existing contact/legal footer.
+1. Full-viewport ink mountain/lake scene and a four-character live title, 내면소통. One short explanation and foundation action.
+2. Native sticky scroll reveals real practice photography: forest practice on desktop, a portrait retreat-room photo on phones. Correct source context stays with each photo.
+3. Short teaching statement linking to the complete explanation on About.
+4. Original professor portrait, brief introduction and compact proof.
+5. Two large course links with format/duration; details remain on Courses.
+6. Image-led program links using the supplied concert and retreat photographs.
+7. AppShowcase and a concise closing course action.
 
-The desktop hero is capped at 800px, with a 720px minimum. Widths below 1024px get an independently
-composed portrait artwork and an 810px minimum opening. The hero no longer consumes two
-sticky viewports, and the entire mountain never fades in and out.
+The normal journey spans 190svh desktop / 180svh phone, with one sticky viewport. Native
+scroll position directly controls the photo wipe. It does not add scroll inertia or prevent
+leaving the scene. Static and reduced-motion modes show sequential sections. Full course
+and teaching detail is preserved on its existing routes; the home copy is more concise.
 
 ### Reading pages
 
@@ -127,6 +136,7 @@ paper from the top. The existing 404 and its return action remain available on i
 | Component | Responsibility |
 |---|---|
 | Header | Always-present wordmark; current section; ground under the header; mobile dialog |
+| InkJourney | Immersive homepage scene and native scroll chapter |
 | AmbientArtwork | Responsive artwork, separate mist, provenance caption, pause control |
 | InkBand | Opening composition with live heading/lede and optional artwork |
 | Paper | One ground remap and `data-paper` boundary |
@@ -146,7 +156,16 @@ footer instead of remaining paper forever.
 
 ## Motion
 
-The painting never moves or pulses. A separate transparent mist image varies opacity
+The homepage is now a deliberate exception to the earlier mist-only rule. InkJourney uses
+one authored texture in a small WebGL renderer: water displacement and a restrained, damped
+pointer offset. Resolution is capped at 1.6 million pixels and 1.5× density, with decorative
+rendering capped at 30fps. Hidden tabs, covered/offscreen artwork, pause and reduced motion
+stop rendering. Missing/lost WebGL falls back to the original image. No 3D world or new
+animation library is claimed. Direct DOM transforms, opacity and clipping describe the
+scroll chapter; invisible action groups are inert. Pointer response does not hijack touch.
+
+
+On reading-page openings, the painting remains stationary. A separate transparent mist image varies opacity
 0.08 ↔ 0.30 over six seconds. The scene pauses when outside the viewport. The visible
 pause control persists its choice in localStorage across pages; storage unavailability
 never blocks rendering. `?static=1` pauses the scene and displays opening text in its final state before first paint; anchor scrolling is instant in this still mode.
@@ -166,7 +185,7 @@ poster, 2025 concert and workshop posters. No generated image represents a real 
 person. The raster mockups are design references only; their generated portraits and copy
 are not shipped.
 
-Synthetic: nine new assets (desktop/mobile mountain, mist, desktop/mobile pine, path and geese),
+Synthetic v2: nine assets (desktop/mobile mountain, mist, desktop/mobile pine, path and geese),
 plus inherited paintings/glyphs. Every new asset has the synthetic prefix and a manifest
 with native size, hash and provenance. Artwork is also labeled in the page.
 
@@ -208,3 +227,11 @@ Do not treat a green build as a visual pass or claim accessibility/performance c
 ### Supplied photography — 2026-09-08
 
 Selected six of 58 candidates: forest movement practice, lakeside meditation, concert auditorium, retreat room, Odaesan path and Zone 2 community. Their captions follow the supplied article metadata. No group photo is recast as a different event or venue, and a generic retreat-room image is not labeled as the 2026 retreat. Sources: public/images/community/sources.json.
+
+### Reference-driven revision
+
+The user specifically asked to apply the September 6 saved references and the interaction
+skill. `docs/design/reference-motion-direction.md` records the inspected sources and design
+transfer. Two additional synthetic lake panoramas (desktop/mobile, v3) supply the interactive
+scene; original photographs provide the next chapter. The previous static split hero is
+preserved in commit 53c410f rather than retained as a competing homepage rule.

@@ -1,133 +1,109 @@
-# Design QA — 2026-09-08
+# Design QA — reference-driven revision, 2026-09-08
 
 final result: passed
 
-No actionable P0/P1/P2 findings remain in the reviewed frontend scope. This is a verified
-local website redesign, not a production deployment or accessibility certification.
+Current scope: the revised homepage and its motion. The prior whole-site verification is
+preserved in commit 53c410f. Detail-page content, legal text, roster and asset sources from
+that pass are retained. No actionable P0/P1/P2 findings remain in this revision's review.
 
-## Source and implementation
+## Visual truth and comparison
 
-- Source visual truth: first displayed Product Design study,
-  `/Users/jaehoshin/.codex/generated_images/01a07c83-eb38-7791-a995-496141a3814e/exec-cc0adff6-117d-47de-b761-907d216356b2.png`.
-- Institute direction: third study, `exec-89db03e3-e745-4a1f-997b-7c9eda74319e.png` in the same directory.
-- Source content: original redesign/sumuk at a4f6000; actual portraits, app screens and posters.
-- Added source: user-supplied 홈페이지_네이버카페_이미지_후보.zip; 58 candidates,
-  six selected. `public/images/community/sources.json` records the files and article context.
-- Implementation: `http://localhost:3315/`, branch `codex/sumuk-evolution`.
-- Primary screenshot: `docs/design-review/home-desktop-final.png`.
-- Full-view comparison: `docs/design-review/home-comparison-final.png` (source left, implementation right).
-- Focused typography/action comparison: `docs/design-review/home-type-comparison-final.png`.
+- Saved gallery: /Users/jaehoshin/Code/viberick/design-refs/index.html (September 6).
+- Inspected Basement f0/f1 and Darkroom f0/f1; inspected their live scene/scroll behavior.
+- Revised visual target:
+  /Users/jaehoshin/.codex/generated_images/01a07c83-eb38-7791-a995-496141a3814e/exec-d9f8eda9-4b8d-4f12-bb72-019c4f9da642.png
+- Implementation: http://localhost:3315/.
+- Comparison: docs/design-review/motion-v3/comparison.png, source left / implementation right.
+- Main capture: docs/design-review/motion-v3/desktop-start-final.png.
+- Source pixels: 1505×1045. Browser capture: 1425×990 from a 1440×1000 CSS viewport.
+  Both were aspect-contained into 1440×1000 for comparison; the tool's output scaling is
+  not treated as a fidelity defect. Independent deviceScaleFactor is not claimed.
+- State: ink chapter, top of page. The typography intentionally follows the brief's larger
+  180px desktop display scale; the generated study rendered the headline smaller.
 
-The source is 1422×1106. Browser output for the 1440×1120 CSS viewport is 1425×1108;
-the capture tool scales output slightly. Both were normalized with aspect containment to
-1440×1120 before comparison. No density-derived difference was treated as a design defect.
-The tool does not provide an independent deviceScaleFactor, so none is invented here.
+The combined comparison is sufficient for composition; the native desktop and phone captures separately expose the short lead and CTA at readable scale, so no further typography crop was required.
 
-State: homepage at scroll zero, ink theme, final entrance state. The still query `?static=1`
-shows final text before first paint and pauses ambient motion; normal motion was tested
-separately. Phone viewport is 390×844; tablet viewport is 768×1024. Capture metadata in
-`browser-checks.json` and `final-checks.json` records actual viewport sizes.
+## Required surfaces
 
-## Required fidelity surfaces
+Typography: live Pretendard, four-character h1, normal Korean tracking, clear short lead
+and action. Stronger editorial section headings replace repeated explanatory paragraphs.
+The existing wordmark remains a real source asset. Desktop and phone line wrapping checked.
 
-- **Typography:** Pretendard Variable loaded in every route check; 72px desktop home display,
-  34–42px phone display, 17px body and 15px supporting text. Headline wrapping, Korean
-  keep-all, readable controls and 34em reading measures inspected. The smaller header
-  wordmark and 20px desktop hero lead are intentional product adaptations, not a second font.
-- **Layout:** same hierarchy as the selected study: teaching headline and action on the left,
-  landscape on the right, compact proof, original professor next. Desktop hero reduced to
-  an 800px cap; independent narrow-screen compositions protect text. Open course groupings,
-  paper reading sections and gallery spacing were checked on desktop/phone/tablet.
-- **Color:** existing Sumuk roles preserved. Ink, warm ivory and sparse vermilion; paper for
-  reading. Header follows actual Paper top and bottom. No new colored controls or background
-  gradients. Photographs retain real color; natural greenery and rooms add warmth.
-- **Image quality:** actual wordmark/portrait/screens/posters retained. The generated study's
-  face was not used. Nine purpose-made raster assets are recorded at their native dimensions,
-  without upscaling. Six supplied photographs retain framing and have source-linked captions.
-  Mobile band artwork is complete, with no clipped birds, tree crown or path.
-- **Copy:** primary action is foundation discovery, inquiry is honestly an email draft, and
-  source dates are not inferred from candidate prefixes. The app FAQ's obsolete local-only
-  recording claim was corrected from platform ADR 0033. The three legal source files are
-  unchanged. Faculty/advisor membership is unchanged.
+Layout: full-viewport scene, then a real photographic chapter, then concise course/program/
+app choices. Native sticky scroll is 190svh desktop / 180svh phone; it does not hijack wheel
+or touch input. Short-window CTA remains inside the viewport. Phone uses a separate painting
+and a portrait photograph, with the correct caption for that image.
 
-## Comparison history and fixes
+Colors: Sumuk palette preserved. No white/lime concept, source-site branding, red studio
+controls or invented seals introduced. Neutral actions remain legible over the imagery.
 
-| Finding | Severity | Fix | Post-fix evidence |
-|---|---|---|---|
-| Desktop hero delayed the professor below the selected composition | P2 | Cap at 800px, tune headline/action scale | home-comparison-final.png; home-type-comparison-final.png |
-| Original news birds and course painting intersected the lede | P2 | New right-weighted desktop artwork with text space | news-desktop-final.png; courses-desktop-final.png |
-| Desktop band art clipped on phones | P2 | Three dedicated 3:2 mobile paintings, displayed below copy | courses-mobile-final.png; programs-mobile-final.png; news-mobile-final.png |
-| Three app screenshots became unreadable on phones | P1 | One large actual screen with four accessible tabs | home-app-mobile.png; app-tabs-mobile-v1.png; app-mobile-top.png |
-| Native dialog allowed a reverse-Tab focus escape on this host | P2 | Explicit Tab/Shift-Tab cycle through dialog controls | menu-keyboard-check.json: ten consecutive steps remain inside; mobile-menu-final.png |
-| Tablet proof/lede overlapped artwork | P2 | Smaller compositions below 1024px; proof follows CTA; painting stays below band copy | home-tablet-final.png; courses-tablet-final.png; news-tablet-final.png |
-| Institute tablet text fragmented into narrow columns | P2 | Stack copy and original photograph below 1024px | about-tablet-final.png |
+Images: two new synthetic panoramas are actual raster textures, recorded in generation-v3.json.
+The shader only displaces those source pixels. It is not presented as a full 3D environment.
+Original supplied forest-practice and retreat-room photographs supply the next chapter;
+source context remains accurate. Synthetic caption belongs to the ink scene only.
 
-The browser's stitched full-page capture duplicated sections. Those files were rejected and
-isolated under `/tmp/naemyungwon-rejected-full-captures/`. They are not evidence of either
-website defects or a visual pass. Accepted evidence consists of individual viewport captures
-and DOM checks; community galleries use actual anchored still views.
+Copy: home explanation reduced to short statements and detail links. Course formats and
+inquiry destinations remain real. Full teaching detail stays on About; full course detail
+stays on Courses. Roster/legal wording untouched.
 
-## Browser verification
+## Before / after review
 
-`docs/design-review/browser-checks.json` covers 12 page states × desktop/phone:
-`/`, `/courses`, `/programs`, `/about`, `/app`, `/news`, `/resources`, `/faq`,
-`/privacy`, `/terms`, `/delete-account`, `/nope-404`.
+| Before | After | Why / evidence |
+|---|---|---|
+| Static split headline and mountain | Immersive ink/lake scene | Basement's environment-first structure; comparison.png |
+| Paragraph-led homepage | Oversized type and real photographic chapters | Darkroom's hierarchy; desktop-learning.png and desktop-gatherings.png |
+| Whole-art/mist fading only | Water texture and damped pointer response | Actual WebGL renderer confirmed active; pointer capture |
+| Scroll passed a static hero | Direct native-scroll photo wipe | Desktop transition captures and walkthrough frames |
+| Cold/cached image could leave the chapter unrevealed | Eager next-chapter image plus cached-complete initialization | Fixed P1; mobile-practice-final.png, clip 0%, caption ~1 |
+| Phone explanation over bright artwork | Explanation/action moved into dark negative space | Fixed P2; mobile-start-final.png |
+| Hidden action groups remained keyboard-reachable | Exit/enter groups become inert; visible links regain tab order | Footer inert and action -1 during photo chapter; photo action 0 |
 
-Every checked viewport reported no horizontal overflow, broken loaded images, or missing
-same-page fragments. Fonts were loaded. Material changes were recaptured in final screenshots;
-tablet checks were added for the complex openings. Browser error/warning log reads returned
-empty arrays. Expected 404 content was rendered and its return links validated.
+## Interaction and fallback evidence
 
-Verified interactions:
+- Desktop renderer reported `webgl`, active true; canvas resolution bounded by the renderer.
+- Pointer interaction captured against the water region.
+- Normal scroll revealed the complete real photograph; when it covers the painting,
+  the canvas reports active false. Reverse scroll returned to ink and active rendering.
+- Pause via the actual visible control reported active false and aria-pressed true;
+  resume reported active true. Automation's locator helper centered the sticky control and
+  moved the scene; coordinate clicking the already-visible control avoided that tool artifact.
+- `?static=1` reported fallback renderer, static stage positioning, second photograph below
+  the first viewport (900px), and caption opacity 1. It uses ordinary sequential sections.
+- Reduced-motion CSS and preference handling inspected; host OS setting was not changed.
+- Primary course action reached /courses#foundation with heading at ~88px and no remaining
+  canvas in the destination. This also exercised scene unmount/cleanup.
+- No horizontal overflow at 1440×1000, 1280×900, 768×1024, 390×844 or 1024×600.
+- Short-window CTA measured top 480 / bottom 536 in a 600px viewport.
+- Browser error/warning log reads returned empty arrays.
+- Course/program links and app layout checked in desktop and phone captures. The app tab
+  component and remaining detail-page flows retain the previously verified implementation.
 
-- Home foundation CTA → `/courses#foundation`, target below fixed header (about 88px).
-- Course section links and inline FAQ disclosure; native summary opens/closes without a JS dependency.
-- Foundation inquiry has the correct mail recipient and encoded subject. No email was sent.
-- App tabs update the actual screenshot and its descriptive text. ArrowRight moves selection
-  and focus; tabpanel accessible label follows selection.
-- Menu opens, background scrolling locks, ten reverse-Tab steps stay inside, Escape closes,
-  page scrolling restores, and focus returns to “메뉴 열기”.
-- Header is paper over Paper and returns to ink over the long mobile footer.
-- Ambient scene resumes (`playing=true`, computed animation state `running`), then pauses
-  offscreen (`playing=false`, state `paused`). Pause choice persists across navigation.
-- Complete-image/poster links point to existing local files with new-window labels and
-  noopener/noreferrer. The in-app browser did not expose the target-blank window to the
-  automation session, so popup-window behavior is not claimed as visually verified.
+## Artifacts
 
-Important capture states:
+All evidence is local under docs/design-review/motion-v3/:
+- desktop-start-final.png; desktop-pointer.png
+- desktop-transition-1.png; desktop-transition-2.png
+- mobile-start-final.png; mobile-practice-final.png
+- tablet-start.png; short-start.png
+- desktop-learning.png; desktop-gatherings.png; desktop-app.png; mobile-learning.png
+- comparison.png; behavior-checks.json
+- walkthrough.mp4 and walkthrough-frames.json: sampled real viewport captures, not an FPS benchmark.
 
-- `home-desktop-final.png`, `home-mobile-final.png`, `home-tablet-final.png`
-- `about-desktop-top.png`, `about-mobile-top.png`, `about-tablet-final.png`
-- `home-community-desktop.png`, `course-practice-desktop.png`, `course-practice-mobile.png`
-- `programs-community-desktop.png`, `programs-community-mobile.png`, `concert-desktop.png`
-- `course-entry-mobile-v1.png`, `course-faq-mobile.png`, `home-app-mobile.png`
-- `mobile-menu-final.png`, `menu-keyboard-check.json`, `motion-check.json`
+The earlier cold/cached-load frames are retained as failed-iteration evidence, not final
+proof. The supplied screenshots and live references are research inputs, never shipped assets.
 
-## Build and integrity checks
+## Build checks and limits
 
-- `npm run build`: passed, all 17 generated outputs, including metadata routes.
-- `npm run tokens:check`: passed; generated palette current.
-- `python3 scripts/check-site.py`: passed on all 12 built HTML routes. Checks one h1, image
-  alt attributes, local asset existence, internal destinations and fragments.
-- `git diff --check`: passed.
-- Nine generated PNG/WebP asset pairs verified against manifest SHA-256 hashes.
-- No changes to legal page source files. No production deployment or changes to main.
+`npm run build`, `npm run tokens:check`, `python3 scripts/check-site.py` and
+`git diff --check` passed. The structural checker covers all 12 built HTML routes.
+Homepage first-load JS is about 110kB in the build report, plus the lazily loaded scene
+module; this is not a measured Core Web Vitals claim. No animation framework was added.
 
-## Remaining limits / P3 follow-ups
+Implementation budgets (engineering judgment, not measurements copied from a reference):
+30fps decorative rendering, maximum 1.6 million canvas pixels, maximum 1.5× density,
+small pointer displacement and a six-parameter texture shader. GPU-unavailable and lost-
+context fallback paths are implemented; context loss was not forcibly simulated.
 
-The paintings remain explicitly synthetic studies. The generator returned smaller native
-masters than requested; high-resolution approved art can later replace them. Supplied source
-photographs are useful documentary images rather than a uniform commissioned shoot. Video
-and the uncropped June poster have not been supplied, so no fake video interaction was added.
-
-Reduced-motion CSS and preference-change handling were inspected; the host OS preference
-was not changed during testing. No screen-reader certification, live application submission,
-external café-login check, or measured Core Web Vitals claim is made.
-
-## Implementation checklist
-
-- [x] Whole-site visual system implemented within the existing app.
-- [x] Real source assets and nine art assets integrated and documented.
-- [x] Desktop, phone, tablet and core interactions reviewed; P0/P1/P2 fixes verified.
-- [x] Current DESIGN.md, sidecar, surface brief, asset records and QA evidence prepared.
-- [x] Local preview runs; production remains separate.
+Remaining P3: final approved high-resolution artwork can replace the synthetic studies.
+The local walkthrough is sparsely sampled; use the live page to assess continuous motion.
+No deployment or production-main modification is included.

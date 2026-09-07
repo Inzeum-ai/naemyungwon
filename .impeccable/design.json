@@ -7,7 +7,7 @@
       "tokens": "design-system/sumuk.tokens.json @ Sumuk 3.0.0 (ADR 0037)",
       "generated": "styles/tokens.css via scripts/build-tokens.mjs",
       "check": "npm run tokens:check",
-      "revision": "codex/sumuk-evolution, based on a4f6000; see DESIGN.md and design-qa.md",
+      "revision": "Reference-driven homepage revision after 53c410f; docs/design/reference-motion-direction.md",
       "photography": "Six selected photographs from user-supplied archive, 2026-09-08; public/images/community/sources.json"
     },
     "colorMeta": {
@@ -365,6 +365,11 @@
         "name": "state",
         "value": "150–200ms",
         "purpose": "Control feedback."
+      },
+      {
+        "name": "homepage-scene",
+        "value": "Pointer-damped raster WebGL + native-scroll photo wipe",
+        "purpose": "Basement environment-first / Darkroom type-image sequence; details in reference-motion-direction.md"
       }
     ],
     "breakpoints": [
@@ -397,7 +402,7 @@
         "overlay": 3,
         "modal": 4
       },
-      "homeHero": "720px minimum; 800px desktop maximum; 810px mobile minimum"
+      "homeHero": "190svh desktop / 180svh mobile native sticky journey; sequential still/reduced mode"
     }
   },
   "components": [
@@ -478,18 +483,24 @@
       "kind": "image",
       "source": "components/ui/CommunityPhoto.tsx",
       "description": "User-supplied photograph, original framing and source-linked caption."
+    },
+    {
+      "name": "InkJourney",
+      "kind": "scene",
+      "source": "components/ui/InkJourney.tsx",
+      "description": "Full-viewport ink scene, water interaction, native scroll chapter, static fallback."
     }
   ],
   "narrative": {
-    "northStar": "A still mountain, a clear teaching, real people.",
-    "overview": "Ink opens the site. Original human and product evidence follows. Reading pages use paper. Current behavior is documented in DESIGN.md.",
+    "northStar": "Enter the ink scene; discover real practice.",
+    "overview": "Reference-driven immersive homepage with concise copy. Detail pages retain the editorial reading system.",
     "keyCharacteristics": [
-      "Smaller wordmark and live teaching headline",
-      "Stationary art; mist-only motion with pause",
-      "Readable single-screen app showcase",
-      "Real portraits and posters",
-      "Ink/paper header follows actual surface",
-      "Native keyboard behavior"
+      "Full-viewport ink/lake environment",
+      "Oversized Korean display type",
+      "Native-scroll photographic chapter",
+      "Concise home copy with detail-page links",
+      "Original portraits, screens and supplied photos",
+      "Sequential static/reduced-motion fallback"
     ],
     "rules": [
       {
@@ -497,12 +508,12 @@
         "body": "Use original photographs, real app screens and actual posters. Label generated artwork. Never fabricate event footage."
       },
       {
-        "name": "Motion",
-        "body": "Only mist loops. No scroll hijack, parallax, bounce or animated CTA. Reduced motion is static."
-      },
-      {
         "name": "Hierarchy",
         "body": "One main action per section; body 17px, small body 15px; generous whitespace and open groupings."
+      },
+      {
+        "name": "Motion",
+        "body": "Reading pages retain mist-only ambience. The homepage uses a bounded raster WebGL scene and direct native-scroll photo reveal; pause/offscreen/static fallbacks are required."
       }
     ],
     "dos": [
