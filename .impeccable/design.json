@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-08T00:00:00+09:00",
+  "generatedAt": "2026-09-09",
   "title": "Design System: inzeum.com",
   "extensions": {
     "source": {
@@ -489,14 +489,20 @@
       "kind": "scene",
       "source": "components/ui/InkJourney.tsx",
       "description": "Full-viewport ink scene, water interaction, native scroll chapter, static fallback."
+    },
+    {
+      "name": "ConcertFilm",
+      "kind": "video",
+      "source": "components/ui/ConcertFilm.tsx",
+      "description": "User-initiated 68-second authentic concert film, native controls, full framing and offscreen pause."
     }
   ],
   "narrative": {
-    "northStar": "Enter the ink scene; discover real practice.",
-    "overview": "Reference-driven immersive homepage with concise copy. Detail pages retain the editorial reading system.",
+    "northStar": "Meet INZEUM, then experience real practice.",
+    "overview": "Official brand lockup in ink, real concert photography and a user-played film. Compact community, personal AI/app and planned Hall chapters.",
     "keyCharacteristics": [
       "Full-viewport ink/lake environment",
-      "Oversized Korean display type",
+      "Official INZEUM lockup as the homepage heading",
       "Native-scroll photographic chapter",
       "Concise home copy with detail-page links",
       "Original portraits, screens and supplied photos",

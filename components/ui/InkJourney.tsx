@@ -112,9 +112,9 @@ export default function InkJourney() {
           <img src={DESKTOP} alt="" width={1513} height={1040} fetchPriority="high" decoding="async" />
         </picture>
         <canvas ref={canvas} className="scene-canvas" aria-hidden="true" data-renderer="fallback" />
-        <h1 ref={title} className="scene-title scene-title-vision"><span>명상을 연구하고,</span>{' '}<span>일상으로 이어갑니다.</span></h1>
+        <h1 ref={title} className="scene-title scene-title-brand"><span className="sr-only">INZEUM 인지엄 · 내면소통연구소</span><img src="/images/wordmark-paper.png" alt="" width={1200} height={392} /></h1>
         <div ref={footer} className="scene-footer">
-          <p>INZEUM · A MEDITATION LAB IN SEOUL<br />과학에 기반한 명상, 한 사람의 일상으로.</p>
+          <p>과학에 기반한 비종교적 명상.<br /><span className="scene-lab-label">인지엄 · A meditation lab in Seoul</span></p>
           <a href="#vision" className="scene-scroll-cue">스크롤하여 더 보기<span aria-hidden="true" /></a>
           <Link ref={mainAction} href="/courses#foundation" className="scene-primary">나의 수련 시작하기<Icon name="arrow-right" size={24} /></Link>
         </div>
@@ -122,15 +122,15 @@ export default function InkJourney() {
       </div>
       <div ref={photo} className="scene-second">
         <picture className="scene-practice-photo">
-          <source media="(max-width: 767px)" srcSet="/images/community/retreat-room.webp" />
+          <source media="(max-width: 767px)" srcSet="/images/concert/greeting.webp" />
           {/* Load the next chapter eagerly so scrolling never exposes an empty photo. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img ref={practiceImage} src="/images/community/forest-practice.webp" alt={mobile ? '리트릿의 명상 방석과 창밖의 산' : '속리산에서 함께 움직임 명상을 하는 참가자들'} width={1600} height={900} loading="eager" decoding="async" onLoad={() => setPhotoReady(true)} />
+          <img ref={practiceImage} src="/images/concert/audience.webp" alt={mobile ? '김주환 교수가 명상 콘서트에서 참가자와 만나는 모습' : '2025 내면소통 명상 콘서트에서 무대와 객석을 가득 채운 참가자들'} width={1920} height={1280} loading="eager" decoding="async" onLoad={() => setPhotoReady(true)} />
         </picture>
         <div className="scene-photo-shade" />
         <div ref={caption} className="scene-photo-caption">
-          <div><p className="text-body-sm">{mobile ? '리트릿 수련 공간 · 참가자의 기록' : '속리산 산행 명상 · 참가자의 기록'}</p><h2>일상에서,<br />함께 이어갑니다.</h2></div>
-          <Link ref={photoAction} href="/programs#moments" className="scene-primary">함께하는 수련<Icon name="arrow-right" size={24} /></Link>
+          <div><p className="text-body-sm">2025 내면소통 명상 콘서트 · 코엑스</p><h2>혼자 시작한 명상이,<br />함께하는 경험으로.</h2></div>
+          <Link ref={photoAction} href="#concert-film" className="scene-primary">콘서트 영상 보기<Icon name="arrow-right" size={24} /></Link>
         </div>
       </div>
 

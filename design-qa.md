@@ -1,38 +1,49 @@
-# Community photo wall and Kyobo links — QA
+# Brand opening and concert film — design QA
 
-final result: passed
+Date: 2026-09-09
 
-2026-09-08. Preview http://localhost:3315/#community-wall. Local branch codex/sumuk-evolution.
+Source visual truth: existing deployed homepage at https://naemyungwon-kz7opxb4t-inzeum.vercel.app/, user-supplied screenshots, official local wordmark, and original concert media. Astra is a composition/interaction reference, not a pixel-clone target.
 
-## Visual truth and evidence
+Implementation: http://localhost:3315/ and /programs#coex.
 
-Source: user-supplied photograph archive and its `.local-assets/naver-candidates/선별_미리보기.jpg` contact sheet, plus the six newly selected source images opened individually at full resolution. Existing ink/page design is the user's supplied homepage target; requested change is an abundant animated gallery in the appropriate community sections, not a clone of a different website. The current hero/punchline is intentionally unchanged pending the user's choice.
+## Evidence and normalization
 
-Implementation: `docs/design-review/community-v6/wall-desktop-full.png`, 1440×1200 CSS viewport (1425×1188 capture). Opened and inspected: dense two-row image treatment, retained source subjects/colors, varied portrait/landscape framing, visible captions and controls. `lightbox-desktop.png` and `lightbox-mobile.png` verify full uncropped photo presentation against the original source. `grid-mobile.png` and live phone flow checked at390×844 (375×812 regular page capture; native dialog captures differ). Combined evidence: `source-viewer-comparison.png` places the source1600×1200 auditorium image and the1440×1000 viewer capture together in720×600 aspect-contained panels. Opened together to compare subject, complete framing and color; viewer chrome intentionally changes scale. No stretched images or reconstructed faces/text. Visual fidelity is to the actual selected imagery and existing Sumuk surfaces; the new row composition is intentional.
+- Source: docs/design-review/film-v8/before-desktop.png.
+- Final implementation: docs/design-review/film-v8/home-desktop-final.png.
+- Matched desktop CSS viewport 1440×960; both captured at approximately 1425×950 by CUA. Each contained to 1000×667 in the inspected full-view before-after.png comparison. Both show the initial ink scene; live source motion was running and local saved pause was enabled, so water pixels are not a static fidelity target.
+- Intended differences: replace the rejected slogan with the actual wordmark; shorten the scroll journey; introduce real concert photos and film; condense repeated chapters. Existing palette, navigation and artwork are retained.
+- Focused mobile comparison: mobile-fix-comparison.png, initial home-mobile.png versus home-mobile-final.png. The initial 390×844 CSS screenshot was returned as 375×812 and normalized to 390×844. Final proof is a direct crop of an exact 390×844 iframe in phone-viewport-full.png, with no image retouching. Browser viewport overrides became unreliable across tabs, so this is CSS viewport verification rather than device emulation or physical Safari testing.
+- Additional captures: film-playing-desktop.png, film-mobile.png, film-keyboard-mobile-final.png, gallery-mobile-final.png, photos-desktop.png, programs-film.png.
+- Reference observations: astra-hero.png, astra-next.png, astra-interaction.png. No reference assets copied into the implementation.
+
+## Comparison history
+
+1. [P2, resolved] On the first phone pass, small descriptive text crossed bright water and became difficult to read. Added a dark backing to that paragraph and brightened the lab descriptor. Final mobile comparison inspected; text is readable without changing the art.
+2. [P2, resolved] Fixed compact-gallery width rules could override grid widths. Added an explicit grid width rule. Browser readback: 14 cards, 157.5px card width in a 375px content area; no horizontal document overflow.
+3. [P2, resolved] Poster alt text described a different sampled frame. Corrected it to the professor guiding meditation; the actual poster was visually inspected.
+4. Keyboard play now transfers focus to native video controls. Browser readback confirms controls enabled and focused video after Enter.
 
 ## Required surfaces
 
-- Typography: existing type, restrained captions, readable heading and control labels. Viewer source link and image caption remain visible on phone.
-- Spacing: full-bleed two-row wall with narrow gaps; complete grid fits two columns on phones. No horizontal page overflow. Viewer close and next controls fit inside844px height (measured bottom62/bottom800).
-- Colors/tokens: existing ink palette with color only from authentic photographs; caption overlays support contrast. No new palette or decorative illustration.
-- Images:14 authentic selected images with provenance; loop uses28 visual instances. Full-image viewer restores original framing, e.g. the auditorium source at4:3. No invented dates, attendance numbers or endorsements. New six originals were inspected before conversion.
-- Copy: neutral descriptive captions and original post links. All four book links are Kyobo and accessibility labels say so. Cover-source attribution retained separately. Headline alternatives recorded without silently replacing the current line.
+- Typography: official raster wordmark preserved; no substitute type drawing. Korean body/navigation uses existing Pretendard system. Desktop and phone wrapping inspected. The old homepage slogan is removed; About's institutional description remains.
+- Layout: original inset/bleed rhythm preserved. Desktop height 10,777px before and 9,300px after, at 1440×960. Mobile video retains 16:9 full framing and fits its 327px content slot. Planned Hall uses a compact two-column desktop layout.
+- Colors: original Sumuk roles retained. Mobile descriptor backing corrects the observed image-overlay issue. Film captions adapt to the paper Programs page.
+- Assets: three actual Drive photographs; a 68.18-second film converted from HEVC to H.264/AAC. Original framing, soundtrack and embedded branding retained. Photos retain a full-image link. Synthetic ink still labelled 시안.
+- Content: Korean brand spelling 인지엄 in current UI and metadata. Parallel home entry labels, benefit-led AI wording and initial 내면AI app tab. No invented testimonials or new scientific results.
 
-## Interactions verified
+## Behavior and checks
 
-- Normal mode: two animated tracks; transforms progress in opposite directions, data-playing true when visible. Pause button sets data-playing false and both computed animationPlayState values to paused.
-- Pointer click on the auditorium image opens dialog, focuses Close, locks page scroll, shows4/14 and links to the correct community post7359.
-- Next changes to5/14 and the fireplace caption. Escape closes, restores body scrolling and focuses the accessible gallery control.
-- Grid toggle exposes14 unique links and no aria-hidden wrapper. Pointer/keyboard entry available for every image.
-- Phone image opens in full framing; next/close fit. Tab from final dialog button cycles to Close; focus stays inside the dialog. No added focusable animated duplicates.
-- Static query on Programs: grid=true,14 links,0 animated tracks. Reduced-motion uses the same path; OS preference was not toggled. No-JS SSR supplies the original-image links in the grid.
-- Kyobo hrefs verified in rendered About book shelf: S000201078049, S000216048766, S000215820951, S000001933356. No checkout/form submission.
-- Browser console errors/warnings: none captured in reviewed runtime.
+- Desktop and phone film playback observed, native controls visible; no autoplay. preload=none verified in DOM/code.
+- Keyboard Enter starts the film and transfers focus to the video.
+- Compact grid exposes all 14 images without document overflow.
+- App ArrowRight changes 내면AI to 기록.
+- Programs film placement verified on paper.
+- Static mode viewed; existing reduced-motion guards retained. OS reduced-motion setting not toggled.
+- No captured JavaScript console errors in final desktop checks.
+- npm run build (including type checking), npm run tokens:check, python3 scripts/check-site.py (13 HTML routes/assets/fragments), and git diff --check passed.
 
-## Iteration and integrity
+## Limits / follow-up
 
-A stale client cache initially showed the pre-build homepage; full reload corrected it before any gallery verdict. Opening from a moving aria-hidden duplicate restores focus to the accessible gallery control, not to the hidden track; corrected before final verification. Early partial-framing screenshots were superseded by wall-desktop-full.png.
+Not a device-farm, screen-reader, video-transcript, or performance certification. No custom subtitles were invented for the supplied film. Exact enrollment expiry and broader app-page copy harmonization remain follow-up work from the preceding review; they were not silently bundled into this media iteration. No deployment performed.
 
-`npm run build` passed (18 generated outputs; home first-load JS~114kB). `npm run tokens:check` passed. `python3 scripts/check-site.py` passed for13 HTML routes. `git diff --check` passed. No remaining actionable P0/P1/P2 findings.
-
-Limits: no measured FPS benchmark, OS reduced-motion toggle or screen-reader application test. Kyobo product pages returned empty bodies in the fetch tool; official search results verified IDs/ISBNs, and browser-rendered source links were checked. Existing cover assets were not swapped for unverified edition artwork. Production is unchanged. Prior QA retained in git and locally as qa-before.md.
+final result: passed

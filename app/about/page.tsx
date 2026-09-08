@@ -118,7 +118,7 @@ export default function AboutPage() {
         <div className="about-vision-grid">{[
           {image:'/images/community/forest-practice.webp',alt:'숲에서 함께 움직임 명상을 하는 수련자들',label:'교육 · 수행공동체',title:'함께 배우는 사람들',body:'나를 돌보는 수련에서, 다른 사람의 수련을 안내하는 배움으로.',href:'/courses'},
           {image:'/images/community/lakeside-practice.webp',alt:'호숫가에서 명상하는 사람들',label:'기술 · 일상',title:'한 사람에게 닿는 명상',body:'AI와 함께, 나의 맥락에 맞는 수련을 매일의 일상으로.',href:'/app'},
-          {image:'/images/space/hall-proposal.webp',alt:'인지움 홀 설계 제안 이미지',label:'공간 · 준비 중',title:'머물고 만나는 자리',body:'함께 수련할 인지움 홀을 준비합니다. 이미지는 설계 제안입니다.',href:'/space'},
+          {image:'/images/space/hall-proposal.webp',alt:'인지엄 홀 설계 제안 이미지',label:'공간 · 준비 중',title:'머물고 만나는 자리',body:'함께 수련할 인지엄 홀을 준비합니다. 이미지는 설계 제안입니다.',href:'/space'},
         ].map(item=><Reveal key={item.href}><Link href={item.href} className="about-vision-card"><div className="about-vision-image"><Image src={item.image} alt={item.alt} width={1600} height={900} sizes="(max-width:767px) 100vw, 33vw" /></div><span>{item.label}</span><div><h3>{item.title}</h3><Icon name="arrow-up-right" size={20}/></div><p>{item.body}</p></Link></Reveal>)}</div>
       </Section>
       <AiStory full />

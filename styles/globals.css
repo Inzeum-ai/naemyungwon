@@ -665,3 +665,84 @@ html[data-static='true'] .editorial-reveal{opacity:1!important;transform:none!im
  .community-lightbox{padding:16px;}.community-lightbox-bottom{align-items:start;gap:12px;}.community-lightbox-bottom h3{font-size:17px;}.community-lightbox-arrows{gap:6px;}.community-lightbox button{min-width:44px;min-height:44px;}
 }
 @media(prefers-reduced-motion:reduce){.community-track{animation:none!important;}.community-frame img{transition:none!important;transform:none!important;}}
+
+/* Brand, then lived evidence. Reference observations: docs/design/brand-and-film.md. */
+.ink-journey{height:160svh;}
+.scene-title-brand{top:22svh;padding-inline:24px;line-height:1;}
+.scene-title-brand>img{width:min(72vw,850px);height:auto;margin-inline:auto;}
+.scene-footer .scene-lab-label{font-size:15px;color:var(--text-sub);}
+.scene-photo-caption h2{font-size:clamp(36px,4.4vw,66px);line-height:1.3;}
+.scene-second .scene-practice-photo img{object-position:55% 55%;}
+.home-gatherings{padding-block:88px 40px;border-top:1px solid var(--line);}
+.home-gatherings .studio-section-heading h2,.home-personal-app .studio-section-heading h2{font-size:clamp(40px,4.8vw,68px);line-height:1.25;font-weight:400;}
+.home-film-intro{max-width:27em;}
+.home-film-intro>p{font-size:18px;line-height:1.8;color:var(--text-copy);margin-bottom:24px;}
+.concert-film-stage{position:relative;aspect-ratio:16/9;background:#0d0d0c;overflow:hidden;}
+.concert-film-stage video{display:block;width:100%;height:100%;object-fit:contain;}
+.concert-film-play{position:absolute;inset:0;width:100%;height:100%;text-align:left;overflow:hidden;}
+.concert-film-play>img{object-fit:contain;transition:filter 350ms ease;}
+.concert-play-mark{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#f4f0e7;color:#121210;box-shadow:0 12px 50px rgb(0 0 0 / .3);transition:transform 200ms ease,box-shadow 200ms ease;}
+.concert-play-label{position:absolute;left:28px;bottom:28px;padding:14px 18px;background:rgb(18 18 16 / .9);color:#f4f0e7;font-size:19px;line-height:1.5;}
+.concert-play-label>span{display:block;font-size:14px;opacity:.85;margin-top:3px;}
+.concert-film figcaption{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;font-size:14px;color:var(--text-sub);margin-top:16px;line-height:1.6;}
+.concert-film-play:focus-visible{outline:3px solid var(--text-display);outline-offset:-6px;}
+.concert-photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;}
+.concert-photo-pair .scroll-photo{margin:0;}
+.concert-photo-pair .scroll-photo figcaption{font-size:14px;}
+.home-event-links{display:flex;gap:24px 36px;flex-wrap:wrap;padding-block:32px 0;}
+.community-wall-compact{border-top:0;padding-block:32px 72px;}
+.community-wall-compact .community-wall-heading{margin-bottom:28px;}
+.community-wall-compact .eyebrow,.community-wall-compact .community-wall-heading h2+p{display:none;}
+.community-wall-compact .community-wall-heading h2{font-size:24px;letter-spacing:-.02em;}
+.community-wall-compact .community-frame{height:235px;width:350px;}
+.community-wall-compact .community-frame-portrait{width:185px;}
+.home-personal-app{padding-block:88px;}
+.home-personal-app .app-showcase-copy{min-height:180px;}
+.home-personal-app .app-showcase-copy h3{font-size:32px;line-height:1.4;}
+.home-space-compact{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;padding-block:80px;}
+.home-space-compact .studio-section-heading{display:block;margin:0;}
+.home-space-compact .studio-section-heading h2{font-size:clamp(32px,3.5vw,48px);line-height:1.3;margin-bottom:24px;}
+.home-space-compact .scroll-photo figcaption{font-size:14px;}
+@media(hover:hover){
+ .concert-film-play:hover>img{filter:brightness(.86);}
+ .concert-film-play:hover .concert-play-mark{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 16px 60px rgb(0 0 0 / .45);}
+}
+@media(max-width:767px){
+ .ink-journey{height:155svh;}
+ .scene-title-brand{top:23svh;}
+ .scene-title-brand>img{width:88vw;}
+ .scene-title-brand+.scene-footer{top:auto;bottom:92px;left:24px;right:24px;flex-direction:column;align-items:start;gap:22px;}
+ .scene-title-brand+.scene-footer>p{font-size:18px;}
+ .scene-title-brand+.scene-footer .scene-scroll-cue{display:none;}
+ .scene-footer .scene-lab-label{font-size:14px;}
+ .scene-photo-caption h2{font-size:32px;}
+ .scene-second .scene-practice-photo img{object-position:32% center;}
+ .home-gatherings{padding-block:64px 20px;}
+ .home-film-intro>p{font-size:16px;}
+ .concert-play-mark{width:54px;height:54px;}
+ .concert-play-label{left:12px;bottom:12px;padding:7px 10px;font-size:13px;max-width:calc(100% - 24px);}
+ .concert-play-label>span{font-size:12px;margin:0;}
+ .concert-film figcaption{font-size:13px;}
+ .concert-photo-pair{gap:16px;margin-top:24px;}
+ .concert-photo-pair .scroll-photo figcaption{font-size:13px;margin-top:10px;}
+ .home-event-links{gap:12px 24px;padding-top:24px;}
+ .home-event-links a{font-size:15px;}
+ .community-wall-compact{padding-block:32px 56px;}
+ .community-wall-compact .community-wall-heading h2{font-size:22px;}
+ .community-wall-compact .community-frame{width:285px;height:190px;}
+ .community-wall-compact .community-frame-portrait{width:152px;}
+ .community-wall-compact .community-wall-grid .community-frame{width:100%;height:190px;}
+ .home-personal-app{padding-block:64px;}
+ .home-space-compact{grid-template-columns:1fr;gap:28px;padding-block:56px;}
+}
+@media(max-height:650px) and (min-width:768px){.scene-title-brand{top:17svh;}.scene-title-brand>img{width:min(52vw,620px);}}
+@media(prefers-reduced-motion:reduce){.concert-film-play>img,.concert-play-mark{transition:none;}.ink-journey{height:auto;}}
+html[data-static='true'] .concert-film-play>img,html[data-static='true'] .concert-play-mark{transition:none;}
+
+.scene-title-brand+.scene-footer>p{font-size:18px;}
+.community-wall-compact .community-wall-grid .community-frame{width:100%;}
+@media(max-width:767px){
+ .scene-title-brand+.scene-footer>p{padding:10px 12px;background:rgb(18 18 16 / .88);}
+ .scene-title-brand+.scene-footer .scene-lab-label{color:var(--text-display);}
+ .scene-second .scene-practice-photo img{object-position:36% center;}
+}

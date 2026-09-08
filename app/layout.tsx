@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   // 카카오톡·검색엔진이 og:image / canonical 을 절대 URL 로 읽으려면 필수입니다.
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | Naemyungwon`,
+    default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
   openGraph: {
-    title: `${SITE_NAME} | Naemyungwon`,
+    title: SITE_NAME,
     description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
     url: '/',

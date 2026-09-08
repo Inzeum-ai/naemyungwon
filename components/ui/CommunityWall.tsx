@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { COMMUNITY_GALLERY as photos } from '@/lib/community-gallery'
 import Icon from './Icon'
 
-export default function CommunityWall() {
+export default function CommunityWall({ compact = false }: { compact?: boolean }) {
   const root=useRef<HTMLElement>(null), dialog=useRef<HTMLDialogElement>(null), opener=useRef<HTMLElement|null>(null)
   const [ready,setReady]=useState(false),[still,setStill]=useState(false),[grid,setGrid]=useState(false),[paused,setPaused]=useState(false),[visible,setVisible]=useState(false),[tabVisible,setTabVisible]=useState(true)
   const [selected,setSelected]=useState<number|null>(null)
@@ -40,8 +40,8 @@ export default function CommunityWall() {
       <span>{item.caption}<Icon name="arrow-up-right" size={16}/></span>
     </a>
   }
-  return <section id="community-wall" ref={root} className="community-wall" data-grid={galleryMode} data-playing={!paused&&visible&&tabVisible&&!isOpen} aria-label="수행공동체 사진 모음">
-    <div className="community-wall-heading studio-shell"><div><p className="eyebrow">OUR COMMUNITY</p><h2>고요한 순간들,<br />함께한 사람들.</h2><p>콘서트와 리트릿, 일상의 수련에서 나눈 참가자들의 기록입니다.</p></div>
+  return <section id="community-wall" ref={root} className={`community-wall ${compact ? 'community-wall-compact' : ''}`} data-grid={galleryMode} data-playing={!paused&&visible&&tabVisible&&!isOpen} aria-label="수행공동체 사진 모음">
+    <div className="community-wall-heading studio-shell"><div><p className="eyebrow">수행공동체</p><h2>{compact ? '수련은, 사람들 사이에서 이어집니다.' : <>고요한 순간들,<br />함께한 사람들.</>}</h2><p>콘서트와 리트릿, 일상의 수련에서 나눈 참가자들의 기록입니다.</p></div>
       <div className="community-wall-controls">{ready&&!still&&<button type="button" onClick={()=>setGrid(value=>!value)} aria-pressed={grid}>{grid?'흐르는 사진으로 보기':`사진 ${photos.length}장 모아보기`}</button>}{!galleryMode&&<button type="button" onClick={toggle} aria-pressed={paused} aria-label={paused?'사진 흐름 재생':'사진 흐름 멈추기'}><Icon name={paused?'play':'pause'} size={20}/><span>{paused?'재생':'멈춤'}</span></button>}</div>
     </div>
     {galleryMode?<div className="community-wall-grid studio-shell">{photos.map((_,index)=>cell(index))}</div>:<div className="community-ribbons" aria-hidden="true" onPointerDown={event=>{if(event.pointerType==='touch')setPaused(true)}}>

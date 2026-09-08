@@ -1,3 +1,4 @@
+import ConcertFilm from '@/components/ui/ConcertFilm'
 import CommunityWall from '@/components/ui/CommunityWall'
 import ScrollImage from '@/components/ui/ScrollImage'
 import TextLink from '@/components/ui/TextLink'
@@ -37,7 +38,7 @@ export default function ProgramsPage() {
     <PageShell reading="hanji">
       <InkBand
         title="함께하면, 수련은 더 오래 이어집니다."
-        lede="자연에 머무는 리트릿, 서로의 안내를 배우는 연수, 함께 고요해지는 명상 콘서트. 인지움의 수련은 사람과 장소를 만납니다."
+        lede="자연에 머무는 리트릿, 서로의 안내를 배우는 연수, 함께 고요해지는 명상 콘서트. 인지엄의 수련은 사람과 장소를 만납니다."
         painting={{ src: '/images/sumuk/synthetic-pine-on-ink-v2.webp', mobileSrc: '/images/sumuk/synthetic-pine-mobile-v2.webp', position: 'center 70%' }}
       />
 
@@ -118,7 +119,7 @@ export default function ProgramsPage() {
       </Section>
 
       <Section id="coex" title="코엑스에서" aside={<p className="text-meta text-muted">2025년 · 코엑스 컨벤션 3F 오디토리움</p>}>
-        <CommunityPhoto src="/images/community/concert-auditorium-2025.webp" alt="2025년 내면소통 명상 콘서트 무대와 객석" caption="2025 내면소통 명상 콘서트" source="https://cafe.naver.com/joohankimlab/7359" width={1600} height={1200} className="mb-12 max-w-[1100px]" sizes="(max-width: 767px) 100vw, 1100px" />
+        <div className="mb-12"><ConcertFilm /></div>
         <div className="grid gap-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
           <div>
             <Facts

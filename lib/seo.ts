@@ -7,10 +7,10 @@ export const hanjiViewport: Viewport = {
   themeColor: '#FAF7F1',
 }
 
-export const SITE_NAME = 'INZEUM 내면소통연구소'
+export const SITE_NAME = 'INZEUM 인지엄 · 내면소통연구소'
 export const SITE_URL = 'https://inzeum.com'
 export const SITE_DESCRIPTION =
-  '명상하는 나라를 만드는 인지움. 내면소통명상 교육과 수행공동체, 개인화 AI와 공간을 연결해 수련을 일상으로 이어갑니다.'
+  '명상하는 나라를 만드는 인지엄. 내면소통명상 교육과 수행공동체, 개인화 AI와 공간을 연결해 수련을 일상으로 이어갑니다.'
 
 // 카카오톡·페이스북 공유 썸네일. public/og.jpg 한 장을 모든 페이지가 공유합니다.
 export const OG_IMAGE = {
