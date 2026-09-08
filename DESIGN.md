@@ -255,3 +255,8 @@ The homepage now states “명상을 연구하고, 일상으로 이어갑니다.
 The homepage now opens with the official INZEUM lockup, with “과학에 기반한 비종교적 명상.” as a factual descriptor. This supersedes the earlier homepage slogan; it does not change the organization’s vision. The Korean brand spelling is **인지엄**.
 
 An authentic concert film and three documentary photographs join the source assets. ConcertFilm uses explicit play, native controls, full framing and no eager video preload. The home community introduction, AI/app story and planned Hall presentation are condensed. Details, reference interpretation and source provenance: [brand-and-film.md](docs/design/brand-and-film.md).
+
+
+### 2026-09-09 — Pre-push polish
+
+Retain the approved-for-now wordmark opening. On landscape viewports at most 500px tall, shrink the hero wordmark and place the description and action side by side to avoid overlap. The website's app marketing page now uses 합니다체 consistently, with a beta-status CTA linking to its release section and the date label “2026년 중”. This does not change the native app's voice. See design-qa.md for captured checks.

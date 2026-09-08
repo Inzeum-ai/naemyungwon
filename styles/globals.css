@@ -746,3 +746,16 @@ html[data-static='true'] .concert-film-play>img,html[data-static='true'] .concer
  .scene-title-brand+.scene-footer .scene-lab-label{color:var(--text-display);}
  .scene-second .scene-practice-photo img{object-position:36% center;}
 }
+
+/* Keep the brand opening usable on short landscape phone viewports. */
+@media(max-height:500px) and (orientation:landscape){
+ .scene-title-brand{top:72px;}
+ .scene-title-brand>img{width:min(46vw,300px);}
+ .scene-title-brand+.scene-footer{top:auto;bottom:52px;left:24px;right:24px;flex-direction:row;align-items:center;gap:16px;}
+ .scene-title-brand+.scene-footer>p{font-size:14px;line-height:1.5;padding:6px 10px;}
+ .scene-title-brand+.scene-footer .scene-lab-label{font-size:12px;}
+ .scene-title-brand+.scene-footer .scene-scroll-cue{display:none;}
+ .scene-photo-caption{bottom:32px;flex-direction:row;align-items:end;gap:16px;}
+ .scene-photo-caption h2{font-size:24px;}
+ .scene-photo-caption p{font-size:13px;margin-bottom:10px;}
+}

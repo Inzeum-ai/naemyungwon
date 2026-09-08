@@ -44,6 +44,26 @@ Implementation: http://localhost:3315/ and /programs#coex.
 
 ## Limits / follow-up
 
-Not a device-farm, screen-reader, video-transcript, or performance certification. No custom subtitles were invented for the supplied film. Exact enrollment expiry and broader app-page copy harmonization remain follow-up work from the preceding review; they were not silently bundled into this media iteration. No deployment performed.
+Not a device-farm, screen-reader, video-transcript, or performance certification. No custom subtitles were invented for the supplied film. Exact enrollment expiry remains follow-up work. App-page copy harmonization was completed in the final-touch pass below. No deployment performed.
 
 final result: passed
+
+
+## Final touch — 2026-09-09
+
+User decision: retain the current homepage wordmark, copy and artwork. The attached critique is reference material, not approval to replace the hero.
+
+| Step | Before | After / result |
+| --- | --- | --- |
+| 1. Desktop opening | Current wordmark composition | Retained; current screenshot captured before edits. New CSS applies only to landscape viewports at most 500px tall. |
+| 2. Landscape phone, 667×375 | Logo occupied y=86–278; footer y=130–283, overlapping | Logo y=72–170; footer y=269–323. Screenshot and DOM bounds confirm separation. |
+| 3. Portrait phone, 390×844 | Existing brand opening | Inspected after changes; layout retained. |
+| 4. App beta action | “출시 소식 보기” led to general news | “베타 현황 보기” lands on /app#release; release rows visible below header. No captured console errors. |
+
+Evidence captured and inspected in `docs/design-review/final-touch/`: desktop-before.png, landscape-before.png, landscape-after.png, portrait-after.png, app-release.png. Screenshots may be returned at a scaled pixel size; CSS viewport dimensions were read from the browser. This pass used the browser viewport capability, not physical phone testing.
+
+App marketing copy uses 합니다체, preserving existing feature and restricted-beta claims. “2026 · 내” becomes “2026년 중”; no new release promise added. Native app interface copy is unaffected.
+
+Validation: production build with type/lint checks, tokens:check, 13-route check-site.py and diff --check passed. Preview restarted on localhost:3315. Existing concert film and controls were not modified or re-encoded in this pass.
+
+Remaining feedback: the repeated two-part section headlines can be edited in a future content pass; course enrollment expiry still needs explicit state handling. Keep original concert branding and synthetic-art disclosure. Neither is a reason to fabricate or conceal asset provenance.
