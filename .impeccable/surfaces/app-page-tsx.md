@@ -17,3 +17,5 @@ existing routes. The Sumuk palette, wordmark, real-photo provenance and legal co
 WebGL acts only on the authored texture, with small water/pointer response. Paused, offscreen,
 covered and hidden-tab rendering stops. Still/reduced mode exposes sequential content.
 No scroll hijacking, 3D-room claim, source-site branding, or decorative neon controls.
+
+The homepage community chapter now includes a two-row `CommunityWall` (14 authentic participant images, full-image viewer and source links). New punchline options are recorded in `../../docs/design/community-wall-and-copy.md`; no new headline was selected in this iteration.

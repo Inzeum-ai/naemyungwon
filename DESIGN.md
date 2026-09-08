@@ -243,3 +243,8 @@ The homepage now leads with “명상하는 나라를 만듭니다.” and conne
 ### Researcher and meditation lab refinement — 2026-09-08
 
 The homepage now states “명상을 연구하고, 일상으로 이어갑니다.”; 명상하는 나라 remains the institutional vision. About starts with one researcher profile, then four real book covers, dated YouTube reach and public lecture links before the vision/AI sections. `BookShelf`, `ChannelStory`, and `Reveal` share content and interaction patterns with Resources. See `docs/design/researcher-books-and-lab.md` for source distinctions, edition notes and the supplied English brand descriptor.
+
+
+### Community photo wall — 2026-09-08
+
+`CommunityWall` adds two full-bleed, slowly moving photo ribbons at the homepage's community chapter and the end of Programs. Fourteen authentic images; pause, complete grid and a full-image dialog with original-post links. Reduced-motion/static/no-JS modes remain browsable. Book destinations now use Kyobo. Headline alternatives remain proposals; see `docs/design/community-wall-and-copy.md`.

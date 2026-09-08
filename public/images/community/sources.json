@@ -90,6 +90,72 @@
       "height": "750",
       "output": "somatic-ribbon-practice.webp",
       "source_sha256": "9c6ab1896b52cc6298d827daa4a31d09f8f282aedf4a06d2a27d5fb613617277"
+    },
+    {
+      "code": "04-04",
+      "file": "04-04_콘서트-후기_7237.jpg",
+      "board": "콘서트 후기",
+      "subject": "내면소통 콘서트 두번씩이나 참여할 필요가 있었을까?",
+      "article_url": "https://cafe.naver.com/joohankimlab/7237",
+      "width": "1600",
+      "height": "1200",
+      "output": "concert-together.webp",
+      "source_sha256": "feac28625f75e9c1727fee2b13206d37d5a6c5007d1a4f7fd67bd0d1c9c5fbf7"
+    },
+    {
+      "code": "04-12",
+      "file": "04-12_콘서트-후기_7237.jpg",
+      "board": "콘서트 후기",
+      "subject": "내면소통 콘서트 두번씩이나 참여할 필요가 있었을까?",
+      "article_url": "https://cafe.naver.com/joohankimlab/7237",
+      "width": "1600",
+      "height": "1200",
+      "output": "concert-stairway.webp",
+      "source_sha256": "507494ee4b7f46a83501a48ab284c1c50ce1bbc577ac845be02569c5ab42f89c"
+    },
+    {
+      "code": "09-23",
+      "file": "09-23_리트릿-후기_8157.jpg",
+      "board": "리트릿 후기",
+      "subject": "여름 리트릿 그리고 성장.[교수님, 뒷모습이 20대처럼 빛난다! 청춘 바이브 풀 충전!]",
+      "article_url": "https://cafe.naver.com/joohankimlab/8157",
+      "width": "1280",
+      "height": "1707",
+      "output": "retreat-fireplace.webp",
+      "source_sha256": "d262c97727a6a0bde155f9f5221df014adb0115a6dfee053541063e1175bcf3c"
+    },
+    {
+      "code": "10-03",
+      "file": "10-03_리트릿-후기_8157.jpg",
+      "board": "리트릿 후기",
+      "subject": "여름 리트릿 그리고 성장.[교수님, 뒷모습이 20대처럼 빛난다! 청춘 바이브 풀 충전!]",
+      "article_url": "https://cafe.naver.com/joohankimlab/8157",
+      "width": "1280",
+      "height": "960",
+      "output": "retreat-mountain-sit.webp",
+      "source_sha256": "e3d51490170b0e74210fc0ea207dca637d23b12d60b39dc64155d8834546a6dc"
+    },
+    {
+      "code": "12-29",
+      "file": "12-29_심화-오프라인-소통_10348.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "2반 단체방 공유 <오픈 채팅방> ⭐️사진 포함⭐️",
+      "article_url": "https://cafe.naver.com/joohankimlab/10348",
+      "width": "1600",
+      "height": "1200",
+      "output": "advanced-cohort.webp",
+      "source_sha256": "3072f17f5272550b0ed4eba78fe204ce460907734b81585db097e79b4a22fe2a"
+    },
+    {
+      "code": "13-09",
+      "file": "13-09_심화-오프라인-소통_10338.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "3.15(일) 존2트레이닝 단체사진",
+      "article_url": "https://cafe.naver.com/joohankimlab/10338",
+      "width": "1280",
+      "height": "960",
+      "output": "zone2-mountain.webp",
+      "source_sha256": "3cab83cc5f8c4894d35f5fa630dc24a089cf6d2a742f35f09e5cc793b60d2eab"
     }
   ]
 }

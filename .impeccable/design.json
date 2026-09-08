@@ -8,7 +8,7 @@
       "generated": "styles/tokens.css via scripts/build-tokens.mjs",
       "check": "npm run tokens:check",
       "revision": "Researcher, books and lab refinement after dc11194; docs/design/researcher-books-and-lab.md",
-      "photography": "Eight selected supplied community photographs; public/images/community/sources.json. Four architectural proposal renderings extracted from supplied PDF; public/images/space/sources.json."
+      "photography": "Fourteen selected supplied community photographs; public/images/community/sources.json. Four architectural proposal renderings; public/images/space/sources.json."
     },
     "colorMeta": {
       "midnight-ink": {

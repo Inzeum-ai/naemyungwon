@@ -1,3 +1,4 @@
+import CommunityWall from '@/components/ui/CommunityWall'
 import ScrollImage from '@/components/ui/ScrollImage'
 import TextLink from '@/components/ui/TextLink'
 import CommunityPhoto from '@/components/ui/CommunityPhoto'
@@ -184,6 +185,7 @@ export default function ProgramsPage() {
         </div>
       </Section>
       </Paper>
+      <CommunityWall />
     </PageShell>
   )
 }

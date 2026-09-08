@@ -1,4 +1,5 @@
 import { JOOHAN_CHANNEL } from '@/lib/joohan'
+import CommunityWall from '@/components/ui/CommunityWall'
 import Image from 'next/image'
 import AiStory from '@/components/ui/AiStory'
 import ScrollImage from '@/components/ui/ScrollImage'
@@ -64,6 +65,8 @@ export default function Home() {
         </Link>
       </div>
     </section>
+
+    <CommunityWall />
 
     <AiStory />
 

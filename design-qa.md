@@ -1,47 +1,38 @@
-# Researcher, books and meditation lab — design QA
+# Community photo wall and Kyobo links — QA
 
 final result: passed
 
-2026-09-08. Preview: http://localhost:3315/about. Branch: codex/sumuk-evolution.
+2026-09-08. Preview http://localhost:3315/#community-wall. Local branch codex/sumuk-evolution.
 
-## Source and comparison
+## Visual truth and evidence
 
-User supplied five screenshots and explicit permission to improve the existing ink design, move personal credibility earlier, add four books/YouTube links/reach, add hover/shadow/movement, and reconsider the homepage phrase. Captured current /about before editing: `docs/design-review/profile-v5/about-before.png`. Source and implementation (`about-desktop.png`) are both 1425×990 image pixels at 1440×1000 CSS viewport, using the in-app browser's capture scaling. Combined at equal 1000×695 panels in `about-comparison.png`, opened together and reviewed. This is an intentional evolution, not a clone of the older blue screenshot.
+Source: user-supplied photograph archive and its `.local-assets/naver-candidates/선별_미리보기.jpg` contact sheet, plus the six newly selected source images opened individually at full resolution. Existing ink/page design is the user's supplied homepage target; requested change is an abundant animated gallery in the appropriate community sections, not a clone of a different website. The current hero/punchline is intentionally unchanged pending the user's choice.
 
-Observed baseline issues: the second detailed professor profile was separated from the opening photo by long institutional sections; only three titles were mentioned; there were no cover links or dated channel reach; vision columns were text-only. The final profile combines the actual portrait, the lab proposition and the researcher's identity, then links directly to books and public lectures. The duplicate portrait section is removed. Added sections use existing ink/paper typography and tokens.
+Implementation: `docs/design-review/community-v6/wall-desktop-full.png`, 1440×1200 CSS viewport (1425×1188 capture). Opened and inspected: dense two-row image treatment, retained source subjects/colors, varied portrait/landscape framing, visible captions and controls. `lightbox-desktop.png` and `lightbox-mobile.png` verify full uncropped photo presentation against the original source. `grid-mobile.png` and live phone flow checked at390×844 (375×812 regular page capture; native dialog captures differ). Combined evidence: `source-viewer-comparison.png` places the source1600×1200 auditorium image and the1440×1000 viewer capture together in720×600 aspect-contained panels. Opened together to compare subject, complete framing and color; viewer chrome intentionally changes scale. No stretched images or reconstructed faces/text. Visual fidelity is to the actual selected imagery and existing Sumuk surfaces; the new row composition is intentional.
 
-Focused evidence: four cover originals were opened individually to verify author/title/edition; `books-desktop.png` shows complete covers, including the hovered GRIT state. `books-mobile.png` checks the two-column shelf; `channel-desktop.png` and `channel-mobile.png` check readable numbers, source date and links. `vision-desktop.png` verifies photographic links and the explicit proposal label. /resources also reviewed on paper; `resources-desktop-final.png` records the final lighter shadow treatment. No generated image substitutes.
+## Required surfaces
 
-## Fidelity surfaces
+- Typography: existing type, restrained captions, readable heading and control labels. Viewer source link and image caption remain visible on phone.
+- Spacing: full-bleed two-row wall with narrow gaps; complete grid fits two columns on phones. No horizontal page overflow. Viewer close and next controls fit inside844px height (measured bottom62/bottom800).
+- Colors/tokens: existing ink palette with color only from authentic photographs; caption overlays support contrast. No new palette or decorative illustration.
+- Images:14 authentic selected images with provenance; loop uses28 visual instances. Full-image viewer restores original framing, e.g. the auditorium source at4:3. No invented dates, attendance numbers or endorsements. New six originals were inspected before conversion.
+- Copy: neutral descriptive captions and original post links. All four book links are Kyobo and accessibility labels say so. Cover-source attribution retained separately. Headline alternatives recorded without silently replacing the current line.
 
-- Typography: existing font families retained, proposition given two deliberate lines, professor name and roles grouped. No overflow at 390×844, 768×1024 and 1440×1000. Responsive count sizes prevent crowding on phones.
-- Layout: portrait first on desktop and phone, deliberate inset photograph, no second duplicate profile. Four desktop book columns become two on phones. Channel narrative/stats stack on phones and tablets. Navigation links wrap without hiding controls.
-- Colors: same Sumuk ink and paper. Color comes from the original photograph/covers. Paper-specific book shadow softened after review (0 10px 20px at alpha .16; dark books retain .32).
-- Images: original local portrait, supplied community photos and hall proposal; four untouched retailer cover assets with source hashes. Covers shown with contain sizing, no text reconstruction or cropping. GRIT is Kim's revised edition, not Duckworth's book.
-- Copy: concrete lab proposition based on user-supplied Joohan wording; meditation-nation vision retained lower on the page. Legal company identity unchanged. Bestseller claims limited to supported works, no invented aggregate sales/current rankings. Channel figures are a dated snapshot, not a live count or cross-channel total.
+## Interactions verified
 
-## Interactions and motion
-
-- Opening book CTA reaches #books.
-- Four external book hrefs match the observed source pages; new-window behavior labelled. No purchases or external forms submitted.
-- YouTube channel, videos and streams links point to the official channel. No autoplay or third-party iframe.
-- Book hover verified in browser: GRIT transform includes translateY(-10px) and rotateY(-5deg); shadow changes from alpha .32 / 14px28px to .44 / 26px40px. Moving pointer away restores transform:none.
-- Keyboard Tab moves from first book to second; focused link retains a solid 2px outline. Book descriptions remain visible without hover.
-- Entrance behavior tested in normal mode: seven below-fold reveal containers initially wait; after book CTA scroll, all four books have opacity1 and no waiting attribute, while three offscreen vision cards remain pending. Initial profile remains visible. Existing pause preference restored after the test.
-- Reduced-motion and static fallbacks preserve content; no motion framework or timed animation loop added. OS reduced-motion setting not toggled; source guard and CSS inspected.
+- Normal mode: two animated tracks; transforms progress in opposite directions, data-playing true when visible. Pause button sets data-playing false and both computed animationPlayState values to paused.
+- Pointer click on the auditorium image opens dialog, focuses Close, locks page scroll, shows4/14 and links to the correct community post7359.
+- Next changes to5/14 and the fireplace caption. Escape closes, restores body scrolling and focuses the accessible gallery control.
+- Grid toggle exposes14 unique links and no aria-hidden wrapper. Pointer/keyboard entry available for every image.
+- Phone image opens in full framing; next/close fit. Tab from final dialog button cycles to Close; focus stays inside the dialog. No added focusable animated duplicates.
+- Static query on Programs: grid=true,14 links,0 animated tracks. Reduced-motion uses the same path; OS preference was not toggled. No-JS SSR supplies the original-image links in the grid.
+- Kyobo hrefs verified in rendered About book shelf: S000201078049, S000216048766, S000215820951, S000001933356. No checkout/form submission.
 - Browser console errors/warnings: none captured in reviewed runtime.
 
-## Verification
+## Iteration and integrity
 
-`npm run build`: passed, 18 generated outputs; /about first load ~108kB.
-`npm run tokens:check`: passed.
-`python3 scripts/check-site.py`: passed for 13 HTML routes, including h1/alt and local image/route/fragment integrity.
-`git diff --check`: passed.
+A stale client cache initially showed the pre-build homepage; full reload corrected it before any gallery verdict. Opening from a moving aria-hidden duplicate restores focus to the accessible gallery control, not to the hidden track; corrected before final verification. Early partial-framing screenshots were superseded by wall-desktop-full.png.
 
-## Iteration history
+`npm run build` passed (18 generated outputs; home first-load JS~114kB). `npm run tokens:check` passed. `python3 scripts/check-site.py` passed for13 HTML routes. `git diff --check` passed. No remaining actionable P0/P1/P2 findings.
 
-Initial desktop and phone layouts passed; proactively reduced count font sizes and stacked tablet channel content before final captures. Visual review found book shadows heavy on the paper surface; softened and recaptured. No remaining actionable P0/P1/P2 findings. Previous iteration reports remain in git and `docs/design-review/profile-v5/qa-before.md`.
-
-## Limits
-
-Public channel snapshot checked 2026-09-08 (37.5만 subscribers, 47,098,787 views); not automatically refreshed. Book covers identify listed editions and retain retailer marks. Full live YouTube streaming, external checkout, a screen-reader audit and forced GPU-loss were not tested. No outreach, SDK integration, legal change, deployment or paid API call occurred.
+Limits: no measured FPS benchmark, OS reduced-motion toggle or screen-reader application test. Kyobo product pages returned empty bodies in the fetch tool; official search results verified IDs/ISBNs, and browser-rendered source links were checked. Existing cover assets were not swapped for unverified edition artwork. Production is unchanged. Prior QA retained in git and locally as qa-before.md.
