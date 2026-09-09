@@ -9,6 +9,13 @@ import '@/styles/globals.css'
 const PRETENDARD_CSS =
   'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css'
 
+// The hero lockup is the only place Marcellus (INZEUM) and 나눔명조 (명상하는 나라) appear, so both are
+// requested as a text subset: the response carries just those glyphs instead of a full Korean serif.
+const LOCKUP_TEXT = 'INZEUM 명상하는 나라'
+const LOCKUP_CSS =
+  'https://fonts.googleapis.com/css2?family=Marcellus&family=Nanum+Myeongjo&display=swap&text=' +
+  encodeURIComponent(LOCKUP_TEXT)
+
 export const metadata: Metadata = {
   // 카카오톡·검색엔진이 og:image / canonical 을 절대 URL 로 읽으려면 필수입니다.
   metadataBase: new URL(SITE_URL),
@@ -49,6 +56,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link rel="preload" as="style" href={PRETENDARD_CSS} />
         <link rel="stylesheet" href={PRETENDARD_CSS} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" as="style" href={LOCKUP_CSS} />
+        <link rel="stylesheet" href={LOCKUP_CSS} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

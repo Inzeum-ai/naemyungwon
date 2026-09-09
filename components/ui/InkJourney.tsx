@@ -98,7 +98,6 @@ export default function InkJourney() {
     return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule) }
   }, [still, photoReady])
 
-  const toggle = () => setPaused(value => { try { localStorage.setItem('inzeum:motion-paused', String(!value)) } catch {} return !value })
   return <section ref={root} className="ink-journey" data-still={still} aria-label="내면소통과 일상의 수련">
     <div className="journey-stage">
       <div className="scene-first" onPointerMove={event => {
@@ -112,13 +111,12 @@ export default function InkJourney() {
           <img src={DESKTOP} alt="" width={1513} height={1040} fetchPriority="high" decoding="async" />
         </picture>
         <canvas ref={canvas} className="scene-canvas" aria-hidden="true" data-renderer="fallback" />
-        <h1 ref={title} className="scene-title scene-title-brand"><span className="sr-only">INZEUM 인지엄 · 내면소통연구소</span><img src="/images/wordmark-paper.png" alt="" width={1200} height={392} /></h1>
+        <h1 ref={title} className="scene-title scene-title-brand"><span className="lockup-latin">INZEUM</span><span className="lockup-ko">명상하는 나라</span></h1>
         <div ref={footer} className="scene-footer">
-          <p>과학에 기반한 비종교적 명상.<br /><span className="scene-lab-label">인지엄 · A meditation lab in Seoul</span></p>
+          <p>과학에 기반한 비종교적 명상.<br /><span className="scene-lab-label">인지엄 · 내면소통연구소</span></p>
           <a href="#vision" className="scene-scroll-cue">스크롤하여 더 보기<span aria-hidden="true" /></a>
           <Link ref={mainAction} href="/courses#foundation" className="scene-primary">나의 수련 시작하기<Icon name="arrow-right" size={24} /></Link>
         </div>
-      <div className="scene-controls"><span>수묵 이미지 · 시안</span>{!still && <button type="button" onClick={toggle} aria-pressed={paused} aria-label={paused ? '장면 움직임 재생' : '장면 움직임 멈추기'}><Icon name={paused ? 'play' : 'pause'} size={16} /><span>{paused ? '재생' : '멈춤'}</span></button>}</div>
       </div>
       <div ref={photo} className="scene-second">
         <picture className="scene-practice-photo">
@@ -135,6 +133,6 @@ export default function InkJourney() {
       </div>
 
     </div>
-    <noscript><style>{`.ink-journey{height:auto!important}.journey-stage{position:static!important;height:auto!important}.scene-first,.scene-second{position:relative!important;height:100svh!important;clip-path:none!important}.scene-photo-caption{opacity:1!important}.scene-controls{display:none!important}`}</style></noscript>
+    <noscript><style>{`.ink-journey{height:auto!important}.journey-stage{position:static!important;height:auto!important}.scene-first,.scene-second{position:relative!important;height:100svh!important;clip-path:none!important}.scene-photo-caption{opacity:1!important}`}</style></noscript>
   </section>
 }
