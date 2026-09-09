@@ -8,11 +8,8 @@ import PageShell from '@/components/layout/PageShell'
 import InkBand from '@/components/ui/InkBand'
 import Paper from '@/components/ui/Paper'
 import Section from '@/components/ui/Section'
-import Button from '@/components/ui/Button'
 
 export const metadata = pageMetadata({ title: '교육과정', description: '나를 돌보는 12주 온라인 기초과정에서, 타인을 안내하는 200시간 심화과정으로. 배움과 수련, 공동체로 이어지는 내면소통명상 교육.', path: '/courses' })
-const GUIDE = 'https://inzeum.web.app/public/foundation-course-5/index.html'
-const APPLY = 'https://forms.gle/NGQEJXWW7i5N7XHE9'
 
 export default function CoursesPage() {
   return <PageShell reading="hanji">
@@ -24,11 +21,11 @@ export default function CoursesPage() {
           <div className="course-portrait"><Image src="/images/joohankim_11.jpg" alt="내면소통명상을 안내하는 김주환 교수" width={900} height={1000} sizes="(max-width:767px) 100vw, 45vw" /><p>김주환 교수 · 『내면소통』 저자</p></div>
           <div className="course-intro"><p className="eyebrow">01 · 기초과정</p><h2>하루의 나를<br />돌보는 연습.</h2><p className="course-lead">생각을 멈추려고 애쓰기보다,<br />지금의 몸과 호흡을 알아차리는 것부터.</p><p>김주환 교수의 안내로 내면소통명상의 이론과 수행법을 배웁니다. 내 속도로 반복할 수 있는 온라인 수업입니다.</p>
             <dl className="course-facts"><div><dt>기간</dt><dd>12주</dd></div><div><dt>형식</dt><dd>온라인</dd></div><div><dt>강의</dt><dd>약 30시간</dd></div></dl>
-            <div className="course-enrollment"><p>기초과정 5기 · 9월 16일 개강</p><span>2026년 9월 10일 지원 마감 · 공식 안내 기준</span><Button href={GUIDE} icon="arrow-up-right">5기 모집 안내 보기</Button></div>
+            <div className="course-enrollment"><p>기초과정 5기 · 지원 마감</p><span>2026년 9월 10일 접수 마감 · 9월 16일 개강</span></div>
           </div>
         </div>
         <div className="learning-outcomes">{[{n:'01',title:'몸의 감각을 읽고',body:'호흡과 움직임에 주의를 기울이며 나의 상태를 알아차립니다.'},{n:'02',title:'나와 대화하고',body:'생각과 감정에서 한 발 물러서고, 자기 자신을 긍정하는 연습을 합니다.'},{n:'03',title:'일상에서 이어갑니다',body:'강의를 다시 듣고 수련하며, 나에게 맞는 반복의 리듬을 찾습니다.'}].map(x=><div key={x.n}><span>{x.n}</span><h3>{x.title}</h3><p>{x.body}</p></div>)}</div>
-        <div className="course-detail-fold"><Disclosure question="수강료와 지원 절차"><p>5기 신규 수강은 40만 원, 기초과정 1–4기 재수강은 10만 원입니다. 교육사이트 회원가입 후 지원서를 제출하면 검토 후 개별 등록 안내를 받습니다.</p><div className="mt-5 flex flex-wrap gap-5"><TextLink href="https://edu.inzeum.com">교육사이트 회원가입</TextLink><TextLink href={APPLY}>5기 지원서 작성</TextLink></div><p className="mt-4">수강 시작 전까지 전액 환불 안내가 제공됩니다. 상세 조건과 최신 일정은 공식 모집 안내를 확인해 주세요.</p></Disclosure><Disclosure question="수료 후에는 어떤 길이 열리나요?"><p>기초과정 수료증이 발급되며, 2027년도 심화과정에 지원할 자격이 주어집니다. 바로 지도자를 목표로 하지 않아도, 배운 수련을 일상에서 계속 이어갈 수 있습니다.</p></Disclosure></div>
+        <div className="course-detail-fold"><Disclosure question="수강료와 지원 절차"><p>기초과정 5기 지원은 2026년 9월 10일 마감되었습니다. 다음 기수의 일정과 지원 방법은 소식과 유튜브 커뮤니티를 통해 안내합니다.</p><div className="mt-5"><TextLink href="/news">다음 모집 소식 확인하기</TextLink></div></Disclosure><Disclosure question="수료 후에는 어떤 길이 열리나요?"><p>기초과정 수료증이 발급되며, 2027년도 심화과정에 지원할 자격이 주어집니다. 바로 지도자를 목표로 하지 않아도, 배운 수련을 일상에서 계속 이어갈 수 있습니다.</p></Disclosure></div>
       </Section>
       <Section id="advanced">
         <div className="course-editorial course-editorial-reverse"><div className="course-intro"><p className="eyebrow">02 · 심화과정 / 1기 진행 중</p><h2>수련자에서,<br />안내자로.</h2><p className="course-lead">내가 경험한 고요함을<br />나만의 언어로 전할 수 있도록.</p><p>명상을 직접 설계하고, 다른 사람 앞에서 안내하고, 피드백을 받습니다. 김주환 교수와 움직임·호흡·발성 분야 패컬티가 함께합니다.</p><dl className="course-facts"><div><dt>기간</dt><dd>10개월</dd></div><div><dt>교육</dt><dd>200시간</dd></div><div><dt>지원 자격</dt><dd>기초 수료</dd></div></dl><TextLink href="/programs#training">8월 집중 연수 살펴보기</TextLink></div><ScrollImage src="/images/community/somatic-ribbon-practice.webp" alt="리본을 움직이며 몸의 감각을 익히는 센터리듬 수련 참가자들" width={1000} height={750} caption="센터리듬 수련 · 심화과정 커뮤니티 기록" source="https://cafe.naver.com/joohankimlab/12939" /></div>
@@ -44,7 +41,7 @@ export default function CoursesPage() {
         <Disclosure question="매주 정해진 시간에 들어야 하나요?"><p>매주 수요일 새 동영상 강의가 업로드되는 온라인 과정입니다. 구체적인 수강 가능 기간과 방법은 교육사이트의 과정 안내를 확인해 주세요.</p></Disclosure>
         <Disclosure question="어떤 과정을 선택하면 좋을까요?"><p>자신의 수련을 시작하고 싶다면 기초과정부터. 기초과정을 수료하고 타인을 안내하는 법을 배우고 싶다면 심화과정에 지원할 수 있습니다.</p></Disclosure>
       </Section>
-      <Section id="apply" title="첫 수련을 시작해 보세요." width="content"><p className="text-body-lg text-sub">5기 일정과 지원 방법을 확인하고, 나에게 맞는 배움인지 살펴보세요.</p><div className="mt-8 flex flex-wrap gap-5"><Button href={GUIDE} icon="arrow-up-right">공식 모집 안내</Button><TextLink href="mailto:official@inzeum.com">수강 문의</TextLink></div></Section>
+      <Section id="apply" title="기초과정 5기 지원이 마감되었습니다." width="content"><p className="text-body-lg text-sub">다음 기수의 모집 일정은 소식에서 안내합니다.</p><div className="mt-8 flex flex-wrap gap-5"><TextLink href="/news">다음 모집 소식</TextLink><TextLink href="mailto:official@inzeum.com">수강 문의</TextLink></div></Section>
     </Paper>
   </PageShell>
 }
