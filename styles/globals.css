@@ -232,12 +232,13 @@
   .app-tabs button[aria-selected='true'] { color: var(--text-display); border-color: var(--text-display); }
   .app-showcase-copy { margin-top: 40px; min-height: 240px; }
   .app-screen-panel { display: flex; justify-content: center; }
-  .app-screen { width: min(100%, 320px); height: auto; border-radius: 16px; border: 1px solid var(--line); }
+  .app-screen { width: min(100%, 320px); height: auto; border-radius: 22px; border: 1px solid color-mix(in srgb, var(--text-muted) 24%, transparent); box-shadow: 0 28px 70px rgba(0, 0, 0, .28), 0 4px 18px rgba(0, 0, 0, .18); animation: app-screen-enter 420ms cubic-bezier(.22, 1, .36, 1) both; }
   .app-showcase-compact { display: flex; flex-direction: column; gap: 32px; padding-top: 0; }
   .app-showcase-compact .app-showcase-controls { width: 100%; max-width: 400px; }
   .app-showcase-compact .app-tabs { justify-content: center; }
   .app-showcase-compact .app-showcase-copy { display: none; }
   .app-showcase-compact .app-screen { width: 280px; }
+  @keyframes app-screen-enter { from { opacity: 0; transform: translateY(12px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
   .course-actions { @apply mt-8 flex flex-wrap items-center gap-4; }
 }
 

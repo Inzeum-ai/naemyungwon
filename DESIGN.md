@@ -113,7 +113,7 @@ are upcoming. The broader program rhythm remains explicitly described as recurri
 ### App
 
 A benefit-led heading, existing beta/release information, a single readable product screen
-with four tabs, then features and FAQ. No fake store download button. The original
+with five tabs matching the current app navigation, then features and FAQ. No fake store download button. The current
 screenshots are illustrative; equivalent text descriptions remain in the page.
 
 The recording FAQ now reflects the current product's consented server backup and server-side
@@ -143,7 +143,7 @@ paper from the top. The existing 404 and its return action remain available on i
 | SectionNav | Non-sticky, wrapping in-page links |
 | Section / Facts / ListRow | Editorial grouping and factual reading structure |
 | Button / TextLink | Neutral actions, predictable focus and hover treatment |
-| AppShowcase | Four accessible tabs, readable real screenshots and page copy |
+| AppShowcase | Five accessible tabs matching the app navigation, readable real screenshots and page copy |
 | Disclosure | Native details/summary; keyboard and no-JavaScript operation |
 | Poster | Actual document, proportional preview and original-file link |
 | CommunityPhoto | Original-framing photograph with source-linked caption and full-image link |

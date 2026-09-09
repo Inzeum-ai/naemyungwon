@@ -1,0 +1,12 @@
+{
+  "updated": "2026-09-10",
+  "source": "User-supplied iPhone 17e Simulator captures of the current INZEUM beta app",
+  "processing": "Resized from 1170×2532 to 702×1520 and encoded as WebP at quality 84 for the website showcase",
+  "screens": [
+    { "file": "home.webp", "capturedAt": "2026-09-10 07:15:43", "view": "홈" },
+    { "file": "sleep.webp", "capturedAt": "2026-09-10 07:16:50", "view": "수면" },
+    { "file": "inner-ai.webp", "capturedAt": "2026-09-10 07:18:53", "view": "내면AI" },
+    { "file": "library.webp", "capturedAt": "2026-09-10 07:18:57", "view": "보관함" },
+    { "file": "record.webp", "capturedAt": "2026-09-10 07:19:09", "view": "기록" }
+  ]
+}
