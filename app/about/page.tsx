@@ -104,7 +104,7 @@ export default function AboutPage() {
         <ScrollImage src="/images/joohankim.jpg" alt="김주환 교수 프로필 사진" width={600} height={650} priority className="about-profile-portrait" caption="김주환 교수 · 내면소통연구소 대표" />
         <div className="about-profile-copy"><p className="eyebrow">INZEUM · A MEDITATION LAB IN SEOUL</p>
           <h1>명상을 연구하고,<br />일상으로 이어갑니다.</h1>
-          <p className="about-profile-intro">과학에 기반한 비종교적 명상을 연구하고 가르치는, 서울의 명상 연구소입니다.</p>
+          <p className="about-profile-intro">과학에 기반한 일상적 명상을 연구하고 수행하는 내면소통연구소 INZEUM 입니다.</p>
           <div className="about-profile-person"><h2>김주환 교수</h2><p>연세대학교 언론홍보영상학부 교수<br />내면소통명상 연구·교육</p><p>『내면소통』 『내면소통 명상수업』<br />『그릿』 『회복탄력성』 저자</p></div>
           <div className="about-profile-actions"><Button href="#books" icon="arrow-right">책으로 만나보기</Button><TextLink href="#lectures">유튜브 강의 보기</TextLink></div>
         </div>

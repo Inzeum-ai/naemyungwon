@@ -20,7 +20,7 @@ export default function CoursesPage() {
           <div className="course-portrait"><Image src="/images/joohankim_11.jpg" alt="내면소통명상을 안내하는 김주환 교수" width={900} height={1000} sizes="(max-width:767px) 100vw, 45vw" /><p>김주환 교수 · 『내면소통』 저자</p></div>
           <div className="course-intro"><p className="eyebrow">01 · 기초과정</p><h2>기초과정: 하루의 나를 돌아보는 일상적 명상</h2><p className="course-lead">생각을 멈추려고 애쓰기보다,<br />지금의 몸과 호흡을 알아차리는 것부터.</p><p>김주환 교수의 안내로 내면소통명상의 이론과 수행법을 배웁니다. 내 속도로 반복할 수 있는 온라인 수업입니다.</p>
             <dl className="course-facts"><div><dt>기간</dt><dd>12주</dd></div><div><dt>형식</dt><dd>온라인</dd></div><div><dt>강의</dt><dd>약 30시간</dd></div></dl>
-            <div className="course-enrollment"><p>기초과정 5기 · 지원 마감</p><span>2026년 9월 10일 접수 마감 · 9월 16일 개강</span></div>
+            <div className="course-enrollment"><p>2026년 9월 16일 개강</p></div>
           </div>
         </div>
         <div className="learning-outcomes">{[{n:'01',title:'몸의 감각을 읽고',body:'호흡과 움직임에 주의를 기울이며 나의 상태를 알아차립니다.'},{n:'02',title:'나와 대화하고',body:'생각과 감정에서 한 발 물러서고, 자기 자신을 긍정하는 연습을 합니다.'},{n:'03',title:'일상에서 이어갑니다',body:'강의를 다시 듣고 수련하며, 나에게 맞는 반복의 리듬을 찾습니다.'}].map(x=><div key={x.n}><span>{x.n}</span><h3>{x.title}</h3><p>{x.body}</p></div>)}</div>
@@ -39,7 +39,7 @@ export default function CoursesPage() {
         <Disclosure question="매주 정해진 시간에 들어야 하나요?"><p>매주 수요일 새 동영상 강의가 업로드되는 온라인 과정입니다. 구체적인 수강 가능 기간과 방법은 교육사이트의 과정 안내를 확인해 주세요.</p></Disclosure>
         <Disclosure question="어떤 과정을 선택하면 좋을까요?"><p>자신의 수련을 시작하고 싶다면 기초과정부터. 기초과정을 수료하고 타인을 안내하는 법을 배우고 싶다면 심화과정에 지원할 수 있습니다.</p></Disclosure>
       </Section>
-      <Section id="apply" title="기초과정 5기 지원이 마감되었습니다." width="content"><p className="text-body-lg text-sub">다음 기수의 모집 일정은 소식에서 안내합니다.</p><div className="mt-8 flex flex-wrap gap-5"><TextLink href="/news">다음 모집 소식</TextLink><TextLink href="mailto:official@inzeum.com">수강 문의</TextLink></div></Section>
+      <Section id="apply" title="기초과정 5기는 9월 16일에 개강합니다" width="content" />
     </Paper>
   </PageShell>
 }

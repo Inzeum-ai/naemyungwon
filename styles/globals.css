@@ -672,8 +672,8 @@ html[data-static='true'] .editorial-reveal{opacity:1!important;transform:none!im
    the tracking onto any other Korean heading. text-indent cancels the trailing letter-space so the
    centred line stays optically centred. */
 .scene-title-brand .lockup-latin{display:block;font-family:'Marcellus',serif;font-size:1em;line-height:1;letter-spacing:.02em;text-indent:.02em;}
-.scene-title-brand .lockup-ko{display:block;font-family:'Nanum Myeongjo',serif;font-size:.42em;line-height:1.2;letter-spacing:.16em;text-indent:.16em;margin-top:.08em;}
-.scene-title-brand .lockup-slogan{display:block;margin-top:1.35em;font-family:'Nanum Myeongjo',serif;font-size:.13em;line-height:1.6;letter-spacing:0;}
+.scene-title-brand .lockup-ko{display:block;font-family:'Nanum Myeongjo',serif;font-weight:400;font-size:.42em;line-height:1.2;letter-spacing:.16em;text-indent:.16em;margin-top:.08em;}
+.scene-title-brand .lockup-slogan{display:block;margin-top:1.35em;font-family:'Nanum Myeongjo',serif;font-weight:400;font-size:.13em;line-height:1.6;letter-spacing:0;}
 .scene-title-brand .scene-lab-label{display:block;margin-top:.2em;font-family:'Nanum Myeongjo',serif;font-size:.11em;line-height:1.6;color:var(--text-sub);}
 .course-intro>.eyebrow{font-size:18px;letter-spacing:.08em;color:var(--text-copy);}
 .scene-photo-caption h2{font-size:clamp(36px,4.4vw,66px);line-height:1.3;}

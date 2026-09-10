@@ -6,6 +6,7 @@ import Paper from '@/components/ui/Paper'
 import Section from '@/components/ui/Section'
 import ListRow from '@/components/ui/ListRow'
 import Button from '@/components/ui/Button'
+import TextLink from '@/components/ui/TextLink'
 import { COMPANY } from '@/lib/company'
 import { YOUTUBE_URL } from '@/lib/nav'
 
@@ -38,8 +39,8 @@ export default function NewsPage() {
 
       <Paper>
       <SectionNav items={[{ href: "#channels", label: "안내 채널" }, { href: "#timeline", label: "지난 소식" }]} />
-      <Section id="foundation-5" title="기초과정 5기 지원 마감" lede="2026년 9월 10일 접수 마감 · 9월 16일 오후 8시 개강 · 12주 온라인" hairline={false}>
-        <p className="max-w-measure text-body-lg text-sub">다음 기수의 모집 일정은 유튜브 커뮤니티와 이 페이지에서 안내합니다.</p>
+      <Section id="foundation-5" title="2026년 9월 16일 개강" hairline={false}>
+        <TextLink href="https://cafe.naver.com/joohankimlab/12526">5기 모집 안내</TextLink>
       </Section>
       <Section id="channels" title="안내를 받으려면" width="content" hairline={false}>
         <div className="hairline-t">
