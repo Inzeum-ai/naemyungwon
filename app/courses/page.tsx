@@ -17,7 +17,7 @@ export default function CoursesPage() {
       <SectionNav items={[{ href:'#foundation',label:'나를 위한 기초과정' },{ href:'#advanced',label:'지도자를 위한 심화과정' },{ href:'#community',label:'함께하는 수련' },{ href:'#faq',label:'수강 안내' }]} />
       <Section id="foundation" hairline={false}>
         <div className="course-editorial">
-          <div className="course-portrait"><Image src="/images/joohankim_11.jpg" alt="내면소통명상을 안내하는 김주환 교수" width={900} height={1000} sizes="(max-width:767px) 100vw, 45vw" /><p>김주환 교수 · 『내면소통』 저자</p></div>
+          <div className="course-portrait"><Image src="/images/joohankim_course_portrait.jpeg" alt="내면소통명상을 안내하는 김주환 교수" width={1080} height={1440} sizes="(max-width:767px) 100vw, 45vw" /><p>김주환 교수 · 『내면소통』 저자</p></div>
           <div className="course-intro"><p className="eyebrow">01 · 기초과정</p><h2>기초과정: 하루의 나를 돌아보는 일상적 명상</h2><p className="course-lead">생각을 멈추려고 애쓰기보다,<br />지금의 몸과 호흡을 알아차리는 것부터.</p><p>김주환 교수의 안내로 내면소통명상의 이론과 수행법을 배웁니다. 내 속도로 반복할 수 있는 온라인 수업입니다.</p>
             <dl className="course-facts"><div><dt>기간</dt><dd>12주</dd></div><div><dt>형식</dt><dd>온라인</dd></div><div><dt>강의</dt><dd>약 30시간</dd></div></dl>
             <div className="course-enrollment"><p>2026년 9월 16일 개강</p></div>
