@@ -477,7 +477,7 @@ html[data-static='true'] .scene-photo-caption, .ink-journey[data-still='true'] .
 .scroll-photo figcaption { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 24px; margin-top:16px; font-size:13px; line-height:1.7; color:var(--text-sub); }
 .scroll-photo figcaption a { text-decoration:underline; text-underline-offset:4px; }
 .course-editorial { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-.course-portrait img { width:100%; height:580px; object-fit:cover; object-position:center 25%; }
+.course-portrait img { width:100%; height:auto; object-fit:contain; }
 .course-portrait > p { margin-top:16px; color:var(--text-sub); font-size:13px; }
 .course-intro > p:not(.eyebrow) { color:var(--text-sub); font-size:17px; line-height:1.8; margin-top:20px; max-width:30em; }
 .course-intro .course-lead { font-size:23px!important; color:var(--text-display)!important; margin-top:28px!important; }
@@ -519,7 +519,7 @@ html[data-static='true'] .scene-photo-caption, .ink-journey[data-still='true'] .
 @media(max-width:1023px) {
  .ai-story,.course-editorial,.space-sequence,.event-intro { gap:40px; }
  .course-facts { gap:20px; }.course-facts dd{font-size:20px;}
- .course-portrait img {height:500px;}
+
  .learning-outcomes{gap:24px;}.vision-paths{padding-bottom:80px;}
 }
 @media(max-width:767px) {
@@ -533,7 +533,7 @@ html[data-static='true'] .scene-photo-caption, .ink-journey[data-still='true'] .
  .ai-story{padding-block:72px;}.ai-story h2,.home-space h2,.course-intro h2{font-size:40px;}
  .ai-story-lede{font-size:18px; margin-top:24px;}.ai-steps{margin-top:32px;}
  .home-space{padding-block:64px 80px;}.scroll-photo figcaption{font-size:12px;}
- .course-portrait img{height:360px;}.course-intro .course-lead{font-size:21px!important;}
+ .course-intro .course-lead{font-size:21px!important;}
  .course-editorial-reverse .scroll-photo{grid-row:2;}.course-facts{justify-content:space-between;gap:12px;}
  .learning-outcomes{grid-template-columns:1fr;gap:28px;margin-top:40px;}.learning-outcomes h3{margin-top:16px;}
  .practice-process{grid-template-columns:1fr 1fr;gap:28px 18px;margin-block:40px;}
