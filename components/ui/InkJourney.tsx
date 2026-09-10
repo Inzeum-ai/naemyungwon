@@ -111,9 +111,8 @@ export default function InkJourney() {
           <img src={DESKTOP} alt="" width={1513} height={1040} fetchPriority="high" decoding="async" />
         </picture>
         <canvas ref={canvas} className="scene-canvas" aria-hidden="true" data-renderer="fallback" />
-        <h1 ref={title} className="scene-title scene-title-brand"><span className="lockup-latin">INZEUM</span><span className="lockup-ko">명상하는 나라</span></h1>
+        <h1 ref={title} className="scene-title scene-title-brand"><span className="lockup-latin">INZEUM</span><span className="lockup-ko">명상하는 나라</span><span className="lockup-slogan">과학에 기반한 일상적 명상</span><span className="scene-lab-label">인지엄 · 내면소통연구소</span></h1>
         <div ref={footer} className="scene-footer">
-          <p>과학에 기반한 비종교적 명상.<br /><span className="scene-lab-label">인지엄 · 내면소통연구소</span></p>
           <a href="#vision" className="scene-scroll-cue">스크롤하여 더 보기<span aria-hidden="true" /></a>
           <Link ref={mainAction} href="/courses#foundation" className="scene-primary">나의 수련 시작하기<Icon name="arrow-right" size={24} /></Link>
         </div>
