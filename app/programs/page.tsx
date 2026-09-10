@@ -88,7 +88,7 @@ export default function ProgramsPage() {
       </Section>
 
       <Section id="training" title="수련자에서 안내자로, 바다 앞의 여섯 날." aside={<p className="text-meta text-muted">8월 연수교육 · 2026년 8월 26일–31일</p>} width="page">
-        <div className="event-intro"><ScrollImage src="/images/community/somatic-ribbon-practice.webp" alt="리본의 움직임을 따라 감각을 익히는 수련 참가자들" width={1000} height={750} caption="센터리듬 수련 · 심화과정 커뮤니티 기록 (8월 연수 현장 사진은 아닙니다)" source="https://cafe.naver.com/joohankimlab/12939" /><div><h3>내가 경험한 명상을,<br />나의 언어로.</h3><p>다섯 달의 배움을 돌아보고, 새로운 사람 앞에서 명상을 안내하는 집중 연수입니다. 몸의 감각을 읽고, 목소리와 언어를 다듬고, 나만의 명상으로 연결하는 프로그램으로 구성했습니다.</p></div></div>
+        <div className="mb-12 max-w-measure"><h3 className="text-h2">내가 경험한 명상을,<br />나의 언어로.</h3><p className="mt-6 text-body-lg text-sub">다섯 달의 배움을 돌아보고, 새로운 사람 앞에서 명상을 안내하는 집중 연수입니다. 몸의 감각을 읽고, 목소리와 언어를 다듬고, 나만의 명상으로 연결하는 프로그램으로 구성했습니다.</p></div>
         <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
           <Facts
             facts={[

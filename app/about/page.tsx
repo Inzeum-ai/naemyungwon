@@ -91,8 +91,8 @@ const work = [
 ]
 
 const history = [
-  { year: '2026', events: ['내면소통명상교육원(내명원) 설립', '심화과정 개설 — 10개월 200시간 지도자 자격 과정', '200명 정원에 500명 이상 지원', '3월 심화과정 1기 시작, 12월 수료 예정', '7월 여름 리트릿 (오대산 자연명상마을), 8월 INZEUM 앱 베타'] },
-  { year: '2025', events: ['1월 신년명상회', '3월·6월 내면소통 명상 콘서트 (코엑스 오디토리움, 1,000명 이상)', '8월 여름 리트릿 4박5일 (정선 파크로쉬)', '10월 존2 달리기 (한강공원)', '기초과정 1·2·3기 운영, 4,500명 이상 수료'] },
+  { year: '2026', events: ['11월 명상센터 INZEUM 개관 예정', '내면소통명상원(INZEUM) 출발', '심화과정 개설 — 10개월 200시간 지도자 자격 과정', '200명 정원에 500명 이상 지원', '3월 심화과정 1기 시작, 12월 수료 예정', '7월 여름 리트릿 (오대산 자연명상마을), 8월 INZEUM 앱 베타'] },
+  { year: '2025', events: ['1월 신년명상회', '3월·6월 내면소통 명상 콘서트 (코엑스 오디토리움)', '8월 여름 리트릿 4박5일 (정선 파크로쉬)', '10월 존2 달리기 (한강공원)', '기초과정 1·2·3기 운영, 4,500명 이상 수료'] },
   { year: '2024', events: ['1월 해시드벤처스 투자 유치', '3월 벤처기업 인증', '4월 김주환 교수 대표이사 취임'] },
   { year: '2023', events: ['9월 내면소통연구소 설립'] },
 ]
@@ -116,10 +116,10 @@ export default function AboutPage() {
       <ChannelStory />
       <Section id="vision" title="우리가 그리는 미래, 명상하는 나라." lede="한 사람의 수련이 일상의 문화가 되도록. 배우고, 이어가고, 함께 머무는 자리를 만듭니다.">
         <div className="about-vision-grid">{[
-          {image:'/images/community/forest-practice.webp',alt:'숲에서 함께 움직임 명상을 하는 수련자들',label:'교육 · 수행공동체',title:'함께 배우는 사람들',body:'나를 돌보는 수련에서, 다른 사람의 수련을 안내하는 배움으로.',href:'/courses'},
+          {label:'교육 · 수행공동체',title:'함께 배우는 사람들',body:'나를 돌보는 수련에서, 다른 사람의 수련을 안내하는 배움으로.',href:'/courses'},
           {image:'/images/community/lakeside-practice.webp',alt:'호숫가에서 명상하는 사람들',label:'기술 · 일상',title:'한 사람에게 닿는 명상',body:'AI와 함께, 나의 맥락에 맞는 수련을 매일의 일상으로.',href:'/app'},
           {image:'/images/space/hall-proposal.webp',alt:'인지엄 홀 설계 제안 이미지',label:'공간 · 준비 중',title:'머물고 만나는 자리',body:'함께 수련할 인지엄 홀을 준비합니다. 이미지는 설계 제안입니다.',href:'/space'},
-        ].map(item=><Reveal key={item.href}><Link href={item.href} className="about-vision-card"><div className="about-vision-image"><Image src={item.image} alt={item.alt} width={1600} height={900} sizes="(max-width:767px) 100vw, 33vw" /></div><span>{item.label}</span><div><h3>{item.title}</h3><Icon name="arrow-up-right" size={20}/></div><p>{item.body}</p></Link></Reveal>)}</div>
+        ].map(item=><Reveal key={item.href}><Link href={item.href} className="about-vision-card">{item.image && <div className="about-vision-image"><Image src={item.image} alt={item.alt ?? ''} width={1600} height={900} sizes="(max-width:767px) 100vw, 33vw" /></div>}<span>{item.label}</span><div><h3>{item.title}</h3><Icon name="arrow-up-right" size={20}/></div><p>{item.body}</p></Link></Reveal>)}</div>
       </Section>
       <AiStory full />
       <Section id="teaching" title="내면소통명상이란">

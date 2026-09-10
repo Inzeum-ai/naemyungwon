@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import ScrollImage from '@/components/ui/ScrollImage'
 import Disclosure from '@/components/ui/Disclosure'
 import TextLink from '@/components/ui/TextLink'
 import SectionNav from '@/components/ui/SectionNav'
@@ -28,13 +27,12 @@ export default function CoursesPage() {
         <div className="course-detail-fold"><Disclosure question="수강료와 지원 절차"><p>기초과정 5기는 2026년 9월 16일에 시작합니다.</p><div className="mt-5"><TextLink href="https://cafe.naver.com/joohankimlab/12526">5기 모집 안내</TextLink></div></Disclosure><Disclosure question="수료 후에는 어떤 길이 열리나요?"><p>기초과정 수료증이 발급되며, 2027년도 심화과정에 지원할 자격이 주어집니다. 바로 지도자를 목표로 하지 않아도, 배운 수련을 일상에서 계속 이어갈 수 있습니다.</p></Disclosure></div>
       </Section>
       <Section id="advanced">
-        <div className="course-editorial course-editorial-reverse"><div className="course-intro"><p className="eyebrow">02 · 심화과정 / 1기 진행 중</p><h2>수련자에서,<br />안내자로.</h2><p className="course-lead">내가 경험한 고요함을<br />나만의 언어로 전할 수 있도록.</p><p>명상을 직접 설계하고, 다른 사람 앞에서 안내하고, 피드백을 받습니다. 김주환 교수와 움직임·호흡·발성 분야 패컬티가 함께합니다.</p><dl className="course-facts"><div><dt>기간</dt><dd>10개월</dd></div><div><dt>교육</dt><dd>200시간</dd></div><div><dt>지원 자격</dt><dd>기초 수료</dd></div></dl><TextLink href="https://simhwa.joohankim.org/">심화과정 1기 안내</TextLink></div><ScrollImage src="/images/community/somatic-ribbon-practice.webp" alt="리본을 움직이며 몸의 감각을 익히는 센터리듬 수련 참가자들" width={1000} height={750} caption="센터리듬 수련 · 심화과정 커뮤니티 기록" source="https://cafe.naver.com/joohankimlab/12939" /></div>
+        <div className="course-intro max-w-measure"><p className="eyebrow">02 · 심화과정 / 1기 진행 중</p><h2>심화과정: 수련자에서 지도자로</h2><p className="course-lead">내가 경험한 고요함을<br />나만의 언어로 전할 수 있도록.</p><p>명상을 직접 설계하고, 다른 사람 앞에서 안내하고, 피드백을 받습니다. 김주환 교수와 움직임·호흡·발성 분야 패컬티가 함께합니다.</p><dl className="course-facts"><div><dt>기간</dt><dd>10개월</dd></div><div><dt>교육</dt><dd>200시간</dd></div><div><dt>지원 자격</dt><dd>기초 수료</dd></div></dl><TextLink href="https://simhwa.joohankim.org/">심화과정 1기 안내</TextLink></div>
         <ol className="practice-process">{[['체화','몸으로 원리를 익힙니다.'],['설계','나의 명상 대본을 씁니다.'],['시연','사람들 앞에서 안내합니다.'],['피드백','함께 돌아보고 다듬습니다.']].map(([title,body],i)=><li key={title}><span>0{i+1}</span><h3>{title}</h3><p>{body}</p></li>)}</ol>
         <Disclosure question="심화과정의 구성과 수료 안내"><p>1기는 2026년 3월부터 12월까지 진행됩니다. 대면 교육과 두 차례의 합숙 연수를 중심으로, 개인 수행·대본 작성·명상 안내 실습을 이어갑니다. 일부 온라인 대체와 수료 요건은 과정별 안내를 따릅니다.</p><p className="mt-3">수료 시 연구소의 내면소통명상 지도자(티처) 자격을 취득하는 과정입니다. 이후 자신이 가르치는 움직임·요가·명상 등의 프로그램에 내면소통명상을 연결하는 길을 준비합니다.</p></Disclosure>
       </Section>
       <Section id="community" title="혼자 배워도, 혼자 남지 않도록." lede="수련을 나누고, 서로의 경험에서 배우고, 다시 만날 사람들. 교육은 수행공동체로 이어집니다.">
-        <ScrollImage src="/images/community/woljeongsa-retreat-2026.webp" alt="2026 여름 리트릿 참가자들이 월정사 문 앞에 함께 모인 모습" caption="2026 여름 리트릿 · 월정사 단체사진" source="https://cafe.naver.com/joohankimlab/12320" />
-        <div className="mt-8 flex flex-wrap gap-6"><TextLink href="https://cafe.naver.com/joohankimlab">수행공동체 만나보기</TextLink><TextLink href="/programs">리트릿과 명상 콘서트</TextLink></div>
+        <div className="flex flex-wrap gap-6"><TextLink href="https://cafe.naver.com/joohankimlab">수행공동체 만나보기</TextLink><TextLink href="/programs">리트릿과 명상 콘서트</TextLink></div>
       </Section>
       <Section id="faq" title="시작하기 전에" width="content">
         <Disclosure question="명상 경험이 없어도 괜찮나요?"><p>네. 기초과정은 내면소통명상의 이론과 수행법을 처음부터 배울 수 있도록 구성됩니다. 신비한 체험이나 질환의 치료를 목적으로 하는 과정은 아닙니다.</p></Disclosure>
