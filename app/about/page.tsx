@@ -110,7 +110,7 @@ export default function AboutPage() {
         </div>
       </section>
       <SectionNav items={[{ href: "#professor", label: "김주환 교수" }, { href: "#books", label: "네 권의 책" }, { href: "#lectures", label: "유튜브" }, { href: "#vision", label: "비전" }, { href: "#ai-native", label: "AI Native" }, { href: "#teaching", label: "내면소통명상" }, { href: "#faculty", label: "패컬티" }, { href: "#advisors", label: "자문위원" }, { href: "#history", label: "연혁" }]} />
-      <Section id="books" title="마음의 힘을 탐구한, 네 권의 책." lede="베스트셀러 『내면소통』과 『회복탄력성』에서, 구체적인 명상 실천으로 이어지는 대표 저서입니다.">
+      <Section id="books" title="마음근력을 탐구한 네 권의 책." lede="베스트셀러 『내면소통』과 『회복탄력성』에서, 구체적인 명상 실천으로 이어지는 대표 저서입니다.">
         <BookShelf />
       </Section>
       <ChannelStory />
