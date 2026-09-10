@@ -1,0 +1,167 @@
+{
+  "providedBy": "User, 2026-09-08",
+  "archive": "홈페이지_네이버카페_이미지_후보.zip",
+  "use": "User supplied these assets for this website design. Source records are retained; no independent claim of third-party licensing verification. No date is inferred from candidate filename prefixes.",
+  "privacyProcessing": {
+    "reviewed": "2026-09-11",
+    "method": "Automatic face detection followed by Gaussian blur, with visual review and 김주환 교수 exclusions restored",
+    "review": "https://inzeum.web.app/internal/face-review-9d73a61c/?v=2",
+    "integrityCheck": "npm run privacy:check"
+  },
+  "images": [
+    {
+      "code": "01-04",
+      "file": "01-04_존2운동_12948.jpg",
+      "board": "존2운동",
+      "subject": "[모집 The Zone 2 Club] 브랜든과 함께하는 주환2운동 공지",
+      "article_url": "https://cafe.naver.com/joohankimlab/12948",
+      "width": "1600",
+      "height": "900",
+      "output": "zone2-community.webp",
+      "source_sha256": "132d2dc8ed1afdc733eff404fb4fd3ecc3e33831d5f6660ceb8fa4852b360be0"
+    },
+    {
+      "code": "03-29",
+      "file": "03-29_콘서트-후기_7359.jpg",
+      "board": "콘서트 후기",
+      "subject": "2025년 편안전활 내면소통 콘서트 후기",
+      "article_url": "https://cafe.naver.com/joohankimlab/7359",
+      "width": "1600",
+      "height": "1200",
+      "output": "concert-auditorium-2025.webp",
+      "source_sha256": "825db731b938fc5abce04d1bbe95b77e715400e6984ba141aeeca9f11e05eb61"
+    },
+    {
+      "code": "09-12",
+      "file": "09-12_리트릿-후기_12322.jpg",
+      "board": "리트릿 후기",
+      "subject": "오대산 명상마을에서 함께한 리트릿 후기입니다 ^^",
+      "article_url": "https://cafe.naver.com/joohankimlab/12322",
+      "width": "1600",
+      "height": "1200",
+      "output": "odaesan-path.webp",
+      "source_sha256": "e62753d5d768b4d8801043e6cb90c481e19df0fa49160f47bf45e24fa4052f3b"
+    },
+    {
+      "code": "09-22",
+      "file": "09-22_리트릿-후기_8157.jpg",
+      "board": "리트릿 후기",
+      "subject": "여름 리트릿 그리고 성장.[교수님, 뒷모습이 20대처럼 빛난다! 청춘 바이브 풀 충전!]",
+      "article_url": "https://cafe.naver.com/joohankimlab/8157",
+      "width": "1280",
+      "height": "1525",
+      "output": "retreat-room.webp",
+      "source_sha256": "3bd693effc9928abd02d9d58cb433f189dfc8abed815d171d41aa7c2879b4414"
+    },
+    {
+      "code": "12-14",
+      "file": "12-14_심화-오프라인-소통_11538.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "3반 5조 속리산 산행 명상 ",
+      "article_url": "https://cafe.naver.com/joohankimlab/11538",
+      "width": "1600",
+      "height": "1200",
+      "output": "lakeside-practice.webp",
+      "source_sha256": "917f699a4595253001b2a2aa7393b16aaa13d3bbaa41cf1460aa4a495c312885"
+    },
+    {
+      "code": "12-15",
+      "file": "12-15_심화-오프라인-소통_11538.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "3반 5조 속리산 산행 명상 ",
+      "article_url": "https://cafe.naver.com/joohankimlab/11538",
+      "width": "1600",
+      "height": "900",
+      "output": "forest-practice.webp",
+      "source_sha256": "90de21e65ee5a82e0beaf2c12f5413b63e4948873e80b7b042ee432b7dd31603"
+    },
+    {
+      "code": "11-11",
+      "file": "11-11_리트릿-참가자-소통_12320.jpg",
+      "board": "리트릿 참가자 소통",
+      "subject": "2026 여름 리트릿 월정사 단체사진",
+      "article_url": "https://cafe.naver.com/joohankimlab/12320",
+      "width": "1600",
+      "height": "900",
+      "output": "woljeongsa-retreat-2026.webp",
+      "source_sha256": "1eab72ad6802cf92daabc91ae1890fdef4f69ca0f0435d35d28b5c338763051a"
+    },
+    {
+      "code": "11-27",
+      "file": "11-27_심화-오프라인-소통_12939.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "리듬체조 수구와 함께 하는 <센터리듬>에 대하여",
+      "article_url": "https://cafe.naver.com/joohankimlab/12939",
+      "width": "1000",
+      "height": "750",
+      "output": "somatic-ribbon-practice.webp",
+      "source_sha256": "9c6ab1896b52cc6298d827daa4a31d09f8f282aedf4a06d2a27d5fb613617277"
+    },
+    {
+      "code": "04-04",
+      "file": "04-04_콘서트-후기_7237.jpg",
+      "board": "콘서트 후기",
+      "subject": "내면소통 콘서트 두번씩이나 참여할 필요가 있었을까?",
+      "article_url": "https://cafe.naver.com/joohankimlab/7237",
+      "width": "1600",
+      "height": "1200",
+      "output": "concert-together.webp",
+      "source_sha256": "feac28625f75e9c1727fee2b13206d37d5a6c5007d1a4f7fd67bd0d1c9c5fbf7"
+    },
+    {
+      "code": "04-12",
+      "file": "04-12_콘서트-후기_7237.jpg",
+      "board": "콘서트 후기",
+      "subject": "내면소통 콘서트 두번씩이나 참여할 필요가 있었을까?",
+      "article_url": "https://cafe.naver.com/joohankimlab/7237",
+      "width": "1600",
+      "height": "1200",
+      "output": "concert-stairway.webp",
+      "source_sha256": "507494ee4b7f46a83501a48ab284c1c50ce1bbc577ac845be02569c5ab42f89c"
+    },
+    {
+      "code": "09-23",
+      "file": "09-23_리트릿-후기_8157.jpg",
+      "board": "리트릿 후기",
+      "subject": "여름 리트릿 그리고 성장.[교수님, 뒷모습이 20대처럼 빛난다! 청춘 바이브 풀 충전!]",
+      "article_url": "https://cafe.naver.com/joohankimlab/8157",
+      "width": "1280",
+      "height": "1707",
+      "output": "retreat-fireplace.webp",
+      "source_sha256": "d262c97727a6a0bde155f9f5221df014adb0115a6dfee053541063e1175bcf3c"
+    },
+    {
+      "code": "10-03",
+      "file": "10-03_리트릿-후기_8157.jpg",
+      "board": "리트릿 후기",
+      "subject": "여름 리트릿 그리고 성장.[교수님, 뒷모습이 20대처럼 빛난다! 청춘 바이브 풀 충전!]",
+      "article_url": "https://cafe.naver.com/joohankimlab/8157",
+      "width": "1280",
+      "height": "960",
+      "output": "retreat-mountain-sit.webp",
+      "source_sha256": "e3d51490170b0e74210fc0ea207dca637d23b12d60b39dc64155d8834546a6dc"
+    },
+    {
+      "code": "12-29",
+      "file": "12-29_심화-오프라인-소통_10348.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "2반 단체방 공유 <오픈 채팅방> ⭐️사진 포함⭐️",
+      "article_url": "https://cafe.naver.com/joohankimlab/10348",
+      "width": "1600",
+      "height": "1200",
+      "output": "advanced-cohort.webp",
+      "source_sha256": "3072f17f5272550b0ed4eba78fe204ce460907734b81585db097e79b4a22fe2a"
+    },
+    {
+      "code": "13-09",
+      "file": "13-09_심화-오프라인-소통_10338.jpg",
+      "board": "심화 오프라인 소통",
+      "subject": "3.15(일) 존2트레이닝 단체사진",
+      "article_url": "https://cafe.naver.com/joohankimlab/10338",
+      "width": "1280",
+      "height": "960",
+      "output": "zone2-mountain.webp",
+      "source_sha256": "3cab83cc5f8c4894d35f5fa630dc24a089cf6d2a742f35f09e5cc793b60d2eab"
+    }
+  ]
+}

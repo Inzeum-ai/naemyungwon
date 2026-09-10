@@ -1,0 +1,45 @@
+{
+  "checked": "2026-09-09",
+  "providedBy": "User supplied 2025 meditation concert Drive archive",
+  "photos": [
+    {
+      "file": "audience.webp",
+      "source": "https://drive.google.com/file/d/15gcyXRRmFxFrWRMd1rVLLdkOUSKBFUC4/view",
+      "original": "7M405646.jpg",
+      "acquisition": "Drive rendered-image export via pageAssets; full framing; participant faces Gaussian-blurred after review, 김주환 교수 left clear",
+      "width": 1920,
+      "height": 1280,
+      "sourceSha256": "476b64190e87475bf3ee42306f26b201aa343a134251939ba1ab5850481f6fd5",
+      "sha256": "2fab3fb8cb737171a82af66ebf3acc23758f92bfc88b6bece7eee785a5978f9e"
+    },
+    {
+      "file": "greeting.webp",
+      "source": "https://drive.google.com/file/d/1f3e6OiW9JhtefIoBZYWbRmdSjJE5qJfO/view",
+      "original": "7M405815.jpg",
+      "acquisition": "Drive rendered-image export via pageAssets; full framing; participant faces Gaussian-blurred after review, 김주환 교수 left clear",
+      "width": 1920,
+      "height": 1280,
+      "sourceSha256": "9899739b137762363c67e9a217999fe44d567725e86ce69193d03534e33fdc30",
+      "sha256": "85c04291dfcfc4588e3ab74f1799e274a4b5eae8490b90d6baa4626d3360b200"
+    },
+    {
+      "file": "lecture.webp",
+      "source": "https://drive.google.com/file/d/1AJtNSUsMY9HxXx_ucshWJhevoJK4FA9e/view",
+      "original": "JIN07533.jpg",
+      "acquisition": "Drive rendered-image export via pageAssets; full framing, no retouching",
+      "width": 1920,
+      "height": 1280,
+      "sha256": "f9cd1ccdb648a3b6e85334e3d48072aac85c97ada9aacb2449a9f9ef0aed49e9"
+    }
+  ],
+  "film": {
+    "source": "https://drive.google.com/file/d/19a0BZ56VgBcdmbrjOTSwK4Y5keqxAAzH/view",
+    "originalBytes": 58235339,
+    "output": "/videos/concert-sketch-2025.mp4",
+    "durationSeconds": 68.181333,
+    "processing": "1920x1080 HEVC original to 1280x720 H.264/AAC; full duration, framing, soundtrack and existing branding retained. Poster extracted at 30 seconds.",
+    "sha256": "241e571cf70c27cffc9a9e3fa45787692c3691a584fda43c67e27c5bcdbbfe5d",
+    "outputBytes": 8684257,
+    "posterSha256": "00dc3f72488200e6999ff78fcca50a6991137cf3e11c9ceeaa6e024dd9f486c4"
+  }
+}

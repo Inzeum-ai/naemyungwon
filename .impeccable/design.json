@@ -1,0 +1,538 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-09",
+  "title": "Design System: inzeum.com",
+  "extensions": {
+    "source": {
+      "tokens": "design-system/sumuk.tokens.json @ Sumuk 3.0.0 (ADR 0037)",
+      "generated": "styles/tokens.css via scripts/build-tokens.mjs",
+      "check": "npm run tokens:check",
+      "revision": "Researcher, books and lab refinement after dc11194; docs/design/researcher-books-and-lab.md",
+      "photography": "Fourteen selected supplied community photographs; public/images/community/sources.json. Four architectural proposal renderings; public/images/space/sources.json."
+    },
+    "colorMeta": {
+      "midnight-ink": {
+        "role": "neutral",
+        "displayName": "Midnight Ink (먹 900)",
+        "canonical": "#121210",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "deep-ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink (먹 950)",
+        "canonical": "#0D0D0C",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "ink-surface": {
+        "role": "neutral",
+        "displayName": "Ink Surface (먹 800)",
+        "canonical": "#191816",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Ink Raised (먹 700)",
+        "canonical": "#211F1B",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "ink-chip": {
+        "role": "neutral",
+        "displayName": "Ink Chip (먹 600)",
+        "canonical": "#2C2923",
+        "tonalRamp": [
+          "#0D0D0C",
+          "#121210",
+          "#191816",
+          "#211F1B",
+          "#2C2923"
+        ]
+      },
+      "hairline-on-ink": {
+        "role": "neutral",
+        "displayName": "Hairline on Ink",
+        "canonical": "#2F2E2B",
+        "tonalRamp": [
+          "#242320",
+          "#2F2E2B"
+        ]
+      },
+      "hairline-soft-on-ink": {
+        "role": "neutral",
+        "displayName": "Soft Hairline on Ink",
+        "canonical": "#242320",
+        "tonalRamp": [
+          "#242320",
+          "#2F2E2B"
+        ]
+      },
+      "hanji": {
+        "role": "neutral",
+        "displayName": "한지 (paper 50)",
+        "canonical": "#FAF7F1",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-light": {
+        "role": "primary",
+        "displayName": "한지빛 Hanji Light (paper 100)",
+        "canonical": "#EEE9DE",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-line": {
+        "role": "neutral",
+        "displayName": "Hanji Line (paper 200)",
+        "canonical": "#E6DFD0",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-body": {
+        "role": "neutral",
+        "displayName": "Hanji Body (paper 300)",
+        "canonical": "#D9D1C2",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-sub": {
+        "role": "neutral",
+        "displayName": "Hanji Sub (paper 400)",
+        "canonical": "#AA9E86",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "hanji-muted": {
+        "role": "neutral",
+        "displayName": "Hanji Muted (paper 500)",
+        "canonical": "#968A73",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "bunchung": {
+        "role": "neutral",
+        "displayName": "분청 Bunchung (paper 600)",
+        "canonical": "#887E6B",
+        "tonalRamp": [
+          "#887E6B",
+          "#968A73",
+          "#AA9E86",
+          "#D9D1C2",
+          "#E6DFD0",
+          "#EEE9DE",
+          "#FAF7F1"
+        ]
+      },
+      "ink-meta-on-hanji": {
+        "role": "neutral",
+        "displayName": "Ink Meta on Hanji (site-local)",
+        "canonical": "#6F6656",
+        "note": "theme.hanji notes paper.500/600 are hint-only on paper50 (≈3.3–3.9:1); this step measures 5.6:1 for meta text",
+        "tonalRamp": [
+          "#121210",
+          "#2C2923",
+          "#6F6656",
+          "#887E6B",
+          "#968A73"
+        ]
+      },
+      "hairline-on-hanji": {
+        "role": "neutral",
+        "displayName": "Hairline on Hanji",
+        "canonical": "rgb(18 18 16 / 0.12)",
+        "tonalRamp": [
+          "rgb(18 18 16 / 0.08)",
+          "rgb(18 18 16 / 0.12)",
+          "rgb(18 18 16 / 0.16)"
+        ]
+      },
+      "hairline-soft-on-hanji": {
+        "role": "neutral",
+        "displayName": "Soft Hairline on Hanji",
+        "canonical": "rgb(18 18 16 / 0.08)",
+        "tonalRamp": [
+          "rgb(18 18 16 / 0.06)",
+          "rgb(18 18 16 / 0.08)",
+          "rgb(18 18 16 / 0.12)"
+        ]
+      },
+      "vermilion-seal": {
+        "role": "tertiary",
+        "displayName": "Vermilion Seal (낙관)",
+        "canonical": "#F05B43",
+        "tonalRamp": [
+          "#D94B35",
+          "#F05B43",
+          "#FF7058"
+        ]
+      },
+      "vermilion-pressed": {
+        "role": "tertiary",
+        "displayName": "Vermilion Pressed (the seal on 한지)",
+        "canonical": "#D94B35",
+        "tonalRamp": [
+          "#D94B35",
+          "#F05B43",
+          "#FF7058"
+        ]
+      }
+    },
+    "grounds": {
+      "ink": {
+        "selector": ".ground-ink (default :root; InkBand section; PageShell wrapper)",
+        "pages": [
+          "/",
+          "/app",
+          "/about",
+          "404"
+        ],
+        "bands": [
+          "/courses",
+          "/programs",
+          "/news",
+          "/faq",
+          "/resources"
+        ],
+        "note": "Every page opens and closes in ink: the whole page on the four listed, the InkBand and the Footer on the five banded pages. The html canvas and theme-color are ink on every non-legal page.",
+        "bg": "#121210",
+        "text-display": "#EEE9DE",
+        "text": "#D9D1C2",
+        "text-sub": "#AA9E86",
+        "text-muted": "#968A73",
+        "text-faint": "#887E6B",
+        "accent": "#EEE9DE",
+        "on-accent": "#121210",
+        "accent-pressed": "#D9D1C2",
+        "brand": "#F05B43",
+        "line": "#2F2E2B",
+        "line-soft": "#242320",
+        "themeColor": "#121210"
+      },
+      "hanji": {
+        "selector": ".ground-hanji; header while its lower edge is within Paper; legal whole page",
+        "pages": [
+          "/privacy",
+          "/terms",
+          "/delete-account"
+        ],
+        "reading": [
+          "/courses",
+          "/programs",
+          "/news",
+          "/faq",
+          "/resources"
+        ],
+        "note": "The whole page only on the three legal documents. On the five reading pages it is the Paper body between the ink band and the ink footer; no visitor lands on it.",
+        "bg": "#FAF7F1",
+        "text-display": "#0D0D0C",
+        "text": "#121210",
+        "text-sub": "#2C2923",
+        "text-muted": "#6F6656",
+        "text-faint": "#887E6B",
+        "accent": "#121210",
+        "on-accent": "#FAF7F1",
+        "accent-pressed": "#191816",
+        "brand": "#D94B35",
+        "line": "rgb(18 18 16 / 0.12)",
+        "line-soft": "rgb(18 18 16 / 0.08)",
+        "themeColor": "#FAF7F1 (legal pages only, via hanjiViewport; banded pages keep #121210)"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page heroes on desktop: the band punchline on the five reading pages (InkBand), the /about and /app titles; the home teaching heading and the professor's name. Weight 500."
+      },
+      "display-sm": {
+        "displayName": "Display (phone)",
+        "purpose": "Page heroes on phones; legal titles and the /about professor heading on desktop."
+      },
+      "h1": {
+        "displayName": "H1",
+        "purpose": "Section titles on desktop (Section renders an h2 element at this size); 404 title; the /about pull-quote."
+      },
+      "h2": {
+        "displayName": "H2",
+        "purpose": "Section titles on phones; the vermilion mechanism numerals; in-section headings."
+      },
+      "h3": {
+        "displayName": "H3",
+        "purpose": "Row and disclosure titles on desktop, step titles, mobile nav items, 연혁 years, legal h2."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Ledes under every page and section title; the band's one sentence (full-strength copy on ink, where other ledes are sub); the professor paragraph."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "17px / 1.7 running text on both grounds."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "15px / 1.6 supporting text."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Row leads, fact labels, section asides, footer column titles, 사업자 block, poster captions. A label beside content, never an eyebrow above a heading."
+      },
+      "numeric": {
+        "displayName": "Numeric",
+        "purpose": "Legacy component; home uses compact 30px proof figures, 25px phone."
+      },
+      "numeric-sm": {
+        "displayName": "Numeric (phone)",
+        "purpose": "Legacy component; home uses compact proof figures."
+      }
+    },
+    "shadows": [],
+    "elevation": "No shadows. One header backdrop blur; artwork masks blend edges. Native modal menu uses browser top layer.",
+    "motion": [
+      {
+        "name": "mist",
+        "value": "6s, opacity .08 to .30",
+        "purpose": "Separate transparent mist only; pause persists; offscreen and reduced motion stop it."
+      },
+      {
+        "name": "entrance",
+        "value": "450ms, 12px, 80ms stagger",
+        "purpose": "Opening text only."
+      },
+      {
+        "name": "state",
+        "value": "150–200ms",
+        "purpose": "Control feedback."
+      },
+      {
+        "name": "homepage-scene",
+        "value": "Pointer-damped raster WebGL + native-scroll photo wipe",
+        "purpose": "Basement environment-first / Darkroom type-image sequence; details in reference-motion-direction.md"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ],
+    "layout": {
+      "page": "1440px",
+      "content": "720px",
+      "measure": "34em",
+      "gutter": "24px",
+      "gutter-lg": "48px (≥1024px)",
+      "header": "64px",
+      "hit": "44px",
+      "button": "52px",
+      "row": "56px",
+      "zIndex": {
+        "raised": 1,
+        "header": 2,
+        "overlay": 3,
+        "modal": 4
+      },
+      "homeHero": "190svh desktop / 180svh mobile native sticky journey; sequential still/reduced mode"
+    }
+  },
+  "components": [
+    {
+      "name": "Header",
+      "kind": "navigation",
+      "source": "components/layout/Header.tsx",
+      "description": "Wordmark always visible; actual Paper top/bottom controls theme; native mobile dialog."
+    },
+    {
+      "name": "AmbientArtwork",
+      "kind": "image",
+      "source": "components/ui/AmbientArtwork.tsx",
+      "description": "Responsive raster, mist-only motion, persistent pause and visible provenance."
+    },
+    {
+      "name": "AppShowcase",
+      "kind": "tabs",
+      "source": "components/ui/AppShowcase.tsx",
+      "description": "Four keyboard-accessible tabs and one readable real screen."
+    },
+    {
+      "name": "InkBand",
+      "kind": "section",
+      "source": "components/ui/InkBand.tsx",
+      "description": "Live heading and description beside optional artwork."
+    },
+    {
+      "name": "Paper",
+      "kind": "section",
+      "source": "components/ui/Paper.tsx",
+      "description": "Ground remap and data-paper boundary."
+    },
+    {
+      "name": "SectionNav",
+      "kind": "navigation",
+      "source": "components/ui/SectionNav.tsx",
+      "description": "Wrapping non-sticky anchors."
+    },
+    {
+      "name": "Button",
+      "kind": "button",
+      "source": "components/ui/Button.tsx",
+      "description": "52px neutral primary; 58px home desktop."
+    },
+    {
+      "name": "TextLink",
+      "kind": "link",
+      "source": "components/ui/TextLink.tsx",
+      "description": "44px hit area, underline, library arrow."
+    },
+    {
+      "name": "Disclosure",
+      "kind": "disclosure",
+      "source": "components/ui/Disclosure.tsx",
+      "description": "Native details/summary, no JavaScript needed."
+    },
+    {
+      "name": "Poster",
+      "kind": "image",
+      "source": "components/ui/Poster.tsx",
+      "description": "Actual document opens complete file."
+    },
+    {
+      "name": "PhotoBleed",
+      "kind": "image",
+      "source": "components/ui/PhotoBleed.tsx",
+      "description": "Original photograph with square corners."
+    },
+    {
+      "name": "Icon",
+      "kind": "icon",
+      "source": "components/ui/Icon.tsx",
+      "description": "Phosphor light family, individual SSR imports."
+    },
+    {
+      "name": "CommunityPhoto",
+      "kind": "image",
+      "source": "components/ui/CommunityPhoto.tsx",
+      "description": "User-supplied photograph, original framing and source-linked caption."
+    },
+    {
+      "name": "InkJourney",
+      "kind": "scene",
+      "source": "components/ui/InkJourney.tsx",
+      "description": "Full-viewport ink scene, water interaction, native scroll chapter, static fallback."
+    },
+    {
+      "name": "ConcertFilm",
+      "kind": "video",
+      "source": "components/ui/ConcertFilm.tsx",
+      "description": "User-initiated 68-second authentic concert film, native controls, full framing and offscreen pause."
+    }
+  ],
+  "narrative": {
+    "northStar": "Meet INZEUM, then experience real practice.",
+    "overview": "Official brand lockup in ink, real concert photography and a user-played film. Compact community, personal AI/app and planned Hall chapters.",
+    "keyCharacteristics": [
+      "Full-viewport ink/lake environment",
+      "Official INZEUM lockup as the homepage heading",
+      "Native-scroll photographic chapter",
+      "Concise home copy with detail-page links",
+      "Original portraits, screens and supplied photos",
+      "Sequential static/reduced-motion fallback"
+    ],
+    "rules": [
+      {
+        "name": "Source truth",
+        "body": "Use original photographs, real app screens and actual posters. Label generated artwork. Never fabricate event footage."
+      },
+      {
+        "name": "Hierarchy",
+        "body": "One main action per section; body 17px, small body 15px; generous whitespace and open groupings."
+      },
+      {
+        "name": "Motion",
+        "body": "Reading pages retain mist-only ambience. The homepage uses a bounded raster WebGL scene and direct native-scroll photo reveal; pause/offscreen/static fallbacks are required."
+      }
+    ],
+    "dos": [
+      "Keep the Sumuk role palette",
+      "Preserve legal copy and roster",
+      "Verify all routes on desktop and phone",
+      "Record actual asset dimensions"
+    ],
+    "donts": [
+      "No generated seals or paper textures",
+      "No fake store/download/registration controls",
+      "No miniature mobile screenshot triptychs",
+      "No entire-painting opacity loop"
+    ]
+  }
+}

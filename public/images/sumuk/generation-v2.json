@@ -1,0 +1,195 @@
+{
+  "date": "2026-09-08",
+  "note": "Tool-native dimensions retained. Prompt dimensions were requests, not actual output. No upscaling. WebP is a format conversion of the PNG master. All images are synthetic design studies, not institute-owned paintings.",
+  "assets": [
+    {
+      "name": "mountain-desktop",
+      "usedOn": "/",
+      "width": 1672,
+      "height": 941,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "Generate one 3200x1800 landscape raster artwork only. Korean sumuk mountains in warm ivory on flat #121210. Expressive layered peaks fill the right 65% and lower edge; left 40% and top 15% clean negative space. Main peak x74%, y30%. Detailed dry brush rocks and soft mist valleys; no UI, text, logo, seal, people, CGI or snowy Alps.",
+      "files": [
+        {
+          "file": "synthetic-mountain-desktop-v2.png",
+          "bytes": 1689278,
+          "sha256": "3167cb4b3b673718b66a80557c9764fb6dd7a011136f787fd84059179b63c0be"
+        },
+        {
+          "file": "synthetic-mountain-desktop-v2.webp",
+          "bytes": 152736,
+          "sha256": "69f124285ff8ed8ed3c629daf96be1006bd4d365f5d913872ec0cc2daafe4d80"
+        }
+      ]
+    },
+    {
+      "name": "mountain-mobile",
+      "usedOn": "/ (mobile)",
+      "width": 1161,
+      "height": 1355,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "Edit only mountain placement and scale. Top 50% entirely empty flat #121210. Tallest peak x74%, y57%. Mountains and pale mist exclusively bottom half. Preserve warm ivory Korean sumuk dry brush, portrait ratio and right-weighted peak. No text, logo, seal, border, UI. Requested 1200x1400.",
+      "files": [
+        {
+          "file": "synthetic-mountain-mobile-v2.png",
+          "bytes": 1416465,
+          "sha256": "c102b8ba14e2d5e3812febe2446ddb29627fd6a7cab1c117f89a58c7a58686b2"
+        },
+        {
+          "file": "synthetic-mountain-mobile-v2.webp",
+          "bytes": 122220,
+          "sha256": "1978681b2dec4a36ac07f791cc976b51af842cc97214025bec778277123fa492"
+        }
+      ]
+    },
+    {
+      "name": "mist-overlay",
+      "usedOn": "all painted openings",
+      "width": 1920,
+      "height": 819,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "Create one transparent PNG overlay of two extremely thin mist wisps. Actual RGBA transparency. Wide 2400x1000 canvas. Two pale warm ivory horizontal ink-wash vapor wisps in bottom-right quarter, each 3 percent canvas height and 40 percent width. At least 85 percent completely transparent. No mountain, landscape, paper, solid background, grey rectangle, checkerboard, frame, text, seal or objects.",
+      "files": [
+        {
+          "file": "synthetic-mist-overlay-v2.png",
+          "bytes": 312725,
+          "sha256": "d3aafb56214e606257f53456cc5d41770bfe039bddb923d0e503c58a84a22035"
+        },
+        {
+          "file": "synthetic-mist-overlay-v2.webp",
+          "bytes": 108626,
+          "sha256": "34e3f314012ea11c462648a7c0e6891cbcacda11dd2172c9bf1421d4401a7aa9"
+        }
+      ]
+    },
+    {
+      "name": "pine-on-ink",
+      "usedOn": "/programs",
+      "width": 1983,
+      "height": 793,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "Production Korean sumuk pine page-band, 3200x1280. Mature pine anchored at right edge, curved trunk in rightmost third, graceful branches toward center, fine needles and dry-brush detail. Midnight #121210 background; warm ivory #D9D1C2 and #EEE9DE. Low distant ridges. Left 55% and top edge mostly clean ink. No text, stamp, seal, signature, borders, logo, UI, people, photography, dense clouds or red accents.",
+      "files": [
+        {
+          "file": "synthetic-pine-on-ink-v2.png",
+          "bytes": 1637585,
+          "sha256": "2175ed1796743afa49058542f8b6f4d7971ca5a84a237adb640192d0d01d7836"
+        },
+        {
+          "file": "synthetic-pine-on-ink-v2.webp",
+          "bytes": 178752,
+          "sha256": "77a0b23df447723f4ed79b82b46295f608858ba04302cb9e727e5d2f850a03b1"
+        }
+      ]
+    },
+    {
+      "name": "path-on-ink",
+      "usedOn": "/courses",
+      "width": 1983,
+      "height": 793,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "Wide 3200x1280 Korean sumuk course-band artwork. Match new mountain and pine brushwork. Stone footpath rises from bottom-center-right around rocky ridge toward upper-right distance, two sparse Korean pines. Midnight #121210 background; warm ivory #D9D1C2/#EEE9DE. Left 55% and top 25% clean dark negative space; protect live heading. No people, seal, words, logo, UI, frame, red accents, dense white fog or photorealism.",
+      "files": [
+        {
+          "file": "synthetic-path-on-ink-v2.png",
+          "bytes": 1666770,
+          "sha256": "ced6352a0a7540d1bef4c9aba42afec61e01c2b84303d71db0d6b1ca485bbcc9"
+        },
+        {
+          "file": "synthetic-path-on-ink-v2.webp",
+          "bytes": 132140,
+          "sha256": "69d6907f813370a5bc3a13e37407e184f669bfa871856208fcc415f7387dcd17"
+        }
+      ]
+    },
+    {
+      "name": "geese-on-ink",
+      "usedOn": "/news",
+      "width": 1983,
+      "height": 793,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "Wide website news-band painting, 3200x1280 Korean sumuk. Flat opaque #121210, not cream. Four delicately painted geese low on right half above quiet lake; birds x65%-92%, y55%-75%. Slight warm ivory reflection and tiny lower-right ridgeline. Left 55% and top 35% clean dark. Warm ivory #D9D1C2 dry brush. No people, lettering, calligraphy, seal, logo, UI, border, photography or CGI.",
+      "files": [
+        {
+          "file": "synthetic-geese-on-ink-v2.png",
+          "bytes": 1014813,
+          "sha256": "99d619bff565a5f5abff3773801a49a338780c280a4e51feae0339a1054268be"
+        },
+        {
+          "file": "synthetic-geese-on-ink-v2.webp",
+          "bytes": 37950,
+          "sha256": "f5592c50b2f055b99e1671aa5d1302406d6abc0a6e582c70763f48d743acd657"
+        }
+      ]
+    },
+    {
+      "name": "path-mobile",
+      "usedOn": "/courses (mobile)",
+      "width": 1536,
+      "height": 1024,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "SYNTHETIC DESIGN STUDY, built-in ImageGen 2026-09-08. Mobile path-mobile composition of desktop reference. Requested 1200x800, actual native dimensions retained. Warm ivory Korean sumuk on #121210. Whole subject within frame with margins, top quarter negative space; designed to fit a 390x260 phone slot. No text, seal, logo or UI.",
+      "files": [
+        {
+          "file": "synthetic-path-mobile-v2.png",
+          "bytes": 1863592,
+          "sha256": "c739945b3f4cb1b2e3006d4f49054252e1e0697969cb959c2729f0c63140b22b"
+        },
+        {
+          "file": "synthetic-path-mobile-v2.webp",
+          "bytes": 120826,
+          "sha256": "ebe334bdf9db1c918df55e17148f0c21b43138b75f717f5b10275e12724f8d3a"
+        }
+      ]
+    },
+    {
+      "name": "pine-mobile",
+      "usedOn": "/programs (mobile)",
+      "width": 1536,
+      "height": 1024,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "SYNTHETIC DESIGN STUDY, built-in ImageGen 2026-09-08. Mobile pine-mobile composition of desktop reference. Requested 1200x800, actual native dimensions retained. Warm ivory Korean sumuk on #121210. Whole subject within frame with margins, top quarter negative space; designed to fit a 390x260 phone slot. No text, seal, logo or UI.",
+      "files": [
+        {
+          "file": "synthetic-pine-mobile-v2.png",
+          "bytes": 2265991,
+          "sha256": "5ee422a18bd4581e225c42dd8c8a39404e7e450aa2a4b74a7f2dc4727a4c3a14"
+        },
+        {
+          "file": "synthetic-pine-mobile-v2.webp",
+          "bytes": 220812,
+          "sha256": "7745a34b366df6ea2b9a99fbbac1aa93d2bc9adf7d9623d35fddd7448bb134dc"
+        }
+      ]
+    },
+    {
+      "name": "geese-mobile",
+      "usedOn": "/news (mobile)",
+      "width": 1536,
+      "height": 1024,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "promptBrief": "SYNTHETIC DESIGN STUDY, built-in ImageGen 2026-09-08. Mobile geese-mobile composition of desktop reference. Requested 1200x800, actual native dimensions retained. Warm ivory Korean sumuk on #121210. Whole subject within frame with margins, top quarter negative space; designed to fit a 390x260 phone slot. No text, seal, logo or UI.",
+      "files": [
+        {
+          "file": "synthetic-geese-mobile-v2.png",
+          "bytes": 1458605,
+          "sha256": "1b7de8f3351ecff8b0dac399a530c85944f0f361ede63d6c2f08c5f45ad11447"
+        },
+        {
+          "file": "synthetic-geese-mobile-v2.webp",
+          "bytes": 66368,
+          "sha256": "ef752ef3ed6a3a22c1a47368b44021b5519b762c44cb32c31f2d450b02d39f05"
+        }
+      ]
+    }
+  ]
+}

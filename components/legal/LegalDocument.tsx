@@ -1,48 +1,25 @@
 import type { ReactNode } from 'react'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+import PageShell from '@/components/layout/PageShell'
 
 interface LegalDocumentProps {
-  eyebrow: string
   title: string
   description: string
   effectiveDate: string
   children: ReactNode
 }
 
-export default function LegalDocument({
-  eyebrow,
-  title,
-  description,
-  effectiveDate,
-  children,
-}: LegalDocumentProps) {
+// Legal text reads on 한지. The wording is 갑-approved and is not restyled beyond type and rhythm.
+export default function LegalDocument({ title, description, effectiveDate, children }: LegalDocumentProps) {
   return (
-    <div className="relative flex min-h-screen w-full flex-col">
-      <Header />
-      <main className="w-full pt-20">
-        <section className="border-b border-black/5 bg-gradient-to-b from-sky-light/30 to-cloud px-5 py-14 md:px-12 md:py-20">
-          <div className="mx-auto max-w-[900px]">
-            <p className="text-xs font-bold tracking-[0.14em] text-mountain-deep md:text-sm">
-              {eyebrow}
-            </p>
-            <h1 className="mt-4 font-serif text-2xl font-bold text-ink sm:text-3xl md:text-4xl">
-              {title}
-            </h1>
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-light-ink">
-              {description}
-            </p>
-            <p className="mt-6 text-xs font-semibold text-ink">{effectiveDate}</p>
-          </div>
-        </section>
-
-        <section className="px-5 py-12 md:px-12 md:py-16">
-          <article className="legal-document mx-auto max-w-[900px] rounded-2xl border border-black/5 bg-white px-5 py-8 shadow-sm sm:px-8 md:px-12 md:py-12">
-            {children}
-          </article>
-        </section>
-      </main>
-      <Footer />
-    </div>
+    <PageShell ground="hanji">
+      <header className="mx-auto w-full max-w-content px-gutter pb-10 pt-16 md:pt-24 lg:px-gutter-lg">
+        <h1 className="text-h1 md:text-display-sm">{title}</h1>
+        <p className="mt-5 max-w-measure text-body-lg text-sub">{description}</p>
+        <p className="mt-6 text-meta text-muted">{effectiveDate}</p>
+      </header>
+      <article className="legal-document hairline-t mx-auto w-full max-w-content px-gutter pb-24 pt-10 lg:px-gutter-lg">
+        {children}
+      </article>
+    </PageShell>
   )
 }

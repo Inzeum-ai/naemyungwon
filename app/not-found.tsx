@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+import PageShell from '@/components/layout/PageShell'
+import Glyph from '@/components/ui/Glyph'
+import { NAV } from '@/lib/nav'
 
 // robots 를 반드시 지정해야 합니다. Next 가 not-found 에 자체 noindex 태그를
 // 붙이는데, 여기서 생략하면 layout 의 `index: true` 가 상속되어
@@ -11,43 +12,30 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 }
 
-const suggestions = [
-  { href: '/', label: '홈' },
-  { href: '/about', label: '연구소 소개' },
-  { href: '/courses', label: '교육과정' },
-  { href: '/app', label: 'INZEUM 앱' },
-  { href: '/faq', label: '자주 묻는 질문' },
-]
-
 export default function NotFound() {
   return (
-    <div className="relative flex min-h-screen w-full flex-col">
-      <Header />
-      <main className="flex flex-1 items-center justify-center px-5 py-24 pt-32 md:px-12">
-        <div className="mx-auto max-w-[600px] text-center">
-          <p className="font-serif text-6xl font-bold text-mountain-deep/25 md:text-7xl">404</p>
-          <h1 className="mt-6 font-serif text-2xl font-bold text-ink md:text-3xl">
-            페이지를 찾을 수 없습니다
-          </h1>
-          <p className="mt-5 text-sm leading-relaxed text-light-ink md:text-base">
-            주소가 바뀌었거나 삭제된 페이지일 수 있습니다.
-            아래에서 찾으시는 내용으로 이동해 보세요.
-          </p>
-
-          <nav aria-label="주요 페이지" className="mt-9 flex flex-wrap justify-center gap-2.5">
-            {suggestions.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                className="rounded-lg border border-mountain-deep/20 px-4 py-2 text-sm font-bold text-ink transition-colors hover:bg-sky-light/30"
-              >
-                {s.label}
-              </Link>
+    <PageShell>
+      <div className="mx-auto flex w-full max-w-content flex-1 flex-col items-start justify-center px-gutter py-24 lg:px-gutter-lg">
+        <Glyph name="moon" width={96} />
+        <h1 className="mt-8 text-h1">페이지를 찾을 수 없습니다</h1>
+        <p className="mt-4 max-w-measure text-body-lg text-sub">
+          주소가 바뀌었거나 없어진 페이지입니다. 아래에서 찾으시는 곳으로 이동해 주세요.
+        </p>
+        <nav aria-label="주요 페이지" className="mt-10 w-full">
+          <ul className="hairline-t">
+            {[{ href: '/', label: '홈' }, ...NAV].map((s) => (
+              <li key={s.href} className="hairline-soft-b">
+                <Link
+                  href={s.href}
+                  className="flex min-h-row items-center text-body font-medium text-fg transition-colors duration-150 ease-standard hover:text-sub"
+                >
+                  {s.label}
+                </Link>
+              </li>
             ))}
-          </nav>
-        </div>
-      </main>
-      <Footer />
-    </div>
+          </ul>
+        </nav>
+      </div>
+    </PageShell>
   )
 }

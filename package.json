@@ -1,19 +1,23 @@
 {
   "name": "naemyungwon-website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run privacy:check && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tokens": "node scripts/build-tokens.mjs",
+    "tokens:check": "node scripts/build-tokens.mjs --check",
+    "privacy:check": "node scripts/check-face-anonymization.mjs"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "clsx": "^2.1.0",
-    "framer-motion": "^10.18.0",
     "next": "^14.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

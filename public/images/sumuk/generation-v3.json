@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-08",
+  "sourceStudy": "exec-d9f8eda9-4b8d-4f12-bb72-019c4f9da642.png",
+  "promptBrief": "Warm ivory Korean ink mountain/lake environment on midnight ink. Mountains frame both sides; open upper center for live title; textured reflected water below. Desktop derived from revised UI mock by removing all UI. Mobile independently recomposed. No text, logo, seal, moon or invented documentary content. Tool-native sizes retained; no upscaling.",
+  "assets": [
+    {
+      "name": "synthetic-lake-scene-v3",
+      "width": 1513,
+      "height": 1040,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "files": [
+        {
+          "file": "synthetic-lake-scene-v3.png",
+          "bytes": 1938490,
+          "sha256": "18cd8066516d7a3fbd029736f4e7235eda0a6868439e862d8198eb5771e7b324"
+        },
+        {
+          "file": "synthetic-lake-scene-v3.webp",
+          "bytes": 171698,
+          "sha256": "a056aeb21033e963579c917eb1718c4229952226c473f2b96ac486db44df8a5b"
+        }
+      ]
+    },
+    {
+      "name": "synthetic-lake-scene-mobile-v3",
+      "width": 971,
+      "height": 1619,
+      "synthetic": true,
+      "tool": "built-in ImageGen",
+      "files": [
+        {
+          "file": "synthetic-lake-scene-mobile-v3.png",
+          "bytes": 1854432,
+          "sha256": "f212ce80b5f1cb9717305d3fae2cdb599044de6bd843487de784ecde9136e0a7"
+        },
+        {
+          "file": "synthetic-lake-scene-mobile-v3.webp",
+          "bytes": 152820,
+          "sha256": "0c0cd8cabc87047d5f7b57eeaf88b5d4caf3f2e8042b87e80854649589976799"
+        }
+      ]
+    }
+  ]
+}

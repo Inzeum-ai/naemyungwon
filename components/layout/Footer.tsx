@@ -1,156 +1,107 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { COMPANY, TEL_HREF } from '@/lib/company'
+import { NAV, YOUTUBE_URL } from '@/lib/nav'
+import Icon from '@/components/ui/Icon'
+import Wordmark from './Wordmark'
+import type { Ground } from './PageShell'
 
-export default function Footer() {
+const more = [
+  { href: '/faq', label: '자주 묻는 질문' },
+  { href: '/resources', label: '책과 강의' },
+  { href: YOUTUBE_URL, label: '유튜브 채널', external: true },
+]
+
+const legal = [
+  { href: '/privacy', label: '개인정보처리방침' },
+  { href: '/terms', label: '이용약관' },
+  { href: '/delete-account', label: '계정 삭제 안내' },
+]
+
+function Column({ title, items }: { title: string; items: readonly { href: string; label: string; external?: boolean }[] }) {
   return (
-    <footer className="bg-haze border-t border-black/5" id="contact">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-12 py-14 md:py-16">
-
-        {/* Contact Section */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-ink mb-4">
-            함께 시작하세요
-          </h2>
-          <p className="text-sm md:text-base text-light-ink max-w-xl mx-auto mb-6 md:mb-8 leading-relaxed">
-            내면소통명상에 대해 더 알고 싶으시거나 교육 과정에 대한 문의가 있으시면 언제든 연락주세요.
-          </p>
-          <a
-            href="mailto:official@inzeum.com"
-            className="inline-flex items-center gap-2 text-lg md:text-2xl font-bold text-mountain-deep hover:text-mountain-mid transition-colors underline decoration-2 underline-offset-8 decoration-mountain-deep/30 hover:decoration-mountain-deep break-all sm:break-normal"
-          >
-            official@inzeum.com
-            <span className="material-symbols-outlined text-xl md:text-2xl flex-shrink-0">arrow_outward</span>
-          </a>
-        </div>
-
-        {/* Footer Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 md:py-10 border-t border-black/10">
-          {/* About */}
-          <div className="col-span-2 md:col-span-1">
-            <div className="mb-4">
-              <Image
-                src="/images/inzeum_logo.png"
-                alt="INZEUM 내면소통연구소 로고"
-                width={170}
-                height={62}
-                className="h-11 w-auto object-contain"
-              />
-            </div>
-            <p className="text-sm text-light-ink leading-relaxed">
-              내면소통연구소는 뇌과학 기반의 내면소통명상을 체계적으로 연구하고 교육하는 기관입니다.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-sm text-ink mb-3 md:mb-4">바로가기</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-sm text-light-ink hover:text-mountain-deep transition-colors">
-                  소개
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses" className="text-sm text-light-ink hover:text-mountain-deep transition-colors">
-                  교육과정
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs" className="text-sm text-light-ink hover:text-mountain-deep transition-colors">
-                  프로그램
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-sm text-light-ink hover:text-mountain-deep transition-colors">
-                  자주 묻는 질문
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-bold text-sm text-ink mb-3 md:mb-4">연락처</h3>
-            <ul className="space-y-2 text-sm text-light-ink">
-              <li className="break-all">official@inzeum.com</li>
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h3 className="font-bold text-sm text-ink mb-3 md:mb-4">소셜 미디어</h3>
-            <div className="flex gap-3">
+    <div>
+      <p className="text-meta text-muted">{title}</p>
+      <ul className="mt-3 space-y-1">
+        {items.map((it) =>
+          it.external ? (
+            <li key={it.href}>
               <a
-                href="https://www.youtube.com/@joohankim"
+                href={it.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="size-10 flex items-center justify-center rounded-lg bg-white text-light-ink hover:text-mountain-deep hover:bg-sky-light transition-colors"
-                aria-label="김주환의 내면소통 유튜브 채널 (새 창)"
+                className="inline-flex min-h-hit items-center gap-1 text-body-sm text-sub transition-colors duration-150 ease-standard hover:text-fg"
               >
-                <span className="material-symbols-outlined">play_circle</span>
+                {it.label}
+                <Icon name="arrow-up-right" size={16} />
               </a>
-              {/* 인스타그램 계정 URL 확인되면 위와 같은 형태로 추가하세요.
-                  href="#" 로 두면 클릭 시 페이지 상단으로 튀는 버그가 되므로
-                  URL 이 없는 동안에는 아이콘을 두지 않습니다. */}
-            </div>
+            </li>
+          ) : (
+            <li key={it.href}>
+              <Link
+                href={it.href}
+                className="inline-flex min-h-hit items-center text-body-sm text-sub transition-colors duration-150 ease-standard hover:text-fg"
+              >
+                {it.label}
+              </Link>
+            </li>
+          ),
+        )}
+      </ul>
+    </div>
+  )
+}
+
+export default function Footer({ ground }: { ground: Ground }) {
+  return (
+    <footer className="hairline-t" id="contact">
+      <div className="mx-auto max-w-page px-gutter py-16 lg:px-gutter-lg md:py-24">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-8">
+          <div>
+            <Wordmark ground={ground} height={32} />
+            <p className="mt-6 max-w-[28em] text-body-sm text-sub">
+              뇌과학 기반 내면소통명상을 연구하고 가르치며, 명상 지도자를 양성합니다.
+            </p>
+            <a
+              href={`mailto:${COMPANY.serviceEmail}`}
+              className="mt-6 inline-flex min-h-hit items-center gap-2 text-body font-medium text-fg underline decoration-line underline-offset-[6px] transition-colors duration-150 ease-standard hover:decoration-fg"
+            >
+              {COMPANY.serviceEmail}
+              <Icon name="mail" size={16} className="text-muted" />
+            </a>
           </div>
+          <Column title="사이트" items={NAV} />
+          <Column title="더 보기" items={more} />
+          <Column title="약관" items={legal} />
         </div>
 
         {/* 사업자 정보 — 전자상거래법 제10조에 따른 표시의무 사항 */}
-        <div className="pt-6 md:pt-8 border-t border-black/10">
-          <dl className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs leading-relaxed text-light-ink">
-            {[
-              ['상호', COMPANY.name],
-              ['대표자', COMPANY.ceo],
-              ['사업자등록번호', COMPANY.registrationNumber],
-              ['통신판매업 신고번호', COMPANY.mailOrderNumber],
-            ].map(([label, value]) => (
-              <div key={label} className="flex gap-1.5">
-                <dt className="text-light-ink/70">{label}</dt>
-                <dd>{value}</dd>
-              </div>
-            ))}
-            <div className="flex gap-1.5 basis-full sm:basis-auto">
-              <dt className="text-light-ink/70 flex-shrink-0">주소</dt>
-              <dd>{COMPANY.address}</dd>
+        <dl className="hairline-soft-t mt-16 flex flex-wrap gap-x-5 gap-y-1 pt-6 text-meta text-muted">
+          {[
+            ['상호', COMPANY.name],
+            ['대표', COMPANY.ceo],
+            ['사업자등록번호', COMPANY.registrationNumber],
+            ['통신판매업 신고', COMPANY.mailOrderNumber],
+          ].map(([k, v]) => (
+            <div key={k} className="flex gap-1.5">
+              <dt className="text-faint">{k}</dt>
+              <dd>{v}</dd>
             </div>
-            <div className="flex gap-1.5">
-              <dt className="text-light-ink/70">전화</dt>
-              <dd>
-                <a href={TEL_HREF} className="hover:text-mountain-deep transition-colors">
-                  {COMPANY.tel}
-                </a>
-              </dd>
-            </div>
-            <div className="flex gap-1.5">
-              <dt className="text-light-ink/70">이메일</dt>
-              <dd className="break-all">
-                <a
-                  href={`mailto:${COMPANY.serviceEmail}`}
-                  className="hover:text-mountain-deep transition-colors"
-                >
-                  {COMPANY.serviceEmail}
-                </a>
-              </dd>
-            </div>
-          </dl>
-        </div>
-
-        {/* Copyright */}
-        <div className="pt-5 md:pt-6 mt-5 md:mt-6 border-t border-black/10 flex flex-col sm:flex-row justify-between items-center gap-3 md:gap-4">
-          <p className="text-xs md:text-sm text-light-ink">
-            © 2026 INZEUM 내면소통연구소. All rights reserved.
-          </p>
-          <div className="flex gap-4 md:gap-6">
-            <Link href="/privacy" className="text-xs md:text-sm text-light-ink hover:text-mountain-deep transition-colors">
-              개인정보처리방침
-            </Link>
-            <Link href="/terms" className="text-xs md:text-sm text-light-ink hover:text-mountain-deep transition-colors">
-              이용약관
-            </Link>
+          ))}
+          <div className="flex basis-full gap-1.5 sm:basis-auto">
+            <dt className="shrink-0 text-faint">주소</dt>
+            <dd>{COMPANY.address}</dd>
           </div>
-        </div>
+          <div className="flex gap-1.5">
+            <dt className="text-faint">전화</dt>
+            <dd>
+              <a href={TEL_HREF} className="hover:text-sub">
+                {COMPANY.tel}
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <p className="mt-6 text-meta text-faint">© 2026 주식회사 내면소통연구소</p>
       </div>
     </footer>
   )
