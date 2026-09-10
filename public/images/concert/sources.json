@@ -6,19 +6,21 @@
       "file": "audience.webp",
       "source": "https://drive.google.com/file/d/15gcyXRRmFxFrWRMd1rVLLdkOUSKBFUC4/view",
       "original": "7M405646.jpg",
-      "acquisition": "Drive rendered-image export via pageAssets; full framing, no retouching",
+      "acquisition": "Drive rendered-image export via pageAssets; full framing; participant faces Gaussian-blurred after review, 김주환 교수 left clear",
       "width": 1920,
       "height": 1280,
-      "sha256": "476b64190e87475bf3ee42306f26b201aa343a134251939ba1ab5850481f6fd5"
+      "sourceSha256": "476b64190e87475bf3ee42306f26b201aa343a134251939ba1ab5850481f6fd5",
+      "sha256": "2fab3fb8cb737171a82af66ebf3acc23758f92bfc88b6bece7eee785a5978f9e"
     },
     {
       "file": "greeting.webp",
       "source": "https://drive.google.com/file/d/1f3e6OiW9JhtefIoBZYWbRmdSjJE5qJfO/view",
       "original": "7M405815.jpg",
-      "acquisition": "Drive rendered-image export via pageAssets; full framing, no retouching",
+      "acquisition": "Drive rendered-image export via pageAssets; full framing; participant faces Gaussian-blurred after review, 김주환 교수 left clear",
       "width": 1920,
       "height": 1280,
-      "sha256": "9899739b137762363c67e9a217999fe44d567725e86ce69193d03534e33fdc30"
+      "sourceSha256": "9899739b137762363c67e9a217999fe44d567725e86ce69193d03534e33fdc30",
+      "sha256": "85c04291dfcfc4588e3ab74f1799e274a4b5eae8490b90d6baa4626d3360b200"
     },
     {
       "file": "lecture.webp",

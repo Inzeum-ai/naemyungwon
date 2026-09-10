@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run privacy:check && next build",
     "start": "next start",
     "lint": "next lint",
     "tokens": "node scripts/build-tokens.mjs",
-    "tokens:check": "node scripts/build-tokens.mjs --check"
+    "tokens:check": "node scripts/build-tokens.mjs --check",
+    "privacy:check": "node scripts/check-face-anonymization.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

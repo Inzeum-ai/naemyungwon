@@ -247,12 +247,12 @@ The homepage now states “명상을 연구하고, 일상으로 이어갑니다.
 
 ### Community photo wall — 2026-09-08
 
-`CommunityWall` adds two full-bleed, slowly moving photo ribbons at the homepage's community chapter and the end of Programs. Fourteen authentic images; pause, complete grid and a full-image dialog with original-post links. Reduced-motion/static/no-JS modes remain browsable. Book destinations now use Kyobo. Headline alternatives remain proposals; see `docs/design/community-wall-and-copy.md`.
+`CommunityWall` adds two full-bleed, slowly moving photo ribbons at the homepage's community chapter and the end of Programs. Eleven authentic images; pause, complete grid and a full-image dialog with original-post links. Participant faces use reviewed Gaussian-blur outputs while 김주환 교수 remains clear. Reduced-motion/static/no-JS modes remain browsable. Book destinations now use Kyobo. See `docs/design/community-wall-and-copy.md`.
 
 
 ## 2026-09-09 — INZEUM, then the experience
 
-The homepage now opens with the official INZEUM lockup, with “과학에 기반한 비종교적 명상.” as a factual descriptor. This supersedes the earlier homepage slogan; it does not change the organization’s vision. The Korean brand spelling is **인지엄**.
+The homepage now opens with the official INZEUM lockup: “명상하는 나라”, then “과학에 기반한 일상적 명상” in Pretendard SemiBold, then “인지엄 · 내면소통연구소”, all centered. The Korean brand spelling is **인지엄**.
 
 An authentic concert film and three documentary photographs join the source assets. ConcertFilm uses explicit play, native controls, full framing and no eager video preload. The home community introduction, AI/app story and planned Hall presentation are condensed. Details, reference interpretation and source provenance: [brand-and-film.md](docs/design/brand-and-film.md).
 

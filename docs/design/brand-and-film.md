@@ -2,7 +2,7 @@
 
 2026-09-09. Continues the existing Sumuk direction on `codex/sumuk-evolution`.
 
-The user rejected the previous homepage headline and did not select any of three proposed replacements. Instead of publishing another generic promise, the opening now gives the official INZEUM lockup the primary position. Its accessible heading is “INZEUM 인지엄 · 내면소통연구소”. The concise descriptor is “과학에 기반한 비종교적 명상.” This is a local design iteration, not a new approved corporate slogan.
+The opening gives the official INZEUM lockup the primary position. Its accessible heading is “INZEUM 명상하는 나라 과학에 기반한 일상적 명상 인지엄 · 내면소통연구소”. The descriptor uses Pretendard SemiBold and is centered beneath “명상하는 나라”, followed by the centered institute label.
 
 ## Reference and interpretation
 
@@ -24,11 +24,11 @@ At a matched 1440×960 viewport, observed normal homepage height decreased from 
 
 ## Assets and interaction
 
-The supplied Drive archive contains 217 photos. Three selected photos are now in `public/images/concert/`: audience, greeting and lecture. They were exported from the full-image Drive viewer and resized without retouching; acquisition and hashes are recorded in `sources.json`. Do not present the viewer exports as untouched original JPEG downloads.
+The supplied Drive archive contains 217 photos. Three selected photos are now in `public/images/concert/`: audience, greeting and lecture. They were exported from the full-image Drive viewer. Audience and greeting then received the reviewed participant-face Gaussian blur; 김주환 교수 remains clear. Acquisition and hashes are recorded in `sources.json`. Do not present the viewer exports as untouched original JPEG downloads.
 
 The original 58,235,339-byte, 68.18-second HEVC film is converted to 1280×720 H.264/AAC in `public/videos/concert-sketch-2025.mp4`. Full duration, framing, sound and the existing embedded lab branding are retained. The poster is an original film frame at 30 seconds. The film is reused on Home and Programs. It has no automatic playback and uses `preload="none"`. Explicit play exposes native playback, sound, seeking and fullscreen controls. Keyboard play transfers focus to the video. Scrolling offscreen or hiding the tab pauses it. Errors offer the original Drive video.
 
-The earlier ink WebGL interaction, native scroll, motion pause preference and gallery pause/reduced-motion behavior remain. No additional decoration loop is introduced. The 14-photo community gallery keeps its existing source links and lightbox. Mobile caption text gets a dark backing after visual QA found it crossing bright water.
+The earlier ink WebGL interaction, native scroll, motion pause preference and gallery pause/reduced-motion behavior remain. No additional decoration loop is introduced. The 11-photo community gallery keeps its existing source links and lightbox. Participant faces use the reviewed blur outputs, while 김주환 교수 remains clear. Mobile caption text gets a dark backing after visual QA found it crossing bright water.
 
 ## Validation and limits
 

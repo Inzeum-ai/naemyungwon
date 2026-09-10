@@ -2,6 +2,12 @@
   "providedBy": "User, 2026-09-08",
   "archive": "홈페이지_네이버카페_이미지_후보.zip",
   "use": "User supplied these assets for this website design. Source records are retained; no independent claim of third-party licensing verification. No date is inferred from candidate filename prefixes.",
+  "privacyProcessing": {
+    "reviewed": "2026-09-11",
+    "method": "Automatic face detection followed by Gaussian blur, with visual review and 김주환 교수 exclusions restored",
+    "review": "https://inzeum.web.app/internal/face-review-9d73a61c/?v=2",
+    "integrityCheck": "npm run privacy:check"
+  },
   "images": [
     {
       "code": "01-04",
