@@ -40,7 +40,7 @@ const muscles = [
 
 const faculty = [
   { name: '김지훈', org: '23년차 배우', specialty: '알아차림·발성 훈련', image: '/images/faculty/kim-jihoon.jpg' },
-  { name: '김주현', org: '소마앤바디·힘의집 대표', specialty: '고대 운동·소매틱', image: '/images/faculty/kim-joohyeon.jpg' },
+  { name: '김주현', org: '소마앤바디 부대표, 힘의집 부원장', specialty: '고대 운동·소매틱', image: '/images/faculty/kim-joohyeon.jpg' },
   { name: '김지민', org: '오스모브 창립 대표', specialty: '체화 해부학·위빠사나', image: '/images/faculty/kim-jimin.jpg' },
   { name: '브랜든 최', org: '서울대 음악대학 강사', specialty: '리듬 기반 호흡 명상', image: '/images/faculty/brandon-choi.jpg' },
   { name: '이연', org: '바디올로지 대표', specialty: '자세 정렬·매트 명상', image: '/images/faculty/lee-yeon.jpg' },
