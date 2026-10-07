@@ -35,7 +35,7 @@ const faculty: FacultyMember[] = [
   {
     name: '김주현',
     nameEn: 'Kim Ju-hyun',
-    org: '소마앤바디 부대표, 힘의집 부원장',
+    org: '힘의집 부원장',
     specialty: '고대 운동·소매틱',
     image: '/images/faculty/kim-joohyeon.jpg',
   },
