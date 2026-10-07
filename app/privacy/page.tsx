@@ -1,5 +1,7 @@
 import LegalDocument from '@/components/legal/LegalDocument'
-import { pageMetadata, SITE_URL } from '@/lib/seo'
+import { pageMetadata, SITE_URL, hanjiViewport } from '@/lib/seo'
+
+export const viewport = hanjiViewport
 import { COMPANY, PRIVACY_OFFICER, EFFECTIVE_DATE, TEL_HREF } from '@/lib/company'
 
 export const metadata = pageMetadata({
@@ -11,7 +13,6 @@ export const metadata = pageMetadata({
 export default function PrivacyPage() {
   return (
     <LegalDocument
-      eyebrow="PRIVACY POLICY"
       title="개인정보처리방침"
       description="내면소통연구소는 INZEUM 이용자의 개인정보를 필요한 범위에서 안전하게 처리합니다."
       effectiveDate={`시행일: ${EFFECTIVE_DATE}`}

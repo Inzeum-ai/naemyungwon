@@ -1,0 +1,382 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/tokens.json",
+  "$extensions": { "inzeum": { "version": "3.0.0", "name": "수묵 (Sumuk)", "adr": "0037" } },
+  "$description": "Sumuk (수묵) — INZEUM design tokens, W3C DTCG 2025.10 format. The single source of truth for apps/mobile/src/theme/tokens.generated.ts (built by scripts/build-tokens.mjs). Dark-first 먹과 한지: midnight ink surfaces, 한지 paper text, one vermilion seal. Colors are sRGB; opaque colors use the #RRGGBB shorthand, translucent ones the full color object. Dimensions are px, which React Native reads as density-independent points.",
+
+  "palette": {
+    "$type": "color",
+    "$description": "Raw ramps — never used directly in screens; compose the `color` roles instead.",
+    "ink": {
+      "$description": "먹 Ink ramp — surfaces.",
+      "950": { "$value": "#0D0D0C", "$description": "Deepest — player / immersive backdrop." },
+      "900": { "$value": "#121210", "$description": "★ Midnight-ink base background." },
+      "800": { "$value": "#191816", "$description": "Surface — cards on base." },
+      "700": { "$value": "#211F1B", "$description": "Elevated — sheets, modals, pressed cards." },
+      "600": { "$value": "#2C2923", "$description": "Highest — chips on cards, strokes on elevated." }
+    },
+    "paper": {
+      "$description": "한지 Paper ramp — text and light surfaces.",
+      "50": { "$value": "#FAF7F1", "$description": "한지 — light reading surfaces." },
+      "100": { "$value": "#EEE9DE", "$description": "한지빛 ★ display / Latin text on dark." },
+      "200": { "$value": "#E6DFD0", "$description": "Borders on light." },
+      "300": { "$value": "#D9D1C2", "$description": "★ Korean body text on dark." },
+      "400": { "$value": "#AA9E86", "$description": "Secondary text on dark." },
+      "500": { "$value": "#968A73", "$description": "Muted text on dark." },
+      "600": { "$value": "#887E6B", "$description": "분청 — faint text / hints; 4.68:1 on ink900." }
+    },
+    "vermilion": {
+      "$description": "낙관 Vermilion ramp — THE accent. At most two red points per screen.",
+      "400": { "$value": "#FF7058", "$description": "On-dark hover / soft." },
+      "500": { "$value": "#F05B43", "$description": "★ The luminous seal." },
+      "600": { "$value": "#D94B35", "$description": "Pressed." }
+    },
+    "celadon": {
+      "$description": "청자 Celadon — secondary / data. Never competes with vermilion.",
+      "500": { "$value": "#9FB0A6", "$description": "Illustration, positive / secondary data." },
+      "700": { "$value": "#6E837A", "$description": "Celadon text on dark." }
+    }
+  },
+
+  "color": {
+    "$type": "color",
+    "$description": "Semantic roles — what screens actually use. This is the dark (default) mapping; `theme.hanji` remaps the same role names for light.",
+    "bg": { "$value": "{palette.ink.900}", "$description": "Every Screen's background." },
+    "bgDeep": { "$value": "{palette.ink.950}", "$description": "Player, overnight / immersive mode." },
+    "surface": { "$value": "{palette.ink.800}", "$description": "Card." },
+    "surfaceHigh": { "$value": "{palette.ink.700}", "$description": "Modal / sheet / pressed." },
+    "chipBg": { "$value": "{palette.ink.600}", "$description": "Chips on cards, strokes on elevated." },
+    "fill1": {
+      "$value": { "colorSpace": "srgb", "components": [0.0980, 0.0941, 0.0863], "alpha": 1, "hex": "#191816" },
+      "$description": "Control fill, lightest. Opaque: a paper tint at 6% took its colour from whatever artwork sat under it, so the same chip read differently on every cover."
+    },
+    "fill2": {
+      "$value": { "colorSpace": "srgb", "components": [0.1294, 0.1216, 0.1059], "alpha": 1, "hex": "#211F1B" },
+      "$description": "Control fill, medium — pressed icon circles, inert primary buttons."
+    },
+    "fill3": {
+      "$value": { "colorSpace": "srgb", "components": [0.1725, 0.1608, 0.1373], "alpha": 1, "hex": "#2C2923" },
+      "$description": "Control fill, strongest — quiet multi-select chips, practiced-day circles."
+    },
+    "line": {
+      "$value": { "colorSpace": "srgb", "components": [0.1843, 0.1804, 0.1686], "alpha": 1, "hex": "#2F2E2B" },
+      "$description": "Hairline — elevation on dark is a surface step + a line, not a shadow."
+    },
+    "lineSoft": {
+      "$value": { "colorSpace": "srgb", "components": [0.1412, 0.1373, 0.1255], "alpha": 1, "hex": "#242320" },
+      "$description": "Softer hairline — list-row separators, tile strokes."
+    },
+    "scrim": {
+      "$value": { "colorSpace": "srgb", "components": [0.0510, 0.0510, 0.0471], "alpha": 0.58, "hex": "#0D0D0C" },
+      "$description": "Modal backdrop / badge scrim — warm ink, never pure black."
+    },
+    "scrimSoft": {
+      "$value": { "colorSpace": "srgb", "components": [0.0510, 0.0510, 0.0471], "alpha": 0.24, "hex": "#0D0D0C" },
+      "$description": "Light veil over full-bleed artwork: mutes the art for text without hiding it."
+    },
+    "transparent": {
+      "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0, "hex": "#000000" },
+      "$description": "Explicit no-fill (keeps react-native/no-color-literals clean)."
+    },
+    "textDisplay": { "$value": "{palette.paper.100}", "$description": "Serif headlines, Latin wordmark, big numbers." },
+    "text": { "$value": "{palette.paper.300}", "$description": "Korean body." },
+    "textSub": { "$value": "{palette.paper.400}", "$description": "Secondary text." },
+    "textMuted": { "$value": "{palette.paper.500}", "$description": "Muted text — eyebrows, captions, stat labels." },
+    "textFaint": { "$value": "{palette.paper.600}", "$description": "Faint text / hints — the floor of readable contrast (4.68:1)." },
+    "accent": { "$value": "{palette.paper.100}", "$description": "Primary action — a neutral, not the seal (ADR 0037). Buttons, active state, selected." },
+    "brand": { "$value": "{palette.vermilion.500}", "$description": "The seal — 화면당 낙관 1~2점. Spent deliberately, never a default action colour." },
+    "brandPressed": { "$value": "{palette.vermilion.600}", "$description": "The seal, pressed." },
+    "accentPressed": { "$value": "{palette.paper.300}", "$description": "Primary button pressed." },
+    "accentSoft": {
+      "$value": { "colorSpace": "srgb", "components": [0.9333, 0.9137, 0.8706], "alpha": 0.12, "hex": "#EEE9DE" },
+      "$description": "Primary at 12% — selected row, quiet active background."
+    },
+    "accentOnDark": { "$value": "{palette.paper.100}", "$description": "Hover / soft accent on dark." },
+    "onAccent": { "$value": "{palette.ink.900}", "$description": "Label on a primary (paper) fill — 12.4:1." },
+    "onBrand": { "$value": "{palette.ink.900}", "$description": "Glyph on a brand fill. Ink, not paper: paper on vermilion measures 3.13:1 and fails AA." },
+    "positive": { "$value": "{palette.celadon.500}", "$description": "\"잘 잤어요\" moments — not the green-success cliché." },
+    "celadonText": { "$value": "{palette.celadon.700}", "$description": "Celadon text on dark — secondary data labels." },
+    "danger": { "$value": { "colorSpace": "srgb", "components": [0.8706, 0.3608, 0.4471], "alpha": 1, "hex": "#DE5C72" }, "$description": "Destructive — its own role (ADR 0037), and light enough to be read: it is body text in ~20 error messages, 5.25:1 on bg. A darker red fails AA on a dark ground." },
+    "dangerFill": { "$value": { "colorSpace": "srgb", "components": [0.5569, 0.1843, 0.2431], "alpha": 1, "hex": "#8E2F3E" }, "$description": "Destructive as a SURFACE (SwipeToDelete). One value cannot be both readable on ink and readable under a paper label — the text role and the fill role are a pair, exactly as brand / onBrand are." },
+    "onDanger": { "$value": "{palette.paper.100}", "$description": "Label on a destructive fill — 6.60:1 on dangerFill." },
+    "paperBg": { "$value": "{palette.paper.50}", "$description": "Light reading surface (책 / 스크립트 뷰) — the 한지 flip." },
+    "paperLine": { "$value": "{palette.paper.200}", "$description": "Hairline on a light reading surface." },
+    "inkOnPaper": { "$value": "{palette.ink.900}", "$description": "Text on a light reading surface." }
+  },
+
+  "theme": {
+    "$description": "Alternate role maps. A theme is a remap of the same role names onto the same palette (the Material 3 idea) — never a second palette. `hanji` is the light mode: generated as `themes.hanji`, NOT wired into screens yet; it exists so light mode is a mapping decision, not a rewrite.",
+    "hanji": {
+      "$type": "color",
+      "$description": "한지 light mode. Same role names as `color`. Note: the paper ramp has no AA mid-tone on paper50, so textMuted / textFaint here are hint-only (≈3.3–3.9:1) — a light ship needs one more paper step first.",
+      "bg": { "$value": "{palette.paper.50}", "$description": "Every Screen's background — 한지." },
+      "bgDeep": { "$value": "{palette.paper.100}", "$description": "Player / immersive: one step warmer than bg." },
+      "surface": { "$value": "{palette.paper.100}", "$description": "Card." },
+      "surfaceHigh": { "$value": "{palette.paper.200}", "$description": "Modal / sheet / pressed." },
+      "chipBg": { "$value": "{palette.paper.300}", "$description": "Chips on cards." },
+      "fill1": {
+        "$value": { "colorSpace": "srgb", "components": [0.0706, 0.0706, 0.0627], "alpha": 0.06, "hex": "#121210" },
+        "$description": "Ink-tint control fill, lightest (ink900 at 6%)."
+      },
+      "fill2": {
+        "$value": { "colorSpace": "srgb", "components": [0.0706, 0.0706, 0.0627], "alpha": 0.10, "hex": "#121210" },
+        "$description": "Ink-tint control fill, medium (ink900 at 10%)."
+      },
+      "fill3": {
+        "$value": { "colorSpace": "srgb", "components": [0.0706, 0.0706, 0.0627], "alpha": 0.16, "hex": "#121210" },
+        "$description": "Ink-tint control fill, strongest (ink900 at 16%)."
+      },
+      "line": {
+        "$value": { "colorSpace": "srgb", "components": [0.0706, 0.0706, 0.0627], "alpha": 0.12, "hex": "#121210" },
+        "$description": "Hairline — ink at 12%."
+      },
+      "lineSoft": {
+        "$value": { "colorSpace": "srgb", "components": [0.0706, 0.0706, 0.0627], "alpha": 0.08, "hex": "#121210" },
+        "$description": "Softer hairline — ink at 8%."
+      },
+      "scrim": {
+        "$value": { "colorSpace": "srgb", "components": [0.0510, 0.0510, 0.0471], "alpha": 0.40, "hex": "#0D0D0C" },
+        "$description": "Modal backdrop — warm ink, lighter than on dark."
+      },
+      "scrimSoft": {
+        "$value": { "colorSpace": "srgb", "components": [0.9804, 0.9686, 0.9451], "alpha": 0.40, "hex": "#FAF7F1" },
+        "$description": "Paper veil over full-bleed artwork."
+      },
+      "transparent": {
+        "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0, "hex": "#000000" },
+        "$description": "Explicit no-fill."
+      },
+      "textDisplay": { "$value": "{palette.ink.950}", "$description": "Serif headlines, wordmark, big numbers on paper." },
+      "text": { "$value": "{palette.ink.900}", "$description": "Korean body on paper." },
+      "textSub": { "$value": "{palette.ink.600}", "$description": "Secondary text on paper." },
+      "textMuted": { "$value": "{palette.paper.600}", "$description": "Muted — hint-only on paper50 (≈3.9:1)." },
+      "textFaint": { "$value": "{palette.paper.500}", "$description": "Faint — hint-only on paper50 (≈3.3:1)." },
+      "accent": { "$value": "{palette.ink.900}", "$description": "Primary action on paper — a neutral (ADR 0037)." },
+      "brand": { "$value": "{palette.vermilion.600}", "$description": "The seal on paper — the darker step for contrast." },
+      "brandPressed": { "$value": "{palette.vermilion.500}", "$description": "The seal on paper, pressed." },
+      "accentPressed": { "$value": "{palette.ink.800}", "$description": "Primary on paper, pressed." },
+      "accentSoft": {
+        "$value": { "colorSpace": "srgb", "components": [0.8510, 0.2941, 0.2078], "alpha": 0.12, "hex": "#D94B35" },
+        "$description": "Tint fill (vermilion600 at 12%)."
+      },
+      "accentOnDark": { "$value": "{palette.ink.900}", "$description": "Soft accent — same as accent on paper." },
+      "onAccent": { "$value": "{palette.paper.50}", "$description": "Label on a primary (ink) fill." },
+      "onBrand": { "$value": "{palette.paper.50}", "$description": "Glyph on a brand fill." },
+      "positive": { "$value": "{palette.celadon.700}", "$description": "Positive data on paper — the darker celadon." },
+      "celadonText": { "$value": "{palette.celadon.700}", "$description": "Celadon text on paper." },
+      "danger": { "$value": { "colorSpace": "srgb", "components": [0.5608, 0.1686, 0.1686], "alpha": 1, "hex": "#8F2B2B" }, "$description": "Destructive is its own role (ADR 0037). On paper the dark step is the readable one — the dark/light inversion of the same rule." },
+      "dangerFill": { "$value": { "colorSpace": "srgb", "components": [0.5608, 0.1686, 0.1686], "alpha": 1, "hex": "#8F2B2B" }, "$description": "Destructive surface on paper." },
+      "onDanger": { "$value": "{palette.paper.50}", "$description": "Label on a destructive fill on paper." },
+      "paperBg": { "$value": "{palette.paper.50}", "$description": "Reading surface — identical to bg in this theme." },
+      "paperLine": { "$value": "{palette.paper.200}", "$description": "Hairline on a reading surface." },
+      "inkOnPaper": { "$value": "{palette.ink.900}", "$description": "Text on a reading surface." }
+    }
+  },
+
+  "space": {
+    "$type": "dimension",
+    "$description": "Spacing scale — the only allowed values. Gutter 24 · card 16/24 · section 32.",
+    "1": { "$value": { "value": 4, "unit": "px" } },
+    "2": { "$value": { "value": 8, "unit": "px" } },
+    "3": { "$value": { "value": 12, "unit": "px" } },
+    "4": { "$value": { "value": 16, "unit": "px" } },
+    "5": { "$value": { "value": 24, "unit": "px" }, "$description": "Screen gutter." },
+    "6": { "$value": { "value": 32, "unit": "px" }, "$description": "Section gap." },
+    "7": { "$value": { "value": 48, "unit": "px" }, "$description": "Hero top." },
+    "8": { "$value": { "value": 64, "unit": "px" } },
+    "10": { "$value": { "value": 128, "unit": "px" } }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "$description": "Corners (brand: 부드러운 모서리). Pick per component, never ad-hoc.",
+    "sm": { "$value": { "value": 8, "unit": "px" }, "$description": "Tiles, badges, list-row press highlight." },
+    "md": { "$value": { "value": 12, "unit": "px" }, "$description": "Buttons, inputs, cards, sheets — the default." },
+    "lg": { "$value": { "value": 16, "unit": "px" }, "$description": "Hero media only." },
+    "pill": { "$value": { "value": 9999, "unit": "px" }, "$description": "Round things only — avatars, dots, toggles, progress. NOT buttons (ADR 0037)." }
+  },
+
+  "text": {
+    "$description": "Type scale (px / line-height) — design-system §2. Each style is a fontSize + lineHeight pair; family and weight are chosen at the call site (serif / weight props on AppText).",
+    "numeric": {
+      "$description": "The one numeric display level (KRQ 점수) — tabular figures.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 46, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 56, "unit": "px" } }
+    },
+    "display": {
+      "$description": "Screen hero — the largest reading size. Reached through `variant={compact ? 'h1' : 'display'}`, so a literal-variant grep will not find it.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 34, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 42, "unit": "px" } }
+    },
+    "h1": {
+      "$description": "Screen titles — serif.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 30, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 38, "unit": "px" } }
+    },
+    "h2": {
+      "$description": "Section / card titles — serif.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 22, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 30, "unit": "px" } }
+    },
+    "h3": {
+      "$description": "Sub-titles, list titles — sans 600.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 18, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 26, "unit": "px" } }
+    },
+    "bodyLg": {
+      "$description": "Reading surfaces (명상 스크립트).",
+      "fontSize": { "$type": "dimension", "$value": { "value": 18, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 30, "unit": "px" } }
+    },
+    "chat": {
+      "$description": "내면AI prose — CJK wants ~1.75 leading.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 16, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 28, "unit": "px" } }
+    },
+    "body": {
+      "$description": "Default.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 15, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 24, "unit": "px" } }
+    },
+    "bodySm": {
+      "$description": "Secondary.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 13, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 21, "unit": "px" } }
+    },
+    "meta": {
+      "$description": "Eyebrows, timestamps, row subtitles — sans 500. Leading is 1.50, not 1.33: this is the most-used style in the app and it wraps.",
+      "fontSize": { "$type": "dimension", "$value": { "value": 12, "unit": "px" } },
+      "lineHeight": { "$type": "dimension", "$value": { "value": 18, "unit": "px" } }
+    }
+  },
+
+  "fontScaleCap": {
+    "$type": "number",
+    "$description": "Max font-scale multiplier per text style. Display and chrome typography cannot grow at the same rate as reading copy: at the largest iOS accessibility presets a 34pt hero becomes 68pt and pushes every control below it out of the viewport. Body / reading text still reaches the WCAG 200% target; headings use a restrained cap and keep their full spoken label through accessibility APIs. Keys must match `text` one for one.",
+    "numeric": { "$value": 1.2 },
+    "display": { "$value": 1.35 },
+    "h1": { "$value": 1.35 },
+    "h2": { "$value": 1.4 },
+    "h3": { "$value": 1.45 },
+    "bodyLg": { "$value": 2 },
+    "chat": { "$value": 2 },
+    "body": { "$value": 2 },
+    "bodySm": { "$value": 1.6 },
+    "meta": { "$value": 1.5 }
+  },
+
+  "fontFamily": {
+    "$type": "fontFamily",
+    "$description": "Marcellus = Latin display / wordmark / big numbers. 나눔명조 = Korean serif display (헤드라인, 인용). Pretendard = body / UI, two weights plus semibold for buttons — 600 is the ceiling; there is no bold or black.",
+    "regular": { "$value": "Pretendard-Regular" },
+    "medium": { "$value": "Pretendard-Medium" },
+    "semibold": { "$value": "Pretendard-SemiBold", "$description": "Buttons and emphasised titles — the heaviest sans weight in the system." },
+    "serif": { "$value": "Pretendard-SemiBold", "$description": "Kept as a key so `serif` call sites still compile; there is no serif face any more (ADR 0037)." },
+    "serifRegular": { "$value": "Pretendard-Regular", "$description": "Kept as a key so `serif` call sites still compile (ADR 0037)." },
+    "latin": { "$value": "Pretendard-SemiBold", "$description": "One family: Latin no longer switches face mid-screen (ADR 0037)." }
+  },
+
+  "motion": {
+    "$description": "Breathing pace, never springs (design-system §4). `settle` = screen enter · `press` = touch feedback · `breath` = idle loops. Under the OS reduce-motion setting, `settle` and `sheet` collapse to `reducedMotion` and breath loops do not run.",
+    "settle": {
+      "$description": "Screen enter: fade + rise, cubic-out, staggered down the screen.",
+      "duration": { "$type": "duration", "$value": { "value": 450, "unit": "ms" } },
+      "rise": { "$type": "dimension", "$value": { "value": 12, "unit": "px" } },
+      "stagger": { "$type": "duration", "$value": { "value": 80, "unit": "ms" } }
+    },
+    "press": {
+      "$description": "Touch feedback on buttons and cards.",
+      "duration": { "$type": "duration", "$value": { "value": 120, "unit": "ms" } },
+      "scale": { "$type": "number", "$value": 0.98 }
+    },
+    "sheet": {
+      "$description": "Modal / sheet translateY, cubic-out.",
+      "duration": { "$type": "duration", "$value": { "value": 350, "unit": "ms" } }
+    },
+    "breathMs": { "$type": "duration", "$value": { "value": 5000, "unit": "ms" }, "$description": "4–6s sine in-out idle loops." },
+    "reducedMotion": { "$type": "duration", "$value": { "value": 0, "unit": "ms" }, "$description": "What settle / sheet durations become when the OS reduce-motion setting is on (`useReducedMotion`). Breath loops stop rather than shorten." },
+    "easing": {
+      "$type": "cubicBezier",
+      "$description": "Named curves. Emitted as CSS `cubic-bezier()` strings; on native, `Easing.bezier(...)` takes the same four numbers.",
+      "settle": { "$value": [0.2, 0, 0, 1], "$description": "Decelerate — screen enter and sheets." },
+      "standard": { "$value": [0.4, 0, 0.2, 1], "$description": "In-place state changes." }
+    }
+  },
+
+  "koreanTracking": {
+    "$type": "dimension",
+    "$description": "Korean: never positive tracking, never uppercase, keep-all word break.",
+    "display": { "$value": { "value": 0, "unit": "px" } },
+    "body": { "$value": { "value": 0, "unit": "px" } }
+  },
+
+  "latinDisplayTracking": {
+    "$type": "dimension",
+    "$value": { "value": 1.5, "unit": "px" },
+    "$description": "Marcellus-only Latin display tracking (자간 +0.09em ≈ per 브랜드가이드)."
+  },
+
+  "contentMaxWidth": {
+    "$type": "dimension",
+    "$value": { "value": 720, "unit": "px" },
+    "$description": "Widest the content column ever gets. `Screen` caps its content here and every docked or centred surface matches it, so a tablet or an unfolded fold gets margins instead of an 840dp line. Anything sizing itself from `useWindowDimensions().width` must clamp to this first (the 3-up grid did not, 2026-08-22)."
+  },
+
+  "size": {
+    "$type": "dimension",
+    "$description": "Control sizes. Every tap target is at least `hitTarget`.",
+    "hitTarget": { "$value": { "value": 44, "unit": "px" }, "$description": "Minimum tap target (icon buttons, back)." },
+    "buttonHeight": { "$value": { "value": 52, "unit": "px" }, "$description": "Primary / secondary button." },
+    "buttonHeightSm": { "$value": { "value": 44, "unit": "px" }, "$description": "Compact button (sheet actions). 44, not 40 — the hit-target minimum has no exceptions (ADR 0037)." },
+    "listRow": { "$value": { "value": 56, "unit": "px" }, "$description": "ListRow minimum height." },
+    "iconSm": { "$value": { "value": 16, "unit": "px" }, "$description": "Chevrons, inline marks." },
+    "iconMd": { "$value": { "value": 20, "unit": "px" }, "$description": "Row leading icons." },
+    "iconLg": { "$value": { "value": 24, "unit": "px" }, "$description": "Toolbar / empty-state icons." }
+  },
+
+  "zIndex": {
+    "$type": "number",
+    "$description": "Stacking order. Higher layers never share a value with lower ones.",
+    "base": { "$value": 0 },
+    "raised": { "$value": 1, "$description": "A card lifted above siblings." },
+    "dock": { "$value": 10, "$description": "Tab bar, mini player, docked footers." },
+    "sheet": { "$value": 20, "$description": "Bottom sheets." },
+    "toast": { "$value": 30, "$description": "Toasts over sheets." },
+    "overlay": { "$value": 40, "$description": "Full-screen overlays (player, scrims over everything)." }
+  },
+
+  "opacity": {
+    "$type": "number",
+    "$description": "The only opacities controls may take.",
+    "disabled": { "$value": 0.4, "$description": "Inert control." },
+    "pressed": { "$value": 0.72, "$description": "Pressed state on a text-only or image control." },
+    "busy": { "$value": 0.7, "$description": "Control awaiting a result (keeps its accent)." }
+  },
+
+  "elevation": {
+    "$description": "Elevation on dark = surface step + hairline, never a shadow. Each level names the surface and the stroke.",
+    "0": {
+      "$type": "color",
+      "$description": "The canvas — no lift.",
+      "surface": { "$value": "{palette.ink.900}" },
+      "hairline": { "$value": "{color.transparent}" }
+    },
+    "1": {
+      "$type": "color",
+      "$description": "Card on the canvas.",
+      "surface": { "$value": "{palette.ink.800}" },
+      "hairline": { "$value": "{color.lineSoft}" }
+    },
+    "2": {
+      "$type": "color",
+      "$description": "Sheet / pressed card.",
+      "surface": { "$value": "{palette.ink.700}" },
+      "hairline": { "$value": "{color.line}" }
+    },
+    "3": {
+      "$type": "color",
+      "$description": "Modal over a scrim.",
+      "surface": { "$value": "{palette.ink.700}" },
+      "hairline": { "$value": "{color.scrim}" }
+    }
+  }
+}

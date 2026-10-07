@@ -11,7 +11,7 @@ export const organizationSchema = {
   '@type': 'EducationalOrganization',
   '@id': `${SITE_URL}/#organization`,
   name: SITE_NAME,
-  alternateName: ['내면소통연구소', '내면소통명상교육원', '내명원', 'INZEUM', 'Naemyungwon'],
+  alternateName: ['내면소통연구소', '내면소통명상교육원', '내명원', 'INZEUM', '인지엄'],
   legalName: COMPANY.name,
   url: SITE_URL,
   logo: {

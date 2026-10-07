@@ -1,0 +1,31 @@
+{
+  "checked": "2026-09-08",
+  "note": "Unmodified publisher/retailer cover images for book identification. Rights belong to their respective owners. Listed editions match their source links; no AI-generated covers.",
+  "books": [
+    {
+      "file": "practice.jpg",
+      "source": "https://www.yes24.com/product/goods/143655313",
+      "image": "https://image.yes24.com/goods/143655313/xl",
+      "sha256": "225ecdf37b2eae42b953aaba037d4c33d3b5fd3336ca5046807be1e4c17f91f7"
+    },
+    {
+      "file": "inner.jpg",
+      "source": "https://www.yes24.com/product/goods/117643865",
+      "image": "https://image.yes24.com/goods/117643865/xl",
+      "sha256": "8ba720ddd4a6cb8ec0eff478983448e52de9dab658afe361de0c8a9bfd42e853"
+    },
+    {
+      "file": "resilience.jpg",
+      "source": "https://www.yes24.com/product/goods/71743513",
+      "image": "https://image.yes24.com/goods/71743513/xl",
+      "sha256": "9fad17d7a489ed61f4fb62e36a50b3f19008175c4858919c49c09f2f5a12f879"
+    },
+    {
+      "file": "grit.jpg",
+      "source": "https://www.yes24.com/product/goods/142805048",
+      "image": "https://image.yes24.com/goods/142805048/xl",
+      "sha256": "acab3266971fa914efff392bf983bb351cbd3d7454feeef934b4af6335cd613d"
+    }
+  ],
+  "retailerLinksUpdated": "2026-09-08: purchase links changed to Kyobo; cover source attribution retained. Covers depict the identified ISBNs/editions and are not sourced from Kyobo."
+}

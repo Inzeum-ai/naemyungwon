@@ -1,0 +1,11 @@
+{
+  "source": "User-supplied INZEUM_제안서 (1).pdf",
+  "source_sha256": "bb7a1217bda40c77243cfbe009c0e20c88eb46b59055db4bf473793e3e9fd3f6",
+  "status": "Design proposal renderings; not completed-site photography. Authorship/generation method not independently established. Extracted original embedded JPEGs, converted to WebP without upscaling.",
+  "pages": {
+    "arrival-proposal.webp": 9,
+    "hall-proposal.webp": 10,
+    "light-proposal.webp": 11,
+    "tea-proposal.webp": 13
+  }
+}

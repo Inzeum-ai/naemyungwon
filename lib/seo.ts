@@ -1,9 +1,16 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
-export const SITE_NAME = 'INZEUM 내면소통연구소'
+/** 한지 ground pages: the browser chrome matches the paper, not the ink. */
+export const hanjiViewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#FAF7F1',
+}
+
+export const SITE_NAME = 'INZEUM 인지엄 · 내면소통연구소'
 export const SITE_URL = 'https://inzeum.com'
 export const SITE_DESCRIPTION =
-  '뇌과학 기반 내면소통명상을 체계적으로 교육하여 사람들의 마음근력을 강화시켜줄 수 있는 명상 지도자를 양성합니다.'
+  '명상하는 나라를 만드는 인지엄. 내면소통명상 교육과 수행공동체, 개인화 AI와 공간을 연결해 수련을 일상으로 이어갑니다.'
 
 // 카카오톡·페이스북 공유 썸네일. public/og.jpg 한 장을 모든 페이지가 공유합니다.
 export const OG_IMAGE = {
